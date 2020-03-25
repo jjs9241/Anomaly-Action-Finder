@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css" />
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="reset.css">
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=PT+Sans:700&display=swap" rel="stylesheet">
+    <title>Document</title>
+</head>
+<body>
+    <!--header-->
+    <div id="header">
+        <a href="#"><img src="로고_블랙.png" alt="로고"></a>
+        <ul class="navbar">
+            <li class="notice"><a href="#"></a></li>
+            <li class="user_icon"><i class="far fa-bell"></i></li>
+        </ul>
+    </div>
+    <!--//header-->
+        <div id="wrap">
+            <div id="side">
+                <!--sidebar-->
+                <div id="sidebar">
+                    <div class="video">
+                        <!--<span>VIDEO</span>-->
+                        <ul>
+                            <li>VIDEO</li>
+                            <li><a href="#content">CCTV 관제</a></li>
+                            <li><a href="#">지도</a></li>
+                            <li><a href="#">이상행동</a></li>
+                        </ul>
+                    </div>
+                    <div class="cctv">
+                        <!--<span>CCTV</span>-->
+                        <ul>
+                            <li>CCTV</li>
+                            <li><a href="#">CCTV 관리</a></li>
+                        </ul>
+                    </div>
+                    <div class="qa">
+                        <!--<span>Q&A</span>-->
+                        <ul>
+                            <li>Q&A</li>
+                            <li><a href="#">문의하기</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <!--//sidebar-->
+                <!--footer-->
+                <div id="footer">
+                    &copy;Finder
+                </div>
+                <!--//footer-->
+            </div>
+            <!--//side-->
+            <!--content-->
+            <div id="content">
+                <div class="video">
+                    <video src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" autoplay muted></video>
+                </div>
+                <div class="video">
+                    <video src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4" autoplay muted></video>
+                </div>
+                <div class="video">
+                    <video src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4" autoplay muted></video>
+                </div>
+                <div class="video">
+                    <video src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4" autoplay muted></video>
+                </div>
+                <div class="video">
+                    <video src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerMeltdowns.mp4" autoplay muted></video>
+                </div>
+                <div class="video">
+                    <video src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/Sintel.mp4" autoplay muted></video>
+                </div>
+                <div class="video">
+                    <video src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/SubaruOutbackOnStreetAndDirt.mp4" autoplay muted></video>
+                </div>
+                <div class="video">
+                    <video src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4" autoplay muted></video>
+                </div>
+                <div class="video">
+                    <video src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/SubaruOutbackOnStreetAndDirt.mp4" autoplay muted></video>
+                </div>
+                <div class="video">
+                    <video src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4" autoplay muted></video>
+                </div>
+                <div class="video">
+                    <video src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4" autoplay muted></video>
+                </div>
+                <div class="video">
+                    <video src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/TearsOfSteel.mp4" autoplay muted></video>
+                </div>
+                <div class="video">
+                    <video src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/VolkswagenGTIReview.mp4" autoplay muted></video>
+                </div>
+                <div class="video">
+                    <video src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/WeAreGoingOnBullrun.mp4" autoplay muted></video>
+                </div>
+                <div class="video">
+                    <video src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/WhatCarCanYouGetForAGrand.mp4" autoplay muted></video>
+                </div>
+            </div>
+            <!--//content-->
+    </div>
+
+    <script>
+        //ul태그에 이벤트 걸고 클릭했을떄 active클래스 넣어서 블루로 만들기
+        //요소들 마우스 후버시 파랑색으로 변경
+        var ul = document.getElementsByTagName('ul');
+        for(var i=0 ;i<ul.length;i++){
+            ul[i].addEventListener('click', clickHandler)
+        }
+        var currentimg;
+        function clickHandler() {
+            if(currentimg){
+                currentimg.classList.remove('active');
+            }
+            var title = this.getElementsByTagName('li')[0];
+            title.classList.add('active');
+            currentimg=title;
+            console.log(currentimg)
+            }
+    </script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+/*레이아웃*/
+#wrap {overflow: hidden; display: flex;}
+#header {height: 9vh; box-shadow: 0 4px 6px rgba(17, 17, 56, 0.11)}
+#side {float:left; width: 17%;height: 100%;}
+#sidebar {height: 80vh;}
+#footer {background-color:#F4F4F4; height: 11vh;}
+#content { clear: both; width: 84%; }
+
+/*헤더*/
+#header a {position: relative;}
+#header a img { max-width: 110px;height: auto; position: absolute;left: 60px;}
+#header ul.navbar li {vertical-align: middle;line-height: 1.5;text-align: center;}
+#header ul.navbar li a {cursor: pointer;  width: 45px; height: 45px; border-radius: 50%;
+position: absolute; top:  0.6rem;right: 1.3rem; background-image: url(https://source.unsplash.com/QAB-WJcbgJk/60x60);
+background-position: -65px; }
+#header ul.navbar i {font-size: 1.1rem; display: inline-block; position: absolute; top: 1.5rem; right: 6rem; color: #85888C;}
+
+/*사이드바*/
+#sidebar {box-shadow: 0 2px 6px rgba(17, 17, 56, 0.11),0 1px 3px rgba(0,0,0,0.08);}
+#footer {box-shadow: 0 2px 6px rgba(17, 17, 56, 0.11),0 1px 3px rgba(0,0,0,0.08); }
+
+#sidebar .video {padding-top:70px;}
+#sidebar .video span {font-size: 1.05rem; color: #AFAEB8; }
+#sidebar .cctv {padding-top: 50px;}
+#sidebar .cctv span {font-size: 1.05rem;color: #AFAEB8;}
+#sidebar .qa {padding-top: 50px;}
+#sidebar .qa span {font-size: 1.05rem;color: #AFAEB8;}
+
+
+#sidebar ul{}
+#sidebar ul li { height: 50px; vertical-align: middle;line-height: 50px; text-align: center;}
+#sidebar ul li a {}
+
+
+/*실시간 cctv 비디오 영역*/
+#content {display: flex;
+    flex-flow: row wrap;
+    -webkit-align-content: center;
+    justify-content: center;
+}
+#content .video {
+    margin:0 0 0 0; padding:0 0 0 0;background-color:black ; border: 0.1px solid white; width: 280px;height: 250px;
+    align-items : stretch; text-align: center;}
+
+
+/*비디오 설정*/
+#content video {width: 278px; height: 248px; } 

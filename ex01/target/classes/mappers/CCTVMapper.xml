@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE mapper
+
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="org.zerock.mapper.CCTVMapper">
+
+	<select id="getList" resultType="org.zerock.domain.CCTVVO">
+		<![CDATA[
+		select * from cctv
+		]]>
+	</select>
+	
+	<insert id="insert" parameterType="org.zerock.domain.CCTVVO">
+		insert into cctv(pid, managerid, address, mongodbid, latitude, longitude, cctvname, ip) values(#{pid}, #{managerID}, #{address}, #{mongoDBid}, #{latitude}, #{longitude}, #{cctvName}, #{ip})
+	</insert>
+
+	<!--
+	<insert id="insertSelectKey" parameterType="org.zerock.domain.CCTVVO">
+		<selectKey keyProperty="pid" order="BEFORE" resultType="String">
+			select seq_board.nextval from dual
+		</selectKey>
+		
+		insert into cctv (pid, managerid, address, mongodbid, latitude, longitude, cctvname, ip)
+		values (#{pid}, #{managerid}, #{address}, #{mongodbid}, #{latitude}, #{longitude}, #{cctvname}, #{ip})
+	</insert>
+	-->
+	
+</mapper>

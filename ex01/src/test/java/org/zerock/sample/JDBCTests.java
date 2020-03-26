@@ -25,7 +25,7 @@ public class JDBCTests {
 		
 		try(Connection con = 
 				DriverManager.getConnection(
-						"jdbc:mariadb:thin:@localhost:3306/finderdb_v0",
+						"jdbc:mariadb://localhost:3306/finderdb_v0",
 						"dev0",
 						"1234")){
 			log.info(con);

@@ -120,7 +120,7 @@
             ul[i].addEventListener('click', clickHandler)
         }
         var currentimg;
-        function clickHandler() {
+        function clickHandler(e) {
             if(currentimg){
                 currentimg.classList.remove('active');
             }
@@ -155,8 +155,21 @@
             sidebar.addEventListener('click',modalcloseHandler);
             header.addEventListener('click',modalcloseHandler);
 
-            
+            //a링크 클릭시 두껍게 만들기
 
+            var a = document.querySelectorAll("#sidebar ul li a");
+            for(var j=0;j<a.length;j++){
+                a[j].addEventListener('click',AHandler)
+            }
+            var active_a;
+            function AHandler(e){
+                if(active_a){
+                    active_a.classList.remove('active_a');
+                }
+                this.classList.add('active_a');
+                active_a=this;
+                
+            }
 
     </script>
 </body>

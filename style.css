@@ -38,12 +38,12 @@ background-position: -65px; }
     justify-content: center;
 }
 #content .video {
-    margin:0 0 0 0; padding:0 0 0 0;background-color:black ; border: 0.1px solid white; width: 280px;height: 250px;
+    margin:0 0 0 0; padding:0 0 0 0;background-color:black ; border: 0.1px solid white; width: 250px;height: 228px;
     align-items : stretch; text-align: center;}
 
 
 /*비디오 설정*/
-#content video {width: 278px; height: 248px; } 
+#content video {width: 248px; height: 228px; } 
 
 .cctv span:hover {color: rgba(62, 134, 194, 0.397);}
 
@@ -68,3 +68,6 @@ background-position: -65px; }
     height: 100%  !important;} 
 
 #close button {width: 50px; height: 50px; position: absolute; top:40px; right: 40px;  outline: 0; border:0; background-color: white;}
+
+/*카테고리 창에서 글씨 두껍게*/
+.active_a {color:black; font-weight: 500; text-shadow: 1px 1px 1px gray;}

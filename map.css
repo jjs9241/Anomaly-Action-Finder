@@ -4,8 +4,9 @@
     　justify-content: flex-start;
     }
 
-#map {width: 600px; height: 500px; position:absolute; 
-    top:50%; margin-top:-250px;left: 50%; margin-left: -260px; box-shadow: 0 10px 8px rgba(17, 17, 56, 0.11),0 3px 8px rgba(0,0,0,0.08);} 
+#map {width: 500px; height: 500px; position:absolute; 
+    top:50%; margin-top:-230px;left: 50%; margin-left: -220px; 
+    box-shadow: 0 10px 8px rgba(17, 17, 56, 0.11),0 3px 8px rgba(0,0,0,0.08);} 
 #content .wrap{ position: relative;}
 
 #content .wrap{ width:50%; height: 100%; }
@@ -13,10 +14,29 @@
 
 /*검색 영역 꾸미기*/
 .search{ position: relative;}
-fieldset {text-align: center;position: absolute; top: 140px; left: 95px;}
+fieldset {text-align: center;position: absolute; top: 190px; left: 70px;}
 input {font-size: 15px;width: 450px;  height: 50px;  border: 0 none;border-bottom-left-radius: 10px; border-top-left-radius: 10px; padding-left: 20px; 
     box-shadow: 0 10px 8px rgba(17, 17, 56, 0.11),0 3px 8px rgba(0,0,0,0.08); 
 }
-button.search_btn{width: 50px;  height: 50px;border-bottom-right-radius: 20px; border-top-right-radius: 20px; background-color: #3EC729;
-    box-shadow: 0 10px 8px rgba(17, 17, 56, 0.11),0 3px 8px rgba(0,0,0,0.08);  }
-fieldset i {font-size: 18px;}
+button.search_btn{width: 50px;  height: 50px;border-bottom-right-radius: 20px; border-top-right-radius: 20px; background-color:rgb(123, 165, 224);
+    box-shadow: 0 10px 8px rgba(17, 17, 56, 0.11),0 3px 8px rgba(0,0,0,0.08);}
+fieldset i {font-size: 18px; color: white;}
+
+table {
+    border-radius: 13px;
+    margin: 0 auto;
+    margin-top: 300px;
+    box-shadow: 0 10px 8px rgba(17, 17, 56, 0.11),0 3px 8px rgba(0,0,0,0.08);
+    text-align: center;
+}
+.searchtable thead {background-color:rgb(123, 165, 224)}
+.searchtable thead tr th {height: 45px; font-size: 16px; line-height: 38px; vertical-align: middle; font-weight: 600; font-family: 'Noto Sans KR', sans-serif; color:white;
+}
+
+.searchtable tbody tr th {height: 40px; font-size: 14px; line-height: 38px; vertical-align: middle; border-bottom: 1px dotted #ccc;}
+.searchtable table tbody:last-child{border:0;}
+
+.searchtable .number {width: 50px;}
+.searchtable .name {width: 90px;}
+.searchtable .cctvid {width: 90px;}
+.searchtable .address { overflow: hidden; white-space: nowrap;  text-overflow: ellipsis;}

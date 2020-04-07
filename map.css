@@ -41,4 +41,5 @@ table {
 .searchtable .cctvid {width: 90px;}
 .searchtable .address { overflow: hidden; white-space: nowrap;  text-overflow: ellipsis;}
 
-
+.search_con .search form fieldset input {outline: none;}
+.search_con .search form fieldset button {outline: none; cursor: pointer;}

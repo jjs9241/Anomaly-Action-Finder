@@ -263,7 +263,6 @@ class ImageHub():
           image: OpenCV image.
         """
         msg, image = self.zmq_socket.recv_array(copy=False)
-        print("recv_image")
         return msg, image
 
     def recv_jpg(self, copy=False):

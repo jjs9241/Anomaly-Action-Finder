@@ -1,28 +1,39 @@
+from flask import Flask, render_template, request, redirect, url_for, jsonify, Response
+from imutils.video import VideoStream
 import cv2
 import sys
 import imagezmq
+import imutils
+import numpy as np
+import threading
 # from werkzeug.wrappers import Request, Response
 # from werkzeug.serving import run_simple
-from flask import Flask, render_template, request, redirect, url_for, jsonify, Response
-
 app = Flask(__name__)
 
-print(cv2.__version__)
+# print(cv2.__version__)
+
+@app.route('/')
+def index():
+    return render_template("index.html")
 
 def sendImagesToWeb():
     print("ddasds")
     # receiver = imagezmq.ImageHub(open_port='tcp://0.0.0.0:5566', REQ_REP = False)
     receiver = imagezmq.ImageHub()
-    print("receiver : ",receiver)
+    #print("receiver : ",receiver)
     while True:
         print("while")
-        camName, frame = receiver.recv_image()
+        (camName, frame) = receiver.recv_image()
+        receiver.send_reply(b'OK')
         print("[INFO] receiving data from {}...".format(camName))
-        jpg = cv2.imencode('.jpg', frame)[1]
+        # jpg = cv2.imencode('.jpg', frame)[1]
+        (flag, jpg) = cv2.imencode('.jpg', frame)
+
+        if not flag:
+            continue
         # yield b'--frame\r\nContent-Type:image/jpeg\r\n\r\n'+jpg.tostring()+b'\r\n'
         # yield b'--frame\r\nContent-Type:image/jpeg\r\n\r\n'+jpg+b'\r\n'
-        yield (b'--frame\r\n'
-               b'Content-Type: image/jpeg\r\n\r\n' + jpg.tobytes() + b'\r\n\r\n')
+        yield(b'--frame\r\n' b'Content-Type: image/jpeg\r\n\r\n' + bytearray(jpg) + b'\r\n')
    
 # @Request.application
 # def application(request):

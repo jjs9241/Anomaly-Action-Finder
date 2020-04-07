@@ -1,0 +1,73 @@
+/*레이아웃*/
+#wrap {overflow: hidden; display: flex; z-index: 1;}
+#header {height: 9vh; box-shadow: 0 4px 6px rgba(17, 17, 56, 0.11);vertical-align: middle;}
+#side {float:left; width: 17%;height: 100%;}
+#sidebar {height: 80vh;}
+#footer {background-color:#F4F4F4; height: 11vh;}
+#content { clear: both; width: 84%; }
+
+/*헤더*/
+#header a {position: relative;}
+#header a img { max-width: 120px;height: auto; position: absolute;left: 93px; top:3px}
+#header ul.navbar li {vertical-align: middle;line-height: 1.5;text-align: center;}
+#header ul.navbar li a {cursor: pointer;  width: 45px; height: 45px; border-radius: 50%;
+position: absolute; top: 15px;right: 60px; background-image: url(https://source.unsplash.com/QAB-WJcbgJk/60x60);
+background-position: -65px; }
+#header ul.navbar i {font-size: 22px; display: inline-block; position: absolute; top: 28px; right: 145px; color: #85888C;}
+
+/*사이드바*/
+#sidebar {box-shadow: 0 2px 6px rgba(17, 17, 56, 0.11),0 1px 3px rgba(0,0,0,0.08); text-align: center;}
+#footer {box-shadow: 0 2px 6px rgba(17, 17, 56, 0.11),0 1px 3px rgba(0,0,0,0.08); }
+
+#sidebar .video_title { padding-top:50px;  }
+#sidebar .cctv {padding-top: 30px;  }
+#sidebar .qa {padding-top: 30px;}
+
+
+#sidebar ul li { height: 45px; vertical-align: middle;line-height: 45px; text-align: center;}
+#sidebar ul li:first-child { font-size: 45px;font-weight: 600;color:#CCC; margin-bottom: 15px;}
+
+#sidebar ul li a {font-size: 17px; font-family: 'Noto Sans KR', sans-serif; color:#555; transition: transform 1s ease; }
+#sidebar ul li:hover{transform: translate(5px,-5px);}
+#sidebar ul li:first-child:hover{transform: none; }
+
+/*실시간 cctv 비디오 영역*/
+#content {display: flex;
+    flex-flow: row wrap;
+    -webkit-align-content: center;
+    justify-content: center;
+}
+#content .video {
+    margin:0 0 0 0; padding:0 0 0 0;background-color:black ; border: 0.1px solid white; width: 250px;height: 228px;
+    align-items : stretch; text-align: center;}
+
+
+/*비디오 설정*/
+#content video {width: 248px; height: 228px; } 
+
+.cctv span:hover {color: rgba(62, 134, 194, 0.397);}
+
+#sidebar ul li.active { color: rgba(62, 134, 194, 0.397);}
+
+
+/*모달창 만들기*/
+#modal{   
+    display: none;
+    position: fixed;
+    top: 7vh;
+    right: 0;
+    width: 84%;
+    height: 100%;
+    z-index: 999;
+
+}
+
+#modal #close i {color: black; font-size: 50px;  cursor: pointer;}
+#modal video{  
+    width: 100%   !important;
+    height: 100%  !important;} 
+
+#close button {width: 50px; height: 50px; position: absolute; top:40px; right: 40px;  outline: 0; border:0; background-color: white;}
+
+/*카테고리 창에서 글씨 두껍게*/
+.active_a {color:black; font-weight: 500; text-shadow: 1px 1px 1px gray;}

@@ -358,7 +358,7 @@ class SerializingSocket(zmq.Socket):
           msg: image name or text message.
           A: numpy array or OpenCV image reconstructed with dtype and shape.
         """
-        print("recv_image array")
+        # print("recv_image array")
         md = self.recv_json(flags=flags)
         msg = self.recv(flags=flags, copy=copy, track=track)
         A = np.frombuffer(msg, dtype=md['dtype'])

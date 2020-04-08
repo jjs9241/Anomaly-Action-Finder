@@ -17,15 +17,14 @@ def index():
     return render_template("index.html")
 
 def sendImagesToWeb():
-    print("ddasds")
+    print("sendImagesToWeb")
     # receiver = imagezmq.ImageHub(open_port='tcp://0.0.0.0:5566', REQ_REP = False)
     receiver = imagezmq.ImageHub()
     #print("receiver : ",receiver)
     while True:
-        print("while")
         (camName, frame) = receiver.recv_image()
         receiver.send_reply(b'OK')
-        print("[INFO] receiving data from {}...".format(camName))
+        # print("[INFO] receiving data from {}...".format(camName))
         # jpg = cv2.imencode('.jpg', frame)[1]
         (flag, jpg) = cv2.imencode('.jpg', frame)
 

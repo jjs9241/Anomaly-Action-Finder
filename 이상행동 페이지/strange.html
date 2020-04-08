@@ -58,11 +58,11 @@
             </div>
             <!--//side-->
             <!--모달&로딩-->
-            <div id="modal">
-                <video id="big_video"  autoplay></video>
+            <!-- <div id="modal">
+                <video id="big_video" autoplay></video>
                 <div id="close"><button><i class="fas fa-times"></i></button></div>
-            </div>
-             <!--//모달&로딩-->       
+            </div>    -->
+
             <div class="content_container">
                 <div class="sort">
                     <h2>정렬하기</h2>
@@ -170,30 +170,7 @@
                 <!--//content-->
             </div>
             <!--//content_container-->    
-        <script src="manageCCTV.js"></script>
         <script src="common.js"></script>
-        <script>
-            //즐겨찾기 별
-            var star_wrap = document.querySelectorAll('#content .video .star_wrap .star')           
-            for (var i=0 ;i<star_wrap.length;i++ ){
-                star_wrap[i].addEventListener('click', function(e) {
-                    if(this.classList.contains('star')){
-                    e.target.classList.remove('far');
-                    e.target.classList.add("fas");
-                    this.classList.add('fill');
-                    this.classList.remove('star');
-                    console.log(e.target);
-                    console.log(this);
-                    }else if(this.classList.contains('fill')){
-                        this.classList.remove('fill'); 
-                        this.classList.add("star");
-                        e.target.classList.remove('fas');
-                        e.target.classList.add("far");
-                        console.log(e.target);
-                        console.log(this);
-                    }
-                });
-            }
-        </script>
+        <script src="strange.js"></script>      
 </body>
 </html>

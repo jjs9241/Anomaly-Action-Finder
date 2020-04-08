@@ -8,6 +8,10 @@
 
 <mapper namespace="org.zerock.mapper.CCTVMapper">
 
+	<select id="getURLList" resultType="string">
+		select ip from cctv where managerID = #{managerID}
+	</select>
+	
 	<select id="getList" resultType="org.zerock.domain.CCTVVO">
 		<![CDATA[
 		select * from cctv

@@ -13,6 +13,20 @@ import org.springframework.web.servlet.ModelAndView;
 import org.zerock.domain.MemberVO;
 import org.zerock.service.MemberService;
 
+import org.springframework.web.bind.annotation.RequestMethod;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import java.util.List;
+import java.util.Map;
+import java.net.URLEncoder;
+import java.net.URLDecoder;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import org.springframework.web.servlet.support.RequestContextUtils;
+import org.springframework.web.servlet.FlashMap;
+
+import org.springframework.security.core.userdetails.UserDetailsService;
+
 @Controller
 @RequestMapping("/login/*")
 public class LoginController {
@@ -22,11 +36,52 @@ public class LoginController {
 	@Inject
 	MemberService memberService;
 	
+	
 	@RequestMapping("login.do")
-	public String login() {
+	public String loginDo() {
 		
 		return "login"; // views/login.jsp 로 포워드
 	}
+	
+	@RequestMapping(value = "/login", method= RequestMethod.GET)
+	public ModelAndView loginPage(HttpServletRequest req, HttpServletResponse res) throws Exception {
+	
+		ModelAndView mav = new ModelAndView();
+		//String errMsg = URLEncoder.encode(req.getParameter("errMsg"),"UTF-8");
+		String errMsg = req.getParameter("errMsg");
+		
+		if(errMsg != null) {
+			logger.info(errMsg);
+			req.setAttribute("errMsg", URLDecoder.decode(errMsg,"UTF-8"));
+			mav.addObject("errMsg",URLDecoder.decode(errMsg,"UTF-8"));
+		}
+		logger.info("get login");
+		
+		mav.setViewName("login");
+		return mav;
+	}
+	/*
+	@RequestMapping(value = "/login", method= RequestMethod.POST)
+	public void loginOk(@ModelAttribute MemberVO vo, HttpServletRequest req, HttpServletResponse res, RedirectAttributes rttr) throws Exception {
+		
+		logger.info("post login");
+		
+		//HttpSession session = req.getSession();
+		logger.info(vo.getPid());
+		
+		MemberVO loginVO = memberService.viewMember(vo);
+		
+		if(loginVO == null) {
+			logger.info("loginVO is null");
+			res.sendRedirect("http://localhost:8080/login/login?errMsg=" + URLEncoder.encode("아이디 또는 비밀번호가 일치하지 않습니다.","UTF-8"));
+		} else {
+			logger.info("loginVO is " + vo.getPid());
+			
+			//rttr.addFlashAttribute("flashMemberId", vo.getPid());
+			
+			res.sendRedirect("http://localhost:8080/manageCCTV");
+		}
+	}*/
 	
 	@RequestMapping("loginCheck.do")
 	public ModelAndView loginCheck(@ModelAttribute MemberVO vo, HttpSession session) {

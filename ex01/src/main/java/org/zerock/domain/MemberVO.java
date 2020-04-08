@@ -1,8 +1,9 @@
 package org.zerock.domain;
 
-import java.sql.Timestamp;
+import java.util.Date;
 
 import lombok.Data;
+import java.util.List;
 
 @Data
 public class MemberVO {
@@ -11,6 +12,9 @@ public class MemberVO {
 	private String email;
 	private String passwd;
 	private String phoneNumber;
-	private String sessionKey;
-	private Timestamp sessionLimit;
+	private Date registerDate;
+	private Date updateDate;
+	private char enabled;
+	
+	private List<AuthVO> authList;
 }

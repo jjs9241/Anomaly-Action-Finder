@@ -1,6 +1,10 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page session="false" %>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" language="java" %>
+<%@ page import="java.util.List"%>
+<%@ taglib uri="http://www.springframework.org/security/tags" prefix="sec" %>
+
+<% List urlList = (List)request.getAttribute("urlList"); %>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -17,8 +21,13 @@
     <div id="header">
         <a href="#"><img src="/resources/img/로고_블랙.png" alt="로고"></a>
         <ul class="navbar">
-            <li class="notice"><a href="#"></a></li>
+        	<li class="logout"><a href="/login/login"><i class="fa fa-sign-out fa-fw"></i>Logout</a></li>
+        	<!--
+        	<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+        	-->
+        	<li class="notice"><a href="#"></a></li>
             <li class="user_icon"><i class="far fa-bell"></i></li>
+            
         </ul>
     </div>
     <!--//header-->
@@ -62,6 +71,14 @@
             </div>
             <!--content-->
             <div id="content">
+            <%=urlList%>
+            	<sec:authorize access="isAuthenticated()">
+            	<c:forEach items="${urlList}" var="url">
+            		<div class="video">
+                    	<video src=<c:out value="${url}"/> autoplay muted></video>
+                	</div>
+            	</c:forEach>
+            	</sec:authorize>
                 <div class="video">
                     <video src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" autoplay muted></video>
                 </div>

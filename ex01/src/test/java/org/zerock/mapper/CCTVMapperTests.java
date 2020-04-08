@@ -20,11 +20,16 @@ public class CCTVMapperTests {
 	private CCTVMapper mapper;
 	
 	@Test
+	public void testGetURLList() {
+		mapper.getURLList("jjj1111@testmail.com").forEach(cctv -> log.info(cctv));
+	}
+	
+	@Test
 	public void testGetList() {
 		mapper.getList().forEach(cctv -> log.info(cctv));
 	}
 	
-	@Test
+	//@Test
 	public void testInsert() {
 		CCTVVO cctv = new CCTVVO();
 		cctv.setPid("insertTestPID");

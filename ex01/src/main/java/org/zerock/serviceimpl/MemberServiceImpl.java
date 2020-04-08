@@ -3,32 +3,53 @@ package org.zerock.serviceimpl;
 import javax.inject.Inject;
 import javax.servlet.http.HttpSession;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.zerock.mapper.CCTVMapper;
 import org.zerock.mapper.MemberMapper;
 
 import lombok.Setter;
+import lombok.AllArgsConstructor;
+import lombok.extern.log4j.Log4j;
 
+import org.zerock.controller.LoginController;
 import org.zerock.domain.MemberVO;
 import org.zerock.service.MemberService;
+import java.util.List;
+import java.util.ArrayList;
 
+@Log4j
 @Service
+@AllArgsConstructor
 public class MemberServiceImpl implements MemberService {
 
+	private static final Logger logger = LoggerFactory.getLogger(LoginController.class);
+	
 	@Setter(onMethod_ = @Autowired)
 	MemberMapper mapper;
+	
+	@Setter(onMethod_ = @Autowired)
+	CCTVMapper cctvMapper;
+	
+	@Override
+	public List<String> getURLList(MemberVO vo) {
+		return cctvMapper.getURLList(vo.getPid());		
+	}
 	
 	@Override
 	public boolean loginCheck(MemberVO vo, HttpSession session) {
 		
-		boolean result = mapper.loginCheck(vo);
-		if (result) { // true 일 경우 세션에 등록
+		String checkEmail = mapper.loginCheck(vo);
+		
+		if (checkEmail.equals(vo.getEmail())) { // true 일 경우 세션에 등록
 			MemberVO vo2 = viewMember(vo); // 세션 변수 등록
 			session.setAttribute("userId", vo2.getPid());
 			session.setAttribute("userEmail", vo2.getEmail());
+			return true;
 		}
-		return result;
+		return false;
 	}
 	
 	@Override
@@ -45,4 +66,17 @@ public class MemberServiceImpl implements MemberService {
 		session.invalidate();
 	}
 	
+	@Override
+	public boolean modify(MemberVO member) {
+		log.info("modify......" + member);
+		
+		return mapper.update(member) == 1;
+	}
+	
+	@Override
+	public boolean remove(String pid) {
+		log.info("remove...." + pid);
+		
+		return mapper.delete(pid)==1;
+	}
 }

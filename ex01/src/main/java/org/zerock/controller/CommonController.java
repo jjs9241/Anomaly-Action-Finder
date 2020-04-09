@@ -34,4 +34,13 @@ public class CommonController {
 		res.sendRedirect("/login/login");
 		
 	}
+	
+	@GetMapping("/cctv_test")
+	public String cctv_test(HttpServletRequest req, 
+			HttpServletResponse res)
+					throws ServletException, IOException {
+		
+		return "cctv_test";
+		
+	}
 }

@@ -75,55 +75,17 @@
             	<sec:authorize access="isAuthenticated()">
             	<c:forEach items="${urlList}" var="url">
             		<div class="video">
-                    	<video src=<c:out value="${url}"/> autoplay muted></video>
+                    	<img src='<c:out value="${url}"/>' style="width:300px; height:300px;"></img>
                 	</div>
             	</c:forEach>
             	</sec:authorize>
-                <div class="video">
+           	    <div class="video">
                     <video src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" autoplay muted></video>
                 </div>
                 <div class="video">
                     <video src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4" autoplay muted></video>
                 </div>
-                <div class="video">
-                    <video src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4" autoplay muted></video>
-                </div>
-                <div class="video">
-                    <video src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4" autoplay muted></video>
-                </div>
-                <div class="video">
-                    <video src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerMeltdowns.mp4" autoplay muted></video>
-                </div>
-                <div class="video">
-                    <video src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/Sintel.mp4" autoplay muted></video>
-                </div>
-                <div class="video">
-                    <video src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/SubaruOutbackOnStreetAndDirt.mp4" autoplay muted></video>
-                </div>
-                <div class="video">
-                    <video src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4" autoplay muted></video>
-                </div>
-                <div class="video">
-                    <video src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/SubaruOutbackOnStreetAndDirt.mp4" autoplay muted></video>
-                </div>
-                <div class="video">
-                    <video src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4" autoplay muted></video>
-                </div>
-                <div class="video">
-                    <video src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4" autoplay muted></video>
-                </div>
-                <div class="video">
-                    <video src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/TearsOfSteel.mp4" autoplay muted></video>
-                </div>
-                <div class="video">
-                    <video src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/VolkswagenGTIReview.mp4" autoplay muted></video>
-                </div>
-                <div class="video">
-                    <video src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/WeAreGoingOnBullrun.mp4" autoplay muted></video>
-                </div>
-                <div class="video">
-                    <video src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/WhatCarCanYouGetForAGrand.mp4" autoplay muted></video>
-                </div>
+                
             </div>
             <!--//content-->
     </div>

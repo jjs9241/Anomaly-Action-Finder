@@ -70,6 +70,9 @@ public class ManageCCTVController {
 		//vo.setPid(userid);
 		
 		List<String> urlList = memberService.getURLList(vo);
+		for(int i=0;i<urlList.size();i++) {
+			urlList.set(i, "http://"+ urlList.get(i) + "/video_feed");
+		}
 		req.setAttribute("urlList", urlList);
 		mav.addObject("urlList", urlList);
 		/*

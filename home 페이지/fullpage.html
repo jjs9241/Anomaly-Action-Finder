@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="fullpage.min.css">
+    <link rel="stylesheet" href="fp.css">
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="slick.css"/>
+    <script 
+        src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+        crossorigin="anonymous">
+    </script>
+    <script type="text/javascript" src="js/slick.min.js"></script>
+    <script src="fullpage.min.js"></script> 
+</head>
+<body>
+    <!--헤더-->
+    <header id="header">
+        <div class="logo">
+            <a href="#">
+                <img src="logo_w.png" alt="로고">
+            </a>
+            <a href="#" class="login">로그인</a>
+            <a href="#" class="join">회원가입</a>
+        </div>
+    </header> 
+    <!--//헤더-->
+    <!--fullpage 라이브러리-->
+    <div id="full-page">
+        <div class="section s0">
+            <div class="slide img1"> Slide 1 </div>
+            <div class="slide img2"> Slide 2 </div>
+            <button id="btn1" value="이전">이전</button>
+            <button id="btn2" value="이후">이후</button>
+        </div>
+        <div class="section s1">
+            <h2>section 1</h2>
+        </div>
+        <div class="section s2">
+            <h2>section 2</h2>
+        </div>
+        <div class="section s3">
+            <h2>section 3</h2>
+        </div>
+    </div>
+    <!--//fullpage 라이브러리-->
+    <script>
+        new fullpage('#full-page', {
+            //options here
+            licenseKey: 'OPEN-SOURCE-GPLV3-LICENSE',
+            autoScrolling:true,
+            scrollHorizontally: true,
+            navigation : true,
+            navigationTooltips : ['home','about','contact','what'], //사이드 메뉴 이름 설정
+            
+            onLeave: function(origin, destination, direction){
+                console.log("onLeave",origin.index, destination.index);
+            },//스크롤이 시작할때 실행, origin:원래 있던 섹션 destination:가는 섹션
+            afterLoad: function(origin, destination, direction){
+                if(destination.index == 1){
+                    $('.s1 h3').show();
+                }
+            },//스크롤이 끝날때 실행
+        });
+
+
+        $('#btn1').click(function(){
+            $.fn.fullpage.moveSlideUp();
+            //$.fn.fullpage.moveSectionDown();
+        });
+        $('#btn2').click(function(){
+            $.fn.fullpage.moveSlideDown();
+            //$.fn.fullpage.moveSectionUp();
+        });
+    </script>
+
+    
+</body>
+</html>

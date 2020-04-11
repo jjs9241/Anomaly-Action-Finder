@@ -1,0 +1,16 @@
+/*글 등록하기 */
+#content {position:rerative;}
+#content h2 {display: inline-block ;font-size: 35px; text-align:center; font-family: 'Sunflower', sans-serif;
+    position: absolute; top:120px; color: #333; text-shadow: 1px 1px 1px rgba(126, 123, 123, 0.781); font-weight: 600;}
+
+#content .formwrap {width: 600px; height:400px; background-color: #EAF0F7; border-radius: 20px; margin-top: 60px; text-align: center; box-shadow: 0 2px 2px 0 rgba(126, 123, 123, 0.781);}
+#content .formwrap form { padding-top: 50px;}
+#content .formwrap form .row {width: 500px; margin: 0 auto;}
+#content .formwrap form  .row span{font-size: 15px; font-weight: 600; color: gray; display: inline-block; text-align: right; width: 70px; line-height: 40px;}
+#content .formwrap form input{font-size: 15px; width: 400px; height: 40px; border-radius: 5px; outline: none; margin-bottom: 20px; margin-left: 30px; border: none; box-shadow: 0 1px 1px 0 rgba(126, 123, 123, 0.781);}
+#content .formwrap form input.btn1{ font-family: 'Noto Sans KR', sans-serif; width: 135px; height: 45px; cursor: pointer; border-radius: 10px;  background-color: rgba(228, 224, 224, 0.685); margin-top: 20PX; transition: translate 0.5s ease; margin-left: 0;}
+#content .formwrap form input.btn1:hover {transform: translate(10px,-5px); background-color:rgb(101, 159, 179); font-weight: 500;color:  white }
+#content .formwrap form input.btn2{ font-family: 'Noto Sans KR', sans-serif; width: 135px; height: 45px; cursor: pointer;  border-radius: 10px; background-color: rgba(228, 224, 224, 0.685);transition: translate 0.5s ease;}
+#content .formwrap form input.btn2:hover {transform: translate(10px,-5px); background-color: rgb(101, 159, 179); font-weight: 500;color: white }
+#content .formwrap form input.btn3{ font-family: 'Noto Sans KR', sans-serif; width: 135px; height: 45px;cursor: pointer;  border-radius: 10px; background-color: rgba(228, 224, 224, 0.685); border: none;transition: translate 0.5s ease;}
+#content .formwrap form input.btn3:hover {transform: translate(10px,-5px); background-color: rgb(101, 159, 179); font-weight: 500;color: white }

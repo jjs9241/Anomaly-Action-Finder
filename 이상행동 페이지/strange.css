@@ -8,12 +8,12 @@
 .content_container #content .video {
     margin:0 0 0 0; padding:0 0 0 0;background-color: rgba(0,0,0) ; border: 0.1px solid white; 
     align-items : stretch; text-align: center; width: 220px;
-    height: 190px;  position: relative; overflow: hidden; box-sizing: border-box; vertical-align: middle;}
+    height: 187px;  position: relative; overflow: hidden; box-sizing: border-box; vertical-align: middle;}
 
 #content video {
     overflow: hidden;
     width: 217px;
-    height: 188px;
+    height: 186px;
     position: absolute;
     left: 50%; 
     top: 55%;

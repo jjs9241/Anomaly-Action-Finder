@@ -1,17 +1,18 @@
 /*레이아웃*/
 #wrap {overflow: hidden; display: flex; z-index: 1;}
-#header {height: 11vh; box-shadow: 0 4px 6px rgba(17, 17, 56, 0.11);vertical-align: middle;}
+#header {height: 9vh; box-shadow: 0 4px 6px rgba(17, 17, 56, 0.11);vertical-align: middle;}
 #side {float:left; width: 17%;height: 100%;}
-#sidebar {height: 78vh;}
+#sidebar {height: 80vh;}
 #footer {background-color:#F4F4F4; height: 11vh;}
 #content { clear: both; width: 84%; }
+
 /*헤더*/
 #header a {position: relative;}
 #header a img { max-width: 120px;height: auto; position: absolute;left: 93px; top:3px}
 #header ul.navbar li {vertical-align: middle;line-height: 1.5;text-align: center;}
 #header ul.navbar li a {cursor: pointer;  width: 45px; height: 45px; border-radius: 50%;
-position: absolute; top: 15px;right: 60px; background-image: url(https://source.unsplash.com/QAB-WJcbgJk/60x60);
-background-position: -65px; }
+position: absolute; top: 15px;right: 60px; ; background-position: -65px; background-color: gray;}
+/*background-image: url(https://source.unsplash.com/QAB-WJcbgJk/60x60)*/
 #header ul.navbar i {font-size: 22px; display: inline-block; position: absolute; top: 28px; right: 145px; color: #85888C;}
 
 /*사이드바*/
@@ -37,12 +38,12 @@ background-position: -65px; }
     justify-content: center;
 }
 #content .video {
-    margin:0 0 0 0; padding:0 0 0 0;background-color:black ; border: 0.1px solid white; width: 250px;height: 228px;
+    margin:0 0 0 0; padding:0 0 0 0;background-color:black ; border: 0.1px solid white; width: 250px;height: 219px;
     align-items : stretch; text-align: center;}
 
 
 /*비디오 설정*/
-#content video {width: 248px; height: 228px; } 
+#content video,img {width: 248px; height: 218px; overflow: hidden;} 
 
 .cctv span:hover {color: rgba(62, 134, 194, 0.397);}
 

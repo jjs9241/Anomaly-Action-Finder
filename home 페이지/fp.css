@@ -1,0 +1,68 @@
+/*메인 이미지 슬라이드*/
+*{margin:0;padding:0;}
+ul,li{list-style:none;}
+.s0 ul{width:calc(100% * 4);display:flex;animation:slide 18s infinite; text-align: center;} /* slide를 8초동안 진행하며 무한반복 함 */
+.s0 li{width:calc(100% / 4);height:943px;}
+
+.s0 li:nth-child(1){background-image: url(./img/cctv1.jpg); background-size: cover;}
+.s0 li:nth-child(2){background:#faa; z-index:1 ;}
+.s0 li:nth-child(3){background:#afa;z-index:1 ;}
+.s0 li:nth-child(4){background:#aaf; z-index: 1;}
+@keyframes slide {
+  0% {margin-left:0;} /* 0 ~ 10  : 정지 */
+  10% {margin-left:0;} /* 10 ~ 25 : 변이 */
+  25% {margin-left:-100%;} /* 25 ~ 35 : 정지 */
+  35% {margin-left:-100%;} /* 35 ~ 50 : 변이 */
+  50% {margin-left:-200%;}
+  60% {margin-left:-200%;}
+  75% {margin-left:-300%;}
+  85% {margin-left:-300%;}
+  100% {margin-left:0;}
+}
+
+
+
+.s0 ul li h2 {color: black; font-size: 30px;}
+.s0{width: 100vw; height:100vh;}
+.s1 {background-color: dodgerblue; width: 100vw; height:100vh;}
+.s2 {background-color: #ccc; width: 100vw; height:100vh;}
+.s3 {background-color: PINK; width: 100vw; height:100vh;}
+
+.s1 h3 {
+    display: none;
+}
+.section {
+    color: white;
+}
+
+#fp-nav ul li a span {
+    background-color: white;
+}
+
+
+
+/*헤더(로고) 작업*/
+#header {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 99;
+    text-align: center;
+    margin-top: 8px;
+   }
+
+#header .logo {width: 140px;  margin: 0 auto;} /*로고 사이즈 설정 & 가운데 정렬*/
+#header .logo img{width: 100%;} /*이미지 설정*/
+#header .logo a.login {color: white; font-size: 15px; position: absolute; right: 150px; top: 30px;}
+#header .logo a.join {color: white; font-size: 15px; position: absolute; right: 50px; top: 30px;}
+
+/*메인작업*/
+.s0 .img1 {background-image:url(./img/sample.jpg); background-size: cover;}
+.s0 .img2 {background-image:url(./img/cctv2.jpg);background-size: cover;}
+
+/*slide 버튼 스타일 수정*/  
+.s0 .fp-slides .fp-slidesContainer .fp-prev { display: none;}
+.s0 .fp-slides .fp-slidesContainer .fp-next {}
+.s0 {position: relative;}
+#btn1 {width: 50px; height: 50px; background-color:red; position: absolute; z-index: 999; top: 70%; left: 30%; border-radius: 50%; cursor: pointer;}
+#btn2 {width: 50px; height: 50px; background-color:red; position: absolute; z-index: 999; top: 70%; right: 70%; border-radius: 50%;  cursor: pointer;}

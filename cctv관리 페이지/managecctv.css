@@ -6,10 +6,10 @@
 #content .table .table_footer {position: relative;}
 #content .table .table_footer button a {width: 206px; height: 40px; background-color: #3567F5;color: white; display: inline-block; 
     line-height: 40px; font-weight: 600; font-size: 14px; box-shadow: 0 5px 5px 0 rgba(0,0,0,0.3);
-    position: absolute; bottom: -40px; right:25px; }
+    position: absolute; top:20px; right:25px; }
 #content .table .table_footer button a i {padding-right:7px;}
 
-#content .table .table_footer ul {position: absolute; bottom:-40px; left: 30px; font-size: 0; }
+#content .table .table_footer ul {position: absolute; top:20px; left: 30px; font-size: 0; }
 #content .table .table_footer ul li {display:inline-block; font-size: 16PX; border: 1px solid rgba(209, 206, 206, 0.63);}
 #content .table .table_footer ul li.pre { text-align: center; border-top-left-radius:5px; border-bottom-left-radius:5px; line-height: 34px; border-right: 0;}
 #content .table .table_footer ul li.pre a {display: inline-block; width: 76px; height: 34px;color: #666;}

@@ -6,8 +6,12 @@ import imagezmq
 import imutils
 import numpy as np
 import threading
+from final_model import FinalModel
+
 # from werkzeug.wrappers import Request, Response
 # from werkzeug.serving import run_simple
+
+Flag = False
 app = Flask(__name__)
 
 # print(cv2.__version__)
@@ -26,8 +30,12 @@ def sendImagesToWeb():
         receiver.send_reply(b'OK')
         # print("[INFO] receiving data from {}...".format(camName))
         # jpg = cv2.imencode('.jpg', frame)[1]
-        (flag, jpg) = cv2.imencode('.jpg', frame)
-
+        print(frame.shape)
+        # jpg = cv2.resize()
+        cv2.imwrite("XXX.jpg", frame)
+        jpg = model.predict(frame)
+        (flag, jpg) = cv2.imencode('.jpg', jpg)
+        print("predict")
         if not flag:
             continue
         # yield b'--frame\r\nContent-Type:image/jpeg\r\n\r\n'+jpg.tostring()+b'\r\n'
@@ -51,6 +59,9 @@ def video_feed():
 
 if __name__ == '__main__':
     #서버 실행
-   app.run(debug = True)
+    if Flag is False:
+        model = FinalModel("i3d_RGB.hdf5")
+        Flag = True
+    app.run(host="0.0.0.0",debug = True, use_reloader=False)
 
 

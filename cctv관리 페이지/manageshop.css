@@ -1,0 +1,22 @@
+#contetnt {position: relative;}
+#content .title_con {width: 100%;padding-left: 120px; position: absolute; box-sizing: border-box; top: 50px; }
+#content .title_con h2 {font-size: 30px; font-weight: 600; font-style: italic ;font-family: 'Noto Sans KR', sans-serif; color: #444}
+
+#content .table table tbody tr:hover{background-color: #EFF2F9;}
+#content .table table thead tr th {background-color: rgba(62, 134, 194, 0.397);color: white; font-size: 17px; font-weight:bold;}
+#content .table .table_footer button a {background-color: #3567F5;}/*#35C1B6  #0B99ED   linear-gradient( 45deg,rgba(53, 188, 193, 0.603),#3567F5 );*/
+
+/*아래 버튼*/
+#content .table .table_footer {position: relative;}
+#content .table .table_footer button a {width: 202px; height: 40px;  background:#3567F5;  color: white; display: inline-block; 
+    line-height: 40px; font-weight: 600; font-size: 14px; box-shadow: 0 5px 5px 0 rgba(0,0,0,0.3);
+    position: absolute; top:20px; right:25px; }
+#content .table .table_footer button a i {padding-right:7px;}
+#content .table .table_footer ul {position: absolute; top:20px; left: 30px; font-size: 0; }
+#content .table .table_footer ul li {display:inline-block; font-size: 16PX; border: 1px solid rgba(209, 206, 206, 0.63);}
+#content .table .table_footer ul li.pre { text-align: center; border-top-left-radius:5px; border-bottom-left-radius:5px; line-height: 34px; border-right: 0;}
+#content .table .table_footer ul li.pre a {display: inline-block; width: 74px; height: 34px;color: #666;}
+#content .table .table_footer ul li.num { text-align: center; font-weight: 500; line-height: 34px; }/*background-color: #3567F5;  color: white;*/
+#content .table .table_footer ul li.num a { display: inline-block; width: 34px; height: 34px; color: #666; }
+#content .table .table_footer ul li.next { text-align: center; border-top-right-radius:5px; border-bottom-right-radius:5px;  line-height: 34px; border-left: 0; }
+#content .table .table_footer ul li.next a {display: inline-block; color: #666;  width: 54px; height: 34px;}

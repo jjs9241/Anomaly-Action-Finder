@@ -9,7 +9,7 @@
     <link href="<c:url value="/resources/css/style.css" />" rel="stylesheet">
     <link href="<c:url value="/resources/css/reset.css" />" rel="stylesheet">
     <link href="<c:url value="/resources/css/managecctv.css" />" rel="stylesheet">
-    <link href="<c:url value="/resources/css/createcctv.css" />" rel="stylesheet">
+    <link href="<c:url value="/resources/css/createshop.css" />" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=PT+Sans:700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Nanum+Pen+Script&display=swap" rel="stylesheet">
@@ -64,7 +64,7 @@
             <!--//side-->
             <!--content-->
             <div id="content">
-                <h2>CCTV 수정</h2>
+                <h2>Shop 등록</h2>
                 <div class="formwrap">
                     <form action="/" method="post" encType="multiplart/form-data">
                         <div class="row">
@@ -74,20 +74,21 @@
                         <span>Name :</span><input id="name" type="text" placeholder="이름을 입력하세요. " name="name">
                         </div>
                         <div class="row">
-                        <span>CCTV ID :</span><input type="text" value="CAM8" name="cctvid"  readonly/>
+                        <span>Store ID :</span><input type="text" value="1234" name="cctvid"  readonly/>
                         </div>
                         <div class="row">
                         <span>Address :</span><input id="address" type="text" placeholder="주소를 입력하세요" name="address"/>
                         </div>
                         <div class="btn_container">
-                        <input type="button" value="수정" class="btn1"/>
+                        <input type="button" value="등록" class="btn1"/>
                         <input type="reset" value="reset" class="btn2"/>
-                        <a href="/cctvlist"><input type="button" value="글 목록으로" class="btn3"/></a>
+                        <input type="button" value="글 목록으로" class="btn3"/>
                         </div>
                     </form>
                 </div>
             <!--//content-->
         </div>  
-        <script src="common.js"></script>
+    <script type="text/javascript"src="<c:url value="/resources/js/common.js" />"></script>
+    <script type="text/javascript"src="<c:url value="/resources/js/manageCCTV.js" />"></script>
 </body>
 </html>

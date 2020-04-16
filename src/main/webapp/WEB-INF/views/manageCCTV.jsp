@@ -40,13 +40,13 @@
                     <div class="cctv">
                         <span>CCTV</span>
                         <ul>
-                            <li><a href="/cctvlist">CCTV 관리</a></li>
+                            <li><a href="/shoplist">CCTV 관리</a></li>
                         </ul>
                     </div>
                     <div class="qa">
                         <span>Q&A</span>
                         <ul>
-                            <li><a href="#">문의하기</a></li>
+                            <li><a href="/qa">문의하기</a></li>
                         </ul>
                     </div>
                 </div>

@@ -6,9 +6,10 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css" />
+        <link href="<c:url value="/resources/css/cctvlist.css" />" rel="stylesheet">
     	<link href="<c:url value="/resources/css/style.css" />" rel="stylesheet">
     	<link href="<c:url value="/resources/css/reset.css" />" rel="stylesheet">
-        <link href="<c:url value="/resources/css/cctvlist.css" />" rel="stylesheet">
+    	<link href="<c:url value="/resources/css/shoplist.css"/>" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=PT+Sans:700&display=swap" rel="stylesheet">
         <title>Document</title>
@@ -40,14 +41,14 @@
                             <!--<span>CCTV</span>-->
                             <ul>
                                 <li>CCTV</li>
-                                <li><a href="/cctvlist">CCTV 관리</a></li>
+                                <li><a href="/shoplist">CCTV 관리</a></li>
                             </ul>
                         </div>
                         <div class="qa">
                             <!--<span>Q&A</span>-->
                             <ul>
                                 <li>Q&A</li>
-                                <li><a href="#">문의하기</a></li>
+                                <li><a href="/qa">문의하기</a></li>
                             </ul>
                         </div>
                     </div>
@@ -66,84 +67,126 @@
                 </div>
                 <!--content-->
                 <div id="content">
-                    <div class="table">
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th class="number">No.</th>
-                                    <th class="name">name</th>
-                                    <th class="cctvid">CCTVID</th>
-                                    <th class="address">Address</th>
-                                    <th class="rate">Rate</th>
-                                    <th class="edit">Edit</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td class="number">1</td>
-                                    <td class="name">super</td>
-                                    <td class="cctvid">cam1</td>
-                                    <td class="address">경기도 부천시 dlkfjaldsjfalksdjflkajsdfl;jadsl;fk</td>
-                                    <td class="rate">0.1%</td>
-                                    <td class="edit">                                                       
-                                        <a href="/changecctv" class="mr-2"><i class="fas fa-edit text-info"></i></a>
-                                        <a href="#"><i class="fas fa-trash-alt text-danger"></i></a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>2</td>
-                                    <td class="name">mart</td>
-                                    <td class="cctvid">cam2</td>
-                                    <td class="address">서울특별시 강남구 adslkfjaldsjflasdjflkajsdl;faj</td>
-                                    <td class="rate">0.1%</td>
-                                    <td class="edit">                                                       
-                                        <a href="/changecctv" class="mr-2"><i class="fas fa-edit text-info font-16"></i></a>
-                                        <a href="#"><i class="fas fa-trash-alt text-danger font-16"></i></a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>3</td>
-                                    <td class="name">shop</td>
-                                    <td class="cctvid">cam3</td>
-                                    <td class="address">인천광영시 부평구 adsfaldsfjlasdjflajdsflajdslfa</td>
-                                    <td class="rate">0.1%</td>
-                                    <td class="edit">                                                       
-                                        <a href="/changecctv" class="mr-2"><i class="fas fa-edit text-info font-16"></i></a>
-                                        <a href="#"><i class="fas fa-trash-alt text-danger font-16"></i></a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>4</td>
-                                    <td class="name">shop</td>
-                                    <td class="cctvid">cam3</td>
-                                    <td class="address">인천광영시 부평구 adsfaldsfjlasdjflajdsflajdslfa</td>
-                                    <td class="rate">0.1%</td>
-                                    <td class="edit">                                                       
-                                        <a href="/changecctv" class="mr-2"><i class="fas fa-edit text-info font-16"></i></a>
-                                        <a href="#"><i class="fas fa-trash-alt text-danger font-16"></i></a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>5</td>
-                                    <td class="name">shop</td>
-                                    <td class="cctvid">cam3</td>
-                                    <td class="address">인천광영시 부평구 adsfaldsfjlasdjflajdsflajdslfa</td>
-                                    <td class="rate">0.1%</td>
-                                    <td class="edit">                                                       
-                                        <a href="/changecctv" class="mr-2"><i class="fas fa-edit text-info font-16"></i></a>
-                                        <a href="#"><i class="fas fa-trash-alt text-danger font-16"></i></a>
-                                    </td>
-                                </tr>
-                            </tbody>                           
-                        </table>
-                        <div class="table_footer">
-                            <ul >
-                                <li class="pre"><a href="#">Previous</a></li>
-                                <li class="num"><a href="#">1</a></li>
-                                <li class="num"><a href="#">2</a></li>
-                                <li class="next"><a href="#">Next</a></li>
-                            </ul>
-                            <button type="button"><a href="/createcctv"><i class="fas fa-plus-circle"></i>Add New CCTV</a></button>
+                    <div class="wrap">
+                        <div class="title_con">
+                            <h2>CCTV List</h2>
+                        </div>
+                        <div class="shop_table">
+                            <div class="shop">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <td colspan="2" class="store_title">매장 정보</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td class="store_info">store name :</td>
+                                            <td>super</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="store_info">store ID :</td>
+                                            <td>1234</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="store_info">address :</td>
+                                            <td>경기도 부천시 dlkfjaldsjfalksdjflkajsdfl;jadsl</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="store_info">total cctv :</td>
+                                            <td>4</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="cctvlist_table">
+                                <button class="addcctv" type="button"><a href=""><i class="fas fa-plus-circle"></i>Add New CCTV</a></button>
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th class="number">No.</th>
+                                            <th class="cctvid">CCTVID</th>
+                                            <th class="edit">Edit</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td class="number">1</td>
+                                            <td class="cctvid">cam1asdfadfadsfasdfadsf</td>
+                                            <td class="edit">                                                       
+                                                <a href="#" class="mr-2"><i class="fas fa-edit text-info"></i></a>
+                                                <a href="#"><i class="fas fa-trash-alt text-danger"></i></a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>2</td>
+                                            <td class="cctvid">cam2</td>
+                                            <td class="edit">                                                       
+                                                <a href="#" class="mr-2"><i class="fas fa-edit text-info font-16"></i></a>
+                                                <a href="#"><i class="fas fa-trash-alt text-danger font-16"></i></a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>3</td>
+                                            <td class="cctvid">cam3</td>
+                                            <td class="edit">                                                       
+                                                <a href="#" class="mr-2"><i class="fas fa-edit text-info font-16"></i></a>
+                                                <a href="#"><i class="fas fa-trash-alt text-danger font-16"></i></a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>4</td>
+                                            <td class="cctvid">cam3</td>
+                                            <td class="edit">                                                       
+                                                <a href="#" class="mr-2"><i class="fas fa-edit text-info font-16"></i></a>
+                                                <a href="#"><i class="fas fa-trash-alt text-danger font-16"></i></a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>5</td>
+                                            <td class="cctvid">cam3</td>
+                                            <td class="edit">                                                       
+                                                <a href="#" class="mr-2"><i class="fas fa-edit text-info font-16"></i></a>
+                                                <a href="#"><i class="fas fa-trash-alt text-danger font-16"></i></a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>6</td>
+                                            <td class="cctvid">cam3</td>
+                                            <td class="edit">                                                       
+                                                <a href="#" class="mr-2"><i class="fas fa-edit text-info font-16"></i></a>
+                                                <a href="#"><i class="fas fa-trash-alt text-danger font-16"></i></a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>7</td>
+                                            <td class="cctvid">cam3</td>
+                                            <td class="edit">                                                       
+                                                <a href="#" class="mr-2"><i class="fas fa-edit text-info font-16"></i></a>
+                                                <a href="#"><i class="fas fa-trash-alt text-danger font-16"></i></a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>8</td>
+                                            <td class="cctvid">cam3</td>
+                                            <td class="edit">                                                       
+                                                <a href="#" class="mr-2"><i class="fas fa-edit text-info font-16"></i></a>
+                                                <a href="#"><i class="fas fa-trash-alt text-danger font-16"></i></a>
+                                            </td>
+                                        </tr>
+                                        
+                                    </tbody>                           
+                                </table>
+                                <div class="table_footer">
+                                    <ul >
+                                        <li class="pre2"><a href="#"><i class="fas fa-chevron-left"></i></a></li>
+                                        <li class="num2"><a href="#">1</a></li>
+                                        <li class="num2"><a href="#">2</a></li>
+                                        <li class="next2"><a href="#"><i class="fas fa-chevron-right"></i></a></li>
+                                    </ul>
+                                    <!-- <button class="addcctv" type="button"><a href=""><i class="fas fa-plus-circle"></i>Add New CCTV</a></button> -->
+                                </div>
+                            </div>
                         </div>
                     </div>
                 <!--//content-->

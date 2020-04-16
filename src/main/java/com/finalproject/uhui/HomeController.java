@@ -63,18 +63,29 @@ public class HomeController {
 		return "map";
 		
 	}
+	@RequestMapping(value = "/shoplist", method = RequestMethod.GET)
+	public String shoplist(Model model) throws Exception{
+			
+		return "shoplist";
+		
+	}
 	@RequestMapping(value = "/cctvlist", method = RequestMethod.GET)
 	public String cctvlist(Model model) throws Exception{
 			
 		return "cctvlist";
 		
 	}
-	@RequestMapping(value = "/createcctv", method = RequestMethod.GET)
-	public String createcctv(Model model) throws Exception{			
-		return "createcctv";		
+	@RequestMapping(value = "/createshop", method = RequestMethod.GET)
+	public String createshop(Model model) throws Exception{			
+		return "createshop";		
 	}
 	@RequestMapping(value = "/changecctv", method = RequestMethod.GET)
 	public String changecctv(Model model) throws Exception{			
 		return "changecctv";		
+	}
+	
+	@RequestMapping(value = "/qa", method = RequestMethod.GET)
+	public String qa(Model model) throws Exception{			
+		return "q&a";		
 	}
 }

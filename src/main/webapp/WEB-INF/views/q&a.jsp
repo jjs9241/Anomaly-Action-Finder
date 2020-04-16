@@ -33,23 +33,23 @@
                         <!--<span>VIDEO</span>-->
                         <ul>
                             <li>VIDEO</li>
-                            <li><a href="#">CCTV 관제</a></li>
-                            <li><a href="#">지도</a></li>
-                            <li><a href="#">이상행동</a></li>
+                            <li><a href="/manage">CCTV 관제</a></li>
+                            <li><a href="/map">지도</a></li>
+                            <li><a href="/strange">이상행동</a></li>
                         </ul>
                     </div>
                     <div class="cctv">
                         <!--<span>CCTV</span>-->
                         <ul>
                             <li>CCTV</li>
-                            <li><a href="#">CCTV 관리</a></li>
+                            <li><a href="/shoplist">CCTV 관리</a></li>
                         </ul>
                     </div>
                     <div class="qa">
                         <!--<span>Q&A</span>-->
                         <ul>
                             <li>Q&A</li>
-                            <li><a href="#">문의하기</a></li>
+                            <li><a href="/qa">문의하기</a></li>
                         </ul>
                     </div>
                 </div>

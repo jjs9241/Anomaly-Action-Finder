@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="fp.css">
     <link rel="stylesheet" href="reset.css">
     <link rel="stylesheet" href="slick.css"/>
+    <link rel="stylesheet" href="animation.css"/>
     <script 
         src="https://code.jquery.com/jquery-3.4.1.min.js"
         integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
@@ -30,19 +31,38 @@
     <!--//헤더-->
     <!--fullpage 라이브러리-->
     <div id="full-page">
-        <div class="section s0">
-            <div class="slide img1"> Slide 1 </div>
-            <div class="slide img2"> Slide 2 </div>
-            <button id="btn1" value="이전">이전</button>
-            <button id="btn2" value="이후">이후</button>
+        <div class="section s0 section-two">
+            <div class="slide img1 slide-one">
+                <h2>Section 2</h2>
+				<p>This is paragraph nr.1 in Section 2 / Slide 1</p>
+				<p>This is paragraph nr.2 in Section 2 / Slide 1</p>
+            </div>
+            <div class="slide img2 slide-two">
+                <h2>Section 2 </h2>
+				<p>This is paragraph nr.1 in Section 2 / Slide 2</p>
+				<p>This is paragraph nr.2 in Section 2 / Slide 2</p>
+            </div>
+            <div class="slide img2 slide-three">
+                <h2>Section 2/h2>
+				<p>This is paragraph nr.1 in Section 2 / Slide 3</p>
+				<p>This is paragraph nr.2 in Section 2 / Slide 3</p>
+            </div>
+            <div class="slide img2 slide-four">
+                <h2>Section 2</h2>
+				<p>This is paragraph nr.1 in Section 2 / Slide 4</p>
+				<p>This is paragraph nr.2 in Section 2 / Slide 4</p>
+            </div>
         </div>
-        <div class="section s1">
-            <h2>section 1</h2>
+        <div class="section s1 section-one">
+            <h2>Section 2</h2>
+			<p>This is paragraph nr.1 in Section 2</p>
+			<p>This is paragraph nr.2 in Section 2</p>
+			<p>This is paragraph nr.3 in Section 2</p>
         </div>
-        <div class="section s2">
+        <div class="section s2 section-three">
             <h2>section 2</h2>
         </div>
-        <div class="section s3">
+        <div class="section s3 section-fore">
             <h2>section 3</h2>
         </div>
     </div>
@@ -66,15 +86,19 @@
             },//스크롤이 끝날때 실행
         });
 
+        //슬라이드 자동 재생
+        $(document).ready(function () {
+            $('#fullpage').fullpage({
+                sectionsColor: ['#1bbc9b', '#4BBFC3'],
+                loopBottom: true,
+                afterRender: function () {
+                    setInterval(function () {
+                        $.fn.fullpage.moveSlideRight();
+                    }, 500);
+                }
+            });
+        });
 
-        $('#btn1').click(function(){
-            $.fn.fullpage.moveSlideUp();
-            //$.fn.fullpage.moveSectionDown();
-        });
-        $('#btn2').click(function(){
-            $.fn.fullpage.moveSlideDown();
-            //$.fn.fullpage.moveSectionUp();
-        });
     </script>
 
     

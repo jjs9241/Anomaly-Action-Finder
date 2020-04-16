@@ -1,0 +1,162 @@
+/* ========== SECTION 1 - content animation ========== */
+.section-one > .fp-tableCell h2 {
+	transform: translateY(-1000px);
+	opacity: 0;
+	transition: transform .8s cubic-bezier(0.16, 0.68, 0.43, 0.99),
+				opacity .8s ease-in-out;
+}
+
+.section-one.active > .fp-tableCell h2 {
+	transform: translateY(0);
+	opacity: 1;
+}
+
+.section-one > .fp-tableCell p {
+	transform: translateX(100%);
+	opacity: 0;
+	transition: transform .8s cubic-bezier(0.16, 0.68, 0.43, 0.99),
+				opacity .8s ease-in-out;
+}
+
+.section-one > .fp-tableCell p + p {
+	transform: translateX(-100%);
+}
+
+.section-one > .fp-tableCell p + p + p {
+	transform: translateX(0) translateY(0);
+	transform: translateY(1000px);
+}
+
+.section-one.active > .fp-tableCell p {
+	transform: translateX(0);
+	opacity: 1;
+}
+
+.section-one.active > .fp-tableCell p {
+	transition-delay: .2s;
+}
+
+.section-one.active > .fp-tableCell p + p {
+	transition-delay: .4s;
+}
+
+.section-one.active > .fp-tableCell p + p + p {
+	transition-delay: .6s;
+}
+
+/* ========== SECTION 2 - content animation ========== */
+/* Slide 1 */
+.section-two .slide-one > .fp-tableCell h2,
+.section-two .slide-one > .fp-tableCell p {
+	transform: translateY(-1000px);
+	opacity: 0;
+	transition: transform .66s cubic-bezier(0.16, 0.68, 0.43, 0.99),
+				opacity .66s ease-in-out;
+}
+
+.section-two.active .slide-one.active > .fp-tableCell h2,
+.section-two.active .slide-one.active > .fp-tableCell p {
+	transform: translateY(0);
+	opacity: 1;
+}
+
+.section-two.active .slide-one.active > .fp-tableCell h2 {
+	transition-delay: .44s;
+}
+
+.section-two.active .slide-one.active > .fp-tableCell p {
+	transition-delay: .22s;
+}
+
+.section-two.active .slide-one.active > .fp-tableCell p + p {
+	transition-delay: 0s;
+}
+
+/* Slide 2 */
+.section-two .slide-two > .fp-tableCell h2,
+.section-two .slide-two > .fp-tableCell p {
+	transform: translateY(1000px);
+	opacity: 0;
+	transition: transform .66s cubic-bezier(0.16, 0.68, 0.43, 0.99),
+				opacity .66s ease-in-out;
+}
+
+.section-two.active .slide-two.active > .fp-tableCell h2,
+.section-two.active .slide-two.active > .fp-tableCell p {
+	transform: translateY(0);
+	opacity: 1;
+}
+
+.section-two.active .slide-two.active > .fp-tableCell p {
+	transition-delay: .22s;
+}
+
+.section-two.active .slide-two.active > .fp-tableCell p + p {
+	transition-delay: .44s;
+}
+
+/* Slide 3 */
+.section-two .slide-three > .fp-tableCell h2,
+.section-two .slide-three > .fp-tableCell p {
+	transform: translateX(-100%);
+	opacity: 0;
+	transition: transform .66s cubic-bezier(0.16, 0.68, 0.43, 0.99),
+				opacity .66s ease-in-out;
+}
+
+.section-two.active .slide-three.active > .fp-tableCell h2,
+.section-two.active .slide-three.active > .fp-tableCell p {
+	transform: translateX(0);
+	opacity: 1;
+}
+
+.section-two.active .slide-three.active > .fp-tableCell p {
+	transition-delay: .22s;
+}
+
+.section-two.active .slide-three.active > .fp-tableCell p + p {
+	transition-delay: .44s;
+}
+
+/* Slide 4 */
+.section-two .slide-four > .fp-tableCell h2,
+.section-two .slide-four > .fp-tableCell p {
+	transform: translateX(100%);
+	opacity: 0;
+	transition: transform .66s cubic-bezier(0.16, 0.68, 0.43, 0.99),
+				opacity .66s ease-in-out;
+}
+
+.section-two.active .slide-four.active > .fp-tableCell h2,
+.section-two.active .slide-four.active > .fp-tableCell p {
+	transform: translateX(0);
+	opacity: 1;
+}
+
+.section-two.active .slide-four.active > .fp-tableCell p {
+	transition-delay: .22s;
+}
+
+.section-two.active .slide-four.active > .fp-tableCell p + p {
+	transition-delay: .44s;
+}
+
+/* ========== SECTION 3 - content animation ========== */
+.section-three > .fp-tableCell h2,
+.section-three > .fp-tableCell p {
+	opacity: 0;
+	transition: opacity 1s ease-in-out;
+}
+
+.section-three.active > .fp-tableCell h2,
+.section-three.active > .fp-tableCell p {
+	opacity: 1;
+}
+
+.section-three.active > .fp-tableCell p {
+	transition-delay: .33s;
+}
+
+.section-three.active > .fp-tableCell p + p {
+	transition-delay: .66s;
+}

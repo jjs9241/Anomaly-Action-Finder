@@ -1,12 +1,12 @@
-body {
-  margin: 2em;
-}
 aside {
     background: #1f8dd6; /* same color as selected state on site menu */
-    padding: 0.3em 1em;
+    width: 530px;
+    padding: 1em 1em;
     border-radius: 3px;
     color: #fff;
-    margin-bottom: 2em;
+    margin-bottom: 1em;
+    border-radius: 3px;
+    box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.2);
 }
 textarea {
   width: 100%;
@@ -15,7 +15,8 @@ textarea {
   font-weight: 400;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  margin: 2em 0 1em;
+  margin: 0.5em 0 1.5em;
+  font-size: 1.3rem;
 }
 .is-center {
   text-align: center;
@@ -41,3 +42,5 @@ button {
 #content{
   flex-direction: column;
 }
+
+.thankyou_message h2 {font-size: 20px;}

@@ -70,9 +70,13 @@
     xhr.onreadystatechange = function() {
         if (xhr.readyState === 4 && xhr.status === 200) {
           form.reset();
-          var formElements = form.querySelector(".form-elements")
+          var formElements = form.querySelector(".form-elements");
+          var contact_title = document.querySelector(".content-head");
+          var email_info = document.querySelector("#content aside")
           if (formElements) {
             formElements.style.display = "none"; // hide form
+            contact_title.style.display = "none";
+            email_info.style.display = "none";
           }
           var thankYouMessage = form.querySelector(".thankyou_message");
           if (thankYouMessage) {

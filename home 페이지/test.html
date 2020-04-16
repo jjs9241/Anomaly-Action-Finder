@@ -1,0 +1,70 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<title>Fullpage.js</title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="fullpage.min.css">
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="animation.css">
+
+</head>
+
+<body>
+	<div id="fullpage">
+		<div class="section section-one">
+			<h2>Section 1</h2>
+			<p>This is paragraph nr.1 in Section 1</p>
+			<p>This is paragraph nr.2 in Section 1</p>
+			<p>This is paragraph nr.3 in Section 1</p>
+		</div>
+		<div class="section section-two">
+			<div class="slide slide-one">
+				<h2>Section 2 / Slide 1</h2>
+				<p>This is paragraph nr.1 in Section 2 / Slide 1</p>
+				<p>This is paragraph nr.2 in Section 2 / Slide 1</p>
+			</div>
+			<div class="slide slide-two">
+				<h2>Section 2 / Slide 2</h2>
+				<p>This is paragraph nr.1 in Section 2 / Slide 2</p>
+				<p>This is paragraph nr.2 in Section 2 / Slide 2</p>
+			</div>
+			<div class="slide slide-three">
+				<h2>Section 2 / Slide 3</h2>
+				<p>This is paragraph nr.1 in Section 2 / Slide 3</p>
+				<p>This is paragraph nr.2 in Section 2 / Slide 3</p>
+			</div>
+			<div class="slide slide-four">
+				<h2>Section 2 / Slide 4</h2>
+				<p>This is paragraph nr.1 in Section 2 / Slide 4</p>
+				<p>This is paragraph nr.2 in Section 2 / Slide 4</p>
+			</div>
+		</div>
+		<div class="section section-three">
+			<h2>Section 3</h2>
+			<p>This is paragraph nr.1 in Section 3</p>
+			<p>This is paragraph nr.2 in Section 3</p>
+		</div>
+	</div>
+
+	<script src="https://code.jquery.com/jquery-1.12.1.min.js"></script>
+    <script src="fullpage.min.js"></script> 
+
+    <script src="js/scripts.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#fullpage').fullpage({
+                sectionsColor: ['#0F2980', '#ffd200', '#c1c1c1'],
+                anchors:['firstSection', 'secondSection', 'thirdSection'],
+                menu: '.main-nav ul',
+            });
+        });
+    </script>
+</body>
+
+</html>

@@ -24,7 +24,7 @@ ul,li{list-style:none;}
 
 .s0 ul li h2 {color: black; font-size: 30px;}
 .s0{width: 100vw; height:100vh;}
-.s1 {background-color: dodgerblue; width: 100vw; height:100vh;}
+.s1 {background-color: dodgerblue; width: 100vw; height:100vh; }
 .s2 {background-color: #ccc; width: 100vw; height:100vh;}
 .s3 {background-color: PINK; width: 100vw; height:100vh;}
 
@@ -61,8 +61,11 @@ ul,li{list-style:none;}
 .s0 .img2 {background-image:url(./img/cctv2.jpg);background-size: cover;}
 
 /*slide 버튼 스타일 수정*/  
-.s0 .fp-slides .fp-slidesContainer .fp-prev { display: none;}
-.s0 .fp-slides .fp-slidesContainer .fp-next {}
-.s0 {position: relative;}
-#btn1 {width: 50px; height: 50px; background-color:red; position: absolute; z-index: 999; top: 70%; left: 30%; border-radius: 50%; cursor: pointer;}
-#btn2 {width: 50px; height: 50px; background-color:red; position: absolute; z-index: 999; top: 70%; right: 70%; border-radius: 50%;  cursor: pointer;}
+#full-page .fp-controlArrow {position: absolute; top: 690px; }
+#full-page .fp-prev {transform: scale(0.28);position: absolute; left: 705px;}/*240px;*/
+#full-page .fp-prev::before {content: ""; display: block; width: 120px; height: 5px; background-color: white; position: absolute; left: 10px;}
+#full-page .fp-next {transform: scale(0.28); position: absolute; right: 705px;}/*1170px*/
+#full-page .fp-next::before {content: ""; display: block; width: 120px; height: 5px; background-color: white; position: absolute; right: 10px;}
+
+/* #btn1 {width: 50px; height: 50px; background-color:red; position: absolute; z-index: 999; top: 70%; left: 30%; border-radius: 50%; cursor: pointer;}
+#btn2 {width: 50px; height: 50px; background-color:red; position: absolute; z-index: 999; top: 70%; right: 70%; border-radius: 50%;  cursor: pointer;} */

@@ -6,51 +6,50 @@ import imagezmq
 import imutils
 import numpy as np
 import threading
-# from werkzeug.wrappers import Request, Response
-# from werkzeug.serving import run_simple
+
 app = Flask(__name__)
 
-# print(cv2.__version__)
+gCnt = 0
 
 @app.route('/')
 def index():
     return render_template("index.html")
 
 def sendImagesToWeb():
+    global gCnt
+    cnt=0
     print("sendImagesToWeb")
-    # receiver = imagezmq.ImageHub(open_port='tcp://0.0.0.0:5566', REQ_REP = False)
+    # receiver = imagezmq.ImageHub(open_port='tcp://0.0.0.0:5566', REQ_REP = Flse)
     receiver = imagezmq.ImageHub()
-    #print("receiver : ",receiver)
+
     while True:
-        (camName, frame) = receiver.recv_image()
-        receiver.send_reply(b'OK')
-        # print("[INFO] receiving data from {}...".format(camName))
-        # jpg = cv2.imencode('.jpg', frame)[1]
-        (flag, jpg) = cv2.imencode('.jpg', frame)
+      print("while안")
+      (camName, frame) = receiver.recv_image()
+      print("camName: {},  gCnt: {}, cnt: {}".format(camName,gCnt,cnt))
+      receiver.send_reply(b'OK')
 
-        if not flag:
-            continue
-        # yield b'--frame\r\nContent-Type:image/jpeg\r\n\r\n'+jpg.tostring()+b'\r\n'
-        # yield b'--frame\r\nContent-Type:image/jpeg\r\n\r\n'+jpg+b'\r\n'
-        yield(b'--frame\r\n' b'Content-Type: image/jpeg\r\n\r\n' + bytearray(jpg) + b'\r\n')
+      # jpg = cv2.imencode('.jpg', frame)[1]
+      (flag, jpg) = cv2.imencode('.jpg', frame)
+      cnt = cnt+1
+      gCnt = gCnt+1
+      if not flag:
+          continue
+
+      yield(b'--frame\r\n' b'Content-Type: image/jpeg\r\n\r\n' + bytearray(jpg) + b'\r\n')
    
-# @Request.application
-# def application(request):
-#     print("어플 실행")
-#     return Response(sendImagesToWeb(), mimetype='multipart/x-mixed-replace; boundary=frame')
-
-# if __name__ == '__main__':
-#     print("sdfa")
-#     run_simple('127.0.0.1', 4000, application)
-
 @app.route('/video_feed')
 def video_feed():
     print("video")
     return Response(sendImagesToWeb(),
                     mimetype='multipart/x-mixed-replace; boundary=frame')
 
+# if __name__ == '__main__':
+#     print("sdfa")
+#     run_simple('127.0.0.1', 4000, application)
+
 if __name__ == '__main__':
     #서버 실행
-   app.run(debug = True)
+  #  app.run(debug = True)
+   app.run(host="0.0.0.0")
 
 

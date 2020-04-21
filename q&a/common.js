@@ -27,3 +27,21 @@ function AHandler(e){
     this.classList.add('active_a');
     active_a=this;
 }
+
+
+//유저 인포 보여주는 창
+var user_icon = document.querySelector("#header .navbar a")
+var user_ele = document.querySelector("#header .user_ele")
+console.log(user_ele);
+//클릭 이벤트 걸어서 로그아웃 엘리먼트 보이게 
+user_icon.addEventListener('click',userinfoHandler);
+function userinfoHandler() {
+    var user_ele = document.querySelector("#header .user_ele");
+    if(user_ele.classList.contains('hide')){
+        user_ele.classList.remove('hide');
+        user_ele.classList.add('show')
+    }else{
+        user_ele.classList.remove('show');
+        user_ele.classList.add('hide')
+    }               
+} 

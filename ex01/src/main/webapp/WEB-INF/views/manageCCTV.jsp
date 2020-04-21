@@ -4,7 +4,7 @@
 <%@ page import="java.util.List"%>
 <%@ taglib uri="http://www.springframework.org/security/tags" prefix="sec" %>
 
-<% List urlList = (List)request.getAttribute("urlList"); %>
+<% List urlListList = (List)request.getAttribute("urlListList"); %>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -19,7 +19,7 @@
 <body>
     <!--header-->
     <div id="header">
-        <a href="#"><img src="/resources/img/로고_블랙.png" alt="로고"></a>
+        <a href="#"><img src="/resources/img/logo_b.png" alt="로고"></a>
         <ul class="navbar">
         	<li class="logout"><a href="/login/login"><i class="fa fa-sign-out fa-fw"></i>Logout</a></li>
         	<!--
@@ -71,12 +71,16 @@
             </div>
             <!--content-->
             <div id="content">
-            <%=urlList%>
+            
             	<sec:authorize access="isAuthenticated()">
-            	<c:forEach items="${urlList}" var="url">
-            		<div class="video">
-                    	<img src='<c:out value="${url}"/>' style="width:300px; height:300px;"></img>
-                	</div>
+            	<c:forEach items="${urlListList}" var="urlList">
+            		<!-- <div class="urlList"> -->
+            		<c:forEach items="${urlList}" var="url">
+            			<div class="video">
+                    		<img src='<c:out value="${url}"/>'> </img><!--  style="width:300px; height:300px;"></img> -->
+                		</div>
+                	</c:forEach>
+            		<!-- </div> -->
             	</c:forEach>
             	</sec:authorize>
            	    <div class="video">

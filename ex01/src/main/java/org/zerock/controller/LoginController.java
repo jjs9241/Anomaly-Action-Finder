@@ -20,6 +20,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.util.List;
 import java.util.Map;
 import java.net.URLEncoder;
+import java.io.PrintWriter;
 import java.net.URLDecoder;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.web.servlet.support.RequestContextUtils;
@@ -43,23 +44,44 @@ public class LoginController {
 		return "login"; // views/login.jsp 로 포워드
 	}
 	
+	@RequestMapping(value = "/fail", method= RequestMethod.GET)
+	public void loginFail(HttpServletRequest req, HttpServletResponse res) throws Exception {
+	
+		String errMsg = "아이디 또는 비밀번호가 일치하지 않습니다.";
+		
+		errMsg = URLEncoder.encode(errMsg,"UTF-8");
+		res.sendRedirect("http://localhost:8080/login/login?errMsg=" + errMsg);
+		
+	}
+	
 	@RequestMapping(value = "/login", method= RequestMethod.GET)
 	public ModelAndView loginPage(HttpServletRequest req, HttpServletResponse res) throws Exception {
 	
 		ModelAndView mav = new ModelAndView();
 		//String errMsg = URLEncoder.encode(req.getParameter("errMsg"),"UTF-8");
 		String errMsg = req.getParameter("errMsg");
+		String authError = req.getParameter("authError");
 		
 		if(errMsg != null) {
+			//errMsg = URLEncoder.encode(errMsg,"UTF-8");
 			logger.info(errMsg);
 			req.setAttribute("errMsg", URLDecoder.decode(errMsg,"UTF-8"));
-			mav.addObject("errMsg",URLDecoder.decode(errMsg,"UTF-8"));
+			mav.addObject("errMsg", URLDecoder.decode(errMsg,"UTF-8"));
+		}
+		
+		if(authError != null) {
+			logger.info(authError);
+			res.setContentType("text/html; charset=UTF-8");
+			PrintWriter writer = res.getWriter();
+			writer.println("<script>alert('해당 페이지에 대한 권한이 없습니다.'); location.href='/login/login';</script>");
+			writer.flush();
 		}
 		logger.info("get login");
 		
 		mav.setViewName("login");
 		return mav;
 	}
+	
 	/*
 	@RequestMapping(value = "/login", method= RequestMethod.POST)
 	public void loginOk(@ModelAttribute MemberVO vo, HttpServletRequest req, HttpServletResponse res, RedirectAttributes rttr) throws Exception {

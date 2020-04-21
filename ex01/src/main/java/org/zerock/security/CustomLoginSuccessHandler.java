@@ -14,6 +14,9 @@ import org.springframework.security.core.Authentication;
 
 import lombok.extern.log4j.Log4j;
 
+import java.net.URLEncoder;
+import java.net.URLDecoder;
+
 @Log4j
 public class CustomLoginSuccessHandler 
 implements AuthenticationSuccessHandler{
@@ -41,7 +44,8 @@ implements AuthenticationSuccessHandler{
 			res.sendRedirect("/manageCCTV");
 			return;
 		}
-		
-		res.sendRedirect("/login/login?errMsg=아이디 또는 비밀번호가 일치하지 않습니다.");
+		String errMsg = URLEncoder.encode("아이디 또는 비밀번호가 일치하지 않습니다.","UTF-8");
+		log.warn("errMsg : " + errMsg);
+		res.sendRedirect("/login/login?errMsg="+errMsg);
 	}
 }

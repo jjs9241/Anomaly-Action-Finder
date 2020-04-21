@@ -1,7 +1,7 @@
 package org.zerock.controller;
 
 import java.text.DateFormat;
-
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
@@ -41,6 +41,9 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import org.springframework.web.servlet.support.RequestContextUtils;
 import org.zerock.security.domain.CustomUser;
+
+import org.zerock.domain.StoreVO;
+
 /**
  * Handles requests for the application home page.
  */
@@ -59,7 +62,6 @@ public class ManageCCTVController {
 		
 		//CustomUser userDetails = (CustomUser)SecurityContextHolder.getContext().getAuthentication().getDetails();
         
-		
 		MemberVO vo = new MemberVO();
 		ModelAndView mav = new ModelAndView();
 		String currentUserName = SecurityContextHolder.getContext().getAuthentication().getName();
@@ -69,12 +71,20 @@ public class ManageCCTVController {
 		//String userid = userDetails.getUserid();
 		//vo.setPid(userid);
 		
-		List<String> urlList = memberService.getURLList(vo);
-		for(int i=0;i<urlList.size();i++) {
-			urlList.set(i, "http://"+ urlList.get(i) + "/video_feed");
+		//List<String> urlList = memberService.getURLList(vo);
+		List<StoreVO> storeList = memberService.getStoreList(vo);
+		List<List> urlListList = new ArrayList<List>();
+		
+		for(int i=0;i<storeList.size();i++) {
+			List<String> urlList = storeList.get(i).getCctvUrlList();
+			for(int j=0; j < urlList.size(); j++) {
+				urlList.set(j, "http://"+ urlList.get(j) + "/video_feed");
+			}
+			urlListList.add(urlList);
 		}
-		req.setAttribute("urlList", urlList);
-		mav.addObject("urlList", urlList);
+		
+		req.setAttribute("urlListList", urlListList);
+		mav.addObject("urlListList", urlListList);
 		/*
 		if(flashMap != null) {
 			Iterator<String> iter = flashMap.keySet().iterator();

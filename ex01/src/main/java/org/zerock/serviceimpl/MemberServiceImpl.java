@@ -20,6 +20,9 @@ import org.zerock.service.MemberService;
 import java.util.List;
 import java.util.ArrayList;
 
+import org.zerock.domain.StoreVO;
+import org.zerock.mapper.StoreMapper;
+
 @Log4j
 @Service
 @AllArgsConstructor
@@ -30,13 +33,28 @@ public class MemberServiceImpl implements MemberService {
 	@Setter(onMethod_ = @Autowired)
 	MemberMapper mapper;
 	
-	@Setter(onMethod_ = @Autowired)
-	CCTVMapper cctvMapper;
+	//@Setter(onMethod_ = @Autowired)
+	//CCTVMapper cctvMapper;
 	
-	@Override
+	@Setter(onMethod_ = @Autowired)
+	StoreMapper storeMapper;
+	
+	/*@Override
 	public List<String> getURLList(MemberVO vo) {
 		return cctvMapper.getURLList(vo.getPid());		
+	}*/
+	
+	@Override
+	public List<StoreVO> getStoreList(MemberVO vo) {
+		List<String> storeIdList = storeMapper.getStoreList(vo);
+		List<StoreVO> storeList = new ArrayList<StoreVO>();
+		for(int i=0;i<storeIdList.size();i++) {
+			log.info("store id......" + storeIdList.get(i));
+			storeList.add(storeMapper.getStore(storeIdList.get(i)));
+		}
+		return storeList;
 	}
+	
 	
 	@Override
 	public boolean loginCheck(MemberVO vo, HttpSession session) {

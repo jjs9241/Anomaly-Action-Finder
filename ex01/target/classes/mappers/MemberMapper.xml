@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE mapper
+
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="org.zerock.mapper.MemberMapper">
+
+	<resultMap type="org.zerock.domain.MemberVO" id="memberMap">
+		<id property="pid" column="pid"/>
+		<result property="pid" column="pid"/>
+		<result property="email" column="email"/>
+		<result property="passwd" column="passwd"/>
+		<result property="phoneNumber" column="phonenumber"/>
+		<result property="registerDate" column="registerdate"/>
+		<result property="updateDate" column="updatedate"/>
+		<collection property="authList" resultMap="authMap">
+		</collection>
+	</resultMap>
+	
+	<resultMap type="org.zerock.domain.AuthVO" id="authMap">
+		<result property="userid" column="memberid"/>
+		<result property="auth" column="auth"/>
+		
+	</resultMap>
+
+	<select id="loginCheck" resultType="String" parameterType="org.zerock.domain.MemberVO">
+		<![CDATA[
+		select email from member where pid = #{pid} AND passwd = #{passwd}
+		]]>
+	</select>
+	
+	<select id="viewMember" resultType="org.zerock.domain.MemberVO" parameterType="org.zerock.domain.MemberVO">
+		SELECT
+			pid, email, passwd, phoneNumber, registerdate, updatedate, enabled
+		FROM member
+		WHERE pid = #{pid} AND passwd = #{passwd}
+	</select>
+	
+	<select id="read" resultMap="memberMap" parameterType="String">
+		SELECT
+			mem.pid, email, passwd, phoneNumber, registerdate, updatedate, enabled, auth
+		FROM member mem LEFT OUTER JOIN member_auth mem_auth on mem.pid = mem_auth.memberid
+		WHERE mem.pid = #{pid}
+	</select>
+
+	<delete id="delete" parameterType="String">
+		delete from member where pid=#{pid}
+	</delete>
+	
+	<update id="update" parameterType="String">
+		UPDATE member 
+		passwd = #{passwd}
+		phonenumber = #{phonenumber}
+		registerdate = #{registerdate}
+		updatedate = #{updatedate}
+		enabled = #{enabled}
+		where pid = #{pid}
+	</update>
+
+	<!--
+	<insert id="insertSelectKey" parameterType="org.zerock.domain.CCTVVO">
+		<selectKey keyProperty="pid" order="BEFORE" resultType="String">
+			select seq_board.nextval from dual
+		</selectKey>
+		
+		insert into cctv (pid, managerid, address, mongodbid, latitude, longitude, cctvname, ip)
+		values (#{pid}, #{managerid}, #{address}, #{mongodbid}, #{latitude}, #{longitude}, #{cctvname}, #{ip})
+	</insert>
+	-->
+	
+</mapper>

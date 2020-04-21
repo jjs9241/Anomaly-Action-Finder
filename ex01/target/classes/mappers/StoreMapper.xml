@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE mapper
+
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="org.zerock.mapper.StoreMapper">
+
+	<select id="viewStore" resultType="org.zerock.domain.StoreVO" parameterType="org.zerock.domain.StoreVO">
+		SELECT
+			pid, storename, managerid, ip from store where pid = #{pid}
+	</select>
+
+	<select id="getURLList" resultType="org.zerock.domain.StoreVO">
+		select ip from cctv where managerID = #{managerID}
+	</select>
+	
+	<select id="getStoreList" resultType="String" parameterType="org.zerock.domain.MemberVO">
+		select pid from store where managerID = #{pid}
+	</select>
+	
+	<resultMap id="storeMap" type="org.zerock.domain.StoreVO">
+		<result property="pid" column="pid"/>
+    	<result property="storeName" column="storename"/>
+    	<result property="managerId" column="managerid"/>
+    	<result property="ip" column="ip"/>
+    	<collection property="cctvUrlList" column="pid" javaType="java.util.ArrayList" ofType="String" select="getUrlListById"/>
+	</resultMap>
+ 	<select id="getUrlListById" resultType="String">
+    	SELECT ip FROM cctv WHERE storeid = #{pid}
+	</select>
+	
+	<select id="getStore" resultMap="storeMap" parameterType="String">
+		SELECT
+			pid, storename, managerid, ip
+		FROM store WHERE pid = #{pid}
+	</select>
+	
+	
+	<select id="getList" resultType="org.zerock.domain.CCTVVO">
+		<![CDATA[
+		select * from cctv
+		]]>
+	</select>
+	
+	<insert id="insert" parameterType="org.zerock.domain.StoreVO">
+		insert into store(pid, storename, managerid, ip) values(#{pid}, #{storename}, #{managerid}, #{ip})
+	</insert>
+
+	
+</mapper>

@@ -12,6 +12,7 @@ Our [Colab Notebook](https://colab.research.google.com/drive/16jcaJoc6bCFAQ96jDe
 - Spring Tools (Standalone Edition) 3.9.12 RELEASE
 - Spring Tools 3 Add-On for Spring Tools 4 3.9.12 RELEASE
 - [mariaDB 10.4.12](https://mariadb.com/downloads/#mariadb_platform-mariadb_server) 
+- tomcat 9.0.31
 
 
 

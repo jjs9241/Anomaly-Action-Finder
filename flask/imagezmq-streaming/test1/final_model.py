@@ -27,21 +27,16 @@ class FinalModel():
     def define_model(self):
         i3d = Inception_Inflated3d(include_top=False,
                 weights=None,
-                input_shape=(self.nbFrame, self.IMG_WIDTH, self.IMG_HEIGHT, 3),
+                input_tensor=None,
+                input_shape=(16, 224, 224, 3),
                 dropout_prob=0.5,
                 endpoint_logit=True,
                 classes=3)
-        model = keras.models.Sequential([
-             i3d,
-             keras.layers.Flatten(),
-             keras.layers.Dropout(0.5),
-             keras.layers.Activation('relu'),
-             keras.layers.Dense(512),
-             keras.layers.Dropout(0.5),
-             keras.layers.Activation('relu'),
-             keras.layers.Dense(3),
-            keras.layers.Activation('softmax')
-        ])
+        model = keras.models.Sequential()
+        model.add(i3d)
+        model.add(keras.layers.Flatten())
+        model.add(Dropout(0.5))
+        model.add(Dense(3, activation="softmax"))
         return model
 
     def load_model(self):

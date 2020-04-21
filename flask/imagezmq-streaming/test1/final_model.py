@@ -47,6 +47,7 @@ class FinalModel():
     def predict(self, input_img):
         presentTime = datetime.now()
         frame_x = cv2.resize(input_img.copy(), (self.before_IMG_WIDTH, self.before_IMG_HEIGHT))
+        frame_x = (frame_x - frame_x.mean()) / frame_x.std()
         frame_x = self.crop_center(frame_x)
         if self.img_list is None:
             self.img_list = np.expand_dims(frame_x, axis=0)

@@ -6,9 +6,7 @@ Quo Vadis, Action Recognition? A New Model and the Kinetics Dataset
 Joao Carreira, Andrew Zisserman
 https://arxiv.org/abs/1705.07750v1
 """
-
-
-### Source : https://github.com/dlpbc/keras-kinetics-i3d   
+        
 from __future__ import print_function
 from __future__ import absolute_import
 
@@ -229,7 +227,8 @@ def Inception_Inflated3d(include_top=True,
                 input_shape=None,
                 dropout_prob=0.0,
                 endpoint_logit=True,
-                classes=400):
+                classes=400,
+                model_name = "I3d"):
     """Instantiates the Inflated 3D Inception v1 architecture.
     Optionally loads weights pre-trained
     on Kinetics. Note that when using TensorFlow,
@@ -512,7 +511,7 @@ def Inception_Inflated3d(include_top=True,
 
     inputs = img_input
     # create model
-    model = Model(inputs, x, name='i3d_inception')
+    model = Model(inputs, x, name='i3d_inception' + model_name)
 
     # load weights
     if weights in WEIGHTS_NAME:

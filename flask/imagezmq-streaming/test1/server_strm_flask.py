@@ -7,7 +7,9 @@ import imutils
 import numpy as np
 import threading
 from final_model import FinalModel
-
+import os
+from two_stream_final_model import twostream_FinalModel
+os.environ["CUDA_VISIBLE_DEVICES"]="1"
 # from werkzeug.wrappers import Request, Response
 # from werkzeug.serving import run_simple
 
@@ -33,7 +35,7 @@ def sendImagesToWeb():
         print(frame.shape)
         # jpg = cv2.resize()
         cv2.imwrite("XXX.jpg", frame)
-        jpg = model.predict(frame)
+        jpg, action = model.predict(frame)
         (flag, jpg) = cv2.imencode('.jpg', jpg)
         print("predict")
         if not flag:
@@ -60,7 +62,8 @@ def video_feed():
 if __name__ == '__main__':
     #서버 실행
     if Flag is False:
-        model = FinalModel("i3d_RGB.hdf5")
+        # model = FinalModel("weights_i3d_RGB_v3.hdf5")
+        model = twostream_FinalModel("Final_weights/weights_i3d_RGB_no_softmax.hdf5", "Final_weights/weights_i3d_opt_no_softmax.hdf5")
         Flag = True
     app.run(host="0.0.0.0",debug = True, use_reloader=False)
 

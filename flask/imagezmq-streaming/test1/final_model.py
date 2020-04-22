@@ -35,8 +35,8 @@ class FinalModel():
         model = keras.models.Sequential()
         model.add(i3d)
         model.add(keras.layers.Flatten())
-        model.add(Dropout(0.5))
-        model.add(Dense(3, activation="softmax"))
+        model.add(keras.layers.Dropout(0.5))
+        model.add(keras.layers.Dense(3, activation="softmax"))
         return model
 
     def load_model(self):

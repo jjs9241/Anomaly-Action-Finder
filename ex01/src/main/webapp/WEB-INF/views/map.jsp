@@ -19,9 +19,18 @@
     <div id="header">
         <a href="#"><img src="resources/img/logo_b.png" alt="로고"></a>
         <ul class="navbar">
-            <li class="notice"><a href="#"></a></li>
-            <li class="user_icon"><i class="far fa-bell"></i></li>
+            <li class="user_icon"><a href="#"></a></li>
+            <li class="notice"><i class="far fa-bell"></i></li>
         </ul>
+        <div class="user_ele hide">
+            <div class="user_name">
+                <div class="user_icon2"></div>
+                <h2>Valerie Luna</h2>
+                <p>vluna@aol.com<p>
+            </div>
+            <a href="#"><i class="fas fa-cog"></i>Account</a>
+            <a href="/customLogout"><i class="fas fa-sign-out-alt"></i>Logout</a>
+        </div>
     </div>
     <!--//header-->
         <div id="wrap">
@@ -31,7 +40,7 @@
                     <div class="video_title">
                         <ul>
                             <li>VIDEO</li>
-                            <li><a href="/manage">CCTV 관제</a></li>
+                            <li><a href="/manageCCTV">CCTV 관제</a></li>
                             <li><a href="/map">지도</a></li>
                             <li><a href="/strange">이상행동</a></li>
                         </ul>
@@ -40,14 +49,14 @@
                         <!--<span>CCTV</span>-->
                         <ul>
                             <li>CCTV</li>
-                            <li><a href="/cctvlist">CCTV 관리</a></li>
+                            <li><a href="/indexStore">CCTV 관리</a></li>
                         </ul>
                     </div>
                     <div class="qa">
                         <!--<span>Q&A</span>-->
                         <ul>
                             <li>Q&A</li>
-                            <li><a href="#">문의하기</a></li>
+                            <li><a href="/qa">문의하기</a></li>
                         </ul>
                     </div>
                 </div>

@@ -80,6 +80,7 @@ public class ManageIndexController {
 		return mav;
 	}
 	
+	/*
 	@RequestMapping(value = "/indexCCTV", method = RequestMethod.GET)
 	public ModelAndView indexCCTV(HttpServletRequest req, HttpServletResponse res, HttpSession session) throws Exception {
 		
@@ -97,13 +98,14 @@ public class ManageIndexController {
 			return mav;
 		}
 		store.setPid(storeId);
-		logger.info(currentUserName);
-		
+		logger.info(currentUserName);		
 		List<CCTVVO> cctvList = storeService.getCCTVList(store);
+		*/
 		/*
 		for(int i=0;i<cctvList.size();i++) {
 			cctvList.set(i, "http://"+ cctvList.get(i) + "/video_feed");
 		}*/
+	/*
 		req.setAttribute("cctvList", cctvList);
 		mav.addObject("cctvList", cctvList);
 		logger.info(store.getPid());
@@ -111,6 +113,5 @@ public class ManageIndexController {
 		mav.setViewName("indexCCTV");
 		
 		return mav;
-	}
-
+	}*/
 }

@@ -12,21 +12,31 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css" />
     	<link href="<c:url value="/resources/css/style.css" />" rel="stylesheet">
     	<link href="<c:url value="/resources/css/reset.css" />" rel="stylesheet">
-        <link href="<c:url value="/resources/css/cctvlist.css" />" rel="stylesheet">
+        <link href="<c:url value="/resources/css/cctvlist.css"/>" rel="stylesheet">
+		<link href="<c:url value="/resources/css/shoplist.css"/>" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=PT+Sans:700&display=swap" rel="stylesheet">
         <title>Document</title>
     </head>
     <body>
-        <!--header-->
-        <div id="header">
-            <a href="#"><img src="resources/img/logo_b.png" alt="로고"></a>
-            <ul class="navbar">
-                <li class="notice"><a href="#"></a></li>
-                <li class="user_icon"><i class="far fa-bell"></i></li>
-            </ul>
+    <!--header-->
+    <div id="header">
+        <a href="#"><img src="resources/img/logo_b.png" alt="로고"></a>
+        <ul class="navbar">
+            <li class="user_icon"><a href="#"></a></li>
+            <li class="notice"><i class="far fa-bell"></i></li>
+        </ul>
+        <div class="user_ele hide">
+            <div class="user_name">
+                <div class="user_icon2"></div>
+                <h2>Valerie Luna</h2>
+                <p>vluna@aol.com<p>
+            </div>
+            <a href=""><i class="fas fa-cog"></i>Account</a>
+            <a href=""><i class="fas fa-sign-out-alt"></i>Logout</a>
         </div>
-        <!--//header-->
+    </div>
+    <!--//header-->
         <div id="wrap">
                 <div id="side">
                     <!--sidebar-->
@@ -44,14 +54,14 @@
                             <!--<span>CCTV</span>-->
                             <ul>
                                 <li>CCTV</li>
-                                <li><a href="/cctvlist">CCTV 관리</a></li>
+                                <li><a href="/indexStore">CCTV 관리</a></li>
                             </ul>
                         </div>
                         <div class="qa">
                             <!--<span>Q&A</span>-->
                             <ul>
                                 <li>Q&A</li>
-                                <li><a href="#">문의하기</a></li>
+                                <li><a href="/qa">문의하기</a></li>
                             </ul>
                         </div>
                     </div>
@@ -63,20 +73,19 @@
                     <!--//footer-->
                 </div>
                 <!--//side-->
-                <!--모달&로딩-->
-                <div id="modal">
-                    <video id="big_video"  autoplay></video>
-                    <div id="close"><button><i class="fas fa-times"></i></button></div>
-                </div>
                 <!--content-->
                 <div id="content">
+                    <div class="title_con">
+                        <h2>매장 관리</h2>
+                    </div>
                     <div class="table">
                         <table>
                             <thead>
                                 <tr>
                                     <th class="number">No.</th>
                                     <th class="name">name</th>
-                                    <th class="cctvid">CCTVID</th>
+                                    <th class="stored_ip">IP</th>
+                                    <th class="stored_id">Store ID</th>
                                     <th class="address">Address</th>
                                     <th class="rate">Rate</th>
                                     <th class="edit">Edit</th>
@@ -89,68 +98,74 @@
                             	<div class="store">
                     				<td class="number"><c:out value="${store.ip}"/></td>
                                     <td class="name"><c:out value="${store.storeName}"/></td>
-                                    <td class="cctvid"><c:out value="${store.ip}"/></td>
+                                    <td class="stored_ip"><c:out value="${store.ip}"/></td>
+                                    <td class="stored_id"><c:out value="${store.ip}"/></td>                                    
                                     <td class="address"><c:out value="${store.ip}"/></td>
                                     <td class="rate"><c:out value="${store.ip}"/></td>
                                     <td class="edit">                                                       
-                                        <a href="#" class="mr-2"><i class="fas fa-edit text-info"></i></a>
+                                        <a href="/modifyStore" class="mr-2"><i class="fas fa-edit text-info"></i></a>
                                         <a href="#"><i class="fas fa-trash-alt text-danger"></i></a>
                                     </td>
                 				</div>
                 				</c:forEach>
                 				</sec:authorize>
-                                <tr>
+                                 <tr>
                                     <td class="number">1</td>
-                                    <td class="name">super</td>
-                                    <td class="cctvid">cam1</td>
+                                    <td class="name"><a href="/indexCCTV">super</a></td>
+                                    <td class="stored_ip">1234566</td>
+                                    <td class="stored_id">1234</td>
                                     <td class="address">경기도 부천시 dlkfjaldsjfalksdjflkajsdfl;jadsl;fk</td>
                                     <td class="rate">0.1%</td>
                                     <td class="edit">                                                       
-                                        <a href="#" class="mr-2"><i class="fas fa-edit text-info"></i></a>
+                                        <a href="/modifyStore" class="mr-2"><i class="fas fa-edit text-info"></i></a>
                                         <a href="#"><i class="fas fa-trash-alt text-danger"></i></a>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>2</td>
-                                    <td class="name">mart</td>
-                                    <td class="cctvid">cam2</td>
+                                    <td class="name"><a href="/indexCCTV">mart</a></td>
+                                    <td class="stored_ip">IP</td>
+                                    <td class="stored_id">Store ID</td>
                                     <td class="address">서울특별시 강남구 adslkfjaldsjflasdjflkajsdl;faj</td>
                                     <td class="rate">0.1%</td>
                                     <td class="edit">                                                       
-                                        <a href="#" class="mr-2"><i class="fas fa-edit text-info font-16"></i></a>
+                                        <a href="/modifyStore" class="mr-2"><i class="fas fa-edit text-info font-16"></i></a>
                                         <a href="#"><i class="fas fa-trash-alt text-danger font-16"></i></a>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>3</td>
-                                    <td class="name">shop</td>
-                                    <td class="cctvid">cam3</td>
+                                    <td class="name"><a href="/indexCCTV">shop</a></td>
+                                    <td class="stored_ip">IP</td>
+                                    <td class="stored_id">Store ID</td>
                                     <td class="address">인천광영시 부평구 adsfaldsfjlasdjflajdsflajdslfa</td>
                                     <td class="rate">0.1%</td>
                                     <td class="edit">                                                       
-                                        <a href="#" class="mr-2"><i class="fas fa-edit text-info font-16"></i></a>
+                                        <a href="/modifyStore" class="mr-2"><i class="fas fa-edit text-info font-16"></i></a>
                                         <a href="#"><i class="fas fa-trash-alt text-danger font-16"></i></a>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>4</td>
-                                    <td class="name">shop</td>
-                                    <td class="cctvid">cam3</td>
+                                    <td class="name"><a href="/indexCCTV">shop</a></td>
+                                    <td class="stored_ip">IP</td>
+                                    <td class="stored_id">Store ID</td>
                                     <td class="address">인천광영시 부평구 adsfaldsfjlasdjflajdsflajdslfa</td>
                                     <td class="rate">0.1%</td>
                                     <td class="edit">                                                       
-                                        <a href="#" class="mr-2"><i class="fas fa-edit text-info font-16"></i></a>
+                                        <a href="/modifyStore" class="mr-2"><i class="fas fa-edit text-info font-16"></i></a>
                                         <a href="#"><i class="fas fa-trash-alt text-danger font-16"></i></a>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>5</td>
-                                    <td class="name">shop</td>
-                                    <td class="cctvid">cam3</td>
+                                    <td class="name"><a href="/indexCCTV">shop</a></td>
+                                    <td class="stored_ip">IP</td>
+                                    <td class="stored_id">Store ID</td>
                                     <td class="address">인천광영시 부평구 adsfaldsfjlasdjflajdsflajdslfa</td>
                                     <td class="rate">0.1%</td>
                                     <td class="edit">                                                       
-                                        <a href="#" class="mr-2"><i class="fas fa-edit text-info font-16"></i></a>
+                                        <a href="/modifyStore" class="mr-2"><i class="fas fa-edit text-info font-16"></i></a>
                                         <a href="#"><i class="fas fa-trash-alt text-danger font-16"></i></a>
                                     </td>
                                 </tr>
@@ -159,11 +174,11 @@
                         <div class="table_footer">
                             <ul >
                                 <li class="pre"><a href="#">Previous</a></li>
-                                <li class="num"><a href="#">1</a></li>
+                                <li class="num first"><a href="#">1</a></li>
                                 <li class="num"><a href="#">2</a></li>
                                 <li class="next"><a href="#">Next</a></li>
                             </ul>
-                            <button type="button"><a href=""><i class="fas fa-plus-circle"></i>Add New CCTV</a></button>
+                            <button type="button"><a href="/registerStore"><i class="fas fa-plus-circle"></i>Add New Store</a></button>
                         </div>
                     </div>
                 <!--//content-->

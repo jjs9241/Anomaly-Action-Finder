@@ -44,7 +44,7 @@
                             <!--<span>CCTV</span>-->
                             <ul>
                                 <li>CCTV</li>
-                                <li><a href="/cctvlist">CCTV 관리</a></li>
+                                <li><a href="/indexStore">CCTV 관리</a></li>
                             </ul>
                         </div>
                         <div class="qa">

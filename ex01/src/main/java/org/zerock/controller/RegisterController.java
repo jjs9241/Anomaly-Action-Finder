@@ -75,11 +75,18 @@ public class RegisterController {
 		} catch(Exception exception) {
 			mav.setViewName("registerStore");
 		}
+		return mav;
+	}
 		
+	@RequestMapping(value = "/registerStore", method = RequestMethod.POST)
+	public ModelAndView postStore(HttpServletRequest req, HttpServletResponse res, HttpSession session) throws Exception {
+		ModelAndView mav = new ModelAndView();
+		
+		return mav;
 		//req.setAttribute("storeList", storeList);
 		//mav.addObject("storeList", storeList);
 		
-		logger.info(member.getPid());
+		/*logger.info(member.getPid());
 		
 		res.setContentType("text/html; charset=UTF-8");
 		
@@ -100,7 +107,7 @@ public class RegisterController {
 			mav.setViewName("registerStore");
 		}
 		
-		return mav;
+		return mav;*/
 	}
 	
 	

@@ -6,9 +6,9 @@
 
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="org.zerock.mapper.MemberMapper">
+<mapper namespace="com.finder.mapper.MemberMapper">
 
-	<resultMap type="org.zerock.domain.MemberVO" id="memberMap">
+	<resultMap type="com.finder.domain.MemberVO" id="memberMap">
 		<id property="pid" column="pid"/>
 		<result property="pid" column="pid"/>
 		<result property="email" column="email"/>
@@ -20,19 +20,19 @@
 		</collection>
 	</resultMap>
 	
-	<resultMap type="org.zerock.domain.AuthVO" id="authMap">
+	<resultMap type="com.finder.domain.AuthVO" id="authMap">
 		<result property="userid" column="memberid"/>
 		<result property="auth" column="auth"/>
 		
 	</resultMap>
 
-	<select id="loginCheck" resultType="String" parameterType="org.zerock.domain.MemberVO">
+	<select id="loginCheck" resultType="String" parameterType="com.finder.domain.MemberVO">
 		<![CDATA[
 		select email from member where pid = #{pid} AND passwd = #{passwd}
 		]]>
 	</select>
 	
-	<select id="viewMember" resultType="org.zerock.domain.MemberVO" parameterType="org.zerock.domain.MemberVO">
+	<select id="viewMember" resultType="com.finder.domain.MemberVO" parameterType="com.finder.domain.MemberVO">
 		SELECT
 			pid, email, passwd, phoneNumber, registerdate, updatedate, enabled
 		FROM member
@@ -61,7 +61,7 @@
 	</update>
 
 	<!--
-	<insert id="insertSelectKey" parameterType="org.zerock.domain.CCTVVO">
+	<insert id="insertSelectKey" parameterType="com.finder.domain.CCTVVO">
 		<selectKey keyProperty="pid" order="BEFORE" resultType="String">
 			select seq_board.nextval from dual
 		</selectKey>

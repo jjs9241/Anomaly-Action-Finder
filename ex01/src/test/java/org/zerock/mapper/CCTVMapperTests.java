@@ -6,10 +6,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import com.finder.domain.CCTVVO;
+import com.finder.mapper.CCTVMapper;
+
 import lombok.Setter;
 import lombok.extern.log4j.Log4j;
-
-import org.zerock.domain.CCTVVO;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("file:src/main/webapp/WEB-INF/spring/root-context.xml")

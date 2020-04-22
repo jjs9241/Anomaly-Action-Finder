@@ -61,7 +61,7 @@
                             <!--<span>Q&A</span>-->
                             <ul>
                                 <li>Q&A</li>
-                                <li><a href="#">문의하기</a></li>
+                                <li><a href="/qa">문의하기</a></li>
                             </ul>
                         </div>
                     </div>
@@ -103,7 +103,7 @@
                                     <td class="address"><c:out value="${store.ip}"/></td>
                                     <td class="rate"><c:out value="${store.ip}"/></td>
                                     <td class="edit">                                                       
-                                        <a href="#" class="mr-2"><i class="fas fa-edit text-info"></i></a>
+                                        <a href="/modifyStore" class="mr-2"><i class="fas fa-edit text-info"></i></a>
                                         <a href="#"><i class="fas fa-trash-alt text-danger"></i></a>
                                     </td>
                 				</div>
@@ -117,7 +117,7 @@
                                     <td class="address">경기도 부천시 dlkfjaldsjfalksdjflkajsdfl;jadsl;fk</td>
                                     <td class="rate">0.1%</td>
                                     <td class="edit">                                                       
-                                        <a href="#" class="mr-2"><i class="fas fa-edit text-info"></i></a>
+                                        <a href="/modifyStore" class="mr-2"><i class="fas fa-edit text-info"></i></a>
                                         <a href="#"><i class="fas fa-trash-alt text-danger"></i></a>
                                     </td>
                                 </tr>
@@ -129,7 +129,7 @@
                                     <td class="address">서울특별시 강남구 adslkfjaldsjflasdjflkajsdl;faj</td>
                                     <td class="rate">0.1%</td>
                                     <td class="edit">                                                       
-                                        <a href="#" class="mr-2"><i class="fas fa-edit text-info font-16"></i></a>
+                                        <a href="/modifyStore" class="mr-2"><i class="fas fa-edit text-info font-16"></i></a>
                                         <a href="#"><i class="fas fa-trash-alt text-danger font-16"></i></a>
                                     </td>
                                 </tr>
@@ -141,7 +141,7 @@
                                     <td class="address">인천광영시 부평구 adsfaldsfjlasdjflajdsflajdslfa</td>
                                     <td class="rate">0.1%</td>
                                     <td class="edit">                                                       
-                                        <a href="#" class="mr-2"><i class="fas fa-edit text-info font-16"></i></a>
+                                        <a href="/modifyStore" class="mr-2"><i class="fas fa-edit text-info font-16"></i></a>
                                         <a href="#"><i class="fas fa-trash-alt text-danger font-16"></i></a>
                                     </td>
                                 </tr>
@@ -153,7 +153,7 @@
                                     <td class="address">인천광영시 부평구 adsfaldsfjlasdjflajdsflajdslfa</td>
                                     <td class="rate">0.1%</td>
                                     <td class="edit">                                                       
-                                        <a href="#" class="mr-2"><i class="fas fa-edit text-info font-16"></i></a>
+                                        <a href="/modifyStore" class="mr-2"><i class="fas fa-edit text-info font-16"></i></a>
                                         <a href="#"><i class="fas fa-trash-alt text-danger font-16"></i></a>
                                     </td>
                                 </tr>
@@ -165,7 +165,7 @@
                                     <td class="address">인천광영시 부평구 adsfaldsfjlasdjflajdsflajdslfa</td>
                                     <td class="rate">0.1%</td>
                                     <td class="edit">                                                       
-                                        <a href="#" class="mr-2"><i class="fas fa-edit text-info font-16"></i></a>
+                                        <a href="/modifyStore" class="mr-2"><i class="fas fa-edit text-info font-16"></i></a>
                                         <a href="#"><i class="fas fa-trash-alt text-danger font-16"></i></a>
                                     </td>
                                 </tr>

@@ -41,4 +41,20 @@ public class UhuiTempController {
 	public String indexCCTV(Model model) throws Exception{			
 		return "indexCCTV";		
 	}
+	
+	@RequestMapping(value = "/registerCCTV", method = RequestMethod.GET)
+	public String registerCCTV(Model model) throws Exception{			
+		return "registerCCTV";		
+	}
+	
+
+	@RequestMapping(value = "/modifyCCTV", method = RequestMethod.GET)
+	public String modifyCCTV(Model model) throws Exception{			
+		return "modifyCCTV";		
+	}
+	
+	@RequestMapping(value = "/modifyStore", method = RequestMethod.GET)
+	public String modifyStore(Model model) throws Exception{			
+		return "modifyStore";		
+	}
 }

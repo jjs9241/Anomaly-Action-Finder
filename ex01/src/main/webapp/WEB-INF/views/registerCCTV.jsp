@@ -9,7 +9,7 @@
     <link href="<c:url value="/resources/css/style.css" />" rel="stylesheet">
     <link href="<c:url value="/resources/css/reset.css" />" rel="stylesheet">
     <link href="<c:url value="/resources/css/managecctv.css" />" rel="stylesheet">
-    <link href="<c:url value="/resources/css/createshop.css" />" rel="stylesheet">
+    <link href="<c:url value="/resources/css/createCCTV.css" />" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=PT+Sans:700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Nanum+Pen+Script&display=swap" rel="stylesheet">
@@ -72,37 +72,35 @@
             </div>
             <!--//side-->
             <div id="content">
-                <h2>Store 등록</h2>
+                <h2>CCTV 등록</h2>
                 <div class="formwrap">
-                    <form action="/registerStore" method="post" encType="multiplart/form-data">
+                    <form action="/registerCCTV" method="post" encType="multiplart/form-data">
                         <div class="row">
                             <span>No :</span><input type="text" name="number" value="6" readonly/>
                         </div>
                         <div class="row">
-                            <span>Store Name :</span><input id="name" type="text" placeholder="이름을 입력하세요. " name="name">
+                            <span>CCTVID :</span><input id="name" type="text" value="CAM1" name="cctv_id" readonly>
                         </div>
                         <div class="row">
-                            <span>Store IP :</span><input type="text" placeholder="서버 IP를 입력하세요" name="store_ip" />
+                            <span>Hostname :</span><input type="text" placeholder="서버 IP를 입력하세요" name="cctv_ip" />
                         </div>
                         <div class="row">
-                            <span>Store ID :</span><input type="text" value="1234" name="store_id"  readonly/>
-                        </div>
-                        <div class="row">
-                            <span>Address :</span><input id="address" type="text" placeholder="주소를 입력하세요" name="address"/>
-                        </div>
-                        <div class="row">
-                            <span>Rate :</span><input type="text" value="0%" name="rate"  readonly/>
+                            <span>Description :</span>
+                            <!--  <textarea id="story" name="story"rows="4" cols="59">
+								cctv에 대한 설명을 입력하세요
+							</textarea>-->
+                            <input type="text" placeholder="cctv에 대한 설명을 입력하세요" name="description"/>
                         </div>
                         <div class="btn_container">
                             <input type="submit" value="등록" class="btn1"/>
                             <input type="reset" value="reset" class="btn2"/>
-                            <input id = "gotostorelist" type="button" value="글 목록으로" class="btn3"/>
+                            <input id = "gotocctvlist" type="button" value="글 목록으로" class="btn3"/>
                         </div>
                     </form>
                 </div>
             <!--//content-->
         </div>  
     <script type="text/javascript"src="<c:url value="/resources/js/common.js" />"></script>
-    <script type="text/javascript"src="<c:url value="/resources/js/register.js" />"></script>
+    <script type="text/javascript"src="<c:url value="/resources/js/registerCCTV.js" />"></script>
 </body>
 </html>

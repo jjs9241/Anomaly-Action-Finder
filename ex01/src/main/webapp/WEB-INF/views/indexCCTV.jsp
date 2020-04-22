@@ -132,7 +132,7 @@
 		                                    <td class="address"><c:out value="${cctv.address}"/></td>
 		                                    <td class="rate"><c:out value="${cctv.ip}"/></td>
 		                                    <td class="edit">                                                       
-		                                        <a href="#" class="mr-2"><i class="fas fa-edit text-info"></i></a>
+		                                        <a href="/modifyCCTV" class="mr-2"><i class="fas fa-edit text-info"></i></a>
 		                                        <a href="#"><i class="fas fa-trash-alt text-danger"></i></a>
 		                                    </td>
 			                            </div>
@@ -144,7 +144,7 @@
                                             <td class="host">Hostname</td>
                                             <td class="des">오른쪽 위1</td>
                                             <td class="edit">                                                       
-                                                <a href="#" class="mr-2"><i class="fas fa-edit text-info"></i></a>
+                                                <a href="/modifyCCTV" class="mr-2"><i class="fas fa-edit text-info"></i></a>
                                                 <a href="#"><i class="fas fa-trash-alt text-danger"></i></a>
                                             </td>
                                         </tr>
@@ -154,7 +154,7 @@
                                             <td class="host">Hostname</td>
                                             <td class="des">오른쪽 위2</td>
                                             <td class="edit">                                                       
-                                                <a href="#" class="mr-2"><i class="fas fa-edit text-info font-16"></i></a>
+                                                <a href="/modifyCCTV" class="mr-2"><i class="fas fa-edit text-info font-16"></i></a>
                                                 <a href="#"><i class="fas fa-trash-alt text-danger font-16"></i></a>
                                             </td>
                                         </tr>
@@ -164,7 +164,7 @@
                                             <td class="host">Hostname</td>
                                             <td class="des">왼쪽 위1</td>
                                             <td class="edit">                                                       
-                                                <a href="#" class="mr-2"><i class="fas fa-edit text-info font-16"></i></a>
+                                                <a href="/modifyCCTV" class="mr-2"><i class="fas fa-edit text-info font-16"></i></a>
                                                 <a href="#"><i class="fas fa-trash-alt text-danger font-16"></i></a>
                                             </td>
                                         </tr>
@@ -174,7 +174,7 @@
                                             <td class="host">Hostname</td>
                                             <td class="des">왼쪽 위2</td>
                                             <td class="edit">                                                       
-                                                <a href="#" class="mr-2"><i class="fas fa-edit text-info font-16"></i></a>
+                                                <a href="/modifyCCTV" class="mr-2"><i class="fas fa-edit text-info font-16"></i></a>
                                                 <a href="#"><i class="fas fa-trash-alt text-danger font-16"></i></a>
                                             </td>
                                         </tr>
@@ -184,7 +184,7 @@
                                             <td class="host">Hostname</td>
                                             <td class="des">Description</td>
                                             <td class="edit">                                                       
-                                                <a href="#" class="mr-2"><i class="fas fa-edit text-info font-16"></i></a>
+                                                <a href="/modifyCCTV" class="mr-2"><i class="fas fa-edit text-info font-16"></i></a>
                                                 <a href="#"><i class="fas fa-trash-alt text-danger font-16"></i></a>
                                             </td>
                                         </tr>
@@ -194,7 +194,7 @@
                                             <td class="host">Hostname</td>
                                             <td class="des">Description</td>
                                             <td class="edit">                                                       
-                                                <a href="#" class="mr-2"><i class="fas fa-edit text-info font-16"></i></a>
+                                                <a href="/modifyCCTV" class="mr-2"><i class="fas fa-edit text-info font-16"></i></a>
                                                 <a href="#"><i class="fas fa-trash-alt text-danger font-16"></i></a>
                                             </td>
                                         </tr>
@@ -204,7 +204,7 @@
                                             <td class="host">Hostname</td>
                                             <td class="des">Description</td>
                                             <td class="edit">                                                       
-                                                <a href="#" class="mr-2"><i class="fas fa-edit text-info font-16"></i></a>
+                                                <a href="/modifyCCTV" class="mr-2"><i class="fas fa-edit text-info font-16"></i></a>
                                                 <a href="#"><i class="fas fa-trash-alt text-danger font-16"></i></a>
                                             </td>
                                         </tr>
@@ -214,7 +214,7 @@
                                             <td class="host">Hostname</td>
                                             <td class="des">Description</td>
                                             <td class="edit">                                                       
-                                                <a href="#" class="mr-2"><i class="fas fa-edit text-info font-16"></i></a>
+                                                <a href="/modifyCCTV" class="mr-2"><i class="fas fa-edit text-info font-16"></i></a>
                                                 <a href="#"><i class="fas fa-trash-alt text-danger font-16"></i></a>
                                             </td>
                                         </tr>               
@@ -227,7 +227,7 @@
                                         <li class="num2"><a href="#">2</a></li>
                                         <li class="next2"><a href="#"><i class="fas fa-chevron-right"></i></a></li>
                                     </ul>
-                                    <button class="addcctv" type="button"><a href=""><i class="fas fa-plus-circle"></i>Add New CCTV</a></button>
+                                    <button class="addcctv" type="button"><a href="/registerCCTV"><i class="fas fa-plus-circle"></i>Add New CCTV</a></button>
                                 </div>
                             </div>
                         </div>

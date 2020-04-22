@@ -26,7 +26,7 @@
         </ul>
         <div class="user_ele hide">
             <div class="user_name">
-                <div class="user_icon2"></div>
+                <div class="user_icon2"><img src="" alt=""></div>
                 <h2>Valerie Luna</h2>
                 <p>vluna@aol.com<p>
             </div>
@@ -72,7 +72,7 @@
             </div>
             <!--//side-->
             <div id="content">
-                <h2>Store 등록</h2>
+                <h2>Store 수정</h2>
                 <div class="formwrap">
                     <form action="/registerStore" method="post" encType="multiplart/form-data">
                         <div class="row">
@@ -94,7 +94,7 @@
                             <span>Rate :</span><input type="text" value="0%" name="rate"  readonly/>
                         </div>
                         <div class="btn_container">
-                            <input type="submit" value="등록" class="btn1"/>
+                            <input type="submit" value="수정" class="btn1"/>
                             <input type="reset" value="reset" class="btn2"/>
                             <input id = "gotostorelist" type="button" value="글 목록으로" class="btn3"/>
                         </div>

@@ -28,7 +28,7 @@
         </ul>
         <div class="user_ele hide">
             <div class="user_name">
-                <div class="user_icon2"><img src="" alt=""></div>
+                <div class="user_icon2"></div>
                 <h2>Valerie Luna</h2>
                 <p>vluna@aol.com<p>
             </div>

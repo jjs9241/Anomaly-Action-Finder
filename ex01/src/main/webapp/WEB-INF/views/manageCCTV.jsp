@@ -21,8 +21,8 @@
     <div id="header">
         <a href="#"><img src="/resources/img/logo_b.png" alt="로고"></a>
         <ul class="navbar">
-        	<li class="logout"><a href="/login/login"><i class="fa fa-sign-out fa-fw"></i>Logout</a></li>
         	<!--
+        	<li class="logout"><a href="/login/login"><i class="fa fa-sign-out fa-fw"></i>Logout</a></li>
         	<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
         	-->
         	<li class="notice"><a href="#"></a></li>

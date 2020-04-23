@@ -72,7 +72,7 @@ class twostream_FinalModel():
         return model
 
     def predict(self, input_img):
-        action = -1
+        pred_value = -1
         presentTime = datetime.now() 
         frame_x = cv2.resize(input_img.copy(), (self.before_IMG_WIDTH, self.before_IMG_HEIGHT))
         frame_x = cv2.cvtColor(frame_x.copy(), cv2.COLOR_BGR2RGB)
@@ -112,7 +112,8 @@ class twostream_FinalModel():
                 if self.img_list.shape[0] == self.nbFrame:
                     # 딥러닝 예측 부분
                     with self.graph.as_default():
-                        action = self.classes[np.argmax(self.model.predict(np.expand_dims(self.img_list, axis=0))[0])]
+                        pred_value = np.argmax(self.model.predict(np.expand_dims(self.img_list, axis=0))[0])
+                        action = self.classes[pred_value]
 
                     cv2.putText(input_img, str(presentTime)[:-7] +"   "+ action, (self.fontPosition_X, self.fontPosition_Y), cv2.FONT_HERSHEY_SIMPLEX,
                              self.fontScale, (0, 0, 255), 2)
@@ -122,7 +123,8 @@ class twostream_FinalModel():
                 if self.optical_img_list.shape[0] == self.nbFrame:
                     # 딥러닝 예측 부분
                     with self.graph.as_default():
-                        action = self.classes[np.argmax(self.model.predict([np.expand_dims(self.img_list, axis=0), np.expand_dims(self.optical_img_list, axis=0)])[0])]
+                        pred_value = np.argmax(self.model.predict([np.expand_dims(self.img_list, axis=0), np.expand_dims(self.optical_img_list, axis=0)])[0])
+                        action = self.classes[pred_value]
 
                     cv2.putText(input_img, str(presentTime)[:-7] +"   "+ action, (self.fontPosition_X, self.fontPosition_Y), cv2.FONT_HERSHEY_SIMPLEX,
                              self.fontScale, (0, 0, 255), 2)
@@ -131,7 +133,7 @@ class twostream_FinalModel():
         #     self.frame_rate = 0
         #     presentTime += timedelta(seconds = 1)
         self.frame_rate += 1
-        return input_img, action
+        return input_img, pred_value
     
     # source : https://github.com/OanaIgnat/i3d_keras/blob/e62e834f0d0ad90d4de1b067ac6dc55a33d03969/src/preprocess.py#L46
     def crop_center(self, img):

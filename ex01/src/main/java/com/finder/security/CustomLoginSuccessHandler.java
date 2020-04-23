@@ -46,6 +46,7 @@ implements AuthenticationSuccessHandler{
 		}
 		String errMsg = URLEncoder.encode("아이디 또는 비밀번호가 일치하지 않습니다.","UTF-8");
 		log.warn("errMsg : " + errMsg);
-		res.sendRedirect("/login/login?errMsg="+errMsg);
+//		res.sendRedirect("/login/login?errMsg="+errMsg);
+		res.sendRedirect("/login?errMsg="+errMsg);
 	}
 }

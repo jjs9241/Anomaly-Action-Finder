@@ -66,12 +66,8 @@
 //                     xhr.setRequestHeader(csrfHeader, csrfToken);
 //                 }  
 //             })
-			console.log("param : ", params)
-			console.log("form : ",$("form").serializeArray());
-            var params = {
-            		username : $('#username').val(),
-            		password :  $('#password').val()
-            }
+			var params = $("form").serializeArray();
+            
             $.ajax({
 //                 url : "${pageContext.request.contextPath}/user/process",
                 url : "/login/process",

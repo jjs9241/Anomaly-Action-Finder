@@ -58,7 +58,6 @@ public class LoginController {
 	@RequestMapping(value = "/login", method= RequestMethod.GET)
 	public ModelAndView loginPage(HttpServletRequest req, HttpServletResponse res) throws Exception {
 	
-		System.out.println("로그인 컨트롤러");
 		ModelAndView mav = new ModelAndView();
 		//String errMsg = URLEncoder.encode(req.getParameter("errMsg"),"UTF-8");
 		String errMsg = req.getParameter("errMsg");
@@ -81,6 +80,7 @@ public class LoginController {
 		logger.info("get login");
 		
 		mav.setViewName("login");
+//		mav.setViewName("home");
 		return mav;
 	}
 	

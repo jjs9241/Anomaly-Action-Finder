@@ -33,6 +33,8 @@
     	<result property="managerId" column="managerid"/>
     	<result property="ip" column="ip"/>
     	<result property="address" column="address"/>
+    	<result property="latitude" column="latitude"/>
+    	<result property="longitude" column="longitude"/>
     	<result property="rate" column="rate"/>
     	<collection property="cctvUrlList" column="pid" javaType="java.util.ArrayList" ofType="String" select="getUrlListById"/>
 	</resultMap>
@@ -42,7 +44,7 @@
 	
 	<select id="getStore" resultMap="storeMap" parameterType="String">
 		SELECT
-			pid, storename, managerid, ip, address, rate
+			pid, storename, managerid, ip, address, rate, latitude, longitude
 		FROM store WHERE pid = #{pid}
 	</select>
 	

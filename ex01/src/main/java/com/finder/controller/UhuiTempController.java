@@ -25,12 +25,12 @@ public class UhuiTempController {
 		return "strange";
 	}
 	
-	@RequestMapping(value = "/map", method = RequestMethod.GET)
-	public String map(Model model) throws Exception{
-			
-		return "map";
-		
-	}
+//	@RequestMapping(value = "/map", method = RequestMethod.GET)
+//	public String map(Model model) throws Exception{
+//			
+//		return "map";
+//		
+//	}
 	
 	@RequestMapping(value = "/qa", method = RequestMethod.GET)
 	public String qa(Model model) throws Exception{			

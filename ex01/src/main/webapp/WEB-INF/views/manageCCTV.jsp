@@ -35,7 +35,7 @@
                 <div class="cctv">
                     <span>CCTV</span>
                     <ul>
-                        <li><a href="/indexStore">CCTV 관리</a></li>
+                        <li><a href="/stores">CCTV 관리</a></li>
                     </ul>
                 </div>
                 <div class="qa">

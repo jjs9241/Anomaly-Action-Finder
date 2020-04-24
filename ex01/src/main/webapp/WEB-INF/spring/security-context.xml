@@ -23,8 +23,8 @@
 		
 		<security:intercept-url pattern="/login/**" access="permitAll"/>
 		<security:intercept-url pattern="/manageCCTV/**" access="hasRole('ROLE_USER')"/>
-		<security:intercept-url pattern="/indexStore/**" access="hasRole('ROLE_USER')"/>
-		<security:intercept-url pattern="/indexCCTV/**" access="hasRole('ROLE_USER')"/>
+		<security:intercept-url pattern="/stores/**" access="hasRole('ROLE_USER')"/>
+		<security:intercept-url pattern="/cctvs/**" access="hasRole('ROLE_USER')"/>
 		<security:intercept-url pattern="/qa/**" access="hasRole('ROLE_USER')"/>
 		<security:intercept-url pattern="/registerStore/**" access="hasRole('ROLE_USER')"/>
 		<security:intercept-url pattern="/puserPage/**" access="hasRole('ROLE_MANAGER')"/>

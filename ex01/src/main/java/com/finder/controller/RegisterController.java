@@ -21,14 +21,17 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.inject.Inject;
 
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestBody;
 
 import com.finder.domain.CCTVVO;
 import com.finder.domain.MemberVO;
@@ -50,41 +53,60 @@ import org.springframework.web.servlet.support.RequestContextUtils;
 @Controller
 public class RegisterController {
 	
-	private static final Logger logger = LoggerFactory.getLogger(ManageCCTVController.class);
+	private static final Logger logger = LoggerFactory.getLogger(RegisterController.class);
 	
 	@Inject
 	private StoreService storeService;
 	
+	static String md5(String s) {
+        java.security.MessageDigest md;
+        try { md = java.security.MessageDigest.getInstance("MD5"); }
+        catch (Exception e) { return null; }
+        md.update(s.getBytes());
+        String result = (new java.math.BigInteger(1, md.digest())).toString(16);
+        while(result.length()<32) { result = "0" + result; }
+        return result;
+    }
+	
 	@RequestMapping(value = "/registerStore", method = RequestMethod.GET)
-	public ModelAndView registerStore(HttpServletRequest req, HttpServletResponse res, HttpSession session, Authentication auth) throws Exception {
+	public ModelAndView registerStore(HttpServletRequest req, HttpServletResponse res, HttpSession session, Authentication auth, @RequestParam String no) throws Exception {
 		
-		MemberVO member = new MemberVO();
 		ModelAndView mav = new ModelAndView();
-		String currentUserName = SecurityContextHolder.getContext().getAuthentication().getName();
-		member.setPid(currentUserName);
-		logger.info(currentUserName);
-		logger.info("auth : "+auth);
+		logger.info("no : "+no);
 		
-		StoreVO store = new StoreVO();
+//		store.setPid(req.getParameter("field"));
 		
-		store.setPid(req.getParameter("field"));
-		
-		boolean success = false;
-		
-		try {
-			success = storeService.register(store);
-			
-		} catch(Exception exception) {
-			mav.setViewName("registerStore");
-		}
+		mav.addObject("no", no);
+		mav.setViewName("registerStore");
 		return mav;
 	}
 		
 	@RequestMapping(value = "/registerStore", method = RequestMethod.POST)
-	public ModelAndView postStore(HttpServletRequest req, HttpServletResponse res, HttpSession session) throws Exception {
-		ModelAndView mav = new ModelAndView();
+	public void postStore(StoreVO storeVO,
+			HttpServletRequest req, HttpServletResponse res, HttpSession session, Authentication auth) throws Exception {
+
 		
-		return mav;
+//		logger.info("storeVO : "+storeVO);
+//		logger.info("storeVO : "+new String(storeVO.getStoreName().getBytes("8859_1"),"utf-8"));
+//		logger.info("storeVO : "+storeVO.getIp());
+//		logger.info("storeVO : "+new String(storeVO.getAddress().getBytes("8859_1"),"utf-8"));
+//		logger.info("storeVO.getStoreName() : "+new String(StringUtils.is .nvl().getBytes("8859_1"),"utf-8"));
+		
+		storeVO.setStoreName(new String(storeVO.getStoreName().getBytes("8859_1"),"utf-8"));
+		storeVO.setAddress(new String(storeVO.getAddress().getBytes("8859_1"),"utf-8"));
+		storeVO.setPid(md5(storeVO.getStoreName()));
+		storeVO.setManagerId(auth.getName());
+//		logger.info("md5 : "+md5(storeVO.getStoreName()));
+		
+		logger.info("after storeVO : "+storeVO);
+		
+		try {
+			storeService.register(storeVO);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		res.sendRedirect("/stores");
 		//req.setAttribute("storeList", storeList);
 		//mav.addObject("storeList", storeList);
 		
@@ -95,7 +117,7 @@ public class RegisterController {
 		if (success) {
 			PrintWriter out = res.getWriter();
         	 
-        	out.println("<script>alert('매장이 등록 되었습니다'); location.href='/indexStore';</script>");
+        	out.println("<script>alert('매장이 등록 되었습니다'); location.href='/stores';</script>");
         	 
         	out.flush();
 			mav.setViewName("indexStore");

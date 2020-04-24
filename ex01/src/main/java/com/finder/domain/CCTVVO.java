@@ -13,5 +13,6 @@ public class CCTVVO {
 	private double longitude;
 	private String cctvName;
 	private String ip;
+	private String description;
 	
 }

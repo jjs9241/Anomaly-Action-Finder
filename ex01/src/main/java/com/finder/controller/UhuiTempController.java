@@ -37,7 +37,7 @@ public class UhuiTempController {
 		return "q&a";		
 	}
 	
-	@RequestMapping(value = "/indexCCTV", method = RequestMethod.GET)
+	@RequestMapping(value = "/cctvs", method = RequestMethod.GET)
 	public String indexCCTV(Model model) throws Exception{			
 		return "indexCCTV";		
 	}

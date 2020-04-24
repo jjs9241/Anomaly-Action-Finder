@@ -10,7 +10,13 @@
 
 	<select id="viewStore" resultType="com.finder.domain.StoreVO" parameterType="com.finder.domain.StoreVO">
 		SELECT
-			pid, storename, managerid, ip from store where pid = #{pid}
+			pid, storename, managerid, ip, address, rate from store where pid = #{pid}
+	</select>
+	
+	<select id="viewStoreById" resultType="com.finder.domain.StoreVO" >
+		SELECT pid, storename, managerid, ip, address, rate 
+		  FROM store 
+		 WHERE pid = #{pid}
 	</select>
 
 	<select id="getURLList" resultType="com.finder.domain.StoreVO">
@@ -26,6 +32,8 @@
     	<result property="storeName" column="storename"/>
     	<result property="managerId" column="managerid"/>
     	<result property="ip" column="ip"/>
+    	<result property="address" column="address"/>
+    	<result property="rate" column="rate"/>
     	<collection property="cctvUrlList" column="pid" javaType="java.util.ArrayList" ofType="String" select="getUrlListById"/>
 	</resultMap>
  	<select id="getUrlListById" resultType="String">
@@ -34,7 +42,7 @@
 	
 	<select id="getStore" resultMap="storeMap" parameterType="String">
 		SELECT
-			pid, storename, managerid, ip
+			pid, storename, managerid, ip, address, rate
 		FROM store WHERE pid = #{pid}
 	</select>
 	
@@ -45,8 +53,9 @@
 		]]>
 	</select>
 	
-	<insert id="insert" parameterType="com.finder.domain.StoreVO">
-		insert into store(pid, storename, managerid, ip) values(#{pid}, #{storename}, #{managerid}, #{ip})
+	<insert id="register" parameterType="com.finder.domain.StoreVO">
+		insert into store (pid, storename, managerid, ip, address, latitude, longitude) 
+		values (#{pid}, #{storeName}, #{managerId}, #{ip}, #{address}, #{latitude}, #{longitude} )
 	</insert>
 
 	

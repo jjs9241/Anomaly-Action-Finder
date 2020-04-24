@@ -77,47 +77,22 @@
                         </tr>
                     </thead>
                     <tbody>
-                    	
                     	<sec:authorize access="isAuthenticated()">
-                    	<c:forEach items="${storeList}" var="store">
-                    	<div class="store">
-            				<td class="number"><c:out value="${store.ip}"/></td>
-                            <td class="name"><c:out value="${store.storeName}"/></td>
+                    	<c:forEach items="${storeList}" var="store" varStatus="status">
+                    	<tr class="store">
+            				<td class="number"><c:out value="${status.count}"/></td>
+                            <td class="name"><a href="/stores/${store.pid}/cctvs"> <c:out value="${store.storeName}"/></a> </td>
                             <td class="stored_ip"><c:out value="${store.ip}"/></td>
-                            <td class="stored_id"><c:out value="${store.ip}"/></td>                                    
-                            <td class="address"><c:out value="${store.ip}"/></td>
+                            <td class="stored_id"><c:out value="${store.pid}"/></td>                                    
+                            <td class="address"><c:out value="${store.address}"/></td>
                             <td class="rate"><c:out value="${store.ip}"/></td>
                             <td class="edit">                                                       
                                 <a href="/modifyStore" class="mr-2"><i class="fas fa-edit text-info"></i></a>
                                 <a href="#"><i class="fas fa-trash-alt text-danger"></i></a>
                             </td>
-        				</div>
+        				</tr>
         				</c:forEach>
         				</sec:authorize>
-                         <tr>
-                            <td class="number">1</td>
-                            <td class="name"><a href="/indexCCTV">super</a></td>
-                            <td class="stored_ip">1234566</td>
-                            <td class="stored_id">1234</td>
-                            <td class="address">경기도 부천시 dlkfjaldsjfalksdjflkajsdfl;jadsl;fk</td>
-                            <td class="rate">0.1%</td>
-                            <td class="edit">                                                       
-                                <a href="/modifyStore" class="mr-2"><i class="fas fa-edit text-info"></i></a>
-                                <a href="#"><i class="fas fa-trash-alt text-danger"></i></a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td class="name"><a href="/indexCCTV">mart</a></td>
-                            <td class="stored_ip">IP</td>
-                            <td class="stored_id">Store ID</td>
-                            <td class="address">서울특별시 강남구 adslkfjaldsjflasdjflkajsdl;faj</td>
-                            <td class="rate">0.1%</td>
-                            <td class="edit">                                                       
-                                <a href="/modifyStore" class="mr-2"><i class="fas fa-edit text-info font-16"></i></a>
-                                <a href="#"><i class="fas fa-trash-alt text-danger font-16"></i></a>
-                            </td>
-                        </tr>
                         <tr>
                             <td>3</td>
                             <td class="name"><a href="/indexCCTV">shop</a></td>
@@ -163,11 +138,17 @@
                         <li class="num"><a href="#">2</a></li>
                         <li class="next"><a href="#">Next</a></li>
                     </ul>
-                    <button type="button"><a href="/registerStore"><i class="fas fa-plus-circle"></i>Add New Store</a></button>
+                    <button type="button"><a href="/registerStore?no=${storeList.size()+1}"><i class="fas fa-plus-circle"></i>Add New Store</a></button>
                 </div>
             </div>
         <!--//content-->
     </div>  
     <script type="text/javascript"src="<c:url value="/resources/js/common.js" />"></script>
+    <script type="text/javascript">
+    
+        document.addEventListener("DOMContentLoaded", function(event) { 
+<!--             docuemnt.getEl -->
+        });
+    </script>
 </body>
 </html>

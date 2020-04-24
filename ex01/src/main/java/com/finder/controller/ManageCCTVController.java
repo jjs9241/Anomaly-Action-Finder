@@ -65,7 +65,7 @@ public class ManageCCTVController {
 		ModelAndView mav = new ModelAndView();
 		String currentUserName = SecurityContextHolder.getContext().getAuthentication().getName();
 		vo.setPid(currentUserName);
-		logger.info(currentUserName);
+//		logger.info(currentUserName);
 		
 		//String userid = userDetails.getUserid();
 		//vo.setPid(userid);
@@ -98,7 +98,7 @@ public class ManageCCTVController {
 		//vo.setPid((String)req.getAttribute("id"));
 		//vo.setPid((String)map.asMap().get("flashMemberId"));
 		
-		logger.info(vo.getPid());
+//		logger.info(vo.getPid());
 		
 		mav.setViewName("manageCCTV");
 		

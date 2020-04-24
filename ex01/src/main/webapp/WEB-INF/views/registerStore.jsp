@@ -56,33 +56,34 @@
             <!--//footer-->
         </div>
         <!--//side-->
-        <div id="content">
+        <div id="content" >
             <h2>Store 등록</h2>
-            <div class="formwrap">
-                <form action="/registerStore" method="post" encType="multiplart/form-data">
+            <div class="formwrap" style="height: 400px;margin-top: 0px;">
+                <form action="/registerStore" method="post" >
                     <div class="row">
-                        <span>No :</span><input type="text" name="number" value="6" readonly/>
+                        <span>No :</span><input type="text" name="number" value="${no}" readonly/>
                     </div>
                     <div class="row">
-                        <span>Store Name :</span><input id="name" type="text" placeholder="이름을 입력하세요. " name="name">
+                        <span>Store Name :</span><input id="storeName" type="text" placeholder="이름을 입력하세요. " name="storeName">
                     </div>
                     <div class="row">
-                        <span>Store IP :</span><input type="text" placeholder="서버 IP를 입력하세요" name="store_ip" />
+                        <span>Store IP :</span><input type="text" placeholder="매장 서버 IP를 입력하세요" name="ip" />
                     </div>
-                    <div class="row">
-                        <span>Store ID :</span><input type="text" value="1234" name="store_id"  readonly/>
-                    </div>
+<!--                     <div class="row"> -->
+<!--                         <span>Store ID :</span><input type="text" value="1234" name="store_id"  readonly/> -->
+<!--                     </div> -->
                     <div class="row">
                         <span>Address :</span><input id="address" type="text" placeholder="주소를 입력하세요" name="address"/>
                     </div>
-                    <div class="row">
-                        <span>Rate :</span><input type="text" value="0%" name="rate"  readonly/>
-                    </div>
+<!--                     <div class="row"> -->
+<!--                         <span>Rate :</span><input type="text" value="0%" name="rate"  readonly/> -->
+<!--                     </div> -->
                     <div class="btn_container">
                         <input type="submit" value="등록" class="btn1"/>
                         <input type="reset" value="reset" class="btn2"/>
                         <input id = "gotostorelist" type="button" value="글 목록으로" class="btn3"/>
                     </div>
+                    <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
                 </form>
             </div>
         <!--//content-->

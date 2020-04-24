@@ -10,6 +10,8 @@ public interface StoreService {
 	public List<CCTVVO> getCCTVList(StoreVO vo);
 	
 	public StoreVO viewStore(StoreVO vo);
+
+	public StoreVO getStore(String storeId);
 	
 	public boolean modify(StoreVO store);
 	
@@ -18,4 +20,6 @@ public interface StoreService {
 	public boolean register(StoreVO store);
 	
 	public String getManagerId(String storeId);
+	
+	
 }

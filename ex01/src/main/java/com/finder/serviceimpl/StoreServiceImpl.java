@@ -83,4 +83,9 @@ private static final Logger logger = LoggerFactory.getLogger(LoginController.cla
 	public StoreVO getStore(String storeId) {
 		return storeMapper.getStore(storeId);
 	}
+	
+	@Override
+	public boolean registCCTV(CCTVVO cctvVO) {
+		return cctvMapper.insert(cctvVO);
+	}
 }

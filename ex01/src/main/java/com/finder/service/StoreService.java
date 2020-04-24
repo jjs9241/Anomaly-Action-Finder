@@ -21,5 +21,5 @@ public interface StoreService {
 	
 	public String getManagerId(String storeId);
 	
-	
+	public boolean registCCTV(CCTVVO cctvVO);
 }

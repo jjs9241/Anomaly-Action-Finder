@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://www.springframework.org/security/tags" prefix="sec" %>
 	 <div id="header">
-	    <a href="#"><img src="/resources/img/logo_b.png" alt="로고"></a>
+	    <a href="/"><img src="/resources/img/logo_b.png" alt="로고"></a>
 	    <ul class="navbar">
 	    	<li class="user_icon"><a href="#"></a></li>
 	        <li class="notice"><i class="far fa-bell"></i></li>    

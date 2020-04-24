@@ -88,8 +88,8 @@
 	                         <c:forEach items="${cctvList}" var="cctv" varStatus="status">
 	                         <tr class="cctv">
 		                         <td class="number"><c:out value="${status.count}"/></td>
-		                         <td class="name"><c:out value="${cctv.cctvName}"/></td>
-		                         <td class="host"><c:out value="${cctv.ip}"/></td>
+		                         <td class="name"><c:out value="${cctv.pid}"/></td>
+		                         <td class="host"><c:out value="${cctv.hostName}"/></td>
 		                         <td class="des"><c:out value="${cctv.description}"/></td>
 		                         <td class="edit">                                                       
 		                             <a href="/modifyCCTV" class="mr-2"><i class="fas fa-edit text-info"></i></a>
@@ -108,7 +108,7 @@
                                 <li class="num2"><a href="#">2</a></li>
                                 <li class="next2"><a href="#"><i class="fas fa-chevron-right"></i></a></li>
                             </ul>
-                            <button class="addcctv" type="button"><a href="/registerCCTV"><i class="fas fa-plus-circle"></i>Add New CCTV</a></button>
+                            <button class="addcctv" type="button"><a href="/registerCCTV?no=${cctvList.size()+1}&storeId=${store.pid}"><i class="fas fa-plus-circle"></i>Add New CCTV</a></button>
                         </div>
                     </div>
                 </div>

@@ -134,6 +134,73 @@ public class RegisterController {
 		return mav;*/
 	}
 	
+	@RequestMapping(value = "/registerCCTV", method = RequestMethod.GET)
+	public ModelAndView registerCCTVpage( @RequestParam String no,
+			 							 @RequestParam String storeId,
+			HttpServletRequest req, HttpServletResponse res, HttpSession session, Authentication auth) throws Exception {
+		
+		ModelAndView mav = new ModelAndView();
+		logger.info("no : "+no);
+		
+//		store.setPid(req.getParameter("field"));
+		
+		mav.addObject("no", no);
+		mav.addObject("cctvId", md5(no+storeId));
+		mav.addObject("storeId", storeId);
+		mav.setViewName("registerCCTV");
+		return mav;
+	}
+		
+	@RequestMapping(value = "/registerCCTV", method = RequestMethod.POST)
+	public void registerCCTV(CCTVVO cctvVO,
+			HttpServletRequest req, HttpServletResponse res, HttpSession session, Authentication auth) throws Exception {
+
+		
+//		logger.info("storeVO : "+storeVO);
+//		logger.info("storeVO : "+new String(storeVO.getStoreName().getBytes("8859_1"),"utf-8"));
+//		logger.info("storeVO : "+storeVO.getIp());
+//		logger.info("storeVO : "+new String(storeVO.getAddress().getBytes("8859_1"),"utf-8"));
+//		logger.info("storeVO.getStoreName() : "+new String(StringUtils.is .nvl().getBytes("8859_1"),"utf-8"));
+		
+		cctvVO.setDescription(new String(cctvVO.getDescription().getBytes("8859_1"),"utf-8"));
+//		storeVO.setManagerId(auth.getName());
+//		logger.info("md5 : "+md5(storeVO.getStoreName()));
+		
+		logger.info("after storeVO : "+cctvVO);
+		
+		try {
+			storeService.registCCTV(cctvVO);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		res.sendRedirect("/stores");
+		//req.setAttribute("storeList", storeList);
+		//mav.addObject("storeList", storeList);
+		
+		/*logger.info(member.getPid());
+		
+		res.setContentType("text/html; charset=UTF-8");
+		
+		if (success) {
+			PrintWriter out = res.getWriter();
+        	 
+        	out.println("<script>alert('매장이 등록 되었습니다'); location.href='/stores';</script>");
+        	 
+        	out.flush();
+			mav.setViewName("indexStore");
+		} else {
+			PrintWriter out = res.getWriter();
+        	 
+        	out.println("<script>alert('등록할 수 없는 매장입니다.'); location.href='/registerStore';</script>");
+        	 
+        	out.flush();
+        	
+			mav.setViewName("registerStore");
+		}
+		
+		return mav;*/
+	}
 	
 
 }

@@ -37,13 +37,13 @@
 	        <div class="formwrap">
 	            <form action="/registerCCTV" method="post" encType="multiplart/form-data">
 	                <div class="row">
-	                    <span>No :</span><input type="text" name="number" value="6" readonly/>
+	                    <span>No :</span><input type="text" name="number" value="${no}" readonly/>
 	                </div>
 	                <div class="row">
-	                    <span>CCTVID :</span><input id="name" type="text" value="CAM1" name="cctv_id" readonly>
+	                    <span>CCTVID :</span><input id="name" type="text" value="${cctvId}" name="pid" readonly>
 	                </div>
 	                <div class="row">
-	                    <span>Hostname :</span><input type="text" placeholder="서버 IP를 입력하세요" name="cctv_ip" />
+	                    <span>Hostname :</span><input type="text" placeholder="서버 IP를 입력하세요" name="hostName" />
 	                </div>
 	                <div class="row">
 	                    <span>Description :</span>
@@ -57,6 +57,8 @@
 	                    <input type="reset" value="reset" class="btn2"/>
 	                    <input id = "gotocctvlist" type="button" value="글 목록으로" class="btn3"/>
 	                </div>
+	                <input type="hidden" name="storeId" value="${storeId}" />
+	                <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
 	            </form>
 	        </div>
 	    <!--//content-->

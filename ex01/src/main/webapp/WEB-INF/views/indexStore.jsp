@@ -25,31 +25,7 @@
 	<div id="wrap">
         <div id="side">
             <!--sidebar-->
-            <div id="sidebar">
-                <div class="video_title">
-                    <!--<span>VIDEO</span>-->
-                    <ul>
-                        <li>VIDEO</li>
-                        <li><a href="/manage">CCTV 관제</a></li>
-                        <li><a href="/map">지도</a></li>
-                        <li><a href="/strange">이상행동</a></li>
-                    </ul>
-                </div>
-                <div class="cctv">
-                    <!--<span>CCTV</span>-->
-                    <ul>
-                        <li>CCTV</li>
-                        <li><a href="/indexStore">CCTV 관리</a></li>
-                    </ul>
-                </div>
-                <div class="qa">
-                    <!--<span>Q&A</span>-->
-                    <ul>
-                        <li>Q&A</li>
-                        <li><a href="/qa">문의하기</a></li>
-                    </ul>
-                </div>
-            </div>
+			<%@ include file="/WEB-INF/views/commons/sidebar.jsp" %>
             <!--//sidebar-->
             <!--footer-->
             <div id="footer">
@@ -93,42 +69,42 @@
         				</tr>
         				</c:forEach>
         				</sec:authorize>
-                        <tr>
-                            <td>3</td>
-                            <td class="name"><a href="/indexCCTV">shop</a></td>
-                            <td class="stored_ip">IP</td>
-                            <td class="stored_id">Store ID</td>
-                            <td class="address">인천광영시 부평구 adsfaldsfjlasdjflajdsflajdslfa</td>
-                            <td class="rate">0.1%</td>
-                            <td class="edit">                                                       
-                                <a href="/modifyStore" class="mr-2"><i class="fas fa-edit text-info font-16"></i></a>
-                                <a href="#"><i class="fas fa-trash-alt text-danger font-16"></i></a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>4</td>
-                            <td class="name"><a href="/indexCCTV">shop</a></td>
-                            <td class="stored_ip">IP</td>
-                            <td class="stored_id">Store ID</td>
-                            <td class="address">인천광영시 부평구 adsfaldsfjlasdjflajdsflajdslfa</td>
-                            <td class="rate">0.1%</td>
-                            <td class="edit">                                                       
-                                <a href="/modifyStore" class="mr-2"><i class="fas fa-edit text-info font-16"></i></a>
-                                <a href="#"><i class="fas fa-trash-alt text-danger font-16"></i></a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>5</td>
-                            <td class="name"><a href="/indexCCTV">shop</a></td>
-                            <td class="stored_ip">IP</td>
-                            <td class="stored_id">Store ID</td>
-                            <td class="address">인천광영시 부평구 adsfaldsfjlasdjflajdsflajdslfa</td>
-                            <td class="rate">0.1%</td>
-                            <td class="edit">                                                       
-                                <a href="/modifyStore" class="mr-2"><i class="fas fa-edit text-info font-16"></i></a>
-                                <a href="#"><i class="fas fa-trash-alt text-danger font-16"></i></a>
-                            </td>
-                        </tr>
+<!--                         <tr> -->
+<!--                             <td>3</td> -->
+<!--                             <td class="name"><a href="/indexCCTV">shop</a></td> -->
+<!--                             <td class="stored_ip">IP</td> -->
+<!--                             <td class="stored_id">Store ID</td> -->
+<!--                             <td class="address">인천광영시 부평구 adsfaldsfjlasdjflajdsflajdslfa</td> -->
+<!--                             <td class="rate">0.1%</td> -->
+<!--                             <td class="edit">                                                        -->
+<!--                                 <a href="/modifyStore" class="mr-2"><i class="fas fa-edit text-info font-16"></i></a> -->
+<!--                                 <a href="#"><i class="fas fa-trash-alt text-danger font-16"></i></a> -->
+<!--                             </td> -->
+<!--                         </tr> -->
+<!--                         <tr> -->
+<!--                             <td>4</td> -->
+<!--                             <td class="name"><a href="/indexCCTV">shop</a></td> -->
+<!--                             <td class="stored_ip">IP</td> -->
+<!--                             <td class="stored_id">Store ID</td> -->
+<!--                             <td class="address">인천광영시 부평구 adsfaldsfjlasdjflajdsflajdslfa</td> -->
+<!--                             <td class="rate">0.1%</td> -->
+<!--                             <td class="edit">                                                        -->
+<!--                                 <a href="/modifyStore" class="mr-2"><i class="fas fa-edit text-info font-16"></i></a> -->
+<!--                                 <a href="#"><i class="fas fa-trash-alt text-danger font-16"></i></a> -->
+<!--                             </td> -->
+<!--                         </tr> -->
+<!--                         <tr> -->
+<!--                             <td>5</td> -->
+<!--                             <td class="name"><a href="/indexCCTV">shop</a></td> -->
+<!--                             <td class="stored_ip">IP</td> -->
+<!--                             <td class="stored_id">Store ID</td> -->
+<!--                             <td class="address">인천광영시 부평구 adsfaldsfjlasdjflajdsflajdslfa</td> -->
+<!--                             <td class="rate">0.1%</td> -->
+<!--                             <td class="edit">                                                        -->
+<!--                                 <a href="/modifyStore" class="mr-2"><i class="fas fa-edit text-info font-16"></i></a> -->
+<!--                                 <a href="#"><i class="fas fa-trash-alt text-danger font-16"></i></a> -->
+<!--                             </td> -->
+<!--                         </tr> -->
                     </tbody>                           
                 </table>
                 <div class="table_footer">

@@ -23,28 +23,7 @@
     <div id="wrap">
         <div id="side">
             <!--sidebar-->
-            <div id="sidebar">
-                <div class="video_title">
-                    <span>VIDEO</span>
-                    <ul>
-                        <li><a href="/manageCCTV">CCTV 관제</a></li>
-                        <li><a href="/map">지도</a></li>
-                        <li><a href="/strange">이상행동</a></li>
-                    </ul>
-                </div>
-                <div class="cctv">
-                    <span>CCTV</span>
-                    <ul>
-                        <li><a href="/stores">CCTV 관리</a></li>
-                    </ul>
-                </div>
-                <div class="qa">
-                    <span>Q&A</span>
-                    <ul>
-                        <li><a href="/qa">문의하기</a></li>
-                    </ul>
-                </div>
-            </div>
+            <%@ include file="/WEB-INF/views/commons/sidebar.jsp" %>
             <!--//sidebar-->
             <!--footer-->
             <div id="footer">

@@ -12,11 +12,15 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.springframework.http.MediaType;
+import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
+import org.springframework.http.server.ServletServerHttpResponse;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.authentication.AuthenticationFailureHandler;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.finder.domain.JSONResult;
 
 import lombok.extern.log4j.Log4j;
 
@@ -57,19 +61,30 @@ implements AuthenticationFailureHandler{
 	public void onAuthenticationFailure(HttpServletRequest request, HttpServletResponse response,
 			AuthenticationException exception) throws IOException, ServletException {
 		
-		ObjectMapper om = new ObjectMapper();
-		System.out.println("#### 실패 핸들러 ####");
-		Map<String, Object> map = new HashMap<String, Object>();
-		map.put("success", false);
-		map.put("message", exception.getMessage());
-
-		// {"success" : false, "message" : "..."}
-		String jsonString = om.writeValueAsString(map);
-
-		OutputStream out = response.getOutputStream();
-		out.write(jsonString.getBytes());
-
-
+		//간단한 json 응답 처리
+//		ObjectMapper om = new ObjectMapper();
+//		Map<String, Object> map = new HashMap<String, Object>();
+//		map.put("success", false);
+//		map.put("message", exception.getMessage());
+//
+//		// {"success" : false, "message" : "..."}
+//		String jsonString = om.writeValueAsString(map);
+//
+//		OutputStream out = response.getOutputStream();
+//		out.write(jsonString.getBytes());
 		
+		//응답 json 객체 생성
+		MappingJackson2HttpMessageConverter jsonConverter = new MappingJackson2HttpMessageConverter();
+        MediaType jsonMimeType = MediaType.APPLICATION_JSON;
+        
+        String errMsg = "아이디 또는 비밀번호가 일치하지 않습니다.";
+        
+        //에러 메세지 및 result fail 처리
+		JSONResult jsonResult = JSONResult.fail(errMsg);
+		
+		if (jsonConverter.canWrite(jsonResult.getClass(), jsonMimeType)) {
+		    jsonConverter.write(jsonResult, jsonMimeType, new ServletServerHttpResponse(response));
+		}
+		return;
 	}
 }

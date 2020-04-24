@@ -13,13 +13,6 @@
 			font-size:10pt;
 		}
 	</style>
-    <%
-		// request 스코프에 담긴 오류 메시지 얻어오기.
-		String errMsg = (String)request.getAttribute("errMsg");
-		if(errMsg==null){
-			errMsg="";
-		}
-	%>
     <script 
        src="https://code.jquery.com/jquery-3.4.1.min.js"
        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
@@ -38,7 +31,7 @@
                 <input type="password" id="password"  name="password" autocomplete="off" required >
                 <label for="passwd">PASSWORD</label>
             </div>
-            <div id="error"><%=errMsg %></div>
+            <div id="error"></div>
             <div class="btn-area">
 <!--                 <button type="submit">LOGIN</button> -->
                 <button id="login-btn" type="button">LOGIN</button>
@@ -50,17 +43,9 @@
         </div>
     </section>
     <script>
-    var csrfParameter = "${_csrf.parameterName}"
-    var csrfToken = "${_csrf.token}"
-    
-    console.log("csrfParameter : ",csrfParameter)
-    console.log("csrfToken : ",csrfToken)
-    
     $(function(){
         $('#login-btn').on("click",function(event){
             event.preventDefault();
-            var params = "email=" + $('#username').val() + "&password=" + $('#password').val()
-
 //             $.ajaxSetup({
 //                 beforeSend: function(xhr) {
 //                     xhr.setRequestHeader(csrfHeader, csrfToken);
@@ -69,17 +54,20 @@
 			var params = $("form").serializeArray();
             
             $.ajax({
-//                 url : "${pageContext.request.contextPath}/user/process",
+//              url : "${pageContext.request.contextPath}/user/process",
                 url : "/login/process",
                 type : "post",
                 dataType : "json",
                 data : params,
                 success : function(response) {
-                    console.log(response);
+                    if(response.result == "success"){
+                    	location.href = response.data.moveURI;
+                    }else if(response.result == "fail"){
+                    	document.getElementById("error").innerText = response.message;
+                    }
                 }, error : function(jqXHR, status, e) {
                     console.error(status + " : " + e);
                 }
-
             });	 
         });
     });

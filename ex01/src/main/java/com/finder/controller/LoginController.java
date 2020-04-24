@@ -6,6 +6,7 @@ import javax.servlet.http.HttpSession;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
@@ -13,13 +14,18 @@ import org.springframework.web.servlet.ModelAndView;
 import com.finder.domain.MemberVO;
 import com.finder.service.MemberService;
 
+import lombok.extern.log4j.Log4j;
+
 import org.springframework.web.bind.annotation.RequestMethod;
+
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import java.util.List;
 import java.util.Map;
 import java.net.URLEncoder;
+import java.io.IOException;
 import java.io.PrintWriter;
 import java.net.URLDecoder;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
@@ -29,6 +35,7 @@ import org.springframework.web.servlet.FlashMap;
 import org.springframework.security.core.userdetails.UserDetailsService;
 
 @Controller
+@Log4j
 //@RequestMapping("/login/*")
 public class LoginController {
 
@@ -82,6 +89,16 @@ public class LoginController {
 		mav.setViewName("login");
 //		mav.setViewName("home");
 		return mav;
+	}
+	
+	@GetMapping("/logout")
+	public void logout(HttpServletRequest req, 
+			HttpServletResponse res)
+					throws ServletException, IOException {
+		
+		log.info("custom logout");
+		res.sendRedirect("/");
+		
 	}
 	
 	/*

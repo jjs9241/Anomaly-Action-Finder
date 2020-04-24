@@ -17,6 +17,7 @@ import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -55,13 +56,14 @@ public class RegisterController {
 	private StoreService storeService;
 	
 	@RequestMapping(value = "/registerStore", method = RequestMethod.GET)
-	public ModelAndView registerStore(HttpServletRequest req, HttpServletResponse res, HttpSession session) throws Exception {
+	public ModelAndView registerStore(HttpServletRequest req, HttpServletResponse res, HttpSession session, Authentication auth) throws Exception {
 		
 		MemberVO member = new MemberVO();
 		ModelAndView mav = new ModelAndView();
 		String currentUserName = SecurityContextHolder.getContext().getAuthentication().getName();
 		member.setPid(currentUserName);
 		logger.info(currentUserName);
+		logger.info("auth : "+auth);
 		
 		StoreVO store = new StoreVO();
 		

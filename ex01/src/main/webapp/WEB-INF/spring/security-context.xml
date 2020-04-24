@@ -10,7 +10,7 @@
 	<bean id="customAccessDenied" class="com.finder.security.CustomAccessDeniedHandler"></bean>
 	<bean id="customLoginSuccessHandler" class="com.finder.security.CustomLoginSuccessHandler"></bean>
 	<bean id="customUserDetailsService" class="com.finder.security.CustomUserDetailsService"></bean>
-<!-- 	<bean id="customloginFailureHandler" class="com.finder.security.CustomLoginFailureHandler"></bean> -->
+	<bean id="customloginFailureHandler" class="com.finder.security.CustomLoginFailureHandler"></bean>
 	
 	<bean id="authenticationEntryPoint" class="com.finder.security.CustomAuthenticationEntryPoint">
         <property name="redirect" value="false" />
@@ -25,6 +25,7 @@
 		<security:intercept-url pattern="/manageCCTV/**" access="hasRole('ROLE_USER')"/>
 		<security:intercept-url pattern="/indexStore/**" access="hasRole('ROLE_USER')"/>
 		<security:intercept-url pattern="/indexCCTV/**" access="hasRole('ROLE_USER')"/>
+		<security:intercept-url pattern="/qa/**" access="hasRole('ROLE_USER')"/>
 		<security:intercept-url pattern="/registerStore/**" access="hasRole('ROLE_USER')"/>
 		<security:intercept-url pattern="/puserPage/**" access="hasRole('ROLE_MANAGER')"/>
 		<security:intercept-url pattern="/adminPage/**" access="hasRole('ROLE_ADMIN')"/>		
@@ -33,10 +34,10 @@
 							username-parameter="username"
             				password-parameter="password" 
             				authentication-success-handler-ref="customLoginSuccessHandler"
-            				authentication-failure-url="/login/fail"/>
-<!--             				authentication-failure-handler-ref="customloginFailureHandler"/> -->
+            				authentication-failure-handler-ref="customloginFailureHandler"/>
+<!--             				authentication-failure-url="/login/fail"/> -->
             				
-		<security:logout logout-url="/customLogout" invalidate-session="true" delete-cookies="JSESSION_ID"/>
+		<security:logout logout-url="/logout" invalidate-session="true" delete-cookies="JSESSION_ID" logout-success-url="/"/>
 		
 		<security:session-management>
                   <security:concurrency-control max-sessions="1" expired-url="/login_duplicate"/>

@@ -26,15 +26,15 @@ public class CommonController {
 		res.sendRedirect("/login/login?authError=True");
 	}*/
 	
-	@GetMapping("/customLogout")
-	public void logoutGet(HttpServletRequest req, 
-			HttpServletResponse res)
-					throws ServletException, IOException {
-		
-		log.info("custom logout");
-		res.sendRedirect("/login/login");
-		
-	}
+//	@GetMapping("/customLogout")
+//	public void logoutGet(HttpServletRequest req, 
+//			HttpServletResponse res)
+//					throws ServletException, IOException {
+//		
+//		log.info("custom logout");
+//		res.sendRedirect("/");
+//		
+//	}
 	
 	@GetMapping("/cctv_test")
 	public String cctv_test(HttpServletRequest req, 

@@ -11,7 +11,7 @@ import os
 from two_stream_final_model import twostream_FinalModel
 import argparse
 
-os.environ["CUDA_VISIBLE_DEVICES"]="1"
+os.environ["CUDA_VISIBLE_DEVICES"]="0"
 # from werkzeug.wrappers import Request, Response
 # from werkzeug.serving import run_simple
 sum_of_actions_number = 100
@@ -30,6 +30,7 @@ def index():
     return render_template("index.html")
 
 def sendImagesToWeb():
+    global action_list
     print("sendImagesToWeb")
     # receiver = imagezmq.ImageHub(open_port='tcp://0.0.0.0:5566', REQ_REP = False)
     receiver = imagezmq.ImageHub()
@@ -43,24 +44,27 @@ def sendImagesToWeb():
         # jpg = cv2.resize()
         # cv2.imwrite("XXX.jpg", frame)
 
-        # recognition using deep learning
-        jpg, action = model.predict(frame)
-        # add action into action_list
-        if len(action_list) != sum_of_actions_number:
-            result_action = 1 if action in anormaly_action else 0
-            action_list += [result_action]
-        else:
-            result_action = 1 if action in anormaly_action else 0
-            action_list = action_list[1:] + [result_action]
+        # jpg = frame
+        # # recognition using deep learning
+        jpg, pred_value = model.predict(frame)
+        # # add action into action_list
+        # if len(action_list) != sum_of_actions_number:
+        #     result_action = 1 if action in anormaly_action else 0
+        #     action_list += [result_action]
+        # else:
+        #     result_action = 1 if action in anormaly_action else 0
+        #     action_list = action_list[1:] + [result_action]
 
-        #calculate action
-        if len(action_list) == sum_of_actions_number:
-            if (sum(action_list) / sum_of_actions_number) > alarm_ratio:
-                #Send Alarm Message
-                pass 
+        # #calculate action
+        # if len(action_list) == sum_of_actions_number:
+        #     if (sum(action_list) / sum_of_actions_number) > alarm_ratio:
+        #         #Send Alarm Message
+        #         print("Send Alarm ")
+        #         pass 
 
+        # print("predict : ", action)
         (flag, jpg) = cv2.imencode('.jpg', jpg)
-        # print("predict")
+        
         if not flag:
             continue
         # yield b'--frame\r\nContent-Type:image/jpeg\r\n\r\n'+jpg.tostring()+b'\r\n'

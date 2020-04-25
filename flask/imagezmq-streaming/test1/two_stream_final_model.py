@@ -4,6 +4,7 @@ import cv2
 from datetime import datetime, timedelta
 from i3d_inception import Inception_Inflated3d
 import tensorflow as tf
+import time
 class twostream_FinalModel():
     def __init__(self, rgb_model_path, opt_model_path = None):
         self.before_IMG_WIDTH = 256
@@ -33,7 +34,7 @@ class twostream_FinalModel():
         self.predict_value_list = np.zeros((self.prediction_length, len(self.classes)))
 
         self.save_image_list = []
-        self.save_codec = cv2.VideoWriter_fourcc(*"DIVX")
+        
         self.video_frame_rate = 30
         self.save_video_length = 5
         self.anormaly_action = [0, 2]
@@ -41,7 +42,6 @@ class twostream_FinalModel():
 
         self.model = self.load_model()
         
-
 
     def define_model(self, model_type="RGB"):
         if model_type == "RGB":
@@ -84,7 +84,7 @@ class twostream_FinalModel():
         return model
 
     def predict(self, input_img):
-        pred_value = -1
+        action_idx = -1
         presentTime = datetime.now() 
         frame_x = cv2.resize(input_img.copy(), (self.before_IMG_WIDTH, self.before_IMG_HEIGHT))
         frame_x = cv2.cvtColor(frame_x.copy(), cv2.COLOR_BGR2RGB)
@@ -108,7 +108,9 @@ class twostream_FinalModel():
                 self.prevs = cv2.cvtColor(frame_x, cv2.COLOR_RGB2GRAY)
             else:   #이전 프레임이 있다면
                 present = cv2.cvtColor(frame_x, cv2.COLOR_RGB2GRAY)
+                start_time = time.time()
                 flow = self.compute_TVL1(self.prevs, present)
+                print("optcial calc", time.time() - start_time)
                 self.prevs = present
                 if self.optical_img_list is None:
                     self.optical_img_list = np.expand_dims(flow, axis=0)
@@ -124,7 +126,7 @@ class twostream_FinalModel():
                 if self.img_list.shape[0] == self.nbFrame:
                     # 딥러닝 예측 부분
                     with self.graph.as_default():
-                        pred_value = np.softmax(self.model.predict(np.expand_dims(self.img_list, axis=0)))
+                        pred_value = self.softmax(self.model.predict(np.expand_dims(self.img_list, axis=0)))
                         self.predict_value_list = np.concatenate((self.predict_value_list[1:], pred_value), axis = 0)
                         sum_logits = np.sum(pred_value, axis = 0)
                         print("sum_logits : ", sum_logits)
@@ -139,15 +141,19 @@ class twostream_FinalModel():
                 if self.optical_img_list.shape[0] == self.nbFrame:
                     # 딥러닝 예측 부분
                     with self.graph.as_default():
-                        pred_value = np.softmax(self.model.predict([np.expand_dims(self.img_list, axis=0), np.expand_dims(self.optical_img_list, axis=0)]))
+                        start_time = time.time()
+                        tmp_pred = self.model.predict([np.expand_dims(self.img_list, axis=0), np.expand_dims(self.optical_img_list, axis=0)])
+                        pred_value = self.softmax(tmp_pred)
                         self.predict_value_list = np.concatenate((self.predict_value_list[1:], pred_value), axis = 0)
                         sum_logits = np.sum(pred_value, axis = 0)
+                        # print("deep optcial calc", time.time() - start_time)
                         print("sum_logits : ", sum_logits)
                         action_idx = np.argmax(sum_logits)
                         action = self.classes[action_idx]
 
                     cv2.putText(input_img, str(presentTime)[:-7] +"   "+ action + "   "+ str(sum_logits[action_idx]), (self.fontPosition_X, self.fontPosition_Y), cv2.FONT_HERSHEY_SIMPLEX,
                              self.fontScale, (0, 0, 255), 2)
+
 
         if action_idx in self.anormaly_action:
             self.save_image_flag = True
@@ -156,15 +162,15 @@ class twostream_FinalModel():
             self.save_image_list.append(input_img)
 
         if len(self.save_image_list) == (self.video_frame_rate * self.save_video_length):
-            save_anormaly_video()
+            self.save_anormaly_video()
             print("save anormaly_video")
             self.save_image_flag = False
-
+            self.save_image_list = []
         # if (self.frame_rate % read_fps) == 0:
         #     self.frame_rate = 0
         #     presentTime += timedelta(seconds = 1)
         self.frame_rate += 1
-        return input_img, pred_value
+        return input_img, action_idx
     
     # source : https://github.com/OanaIgnat/i3d_keras/blob/e62e834f0d0ad90d4de1b067ac6dc55a33d03969/src/preprocess.py#L46
     def crop_center(self, img):
@@ -190,9 +196,23 @@ class twostream_FinalModel():
 
         return flow
 
-    def save_anormaly_video():
-        file_name = str(datetime.now()[:-7]) + ".mp4"
-        out = cv2.VideoWriter(file_name, self.save_codec, 30.0, self.save_image_list[0].shape)
+    def save_anormaly_video(self):
+        # print("save_video start")
+        file_name = str(datetime.now())[:-7] + ".mp4"
+        file_name = file_name.replace(" ", "_").replace(":", "_")
+        # print("file_name : ", file_name)
+        fourcc = cv2.VideoWriter_fourcc(*'DIVX')
+        # print("self.save_image_list[0].shape[0] ; ", self.save_image_list[0].shape[0])
+        # print("self.save_image_list[0].shape[1] : ",self.save_image_list[0].shape[1])
+        out = cv2.VideoWriter(file_name, fourcc, 25, (self.save_image_list[0].shape[1], self.save_image_list[0].shape[0]))
         for frame in self.save_image_list:
+            # cv2.imwrite("XX.jpg", frame)
             out.write(frame)
         out.release()
+
+    def softmax(self, a) :
+        exp_a = np.exp(a)
+        sum_exp_a = np.sum(exp_a)
+        y = exp_a / sum_exp_a
+        
+        return y

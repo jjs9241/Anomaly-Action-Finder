@@ -72,30 +72,30 @@
 <!-- 	                            </td> -->
 	        				</tr>
 	        				</c:forEach>
-                                    <tr>
-                                    <th class="number">1</th>
-                                    <th class="name">super</td>
-                                    <th class="cctvid">cam1</td>
-                                    <th class="address">경기도 부천시 dlkfjaldsjfalksdjflkajsdfl;jadsl;fk....</td>
-                                </tr>
-                                <tr>
-                                    <th>2</th>
-                                    <th class="name">mart</td>
-                                    <th class="cctvid">cam2</td>
-                                    <th class="address">서울특별시 강남구 adslkfjaldsjflasdjflkajsdl;fajf....</td>
-                                </tr>
-                                <tr>
-                                    <th>3</th>
-                                    <th class="name">shop</td>
-                                    <th class="cctvid">cam3</td>
-                                    <th class="address">인천광영시 부평구 adsfaldsfjlasdjflajdsflajdslfa....</td>
-                                </tr>
-                                <tr>
-                                    <th>4</th>
-                                    <th class="name">shop</td>
-                                    <th class="cctvid">cam3</td>
-                                    <th class="address">인천광영시 부평구 adsfaldsfjlasdjflajdsflajdslfa....</td>
-                                </tr>
+<!--                                     <tr> -->
+<!--                                     <th class="number">1</th> -->
+<!--                                     <th class="name">super</td> -->
+<!--                                     <th class="cctvid">cam1</td> -->
+<!--                                     <th class="address">경기도 부천시 dlkfjaldsjfalksdjflkajsdfl;jadsl;fk....</td> -->
+<!--                                 </tr> -->
+<!--                                 <tr> -->
+<!--                                     <th>2</th> -->
+<!--                                     <th class="name">mart</td> -->
+<!--                                     <th class="cctvid">cam2</td> -->
+<!--                                     <th class="address">서울특별시 강남구 adslkfjaldsjflasdjflkajsdl;fajf....</td> -->
+<!--                                 </tr> -->
+<!--                                 <tr> -->
+<!--                                     <th>3</th> -->
+<!--                                     <th class="name">shop</td> -->
+<!--                                     <th class="cctvid">cam3</td> -->
+<!--                                     <th class="address">인천광영시 부평구 adsfaldsfjlasdjflajdsflajdslfa....</td> -->
+<!--                                 </tr> -->
+<!--                                 <tr> -->
+<!--                                     <th>4</th> -->
+<!--                                     <th class="name">shop</td> -->
+<!--                                     <th class="cctvid">cam3</td> -->
+<!--                                     <th class="address">인천광영시 부평구 adsfaldsfjlasdjflajdsflajdslfa....</td> -->
+<!--                                 </tr> -->
                             </tbody>
                         </table>
                     </div>

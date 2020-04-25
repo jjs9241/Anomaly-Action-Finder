@@ -27,6 +27,12 @@ class twostream_FinalModel():
 
         self.rgb_model_path = rgb_model_path
         self.opt_model_path = opt_model_path
+
+        # prediction value
+        self.prediction_length = 10
+        self.predict_value_list = np.zeros((self.prediction_length, len(self.classes)))
+
+
         self.model = self.load_model()
         
 
@@ -112,8 +118,10 @@ class twostream_FinalModel():
                 if self.img_list.shape[0] == self.nbFrame:
                     # 딥러닝 예측 부분
                     with self.graph.as_default():
-                        pred_value = np.argmax(self.model.predict(np.expand_dims(self.img_list, axis=0))[0])
-                        action = self.classes[pred_value]
+                        pred_value = np.softmax(self.model.predict(np.expand_dims(self.img_list, axis=0)))
+                        self.predict_value_list = np.concatenate((self.predict_value_list[1:], pred_value), axis = 0)
+                        sum_logits = np.sum(pred_value, axis = 0)
+                        action = self.classes[sum_logits]
 
                     cv2.putText(input_img, str(presentTime)[:-7] +"   "+ action, (self.fontPosition_X, self.fontPosition_Y), cv2.FONT_HERSHEY_SIMPLEX,
                              self.fontScale, (0, 0, 255), 2)
@@ -123,8 +131,10 @@ class twostream_FinalModel():
                 if self.optical_img_list.shape[0] == self.nbFrame:
                     # 딥러닝 예측 부분
                     with self.graph.as_default():
-                        pred_value = np.argmax(self.model.predict([np.expand_dims(self.img_list, axis=0), np.expand_dims(self.optical_img_list, axis=0)])[0])
-                        action = self.classes[pred_value]
+                        pred_value = np.softmax(self.model.predict([np.expand_dims(self.img_list, axis=0), np.expand_dims(self.optical_img_list, axis=0)]))
+                        self.predict_value_list = np.concatenate((self.predict_value_list[1:], pred_value), axis = 0)
+                        sum_logits = np.sum(pred_value, axis = 0)
+                        action = self.classes[sum_logits]
 
                     cv2.putText(input_img, str(presentTime)[:-7] +"   "+ action, (self.fontPosition_X, self.fontPosition_Y), cv2.FONT_HERSHEY_SIMPLEX,
                              self.fontScale, (0, 0, 255), 2)

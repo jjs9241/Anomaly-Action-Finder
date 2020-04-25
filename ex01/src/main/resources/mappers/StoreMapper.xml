@@ -6,26 +6,36 @@
 
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="org.zerock.mapper.StoreMapper">
+<mapper namespace="com.finder.mapper.StoreMapper">
 
-	<select id="viewStore" resultType="org.zerock.domain.StoreVO" parameterType="org.zerock.domain.StoreVO">
+	<select id="viewStore" resultType="com.finder.domain.StoreVO" parameterType="com.finder.domain.StoreVO">
 		SELECT
-			pid, storename, managerid, ip from store where pid = #{pid}
+			pid, storename, managerid, ip, address, rate from store where pid = #{pid}
+	</select>
+	
+	<select id="viewStoreById" resultType="com.finder.domain.StoreVO" >
+		SELECT pid, storename, managerid, ip, address, rate 
+		  FROM store 
+		 WHERE pid = #{pid}
 	</select>
 
-	<select id="getURLList" resultType="org.zerock.domain.StoreVO">
+	<select id="getURLList" resultType="com.finder.domain.StoreVO">
 		select ip from cctv where managerID = #{managerID}
 	</select>
 	
-	<select id="getStoreList" resultType="String" parameterType="org.zerock.domain.MemberVO">
+	<select id="getStoreList" resultType="String" parameterType="com.finder.domain.MemberVO">
 		select pid from store where managerID = #{pid}
 	</select>
 	
-	<resultMap id="storeMap" type="org.zerock.domain.StoreVO">
+	<resultMap id="storeMap" type="com.finder.domain.StoreVO">
 		<result property="pid" column="pid"/>
     	<result property="storeName" column="storename"/>
     	<result property="managerId" column="managerid"/>
     	<result property="ip" column="ip"/>
+    	<result property="address" column="address"/>
+    	<result property="latitude" column="latitude"/>
+    	<result property="longitude" column="longitude"/>
+    	<result property="rate" column="rate"/>
     	<collection property="cctvUrlList" column="pid" javaType="java.util.ArrayList" ofType="String" select="getUrlListById"/>
 	</resultMap>
  	<select id="getUrlListById" resultType="String">
@@ -34,19 +44,20 @@
 	
 	<select id="getStore" resultMap="storeMap" parameterType="String">
 		SELECT
-			pid, storename, managerid, ip
+			pid, storename, managerid, ip, address, rate, latitude, longitude
 		FROM store WHERE pid = #{pid}
 	</select>
 	
 	
-	<select id="getList" resultType="org.zerock.domain.CCTVVO">
+	<select id="getList" resultType="com.finder.domain.CCTVVO">
 		<![CDATA[
 		select * from cctv
 		]]>
 	</select>
 	
-	<insert id="insert" parameterType="org.zerock.domain.StoreVO">
-		insert into store(pid, storename, managerid, ip) values(#{pid}, #{storename}, #{managerid}, #{ip})
+	<insert id="register" parameterType="com.finder.domain.StoreVO">
+		insert into store (pid, storename, managerid, ip, address, latitude, longitude) 
+		values (#{pid}, #{storeName}, #{managerId}, #{ip}, #{address}, #{latitude}, #{longitude} )
 	</insert>
 
 	

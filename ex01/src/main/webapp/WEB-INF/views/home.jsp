@@ -24,7 +24,7 @@
             <a href="#">
                 <img src="resources/img/logo_w.png" alt="로고">
             </a>
-            <a href="/login/login" class="login">로그인</a>
+            <a href="/login" class="login">로그인</a>
             <a href="#" class="join">회원가입</a>
         </div>
     </header> 

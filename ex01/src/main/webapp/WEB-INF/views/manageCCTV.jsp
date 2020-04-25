@@ -18,54 +18,12 @@
 </head>
 <body>
     <!--header-->
-    <div id="header">
-        <a href="/manageCCTV"><img src="/resources/img/logo_b.png" alt="로고"></a>
-        <ul class="navbar">
-        	<!--
-        	<li class="logout"><a href="/login/login"><i class="fa fa-sign-out fa-fw"></i>Logout</a></li>
-        	<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
-        	-->
-        	<li class="notice"><a href="#"></a></li>
-            <li class="user_icon"><i class="far fa-bell"></i></li>    
-        </ul>
-        <div class="user_ele hide">
-            <div class="user_name">
-                <div class="user_icon2"></div>
-                <h2>Valerie Luna</h2>
-                <p>vluna@aol.com<p>
-            </div>
-            <a href="#"><i class="fas fa-cog"></i>Account</a>
-            <a href="/customLogout"><i class="fas fa-sign-out-alt"></i>Logout</a>
-        </div>
-    </div>
-    <!--//header-->
-    </div>
+    <%@ include file="/WEB-INF/views/commons/header.jsp" %>
     <!--//header-->
         <div id="wrap">
-            <div id="side">
-                <!--sidebar-->
-                <div id="sidebar">
-                    <div class="video_title">
-                        <span>VIDEO</span>
-                        <ul>
-                            <li><a href="/manageCCTV">CCTV 관제</a></li>
-                            <li><a href="/map">지도</a></li>
-                            <li><a href="/strange">이상행동</a></li>
-                        </ul>
-                    </div>
-                    <div class="cctv">
-                        <span>CCTV</span>
-                        <ul>
-                            <li><a href="/indexStore">CCTV 관리</a></li>
-                        </ul>
-                    </div>
-                    <div class="qa">
-                        <span>Q&A</span>
-                        <ul>
-                            <li><a href="/qa">문의하기</a></li>
-                        </ul>
-                    </div>
-                </div>
+             <div id="side">
+            <!--sidebar-->
+            <%@ include file="/WEB-INF/views/commons/sidebar.jsp" %>
                 <!--//sidebar-->
                 <!--footer-->
                 <div id="footer">

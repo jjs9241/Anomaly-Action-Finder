@@ -2,5 +2,5 @@
 var gotostorelist =document.getElementById('gotostorelist');
 gotostorelist.addEventListener("click", gotostoreHandler);
 function gotostoreHandler(){
-    location.href="/indexStore"
+    location.href="/stores"
 }

@@ -15,6 +15,7 @@
 </head>
 <body>
     <!--header-->
+<<<<<<< HEAD
     <div id="header">
         <a href="/manageCCTV"><img src="resources/img/logo_b.png" alt="로고"></a>
         <ul class="navbar">
@@ -31,8 +32,12 @@
             <a href="/customLogout"><i class="fas fa-sign-out-alt"></i>Logout</a>
         </div>
     </div>
+=======
+   	<%@ include file="/WEB-INF/views/commons/header.jsp" %>
+>>>>>>> refs/heads/v1
     <!--//header-->
     <div id="wrap">
+<<<<<<< HEAD
             <div id="side">
                 <!--sidebar-->
                 <div id="sidebar">
@@ -188,5 +193,134 @@
             <!--//content_container-->    
            <script type="text/javascript"src="<c:url value="/resources/js/common.js" />"></script>
            <script type="text/javascript"src="<c:url value="/resources/js/strange.js" />"></script>  
+=======
+		<div id="side">
+		    <!--sidebar-->
+		    <%@ include file="/WEB-INF/views/commons/sidebar.jsp" %>
+		    <!--//sidebar-->
+		    <!--footer-->
+		    <div id="footer">
+		        &copy;Finder
+		    </div>
+		    <!--//footer-->
+		</div>
+		<!--//side-->
+		<!--모달&로딩-->
+		<!-- <div id="modal">
+		    <video id="big_video" autoplay></video>
+		    <div id="close"><button><i class="fas fa-times"></i></button></div>
+		</div>    -->
+		
+		<div class="content_container">
+		    <div class="sort">
+		        <h2>정렬하기</h2>
+		        <ul>
+		            <li>즐겨찾기</li>
+		            <li>날짜</li>
+		            <li>이름</li>
+		        </ul>
+		    </div>
+		     <!--//sort-->  
+		
+		    <!--content-->
+		    <div id="content">
+		        <div class="video">
+		            <div class="star_wrap">                       
+		                <div class="star"><i class="far fa-star"></i> </div>
+		            </div>
+		            <video src="resources/video/Love - 32021.mp4" autoplay loop muted></video>
+		        </div>
+		        <div class="video">
+		            <div class="star_wrap">                       
+		                <div class="star"><i class="far fa-star"></i> </div>
+		            </div>
+		            <video src="resources/video/Sea - 33194.mp4" autoplay loop muted></video>
+		        </div>
+		        <div class="video">
+		            <div class="star_wrap">                       
+		                <div class="star"><i class="far fa-star"></i> </div>
+		            </div>
+		            <video src="resources/video/Cello - 33565.mp4" autoplay loop muted></video>
+		        </div>
+		        <div class="video">
+		            <div class="star_wrap">                       
+		                <div class="star"><i class="far fa-star"></i> </div>
+		            </div>
+		            <video src="resources/video/Cane - 31180.mp4" autoplay loop muted></video>
+		        </div>
+		        <div class="video">
+		            <div class="star_wrap">                       
+		                <div class="star"><i class="far fa-star"></i> </div>
+		            </div>
+		            <video src="resources/video/테스트영상.mp4" autoplay loop muted></video>
+		        </div>
+		        <div class="video">
+		            <div class="star_wrap">                       
+		                <div class="star"><i class="far fa-star"></i> </div>
+		            </div>
+		            <video src="resources/video/테스트영상.mp4" autoplay loop muted></video>
+		        </div>
+		        <div class="video">
+		            <div class="star_wrap">                       
+		                <div class="star"><i class="far fa-star"></i> </div>
+		            </div>
+		            <video src="resources/video/테스트영상.mp4" autoplay loop muted></video>
+		        </div>
+		        <div class="video">
+		            <div class="star_wrap">                       
+		                <div class="star"><i class="far fa-star"></i> </div>
+		            </div>
+		            <video src="resources/video/테스트영상.mp4" autoplay loop muted></video>
+		        </div>
+		        <div class="video">
+		            <div class="star_wrap">                       
+		                <div class="star"><i class="far fa-star"></i> </div>
+		            </div>
+		            <video src="resources/video/테스트영상.mp4" autoplay loop muted></video>
+		        </div>
+		        <div class="video">
+		            <div class="star_wrap">                       
+		                <div class="star"><i class="far fa-star"></i> </div>
+		            </div>
+		            <video src="resources/video/테스트영상.mp4" autoplay loop muted></video>
+		        </div>
+		        <div class="video">
+		            <div class="star_wrap">                       
+		                <div class="star"><i class="far fa-star"></i> </div>
+		            </div>
+		            <video src="resources/video/테스트영상.mp4" autoplay loop muted></video>
+		        </div>
+		        <div class="video">
+		            <div class="star_wrap">                       
+		                <div class="star"><i class="far fa-star"></i> </div>
+		            </div>
+		            <video src="resources/video/테스트영상.mp4" autoplay loop muted></video>
+		        </div>
+		        <div class="video">
+		            <div class="star_wrap">                       
+		                <div class="star"><i class="far fa-star"></i> </div>
+		            </div>
+		            <video src="resources/video/테스트영상.mp4" autoplay loop muted></video>
+		        </div>
+		        <div class="video">
+		            <div class="star_wrap">                       
+		                <div class="star"><i class="far fa-star"></i> </div>
+		            </div>
+		            <video src="resources/video/테스트영상.mp4" autoplay loop muted></video>
+		        </div>
+		        <div class="video">
+		            <div class="star_wrap">                       
+		                <div class="star"><i class="far fa-star"></i> </div>
+		            </div>
+		            <video src="resources/video/테스트영상.mp4" autoplay loop muted></video>
+		        </div>
+		    </div>
+		    <!--//content-->
+		</div>
+	<!--//content_container-->
+	</div>    
+	<script type="text/javascript"src="<c:url value="/resources/js/common.js" />"></script>
+	<script type="text/javascript"src="<c:url value="/resources/js/strange.js" />"></script>  
+>>>>>>> refs/heads/v1
 </body>
 </html>

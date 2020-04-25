@@ -52,6 +52,18 @@ position: absolute; top: 15px;right: 60px; ; background-position: -65px; backgro
     -webkit-align-content: center;
     justify-content: center;
 }
+#content .video_wrap{ 
+    width:100%;
+    display: flex;
+    flex-flow: row wrap;
+}
+
+#content .strange_video_wrap{ 
+    width:90%;
+    display: flex;
+    flex-flow: row wrap;
+}
+
 #content .video {
     margin:0 0 0 0; padding:0 0 0 0;background-color:black ; border: 0.1px solid white; width: 250px;height: 219px;
     align-items : stretch; text-align: center;}

@@ -81,25 +81,26 @@
             </div>
             <!--content-->
             <div id="content">
-            
-            	<sec:authorize access="isAuthenticated()">
-            	<c:forEach items="${urlListList}" var="urlList">
-            		<!-- <div class="urlList"> -->
-            		<c:forEach items="${urlList}" var="url">
-            			<div class="video">
-                    		<img src='<c:out value="${url}"/>'> </img><!--  style="width:300px; height:300px;"></img> -->
-                		</div>
-                	</c:forEach>
-            		<!-- </div> -->
-            	</c:forEach>
-            	</sec:authorize>
-           	    <div class="video">
-                    <video src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" autoplay muted></video>
+               <div class="video_wrap">
+	            	<sec:authorize access="isAuthenticated()">
+	            	<c:forEach items="${urlListList}" var="urlList">
+	            		<!-- <div class="urlList"> -->
+	            		<c:forEach items="${urlList}" var="url">
+	            			<div class="video">
+	                    		<img src='<c:out value="${url}"/>'> </img><!--  style="width:300px; height:300px;"></img> -->
+	                		</div>
+	                	</c:forEach>
+	            		<!-- </div> -->
+	            	</c:forEach>
+	            	</sec:authorize>
+	           	    <div class="video">
+	                    <video src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" autoplay muted></video>
+	                </div>
+	                <div class="video">
+	                    <video src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4" autoplay muted></video>
+	                </div>
                 </div>
-                <div class="video">
-                    <video src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4" autoplay muted></video>
-                </div>
-                
+                <!--//video_wrap-->
             </div>
             <!--//content-->
     </div>

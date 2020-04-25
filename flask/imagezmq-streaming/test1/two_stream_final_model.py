@@ -158,6 +158,7 @@ class twostream_FinalModel():
         if len(self.save_image_list) == (self.video_frame_rate * self.save_video_length):
             save_anormaly_video()
             print("save anormaly_video")
+            self.save_image_flag = False
 
         # if (self.frame_rate % read_fps) == 0:
         #     self.frame_rate = 0

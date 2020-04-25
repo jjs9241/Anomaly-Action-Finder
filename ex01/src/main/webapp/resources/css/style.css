@@ -1,6 +1,6 @@
 /*레이아웃*/
 #wrap {overflow: hidden; display: flex; z-index: 1;}
-#header {height: 9vh; box-shadow: 0 4px 6px rgba(17, 17, 56, 0.11);vertical-align: middle;}
+#header {height: 80px; box-shadow: 0 4px 6px rgba(17, 17, 56, 0.11);vertical-align: middle;}
 #side {float:left; width: 17%;height: 100%;}
 #sidebar {height: 80vh;}
 #footer {background-color:#F4F4F4; height: 11vh;}
@@ -54,13 +54,13 @@ position: absolute; top: 15px;right: 60px; ; background-position: -65px; backgro
     margin-bottom: auto;
 }
 #content .video_wrap{ 
-    width:100%;
+    width:99.1%;
     display: flex;
     flex-flow: row wrap;
 }
 
 #content .strange_video_wrap{ 
-    width:90%;
+    width:87.5%;
     display: flex;
     flex-flow: row wrap;
 }

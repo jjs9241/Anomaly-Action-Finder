@@ -39,9 +39,9 @@ def sendImagesToWeb():
         receiver.send_reply(b'OK')
         # print("[INFO] receiving data from {}...".format(camName))
         # jpg = cv2.imencode('.jpg', frame)[1]
-        print(frame.shape)
+        # print(frame.shape)
         # jpg = cv2.resize()
-        cv2.imwrite("XXX.jpg", frame)
+        # cv2.imwrite("XXX.jpg", frame)
 
         # recognition using deep learning
         jpg, action = model.predict(frame)
@@ -60,7 +60,7 @@ def sendImagesToWeb():
                 pass 
 
         (flag, jpg) = cv2.imencode('.jpg', jpg)
-        print("predict")
+        # print("predict")
         if not flag:
             continue
         # yield b'--frame\r\nContent-Type:image/jpeg\r\n\r\n'+jpg.tostring()+b'\r\n'

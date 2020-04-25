@@ -28,6 +28,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import javax.inject.Inject;
 
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import com.finder.domain.CCTVVO;
 import com.finder.domain.MemberVO;
@@ -35,6 +36,8 @@ import com.finder.domain.StoreVO;
 import com.finder.security.domain.CustomUser;
 import com.finder.service.MemberService;
 import com.finder.service.StoreService;
+
+import lombok.extern.log4j.Log4j;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -47,9 +50,10 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.web.servlet.support.RequestContextUtils;
 
 @Controller
+@Log4j
 public class ManageIndexController {
 	
-	private static final Logger logger = LoggerFactory.getLogger(ManageCCTVController.class);
+	private static final Logger logger = LoggerFactory.getLogger(ManageIndexController.class);
 	
 	@Inject
 	MemberService memberService;
@@ -57,7 +61,7 @@ public class ManageIndexController {
 	@Inject
 	StoreService storeService;
 	
-	@RequestMapping(value = "/indexStore", method = RequestMethod.GET)
+	@RequestMapping(value = "/stores", method = RequestMethod.GET)
 	public ModelAndView indexStore(HttpServletRequest req, HttpServletResponse res, HttpSession session) throws Exception {
 		
 		MemberVO member = new MemberVO();
@@ -80,38 +84,45 @@ public class ManageIndexController {
 		return mav;
 	}
 	
-	/*
-	@RequestMapping(value = "/indexCCTV", method = RequestMethod.GET)
-	public ModelAndView indexCCTV(HttpServletRequest req, HttpServletResponse res, HttpSession session) throws Exception {
+	
+	@RequestMapping(value = "/stores/{storeId}/cctvs", method = RequestMethod.GET)
+	public ModelAndView indexCCTV(@PathVariable("storeId") String storeId, HttpServletRequest req, HttpServletResponse res, HttpSession session) throws Exception {
 		
 		StoreVO store = new StoreVO();
 		ModelAndView mav = new ModelAndView();
 		String currentUserName = SecurityContextHolder.getContext().getAuthentication().getName();
-		String storeId = req.getParameter("storeId");
+//		String storeId = req.getParameter("storeId");
 		
-		if (currentUserName != storeService.getManagerId(storeId)) {
+		if (!currentUserName.equals(storeService.getManagerId(storeId))) {
+			log.info("indexCCTV getManagerId : "+storeService.getManagerId(storeId));
 			mav.setViewName("indexStore");
 			res.setContentType("text/html; charset=UTF-8");
 			PrintWriter writer = res.getWriter();
-			writer.println("<script>alert('해당 스토어에 대한 권한이 없습니다.'); location.href='/indexStore';</script>");
-			writer.flush();
+//			writer.println("<script>alert('해당 스토어에 대한 권한이 없습니다.'); location.href='/stores';</script>");
+//			writer.flush();
 			return mav;
 		}
 		store.setPid(storeId);
-		logger.info(currentUserName);		
+		logger.info("currentUserName : "+currentUserName);		
+		StoreVO storeVO = storeService.getStore(storeId);
 		List<CCTVVO> cctvList = storeService.getCCTVList(store);
-		*/
-		/*
-		for(int i=0;i<cctvList.size();i++) {
-			cctvList.set(i, "http://"+ cctvList.get(i) + "/video_feed");
-		}*/
-	/*
+//		
+//		/*
+//		for(int i=0;i<cctvList.size();i++) {
+//			cctvList.set(i, "http://"+ cctvList.get(i) + "/video_feed");
+//		}*/
+//	
+		
 		req.setAttribute("cctvList", cctvList);
 		mav.addObject("cctvList", cctvList);
-		logger.info(store.getPid());
+		mav.addObject("store", storeVO);
 		
+		logger.info(store.getPid());
+		log.info("cctvList : "+cctvList);
+		log.info("storeVO : "+storeVO);
+//		
 		mav.setViewName("indexCCTV");
 		
 		return mav;
-	}*/
+	}
 }

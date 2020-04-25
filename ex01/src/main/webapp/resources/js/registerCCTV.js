@@ -2,5 +2,5 @@
 var gotocctvlist =document.getElementById('gotocctvlist');
 gotocctvlist.addEventListener("click", gotocctvHandler);
 function gotocctvHandler(){
-    location.href="/indexCCTV"
+    location.href="/cctvs"
 }

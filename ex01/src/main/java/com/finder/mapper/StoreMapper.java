@@ -18,6 +18,8 @@ public interface StoreMapper {
 	
 	public StoreVO viewStore(StoreVO vo);
 	
+	public StoreVO viewStoreById(String storeId);
+	
 	public int register(StoreVO vo);
 	
 	public int update(StoreVO store);

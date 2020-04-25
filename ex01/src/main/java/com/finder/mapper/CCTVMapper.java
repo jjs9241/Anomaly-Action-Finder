@@ -15,7 +15,7 @@ public interface CCTVMapper {
 	//@Select("select * from cctv")
 	public List<CCTVVO> getList();
 	
-	public void insert(CCTVVO cctv);
+	public boolean insert(CCTVVO cctv);
 	
 	//public void insertSelectKey(CCTVVO cctv);
 }

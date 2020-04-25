@@ -1,4 +1,5 @@
-    //비디오 창 클릭하면 모달창으로 크게 뜨는거
+document.addEventListener("DOMContentLoaded", function(event) {
+	//비디오 창 클릭하면 모달창으로 크게 뜨는거
     var content = document.getElementById('content');
     var modal = document.querySelector("#modal");
     content.addEventListener('click',modalHandler);
@@ -22,4 +23,10 @@
 
     modal_btn.addEventListener('click',modalcloseHandler);
     sidebar.addEventListener('click',modalcloseHandler);
-    header.addEventListener('click',modalcloseHandler);
+    header.addEventListener('click',modalcloseHandler); 
+    
+});
+	
+ 
+
+

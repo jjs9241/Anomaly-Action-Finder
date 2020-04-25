@@ -11,6 +11,10 @@ public class StoreVO {
 	String storeName;
 	String managerId;
 	String ip;
+	String address;
+	Double latitude;
+	Double longitude;
+	Float rate;
 	
 	private List<String> cctvUrlList;
 }

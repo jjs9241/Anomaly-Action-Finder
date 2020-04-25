@@ -6,12 +6,13 @@ import lombok.Data;
 public class CCTVVO {
 
 	private String pid;
-	private String managerID;
+	private String storeId;
+	private String managerId;
 	private String address;
 	private String mongoDBid;
-	private double latitude;
-	private double longitude;
 	private String cctvName;
+	private String hostName;
 	private String ip;
+	private String description;
 	
 }

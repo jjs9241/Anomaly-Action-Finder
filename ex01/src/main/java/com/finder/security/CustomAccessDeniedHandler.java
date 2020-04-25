@@ -29,7 +29,8 @@ public class CustomAccessDeniedHandler implements AccessDeniedHandler{
 		
 		log.error("Access Denied Handler");
 		log.error("Redirect....");
-		res.sendRedirect("/login/login?authError=True");
+//		res.sendRedirect("/login/login?authError=True");
+		res.sendRedirect("/login?authError=True");
 		// 직접 서블릿 API를 이용할 수 있다.
 		//res.sendRedirect("/accessError?url="+url);
 	}

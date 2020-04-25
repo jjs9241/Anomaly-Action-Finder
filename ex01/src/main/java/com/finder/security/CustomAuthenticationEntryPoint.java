@@ -45,7 +45,8 @@ public class CustomAuthenticationEntryPoint implements AuthenticationEntryPoint 
     	logger.info(errorPage);
     	String goErrorPage = convertorViewTypeErrorPage(request, errorPage);
     	logger.info(goErrorPage);
-    	response.sendRedirect("/login/login?authError=True");
+//    	response.sendRedirect("/login/login?authError=True");
+    	response.sendRedirect("/login?authError=True");
         /*if( redirect ){
             response.sendRedirect(goErrorPage);
         }else{

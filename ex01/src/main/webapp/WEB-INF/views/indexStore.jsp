@@ -20,169 +20,111 @@
     </head>
     <body>
     <!--header-->
-    <div id="header">
-        <a href="#"><img src="resources/img/logo_b.png" alt="로고"></a>
-        <ul class="navbar">
-            <li class="user_icon"><a href="#"></a></li>
-            <li class="notice"><i class="far fa-bell"></i></li>
-        </ul>
-        <div class="user_ele hide">
-            <div class="user_name">
-                <div class="user_icon2"></div>
-                <h2>Valerie Luna</h2>
-                <p>vluna@aol.com<p>
-            </div>
-            <a href=""><i class="fas fa-cog"></i>Account</a>
-            <a href=""><i class="fas fa-sign-out-alt"></i>Logout</a>
-        </div>
-    </div>
+	<%@ include file="/WEB-INF/views/commons/header.jsp" %>
     <!--//header-->
-        <div id="wrap">
-                <div id="side">
-                    <!--sidebar-->
-                    <div id="sidebar">
-                        <div class="video_title">
-                            <!--<span>VIDEO</span>-->
-                            <ul>
-                                <li>VIDEO</li>
-                                <li><a href="/manage">CCTV 관제</a></li>
-                                <li><a href="/map">지도</a></li>
-                                <li><a href="/strange">이상행동</a></li>
-                            </ul>
-                        </div>
-                        <div class="cctv">
-                            <!--<span>CCTV</span>-->
-                            <ul>
-                                <li>CCTV</li>
-                                <li><a href="/indexStore">CCTV 관리</a></li>
-                            </ul>
-                        </div>
-                        <div class="qa">
-                            <!--<span>Q&A</span>-->
-                            <ul>
-                                <li>Q&A</li>
-                                <li><a href="/qa">문의하기</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <!--//sidebar-->
-                    <!--footer-->
-                    <div id="footer">
-                        &copy;Finder
-                    </div>
-                    <!--//footer-->
+	<div id="wrap">
+        <div id="side">
+            <!--sidebar-->
+			<%@ include file="/WEB-INF/views/commons/sidebar.jsp" %>
+            <!--//sidebar-->
+            <!--footer-->
+            <div id="footer">
+                &copy;Finder
+            </div>
+            <!--//footer-->
+        </div>
+        <!--//side-->
+        <!--content-->
+        <div id="content">
+            <div class="title_con">
+                <h2>매장 관리</h2>
+            </div>
+            <div class="table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th class="number">No.</th>
+                            <th class="name">name</th>
+                            <th class="stored_ip">IP</th>
+                            <th class="stored_id">Store ID</th>
+                            <th class="address">Address</th>
+                            <th class="rate">Rate</th>
+                            <th class="edit">Edit</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    	<sec:authorize access="isAuthenticated()">
+                    	<c:forEach items="${storeList}" var="store" varStatus="status">
+                    	<tr class="store">
+            				<td class="number"><c:out value="${status.count}"/></td>
+                            <td class="name"><a href="/stores/${store.pid}/cctvs"> <c:out value="${store.storeName}"/></a> </td>
+                            <td class="stored_ip"><c:out value="${store.ip}"/></td>
+                            <td class="stored_id"><c:out value="${store.pid}"/></td>                                    
+                            <td class="address"><c:out value="${store.address}"/></td>
+                            <td class="rate"><c:out value="${store.ip}"/></td>
+                            <td class="edit">                                                       
+                                <a href="/modifyStore" class="mr-2"><i class="fas fa-edit text-info"></i></a>
+                                <a href="#"><i class="fas fa-trash-alt text-danger"></i></a>
+                            </td>
+        				</tr>
+        				</c:forEach>
+        				</sec:authorize>
+<!--                         <tr> -->
+<!--                             <td>3</td> -->
+<!--                             <td class="name"><a href="/indexCCTV">shop</a></td> -->
+<!--                             <td class="stored_ip">IP</td> -->
+<!--                             <td class="stored_id">Store ID</td> -->
+<!--                             <td class="address">인천광영시 부평구 adsfaldsfjlasdjflajdsflajdslfa</td> -->
+<!--                             <td class="rate">0.1%</td> -->
+<!--                             <td class="edit">                                                        -->
+<!--                                 <a href="/modifyStore" class="mr-2"><i class="fas fa-edit text-info font-16"></i></a> -->
+<!--                                 <a href="#"><i class="fas fa-trash-alt text-danger font-16"></i></a> -->
+<!--                             </td> -->
+<!--                         </tr> -->
+<!--                         <tr> -->
+<!--                             <td>4</td> -->
+<!--                             <td class="name"><a href="/indexCCTV">shop</a></td> -->
+<!--                             <td class="stored_ip">IP</td> -->
+<!--                             <td class="stored_id">Store ID</td> -->
+<!--                             <td class="address">인천광영시 부평구 adsfaldsfjlasdjflajdsflajdslfa</td> -->
+<!--                             <td class="rate">0.1%</td> -->
+<!--                             <td class="edit">                                                        -->
+<!--                                 <a href="/modifyStore" class="mr-2"><i class="fas fa-edit text-info font-16"></i></a> -->
+<!--                                 <a href="#"><i class="fas fa-trash-alt text-danger font-16"></i></a> -->
+<!--                             </td> -->
+<!--                         </tr> -->
+<!--                         <tr> -->
+<!--                             <td>5</td> -->
+<!--                             <td class="name"><a href="/indexCCTV">shop</a></td> -->
+<!--                             <td class="stored_ip">IP</td> -->
+<!--                             <td class="stored_id">Store ID</td> -->
+<!--                             <td class="address">인천광영시 부평구 adsfaldsfjlasdjflajdsflajdslfa</td> -->
+<!--                             <td class="rate">0.1%</td> -->
+<!--                             <td class="edit">                                                        -->
+<!--                                 <a href="/modifyStore" class="mr-2"><i class="fas fa-edit text-info font-16"></i></a> -->
+<!--                                 <a href="#"><i class="fas fa-trash-alt text-danger font-16"></i></a> -->
+<!--                             </td> -->
+<!--                         </tr> -->
+                    </tbody>                           
+                </table>
+                <div class="table_footer">
+                    <ul >
+                        <li class="pre"><a href="#">Previous</a></li>
+                        <li class="num first"><a href="#">1</a></li>
+                        <li class="num"><a href="#">2</a></li>
+                        <li class="next"><a href="#">Next</a></li>
+                    </ul>
+                    <button type="button"><a href="/registerStore?no=${storeList.size()+1}"><i class="fas fa-plus-circle"></i>Add New Store</a></button>
                 </div>
-                <!--//side-->
-                <!--content-->
-                <div id="content">
-                    <div class="title_con">
-                        <h2>매장 관리</h2>
-                    </div>
-                    <div class="table">
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th class="number">No.</th>
-                                    <th class="name">name</th>
-                                    <th class="stored_ip">IP</th>
-                                    <th class="stored_id">Store ID</th>
-                                    <th class="address">Address</th>
-                                    <th class="rate">Rate</th>
-                                    <th class="edit">Edit</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                            	
-                            	<sec:authorize access="isAuthenticated()">
-                            	<c:forEach items="${storeList}" var="store">
-                            	<div class="store">
-                    				<td class="number"><c:out value="${store.ip}"/></td>
-                                    <td class="name"><c:out value="${store.storeName}"/></td>
-                                    <td class="stored_ip"><c:out value="${store.ip}"/></td>
-                                    <td class="stored_id"><c:out value="${store.ip}"/></td>                                    
-                                    <td class="address"><c:out value="${store.ip}"/></td>
-                                    <td class="rate"><c:out value="${store.ip}"/></td>
-                                    <td class="edit">                                                       
-                                        <a href="/modifyStore" class="mr-2"><i class="fas fa-edit text-info"></i></a>
-                                        <a href="#"><i class="fas fa-trash-alt text-danger"></i></a>
-                                    </td>
-                				</div>
-                				</c:forEach>
-                				</sec:authorize>
-                                 <tr>
-                                    <td class="number">1</td>
-                                    <td class="name"><a href="/indexCCTV">super</a></td>
-                                    <td class="stored_ip">1234566</td>
-                                    <td class="stored_id">1234</td>
-                                    <td class="address">경기도 부천시 dlkfjaldsjfalksdjflkajsdfl;jadsl;fk</td>
-                                    <td class="rate">0.1%</td>
-                                    <td class="edit">                                                       
-                                        <a href="/modifyStore" class="mr-2"><i class="fas fa-edit text-info"></i></a>
-                                        <a href="#"><i class="fas fa-trash-alt text-danger"></i></a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>2</td>
-                                    <td class="name"><a href="/indexCCTV">mart</a></td>
-                                    <td class="stored_ip">IP</td>
-                                    <td class="stored_id">Store ID</td>
-                                    <td class="address">서울특별시 강남구 adslkfjaldsjflasdjflkajsdl;faj</td>
-                                    <td class="rate">0.1%</td>
-                                    <td class="edit">                                                       
-                                        <a href="/modifyStore" class="mr-2"><i class="fas fa-edit text-info font-16"></i></a>
-                                        <a href="#"><i class="fas fa-trash-alt text-danger font-16"></i></a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>3</td>
-                                    <td class="name"><a href="/indexCCTV">shop</a></td>
-                                    <td class="stored_ip">IP</td>
-                                    <td class="stored_id">Store ID</td>
-                                    <td class="address">인천광영시 부평구 adsfaldsfjlasdjflajdsflajdslfa</td>
-                                    <td class="rate">0.1%</td>
-                                    <td class="edit">                                                       
-                                        <a href="/modifyStore" class="mr-2"><i class="fas fa-edit text-info font-16"></i></a>
-                                        <a href="#"><i class="fas fa-trash-alt text-danger font-16"></i></a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>4</td>
-                                    <td class="name"><a href="/indexCCTV">shop</a></td>
-                                    <td class="stored_ip">IP</td>
-                                    <td class="stored_id">Store ID</td>
-                                    <td class="address">인천광영시 부평구 adsfaldsfjlasdjflajdsflajdslfa</td>
-                                    <td class="rate">0.1%</td>
-                                    <td class="edit">                                                       
-                                        <a href="/modifyStore" class="mr-2"><i class="fas fa-edit text-info font-16"></i></a>
-                                        <a href="#"><i class="fas fa-trash-alt text-danger font-16"></i></a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>5</td>
-                                    <td class="name"><a href="/indexCCTV">shop</a></td>
-                                    <td class="stored_ip">IP</td>
-                                    <td class="stored_id">Store ID</td>
-                                    <td class="address">인천광영시 부평구 adsfaldsfjlasdjflajdsflajdslfa</td>
-                                    <td class="rate">0.1%</td>
-                                    <td class="edit">                                                       
-                                        <a href="/modifyStore" class="mr-2"><i class="fas fa-edit text-info font-16"></i></a>
-                                        <a href="#"><i class="fas fa-trash-alt text-danger font-16"></i></a>
-                                    </td>
-                                </tr>
-                            </tbody>                           
-                        </table>
-                        <div class="table_footer">
-                            <ul >
-                                <li class="pre"><a href="#">Previous</a></li>
-                                <li class="num first"><a href="#">1</a></li>
-                                <li class="num"><a href="#">2</a></li>
-                                <li class="next"><a href="#">Next</a></li>
-                            </ul>
-                            <button type="button"><a href="/registerStore"><i class="fas fa-plus-circle"></i>Add New Store</a></button>
-                        </div>
-                    </div>
-                <!--//content-->
-            </div>  
-            <script type="text/javascript"src="<c:url value="/resources/js/common.js" />"></script>
-    </body>
-    </html>
+            </div>
+        <!--//content-->
+    </div>  
+    <script type="text/javascript"src="<c:url value="/resources/js/common.js" />"></script>
+    <script type="text/javascript">
+    
+        document.addEventListener("DOMContentLoaded", function(event) { 
+<!--             docuemnt.getEl -->
+        });
+    </script>
+</body>
+</html>

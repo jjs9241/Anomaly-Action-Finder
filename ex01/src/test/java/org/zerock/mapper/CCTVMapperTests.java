@@ -34,11 +34,11 @@ public class CCTVMapperTests {
 	public void testInsert() {
 		CCTVVO cctv = new CCTVVO();
 		cctv.setPid("insertTestPID");
-		cctv.setManagerID("jjj1111@testmail.com");
-		cctv.setAddress("insertTestAdd");
-		cctv.setMongoDBid("insertTestMongo");
-		cctv.setLatitude(0.0);
-		cctv.setLongitude(0.0);
+//		cctv.setManagerID("jjj1111@testmail.com");
+//		cctv.setAddress("insertTestAdd");
+//		cctv.setMongoDBid("insertTestMongo");
+//		cctv.setLatitude(0.0);
+//		cctv.setLongitude(0.0);
 		cctv.setCctvName("insertTestName");
 		cctv.setIp("insertTestIP");
 		

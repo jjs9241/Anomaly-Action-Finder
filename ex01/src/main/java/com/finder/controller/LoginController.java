@@ -6,6 +6,7 @@ import javax.servlet.http.HttpSession;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
@@ -13,13 +14,18 @@ import org.springframework.web.servlet.ModelAndView;
 import com.finder.domain.MemberVO;
 import com.finder.service.MemberService;
 
+import lombok.extern.log4j.Log4j;
+
 import org.springframework.web.bind.annotation.RequestMethod;
+
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import java.util.List;
 import java.util.Map;
 import java.net.URLEncoder;
+import java.io.IOException;
 import java.io.PrintWriter;
 import java.net.URLDecoder;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
@@ -29,7 +35,8 @@ import org.springframework.web.servlet.FlashMap;
 import org.springframework.security.core.userdetails.UserDetailsService;
 
 @Controller
-@RequestMapping("/login/*")
+@Log4j
+//@RequestMapping("/login/*")
 public class LoginController {
 
 	private static final Logger logger = LoggerFactory.getLogger(LoginController.class);
@@ -44,13 +51,14 @@ public class LoginController {
 		return "login"; // views/login.jsp 로 포워드
 	}
 	
-	@RequestMapping(value = "/fail", method= RequestMethod.GET)
+	@RequestMapping(value = "/login/fail", method= RequestMethod.GET)
 	public void loginFail(HttpServletRequest req, HttpServletResponse res) throws Exception {
 	
 		String errMsg = "아이디 또는 비밀번호가 일치하지 않습니다.";
-		
+//		sysout
 		errMsg = URLEncoder.encode(errMsg,"UTF-8");
-		res.sendRedirect("http://localhost:8080/login/login?errMsg=" + errMsg);
+//		res.sendRedirect("http://localhost:8080/login?errMsg=" + errMsg);
+		res.sendRedirect("/login?errMsg=" + errMsg);
 		
 	}
 	
@@ -73,13 +81,24 @@ public class LoginController {
 			logger.info(authError);
 			res.setContentType("text/html; charset=UTF-8");
 			PrintWriter writer = res.getWriter();
-			writer.println("<script>alert('해당 페이지에 대한 권한이 없습니다.'); location.href='/login/login';</script>");
+			writer.println("<script>alert('해당 페이지에 대한 권한이 없습니다.'); location.href='/login';</script>");
 			writer.flush();
 		}
 		logger.info("get login");
 		
 		mav.setViewName("login");
+//		mav.setViewName("home");
 		return mav;
+	}
+	
+	@GetMapping("/logout")
+	public void logout(HttpServletRequest req, 
+			HttpServletResponse res)
+					throws ServletException, IOException {
+		
+		log.info("custom logout");
+		res.sendRedirect("/");
+		
 	}
 	
 	/*

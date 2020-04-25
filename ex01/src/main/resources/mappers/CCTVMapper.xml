@@ -18,8 +18,14 @@
 		]]>
 	</select>
 	
+	<select id="getCCTVList" resultType="com.finder.domain.CCTVVO">
+		SELECT pid, storeID, mongodbid,  ip, description, hostName
+		  FROM cctv
+		 WHERE storeID = #{storeId}
+	</select>
+	
 	<insert id="insert" parameterType="com.finder.domain.CCTVVO">
-		insert into cctv(pid, managerid, address, mongodbid, latitude, longitude, cctvname, ip) values(#{pid}, #{managerID}, #{address}, #{mongoDBid}, #{latitude}, #{longitude}, #{cctvName}, #{ip})
+		insert into cctv(pid, storeId, hostName, description) values(#{pid}, #{storeId}, #{hostName}, #{description})
 	</insert>
 
 	<!--

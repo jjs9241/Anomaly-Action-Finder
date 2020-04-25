@@ -63,9 +63,12 @@ private static final Logger logger = LoggerFactory.getLogger(LoginController.cla
 	
 	@Override
 	public String getManagerId(String storeId) {
+		System.out.println("getManagerId storeId : "+storeId);
 		log.info("store...." + storeId);
 		StoreVO storeVO = new StoreVO();
 		storeVO.setPid(storeId);
+		System.out.println("id : "+ storeMapper.viewStore(storeVO).getManagerId());
+		
 		return storeMapper.viewStore(storeVO).getManagerId();
 	}
 	
@@ -74,5 +77,15 @@ private static final Logger logger = LoggerFactory.getLogger(LoginController.cla
 		log.info("store...." + store);
 		
 		return storeMapper.register(store) == 1;
+	}
+
+	@Override
+	public StoreVO getStore(String storeId) {
+		return storeMapper.getStore(storeId);
+	}
+	
+	@Override
+	public boolean registCCTV(CCTVVO cctvVO) {
+		return cctvMapper.insert(cctvVO);
 	}
 }

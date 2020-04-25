@@ -25,27 +25,27 @@ public class UhuiTempController {
 		return "strange";
 	}
 	
-	@RequestMapping(value = "/map", method = RequestMethod.GET)
-	public String map(Model model) throws Exception{
-			
-		return "map";
-		
-	}
+//	@RequestMapping(value = "/map", method = RequestMethod.GET)
+//	public String map(Model model) throws Exception{
+//			
+//		return "map";
+//		
+//	}
 	
 	@RequestMapping(value = "/qa", method = RequestMethod.GET)
 	public String qa(Model model) throws Exception{			
 		return "q&a";		
 	}
 	
-	@RequestMapping(value = "/indexCCTV", method = RequestMethod.GET)
+	@RequestMapping(value = "/cctvs", method = RequestMethod.GET)
 	public String indexCCTV(Model model) throws Exception{			
 		return "indexCCTV";		
 	}
 	
-	@RequestMapping(value = "/registerCCTV", method = RequestMethod.GET)
-	public String registerCCTV(Model model) throws Exception{			
-		return "registerCCTV";		
-	}
+//	@RequestMapping(value = "/registerCCTV", method = RequestMethod.GET)
+//	public String registerCCTV(Model model) throws Exception{			
+//		return "registerCCTV";		
+//	}
 	
 
 	@RequestMapping(value = "/modifyCCTV", method = RequestMethod.GET)

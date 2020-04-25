@@ -19,7 +19,7 @@
 <body>
     <!--header-->
     <div id="header">
-        <a href="#"><img src="/resources/img/logo_b.png" alt="로고"></a>
+        <a href="/manageCCTV"><img src="/resources/img/logo_b.png" alt="로고"></a>
         <ul class="navbar">
         	<!--
         	<li class="logout"><a href="/login/login"><i class="fa fa-sign-out fa-fw"></i>Logout</a></li>

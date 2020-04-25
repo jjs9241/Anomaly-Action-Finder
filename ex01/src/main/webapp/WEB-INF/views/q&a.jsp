@@ -18,7 +18,7 @@
     <body>
     <!--header-->
     <div id="header">
-        <a href="#"><img src="resources/img/logo_b.png" alt="로고"></a>
+        <a href="/manageCCTV"><img src="resources/img/logo_b.png" alt="로고"></a>
         <ul class="navbar">
             <li class="user_icon"><a href="#"></a></li>
             <li class="notice"><i class="far fa-bell"></i></li>

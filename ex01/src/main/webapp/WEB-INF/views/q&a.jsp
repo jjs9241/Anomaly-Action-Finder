@@ -71,8 +71,7 @@
 	              <input id="honeypot" type="text" name="honeypot" value="" />
 	            </fieldset>
 	      
-	            <button class="button-success pure-button button-xlarge">
-	              <i class="fa fa-paper-plane"></i>&nbsp;Send</button>
+	            <button><i class="fa fa-paper-plane"></i>&nbsp;Send</button>
 	          </div>
 	      
 	          <!-- Customise the Thankyou Message People See when they submit the form: -->
@@ -84,9 +83,7 @@
 	       
 	    <!--//content-->
 	</div>  
-	<script data-cfasync="false" src="form-submission-handler.js"></script>
-	<script type="text/javascript"src="<c:url value="/resources/js/form-submission-handler.js" />"></script>
+
 	<script type="text/javascript"src="<c:url value="/resources/js/common.js" />"></script>
-	<script type="text/javascript"src="<c:url value="/resources/js/manageCCTV.js" />"></script>
 </body>
 </html>

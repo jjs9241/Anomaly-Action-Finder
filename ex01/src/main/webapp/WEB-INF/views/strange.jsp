@@ -48,96 +48,102 @@
 		
 		    <!--content-->
 		    <div id="content">
-		        <div class="video">
-		            <div class="star_wrap">                       
-		                <div class="star"><i class="far fa-star"></i> </div>
-		            </div>
-		            <video src="resources/video/Love - 32021.mp4" autoplay loop muted></video>
-		        </div>
-		        <div class="video">
-		            <div class="star_wrap">                       
-		                <div class="star"><i class="far fa-star"></i> </div>
-		            </div>
-		            <video src="resources/video/Sea - 33194.mp4" autoplay loop muted></video>
-		        </div>
-		        <div class="video">
-		            <div class="star_wrap">                       
-		                <div class="star"><i class="far fa-star"></i> </div>
-		            </div>
-		            <video src="resources/video/Cello - 33565.mp4" autoplay loop muted></video>
-		        </div>
-		        <div class="video">
-		            <div class="star_wrap">                       
-		                <div class="star"><i class="far fa-star"></i> </div>
-		            </div>
-		            <video src="resources/video/Cane - 31180.mp4" autoplay loop muted></video>
-		        </div>
-		        <div class="video">
-		            <div class="star_wrap">                       
-		                <div class="star"><i class="far fa-star"></i> </div>
-		            </div>
-		            <video src="resources/video/테스트영상.mp4" autoplay loop muted></video>
-		        </div>
-		        <div class="video">
-		            <div class="star_wrap">                       
-		                <div class="star"><i class="far fa-star"></i> </div>
-		            </div>
-		            <video src="resources/video/테스트영상.mp4" autoplay loop muted></video>
-		        </div>
-		        <div class="video">
-		            <div class="star_wrap">                       
-		                <div class="star"><i class="far fa-star"></i> </div>
-		            </div>
-		            <video src="resources/video/테스트영상.mp4" autoplay loop muted></video>
-		        </div>
-		        <div class="video">
-		            <div class="star_wrap">                       
-		                <div class="star"><i class="far fa-star"></i> </div>
-		            </div>
-		            <video src="resources/video/테스트영상.mp4" autoplay loop muted></video>
-		        </div>
-		        <div class="video">
-		            <div class="star_wrap">                       
-		                <div class="star"><i class="far fa-star"></i> </div>
-		            </div>
-		            <video src="resources/video/테스트영상.mp4" autoplay loop muted></video>
-		        </div>
-		        <div class="video">
-		            <div class="star_wrap">                       
-		                <div class="star"><i class="far fa-star"></i> </div>
-		            </div>
-		            <video src="resources/video/테스트영상.mp4" autoplay loop muted></video>
-		        </div>
-		        <div class="video">
-		            <div class="star_wrap">                       
-		                <div class="star"><i class="far fa-star"></i> </div>
-		            </div>
-		            <video src="resources/video/테스트영상.mp4" autoplay loop muted></video>
-		        </div>
-		        <div class="video">
-		            <div class="star_wrap">                       
-		                <div class="star"><i class="far fa-star"></i> </div>
-		            </div>
-		            <video src="resources/video/테스트영상.mp4" autoplay loop muted></video>
-		        </div>
-		        <div class="video">
-		            <div class="star_wrap">                       
-		                <div class="star"><i class="far fa-star"></i> </div>
-		            </div>
-		            <video src="resources/video/테스트영상.mp4" autoplay loop muted></video>
-		        </div>
-		        <div class="video">
-		            <div class="star_wrap">                       
-		                <div class="star"><i class="far fa-star"></i> </div>
-		            </div>
-		            <video src="resources/video/테스트영상.mp4" autoplay loop muted></video>
-		        </div>
-		        <div class="video">
-		            <div class="star_wrap">                       
-		                <div class="star"><i class="far fa-star"></i> </div>
-		            </div>
-		            <video src="resources/video/테스트영상.mp4" autoplay loop muted></video>
-		        </div>
+            	<div class="strange_video_wrap">
+			        <div class="video">
+			            <div class="star_wrap">                       
+			                <div class="star"><i class="far fa-star"></i> </div>
+			            </div>
+			            <video src="resources/video/Love - 32021.mp4" autoplay loop muted></video>
+			        </div>
+			        <div class="video">
+			            <div class="star_wrap">                       
+			                <div class="star"><i class="far fa-star"></i> </div>
+			            </div>
+			            <video src="resources/video/Sea - 33194.mp4" autoplay loop muted></video>
+			        </div>
+			        <div class="video">
+			            <div class="star_wrap">                       
+			                <div class="star"><i class="far fa-star"></i> </div>
+			            </div>
+			            <video src="resources/video/Cello - 33565.mp4" autoplay loop muted></video>
+			        </div>
+			        <div class="video">
+			            <div class="star_wrap">                       
+			                <div class="star"><i class="far fa-star"></i> </div>
+			            </div>
+			            <video src="resources/video/Cane - 31180.mp4" autoplay loop muted></video>
+			        </div>
+			        <div class="video">
+			            <div class="star_wrap">                       
+			                <div class="star"><i class="far fa-star"></i> </div>
+			            </div>
+			            <video src="resources/video/테스트영상.mp4" autoplay loop muted></video>
+			        </div>
+			        <div class="video">
+			            <div class="star_wrap">                       
+			                <div class="star"><i class="far fa-star"></i> </div>
+			            </div>
+			            <video src="resources/video/테스트영상.mp4" autoplay loop muted></video>
+			        </div>
+			        <div class="video">
+			            <div class="star_wrap">                       
+			                <div class="star"><i class="far fa-star"></i> </div>
+			            </div>
+			            <video src="resources/video/테스트영상.mp4" autoplay loop muted></video>
+			        </div>
+			        <div class="video">
+			            <div class="star_wrap">                       
+			                <div class="star"><i class="far fa-star"></i> </div>
+			            </div>
+			            <video src="resources/video/테스트영상.mp4" autoplay loop muted></video>
+			        </div>
+			        <div class="video">
+			            <div class="star_wrap">                       
+			                <div class="star"><i class="far fa-star"></i> </div>
+			            </div>
+			            <video src="resources/video/테스트영상.mp4" autoplay loop muted></video>
+			        </div>
+			          <!-- 
+			        <div class="video">
+			            <div class="star_wrap">                       
+			                <div class="star"><i class="far fa-star"></i> </div>
+			            </div>
+			            <video src="resources/video/테스트영상.mp4" autoplay loop muted></video>
+			        </div>
+			        <div class="video">
+			            <div class="star_wrap">                       
+			                <div class="star"><i class="far fa-star"></i> </div>
+			            </div>
+			            <video src="resources/video/테스트영상.mp4" autoplay loop muted></video>
+			        </div>
+			      
+			        <div class="video">
+			            <div class="star_wrap">                       
+			                <div class="star"><i class="far fa-star"></i> </div>
+			            </div>
+			            <video src="resources/video/테스트영상.mp4" autoplay loop muted></video>
+			        </div>
+			        <div class="video">
+			            <div class="star_wrap">                       
+			                <div class="star"><i class="far fa-star"></i> </div>
+			            </div>
+			            <video src="resources/video/테스트영상.mp4" autoplay loop muted></video>
+			        </div>
+			        <div class="video">
+			            <div class="star_wrap">                       
+			                <div class="star"><i class="far fa-star"></i> </div>
+			            </div>
+			            <video src="resources/video/테스트영상.mp4" autoplay loop muted></video>
+			        </div>
+			        <div class="video">
+			            <div class="star_wrap">                       
+			                <div class="star"><i class="far fa-star"></i> </div>
+			            </div>
+			            <video src="resources/video/테스트영상.mp4" autoplay loop muted></video>
+			        </div>
+			         -->
+			    </div>
+            	<!--//strange_video_wrap-->
 		    </div>
 		    <!--//content-->
 		</div>
@@ -145,5 +151,6 @@
 	</div>    
 	<script type="text/javascript"src="<c:url value="/resources/js/common.js" />"></script>
 	<script type="text/javascript"src="<c:url value="/resources/js/strange.js" />"></script>  
+>>>>>>> refs/heads/v1
 </body>
 </html>

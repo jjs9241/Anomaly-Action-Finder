@@ -101,7 +101,7 @@
 	                                 
                             </tbody>                                                     
                         </table>
-                        <div class="table_footer" style="position: absolute;top: 600px;width: 600px;">
+                        <div class="table_footer" >
                             <ul >
                                 <li class="pre2"><a href="#"><i class="fas fa-chevron-left"></i></a></li>
                                 <li class="num2"><a href="#">1</a></li>

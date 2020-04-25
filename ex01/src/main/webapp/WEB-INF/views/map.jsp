@@ -18,36 +18,36 @@
 </head>
 <body>
     <!--header-->
-	<%@ include file="/WEB-INF/views/commons/header.jsp" %>    
+    <%@ include file="/WEB-INF/views/commons/header.jsp" %>    
     <!--//header-->
     <div id="wrap">
         <div id="side">
             <!--sidebar-->
             <%@ include file="/WEB-INF/views/commons/sidebar.jsp" %>
             <!--//sidebar-->
-            <!--footer-->
-            <div id="footer">
-                &copy;Finder
-            </div>
-            <!--//footer-->
-        </div>
-        <!--//side-->
-        <!--content-->
-        <div id="content">
-            <!--지도 영역-->
-            <div class="wrap">
-                <div id="map" ></div>
-            </div>
-            <!--검색영역-->
-            <div class="search_con">
-                <div class="search">
-                    <form>
-                        <fieldset>
-                            <input type="search-input" placeholder="검색" /><button class="search_btn"type="submit"><i class="fa fa-search"></i></button>
-                        </fieldset>
-                    </form>
+                <!--footer-->
+                <div id="footer">
+                    &copy;Finder
                 </div>
-                <div class="searchtable">
+                <!--//footer-->
+            </div>
+            <!--//side-->
+            <!--content-->
+            <div id="content">
+                <!--지도 영역-->
+                <div class="wrap">
+                    <div id="map" ></div>
+                </div>
+                <!--검색영역-->
+                <div class="search_con">
+                    <div class="search">
+                        <form>
+                            <fieldset>
+                                <input type="search" placeholder="검색" /><button class="search_btn"type="submit"><i class="fa fa-search"></i></button>
+                            </fieldset>
+                        </form>
+                    </div>
+                    <div class="searchtable">
                     <table>
                         <thead>
                             <tr>
@@ -72,42 +72,41 @@
 <!-- 	                            </td> -->
 	        				</tr>
 	        				</c:forEach>
+<!--                                     <tr> -->
+<!--                                     <th class="number">1</th> -->
+<!--                                     <th class="name">super</td> -->
+<!--                                     <th class="cctvid">cam1</td> -->
+<!--                                     <th class="address">경기도 부천시 dlkfjaldsjfalksdjflkajsdfl;jadsl;fk....</td> -->
+<!--                                 </tr> -->
 <!--                                 <tr> -->
-<!--                                 <th class="number">1</th> -->
-<!--                                 <th class="name">super</td> -->
-<!--                                 <th class="cctvid">cam1</td> -->
-<!--                                 <th class="address">경기도 부천시 dlkfjaldsjfalksdjflkajsdfl;jadsl;fk....</td> -->
-<!--                             </tr> -->
-<!--                             <tr> -->
-<!--                                 <th>2</th> -->
-<!--                                 <th class="name">mart</td> -->
-<!--                                 <th class="cctvid">cam2</td> -->
-<!--                                 <th class="address">서울특별시 강남구 adslkfjaldsjflasdjflkajsdl;fajf....</td> -->
-<!--                             </tr> -->
-<!--                             <tr> -->
-<!--                                 <th>3</th> -->
-<!--                                 <th class="name">shop</td> -->
-<!--                                 <th class="cctvid">cam3</td> -->
-<!--                                 <th class="address">인천광영시 부평구 adsfaldsfjlasdjflajdsflajdslfa....</td> -->
-<!--                             </tr> -->
-<!--                             <tr> -->
-<!--                                 <th>4</th> -->
-<!--                                 <th class="name">shop</td> -->
-<!--                                 <th class="cctvid">cam3</td> -->
-<!--                                 <th class="address">인천광영시 부평구 adsfaldsfjlasdjflajdsflajdslfa....</td> -->
-<!--                             </tr> -->
-                        </tbody>
-                    </table>
+<!--                                     <th>2</th> -->
+<!--                                     <th class="name">mart</td> -->
+<!--                                     <th class="cctvid">cam2</td> -->
+<!--                                     <th class="address">서울특별시 강남구 adslkfjaldsjflasdjflkajsdl;fajf....</td> -->
+<!--                                 </tr> -->
+<!--                                 <tr> -->
+<!--                                     <th>3</th> -->
+<!--                                     <th class="name">shop</td> -->
+<!--                                     <th class="cctvid">cam3</td> -->
+<!--                                     <th class="address">인천광영시 부평구 adsfaldsfjlasdjflajdsflajdslfa....</td> -->
+<!--                                 </tr> -->
+<!--                                 <tr> -->
+<!--                                     <th>4</th> -->
+<!--                                     <th class="name">shop</td> -->
+<!--                                     <th class="cctvid">cam3</td> -->
+<!--                                     <th class="address">인천광영시 부평구 adsfaldsfjlasdjflajdsflajdslfa....</td> -->
+<!--                                 </tr> -->
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
-        </div>
-        <!--//content-->
+            <!--//content-->
     </div>
     <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=b88f73c214829c5ab902ccaa171c4747"></script>
-     
     <script type="text/javascript"src="<c:url value="/resources/js/common.js" />"></script>
-<%--     <script type="text/javascript"src="<c:url value="/resources/js/map.js" />"></script> --%>
-    <script type="text/javascript"src="<c:url value="/resources/js/search-map.js" />"></script>
+    <script type="text/javascript"src="<c:url value="/resources/js/map.js" />"></script>
+        <script type="text/javascript"src="<c:url value="/resources/js/search-map.js" />"></script>
     <script type="text/javascript">
     
     $(function() { 

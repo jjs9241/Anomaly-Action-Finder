@@ -1,6 +1,6 @@
 /*레이아웃*/
 #wrap {overflow: hidden; display: flex; z-index: 1;}
-#header {height: 9vh; box-shadow: 0 4px 6px rgba(17, 17, 56, 0.11);vertical-align: middle;}
+#header {height: 80px; box-shadow: 0 4px 6px rgba(17, 17, 56, 0.11);vertical-align: middle;}
 #side {float:left; width: 17%;height: 100%;}
 #sidebar {height: 80vh;}
 #footer {background-color:#F4F4F4; height: 11vh;}
@@ -49,9 +49,22 @@ position: absolute; top: 15px;right: 60px; ; background-position: -65px; backgro
 /*실시간 cctv 비디오 영역*/
 #content {display: flex;
     flex-flow: row wrap;
-    -webkit-align-content: center;
+    -webkit-align-content:top;
     justify-content: center;
+    margin-bottom: auto;
 }
+#content .video_wrap{ 
+    width:99.1%;
+    display: flex;
+    flex-flow: row wrap;
+}
+
+#content .strange_video_wrap{ 
+    width:87.5%;
+    display: flex;
+    flex-flow: row wrap;
+}
+
 #content .video {
     margin:0 0 0 0; padding:0 0 0 0;background-color:black ; border: 0.1px solid white; width: 250px;height: 219px;
     align-items : stretch; text-align: center;}

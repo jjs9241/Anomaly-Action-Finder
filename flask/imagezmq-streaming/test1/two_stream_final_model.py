@@ -32,6 +32,12 @@ class twostream_FinalModel():
         self.prediction_length = 10
         self.predict_value_list = np.zeros((self.prediction_length, len(self.classes)))
 
+        self.save_image_list = []
+        self.save_codec = cv2.VideoWriter_fourcc(*"DIVX")
+        self.video_frame_rate = 30
+        self.save_video_length = 5
+        self.anormaly_action = [0, 2]
+        self.save_image_flag = False
 
         self.model = self.load_model()
         
@@ -121,9 +127,11 @@ class twostream_FinalModel():
                         pred_value = np.softmax(self.model.predict(np.expand_dims(self.img_list, axis=0)))
                         self.predict_value_list = np.concatenate((self.predict_value_list[1:], pred_value), axis = 0)
                         sum_logits = np.sum(pred_value, axis = 0)
-                        action = self.classes[sum_logits]
+                        print("sum_logits : ", sum_logits)
+                        action_idx = np.argmax(sum_logits)
+                        action = self.classes[action_idx]
 
-                    cv2.putText(input_img, str(presentTime)[:-7] +"   "+ action, (self.fontPosition_X, self.fontPosition_Y), cv2.FONT_HERSHEY_SIMPLEX,
+                    cv2.putText(input_img, str(presentTime)[:-7] +"   "+ action+ "   "+ str(sum_logits[action_idx]), (self.fontPosition_X, self.fontPosition_Y), cv2.FONT_HERSHEY_SIMPLEX,
                              self.fontScale, (0, 0, 255), 2)
         ## optical 도 같이 사용하는 경우 
         else:
@@ -134,10 +142,22 @@ class twostream_FinalModel():
                         pred_value = np.softmax(self.model.predict([np.expand_dims(self.img_list, axis=0), np.expand_dims(self.optical_img_list, axis=0)]))
                         self.predict_value_list = np.concatenate((self.predict_value_list[1:], pred_value), axis = 0)
                         sum_logits = np.sum(pred_value, axis = 0)
-                        action = self.classes[sum_logits]
+                        print("sum_logits : ", sum_logits)
+                        action_idx = np.argmax(sum_logits)
+                        action = self.classes[action_idx]
 
-                    cv2.putText(input_img, str(presentTime)[:-7] +"   "+ action, (self.fontPosition_X, self.fontPosition_Y), cv2.FONT_HERSHEY_SIMPLEX,
+                    cv2.putText(input_img, str(presentTime)[:-7] +"   "+ action + "   "+ str(sum_logits[action_idx]), (self.fontPosition_X, self.fontPosition_Y), cv2.FONT_HERSHEY_SIMPLEX,
                              self.fontScale, (0, 0, 255), 2)
+
+        if action_idx in self.anormaly_action:
+            self.save_image_flag = True
+
+        if self.save_image_flag is True:
+            self.save_image_list.append(input_img)
+
+        if len(self.save_image_list) == (self.video_frame_rate * self.save_video_length):
+            save_anormaly_video()
+            print("save anormaly_video")
 
         # if (self.frame_rate % read_fps) == 0:
         #     self.frame_rate = 0
@@ -168,3 +188,10 @@ class twostream_FinalModel():
         flow[flow <= 0] = 0
 
         return flow
+
+    def save_anormaly_video():
+        file_name = str(datetime.now()[:-7]) + ".mp4"
+        out = cv2.VideoWriter(file_name, self.save_codec, 30.0, self.save_image_list[0].shape)
+        for frame in self.save_image_list:
+            out.write(frame)
+        out.release()

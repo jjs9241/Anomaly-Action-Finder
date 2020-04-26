@@ -16,11 +16,14 @@
 #content .shop table tr td.store_title { font-size:22px; font-weight: 600; border: none; height: 85px; color: black; position: relative;}
 #content .shop table tr td.store_title::after { content:""; width: 150px; height: 1.5px; display: block; background-color: black; position: absolute; left: 90px; margin-top: 10px;}
 #content .shop table tr td {text-align: center; vertical-align: middle; height: 55px;}
-#content .shop table tr td.store_info {text-align: right; width: 110px; }
-#content .shop table {font-size: 14px; margin: 0 auto; width: 330px; color: #444; }
-#content .title_con {width: 100%;padding-left: 120px; position: absolute; box-sizing: border-box; top: 50px; }
-#content .title_con h2 {font-size: 30px; font-weight: 600; font-style: italic ;font-family: 'Noto Sans KR', sans-serif; color: #444}
+#content .shop table tr td.store_info {text-align: right; width:120px; padding-right:7px; box-sizing: border-box;}  
+#content .shop table {font-size: 14px; margin: 0 auto; width: 85%; color: #444;}
 
+/*맨위 타이틀& 뒤로가기*/
+#content .title_con {width: 100%;padding-left: 10%; position: absolute; box-sizing: border-box; top: 60px;}
+#content .title_con h2 {width: 20%;font-size: 30px; font-weight: 600; font-style: italic ;font-family: 'Noto Sans KR', sans-serif; color: #444; display: inline-block;}
+#content .wrap .title_con .undo {width: 70%;font-size: 17px; display: inline-block; text-align: right; }
+#content .wrap .title_con .undo a {padding-left: 8px; display: inline-block; }
 
 /*아래 버튼*/
 #content .cctvlist_table .table_footer {position: relative;}
@@ -53,3 +56,5 @@
 .text-info {color: #9ba7ca; font-size: 15px; padding: 0 8px;}/*수정*/
 .text-danger { color:  red; font-size: 15px;}/*휴지통*/
 #content .cctvlist_table table {max-width: 600px;box-shadow: 0 3px 3px 0 rgba(0,0,0,0.2);box-shadow: 2px 3px 3px 2px rgba(0,0,0,0.2); border-radius: 5px;}
+
+

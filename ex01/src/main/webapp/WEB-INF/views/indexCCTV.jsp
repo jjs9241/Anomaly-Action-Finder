@@ -39,6 +39,9 @@
             <div class="wrap">
                 <div class="title_con">
                     <h2>CCTV List</h2>
+                    <div class="undo">
+                        <i class="fas fa-undo"></i><a href="/stores">뒤로가기</a>
+                    </div>
                 </div>
                 <div class="shop_table">
                     <div class="shop">

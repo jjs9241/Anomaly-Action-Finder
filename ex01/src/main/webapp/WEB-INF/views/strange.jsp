@@ -28,13 +28,7 @@
 		    </div>
 		    <!--//footer-->
 		</div>
-		<!--//side-->
-		<!--모달&로딩-->
-		<!-- <div id="modal">
-		    <video id="big_video" autoplay></video>
-		    <div id="close"><button><i class="fas fa-times"></i></button></div>
-		</div>    -->
-		
+		<!--//side-->		
 		<div class="content_container">
 		    <div class="sort">
 		        <h2>정렬하기</h2>
@@ -47,7 +41,7 @@
 		     <!--//sort-->  
 		
 		    <!--content-->
-		    <div id="content">
+		    <div id="content" class="video_align">
             	<div class="strange_video_wrap">
 			        <div class="video">
 			            <div class="star_wrap">                       

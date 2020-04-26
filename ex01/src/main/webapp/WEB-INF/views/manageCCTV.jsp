@@ -38,7 +38,7 @@
                 <div id="close"><button><i class="fas fa-times"></i></button></div>
             </div>
             <!--content-->
-            <div id="content">
+            <div id="content" class="video_align">
                <div class="video_wrap">
 	            	<sec:authorize access="isAuthenticated()">
 	            	<c:forEach items="${urlListList}" var="urlList">

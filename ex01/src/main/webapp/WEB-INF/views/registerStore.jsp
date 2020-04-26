@@ -34,7 +34,7 @@
         <!--//side-->
         <div id="content" >
             <h2>Store 등록</h2>
-            <div class="formwrap" style="height: 400px;margin-top: 0px;">
+            <div class="formwrap" >
                 <form action="/registerStore" method="post" >
                     <div class="row">
                         <span>No :</span><input type="text" name="number" value="${no}" readonly/>

@@ -18,48 +18,49 @@
 </head>
 <body>
     <!--header-->
-	<%@ include file="/WEB-INF/views/commons/header.jsp" %>
+    <%@ include file="/WEB-INF/views/commons/header.jsp" %>
     <!--//header-->
-    <div id="wrap">
-        <div id="side">
+        <div id="wrap">
+             <div id="side">
             <!--sidebar-->
             <%@ include file="/WEB-INF/views/commons/sidebar.jsp" %>
-            <!--//sidebar-->
-            <!--footer-->
-            <div id="footer">
-                &copy;Finder
+                <!--//sidebar-->
+                <!--footer-->
+                <div id="footer">
+                    &copy;Finder
+                </div>
+                <!--//footer-->
             </div>
-            <!--//footer-->
-        </div>
-        <!--//side-->
-        <!--모달&로딩-->
-        <div id="modal">
-            <video id="big_video"  autoplay></video>
-            <div id="close"><button><i class="fas fa-times"></i></button></div>
-        </div>
-        <!--content-->
-        <div id="content">
-        
-        	<sec:authorize access="isAuthenticated()">
-        	<c:forEach items="${urlListList}" var="urlList">
-        		<!-- <div class="urlList"> -->
-        		<c:forEach items="${urlList}" var="url">
-        			<div class="video">
-                		<img src='<c:out value="${url}"/>'> </img><!--  style="width:300px; height:300px;"></img> -->
-            		</div>
-            	</c:forEach>
-        		<!-- </div> -->
-        	</c:forEach>
-        	</sec:authorize>
-       	    <div class="video">
-                <video src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" autoplay muted></video>
+            <!--//side-->
+            <!--모달&로딩-->
+            <div id="modal">
+                <video id="big_video"  autoplay></video>
+                <div id="close"><button><i class="fas fa-times"></i></button></div>
             </div>
-            <div class="video">
-                <video src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4" autoplay muted></video>
+            <!--content-->
+            <div id="content" class="video_align">
+               <div class="video_wrap">
+	            	<sec:authorize access="isAuthenticated()">
+	            	<c:forEach items="${urlListList}" var="urlList">
+	            		<!-- <div class="urlList"> -->
+	            		<c:forEach items="${urlList}" var="url">
+	            			<div class="video">
+	                    		<img src='<c:out value="${url}"/>'> </img><!--  style="width:300px; height:300px;"></img> -->
+	                		</div>
+	                	</c:forEach>
+	            		<!-- </div> -->
+	            	</c:forEach>
+	            	</sec:authorize>
+	           	    <div class="video">
+	                    <video src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" autoplay muted></video>
+	                </div>
+	                <div class="video">
+	                    <video src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4" autoplay muted></video>
+	                </div>
+                </div>
+                <!--//video_wrap-->
             </div>
-            
-        </div>
-        <!--//content-->
+            <!--//content-->
     </div>
     <script type="text/javascript"src="<c:url value="/resources/js/common.js" />"></script>
     <script type="text/javascript"src="<c:url value="/resources/js/manageCCTV.js" />"></script>

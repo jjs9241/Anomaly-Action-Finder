@@ -10,6 +10,7 @@
     <link href="<c:url value="/resources/css/fullpage.min.css"/>" rel="stylesheet">
     <link href="<c:url value="/resources/css/homestyle.css"/>" rel="stylesheet">
     <link href="<c:url value="/resources/css/reset.css"/>" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css" />
     <script 
         src="https://code.jquery.com/jquery-3.4.1.min.js"
         integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
@@ -31,38 +32,81 @@
     <!--fullpage 라이브러리-->
     <div id="full-page">
         <div class="section s0 section-two">
-            <div class="slide img1 slide-one">
-                <h2>Section 2</h2>
-				<p>This is paragraph nr.1 in Section 2 / Slide 1</p>
-				<p>This is paragraph nr.2 in Section 2 / Slide 1</p>
+             <div class="slide img1 slide-one">
+                <h2 class="main_title">Make your life easier with AI</h2>
+                <p class="main_subtitle">AI 기술 기반 서비스 기업</p>
+                <button><a href="">상담 신청</a></button>
             </div>
             <div class="slide img2 slide-two">
-                <h2>Section 2 </h2>
-				<p>This is paragraph nr.1 in Section 2 / Slide 2</p>
-				<p>This is paragraph nr.2 in Section 2 / Slide 2</p>
+                <h2>cctv 실시간 이상행동 감지</h2>
+				<p class="first">사고 확인용이 아닌 실시간 감시</p>
+				<p class="sec">인공지능 기술을 이용하여 실시간으로 이상행동을 감지하고 알림을 보냅니다. </p>
             </div>
             <div class="slide img3 slide-three">
-                <h2>Section 2/h2>
-				<p>This is paragraph nr.1 in Section 2 / Slide 3</p>
-				<p>This is paragraph nr.2 in Section 2 / Slide 3</p>
+                <h2>24시간 cctv 관제 시스템</h2>
+				<p class="first">더이상 지켜보지 마세요</p>
+				<p class="sec">인공지능이 실시간으로 지켜보고 필요시 신고까지 해줍니다.</p>
             </div>
             <div class="slide img4 slide-four">
-                <h2>Section 2</h2>
-				<p>This is paragraph nr.1 in Section 2 / Slide 4</p>
-				<p>This is paragraph nr.2 in Section 2 / Slide 4</p>
+                <h2>안전 지킴이</h2>
+                <p class="first">안전</p>
+				<p class="sec">당신 가게의 안전을 맡겨 보세요</p>
             </div>
         </div>
-        <div class="section s1 section-one">
-            <h2>Section 2</h2>
-			<p>This is paragraph nr.1 in Section 2</p>
-			<p>This is paragraph nr.2 in Section 2</p>
-			<p>This is paragraph nr.3 in Section 2</p>
+         <div class="section s1 section-one">
+            <div class="icon_cont">
+                <div class="fun_img icon1">
+                    <i class="fas fa-desktop"></i>
+                    <p>24시간 실시간 cctv 관제 서비스</p>
+                </div>
+                <div class="fun_img icon2">
+                    <img src="/resources/img/behavior.png" alt="">
+                    <p>이상행동 검출 서비스</p>
+                </div>
+                <div class="fun_img icon3">
+                    <i class="fas fa-bell"></i>
+                    <p>이상행동 알람 서비스</p>
+                </div>
+                <div class="fun_img icon4">
+                    <img src="/resources/img/cctv.png" alt="">
+                    <p>매장별 cctv관리 서비스</p>
+                </div>
+            </div>
+        <!--icon_cont-->
         </div>
         <div class="section s2 section-three">
-            <h2>section 2</h2>
+            <h2>Contact Us</h2>
+            <p>
+                궁금하신 사항이 있으시면 오른쪽의 문의하기를 이용해주세요.<br/>
+                담당자가 자세하게 안내해드리겠습니다.
+            </p>
+            <dl>
+                <dt class="blind">문의 종류 선택</dt>
+                <dd>
+                    <select id="cSelect">
+                        <option>문의 종류를 선택해 주세요.</option>
+                        <option>AI관련문의</option>
+                        <option>서비스 신청 문의</option>
+                        <option>제휴문의</option>
+                        <option>광고문의</option>
+                        <option>일반문의</option>
+                    </select>
+                </dd>
+                <dt><label for="cName">제목</label></dt>
+                <dd><input type="text" id="cName" placeholder="제목을 입력해주세요." /></dd>
+                <dt><label for="cEmail">이메일</label></dt>
+                <dd><input type="text" id="cEmail" placeholder="이메일을 입력해주세요." /></dd>
+                <dt><label for="cContents">문의 내용</label></dt>
+                <dd><textarea id="cContents" placeholder="문의 내용을 입력해주세요."></textarea></dd>
+                <dd class="agree">
+                    <input type="checkbox" id="cAgree" /><label for="cAgree">이메일 수집에 동의합니다.</label>
+                    <span>(해당 문의에 대한 회신 목적으로 이메일을 수집하며, 문의 민원 해결 후 파기합니다.)</span>
+                </dd>
+                <dd class="right"><a href="#n" onclick="sendContact()" class="btn blue">Send Email</a></dd>
+            </dl>
         </div>
-        <div class="section s3 section-fore">
-            <h2>section 3</h2>
+        <!-- <div class="section s3 section-fore">
+            <h2>section 3</h2>  -->
         </div>
     </div>
     <script type="text/javascript"src="<c:url value="/resources/js/fullpage.min.js" />"></script>

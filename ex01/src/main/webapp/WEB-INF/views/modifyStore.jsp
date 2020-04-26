@@ -19,7 +19,7 @@
 <body>
     <!--header-->
     <div id="header">
-        <a href="#"><img src="resources/img/logo_b.png" alt="로고"></a>
+        <a href="/manageCCTV"><img src="resources/img/logo_b.png" alt="로고"></a>
         <ul class="navbar">
             <li class="user_icon"><a href="#"></a></li>
             <li class="notice"><i class="far fa-bell"></i></li>
@@ -43,7 +43,7 @@
                         <!--<span>VIDEO</span>-->
                         <ul>
                             <li>VIDEO</li>
-                            <li><a href="/manage">CCTV 관제</a></li>
+                            <li><a href="/manageCCTV">CCTV 관제</a></li>
                             <li><a href="/map">지도</a></li>
                             <li><a href="/strange">이상행동</a></li>
                         </ul>

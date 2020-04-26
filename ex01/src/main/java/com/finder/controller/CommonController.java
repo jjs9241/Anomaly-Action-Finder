@@ -44,4 +44,13 @@ public class CommonController {
 		return "cctv_test";
 		
 	}
+	
+	@GetMapping("/pushtest")
+	public String pushTest(HttpServletRequest req, 
+			HttpServletResponse res)
+					throws ServletException, IOException {
+		
+		return "pushtest";
+		
+	}
 }

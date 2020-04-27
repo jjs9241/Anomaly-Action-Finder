@@ -132,8 +132,18 @@ ul,li{list-style:none;}
 
 /*상담신청*/
 #full-page .s2{overflow: hidden;}  
-#full-page .s2 h2{ font-size: 2.5rem; margin-left: 7%; margin-bottom: 1.2%;}  
-#full-page .s2 p{font-size: 1rem; margin-left: 7%;}  
-#full-page .s2 dl{width: 45%;  float: right; margin-right: 4%; }  
-#full-page .s2 dl dt{font-size: 1rem; margin-bottom: 5px;}  
-#full-page .s2 dl dd{}  
+#full-page .s2 .contact_info {width:39%; height:500px; box-sizing: border-box; position: absolute; margin-top:20px; }
+#full-page .s2 h2{ font-size: 2.5rem; margin-left: 13%; padding-bottom: 1.2%;}  
+#full-page .s2 p{ font-size: 1rem; margin-left: 13%;} 
+
+#full-page .s2 .contact_box { position:relative; width:60%; box-sizing: border-box; height:500px; float: right; padding-left: 180px;} 
+#full-page .s2 dl dt{font-size: 1rem; padding-bottom: 5px; font-weight: 500;}  
+#full-page .s2 dl dd{display: inline-block; width: 71%;height: 50px; }  
+input::-webkit-input-placeholder { color: rgb(172, 169, 169); }
+textarea::-webkit-input-placeholder { color: rgb(172, 169, 169); }
+#full-page .s2 dl dd input{width: 100%; height: 40px;font-size: 14px; background-color: transparent; border: 1px solid white; outline: none;}  
+#full-page .s2 dl dd select{width: 100%; height: 40px;background-color: transparent; border: 1px solid white; outline: none;color: rgb(172, 169, 169); font-size: 14px;} 
+#full-page .s2 dl dd textarea {width:100%; height:190px; resize:none; color: rgb(172, 169, 169); font-size: 14px; background-color: transparent; border: 1px solid white;outline: none}
+#full-page .s2 dl dd a {width:130px;height:35px;line-height: 35px; display: inline-block; background-color: transparent; color: rgb(172, 169, 169); font-size: 14px; border: 1px solid white;
+  color: white;text-align: center; font-weight: 600;border-radius: 3px; transition: all 0.5s ease; margin-top: 160px; margin-left: 75%;}
+  #full-page .s2 dl dd a:hover {transform: translate(5px,-5px);} 

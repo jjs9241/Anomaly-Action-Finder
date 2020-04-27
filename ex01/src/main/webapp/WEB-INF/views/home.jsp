@@ -56,16 +56,18 @@
          <div class="section s1 section-one">
             <div class="icon_cont">
                 <div class="fun_img icon1">
-                    <i class="fas fa-desktop"></i>
+                    <!-- <i class="fas fa-desktop"></i> -->
+                    <img src="/resources/img/Monitor.png" alt="">
                     <p>24시간 실시간 cctv 관제 서비스</p>
                 </div>
                 <div class="fun_img icon2">
-                    <img src="/resources/img/behavior.png" alt="">
-                    <p>이상행동 검출 서비스</p>
-                </div>
-                <div class="fun_img icon3">
-                    <i class="fas fa-bell"></i>
+                    <!-- <i class="fas fa-bell"></i> -->
+                    <img src="/resources/img/bell.png" alt="">
                     <p>이상행동 알람 서비스</p>
+                </div>
+                <div class="fun_img icon3x">
+                    <img src="/resources/img/behavior.png" alt="">
+                    <p>이상행동 검출 및 저장 서비스</p>
                 </div>
                 <div class="fun_img icon4">
                     <img src="/resources/img/cctv.png" alt="">

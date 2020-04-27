@@ -116,23 +116,24 @@ ul,li{list-style:none;}
 /* #btn1 {width: 50px; height: 50px; background-color:red; position: absolute; z-index: 999; top: 70%; left: 30%; border-radius: 50%; cursor: pointer;}
 #btn2 {width: 50px; height: 50px; background-color:red; position: absolute; z-index: 999; top: 70%; right: 70%; border-radius: 50%;  cursor: pointer;} */
 
+
 /*기능 설명*/
-#full-page .s1 .icon_cont {display: flex; justify-content: stretch; 
-  flex-direction: row; align-items: center; }
-#full-page .s1 .fun_img{ width: 18%; }
-#full-page .s1 .fun_img i {display: block; width: 100px; height: 100px; color: white; font-size: 100px;}
+#full-page .s1 .icon_cont {display: flex; justify-content: center; 
+  flex-direction: row; }
+#full-page .s1 .fun_img{ width: 18%; text-align: center; margin-right: 2%; margin-top: 4%;}
+#full-page .s1 .fun_img p {font-size: 16px; margin-top: 20px;}
 #full-page .s1 .fun_img img{ width: 50%; }
+#full-page .s1 .fun_img:nth-child(2) img{ width:40%; }
 
-
-#full-page .s1 .icon1 {position: absolute; top:50%; left:7.5%;}
-#full-page .s1 .icon2 {position: absolute; top:50%; right:30%;}
-#full-page .s1 .icon3 {position: absolute; top:50%; right:50%;}
-#full-page .s1 .icon4 {position: absolute; top:50%; right:7.5%;}
+/* #full-page .s1 .icon1 {position: absolute; bottom:37%; left:7.5%;}
+#full-page .s1 .icon2 {position: absolute; bottom:37%; right:50%;}
+#full-page .s1 .icon3 {position: absolute; bottom:37%; right:30%;}
+#full-page .s1 .icon4 {position: absolute; bottom:37%; right:7.5%;} */
 
 /*상담신청*/
 #full-page .s2{overflow: hidden;}  
 #full-page .s2 h2{ font-size: 2.5rem; margin-left: 7%; margin-bottom: 1.2%;}  
-#full-page .s2 p{font-size: 1rem;margin-left: 7%;}  
+#full-page .s2 p{font-size: 1rem; margin-left: 7%;}  
 #full-page .s2 dl{width: 45%;  float: right; margin-right: 4%; }  
 #full-page .s2 dl dt{font-size: 1rem; margin-bottom: 5px;}  
 #full-page .s2 dl dd{}  

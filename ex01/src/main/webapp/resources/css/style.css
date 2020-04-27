@@ -2,13 +2,13 @@
 #wrap {overflow: hidden; display: flex; z-index: 1;}
 #header {height: 80px; box-shadow: 0 4px 6px rgba(253, 253, 253, 0.452);vertical-align: middle; background-color: #343A40;}
 #side {float:left; width: 265px;height: 100%;}
-#sidebar {height: 588px; background-color: #212529;}
-#footer {background-color:#F4F4F4; height: 84px; background-color: #343A40;}
+#sidebar {height: 78vh; background-color: #212529;}
+#footer {background-color:#F4F4F4; height: 11vh; background-color: #343A40;}
 #content { clear: both; width: 84%;}
 
 /*헤더*/
-#header a {position: relative;}
-#header a img { max-width: 120px;height: auto; position: absolute;left: 93px; top:3px}
+#header a {position: relative; display:inline-block; width:120px; }
+#header a img { max-width: 120px;height: auto; position: absolute; left: 93px; top:3px}
 #header ul.navbar li {vertical-align: middle;line-height: 1.5;text-align: center;}
 #header ul.navbar li a {cursor: pointer;  width: 45px; height: 45px; border-radius: 50%;
 position: absolute; top: 15px;right: 60px; ; background-position: -65px; background-color: gray;}
@@ -62,6 +62,7 @@ position: absolute; top: 15px;right: 60px; ; background-position: -65px; backgro
 }
 
 #content .video_wrap{ 
+	 width:100%;
     display: flex;
     flex-flow: row wrap;
 }
@@ -73,12 +74,12 @@ position: absolute; top: 15px;right: 60px; ; background-position: -65px; backgro
 }
 
 #content .video {
-    margin:0 0 0 0; padding:0 0 0 0;background-color:black ; border: 0.03px solid rgba(97, 96, 96, 0.884); width: 250px;height: 219px;
+   background-color:black ; border: 0.03px solid rgba(97, 96, 96, 0.884); width: 25%; height: 223px;
     align-items : stretch; text-align: center; box-sizing: border-box; }
 
 
 /*비디오 설정*/
-#content video,img {width: 248px; height: 218px; overflow: hidden;} 
+#content video,img {width:99%; height: 218px; overflow: hidden;} 
 
 .cctv span:hover {color: rgba(62, 134, 194, 0.397);}
 

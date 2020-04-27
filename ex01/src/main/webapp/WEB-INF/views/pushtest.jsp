@@ -37,6 +37,7 @@
 			<hr>
 			<p>You can test push notification below.</p>
 			<button type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" onclick="push_message()">Test Push Notification</button>
+			<div id="push_text" style="width:500px;height:500px;"></div>
 		</section>
 	</main>
 

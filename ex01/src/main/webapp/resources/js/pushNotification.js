@@ -2,11 +2,12 @@
  * 
  */
 'use strict';
+
 //const callURI = "http://localhost:5000";
 const callURI = "http://70.12.229.181:5000";
 
-// const applicationServerPublicKey = "BNbxGYNMhEIi9zrneh7mqV4oUanjLUK3m+mYZBc62frMKrEoMk88r3Lk596T0ck9xlT+aok0fO1KXBLV4+XqxYM=";
-const pushButton = document.querySelector('.js-push-btn');
+//const applicationServerPublicKey = "BNbxGYNMhEIi9zrneh7mqV4oUanjLUK3m+mYZBc62frMKrEoMk88r3Lk596T0ck9xlT+aok0fO1KXBLV4+XqxYM=";
+//const pushButton = document.querySelector('.js-push-btn');
 
 let isSubscribed = false;
 let swRegistration = null;
@@ -135,13 +136,7 @@ function initializeUI() {
 
 if ('serviceWorker' in navigator && 'PushManager' in window) {
 	console.log('Service Worker and Push is supported');
-	
-	 // Listen to messages from service workers.
-    navigator.serviceWorker.addEventListener('message', function(event) {
-        console.log("Got reply from service worker: " + event.data);
-    });
 
-    console.log("service worker message")
 	navigator.serviceWorker.register("/resources/js/sw.js")
 		.then(function(swReg) {
 			console.log('Service Worker is registered', swReg);

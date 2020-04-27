@@ -16,19 +16,51 @@ function urlB64ToUint8Array(base64String) {
   return outputArray;
 }
 
+self.addEventListener("message", function(event) {
+	console.log("message 내부")
+    event.source.postMessage("Responding to " + event.data);
+});
+
 self.addEventListener('push', function(event) {
   console.log('[Service Worker] Push Received.');
   console.log(`[Service Worker] Push had this data: "${event.data.text()}"`);
 
+//  var pushText = document.getElementById('push_text');
+//  pushText.textContent = "asdfafs";
+//  pushText.textContent = "${event.data.text()}";
+  console.log("event : ",event)
+  console.log("self : ",self)
+//  event.source.postMessage("Responding to " + event.data);
+  
   const title = 'Push Codelab';
   const options = {
     body: `"${event.data.text()}"`,
     icon: 'images/icon.png',
     badge: 'images/badge.png'
   };
+  
+  noticeToWeb("push test dd")
 
   event.waitUntil(self.registration.showNotification(title, options));
 });
+
+function noticeToWeb(message){
+	
+//	return fetch('http://70.12.229.181:8080/noticetoweb?message='+message,{
+	return fetch('http://localhost:8080/noticetoweb?message='+message,{
+		method: 'GET',
+//		mode:'cors',
+		cache: 'no-cache',
+//		credential
+		headers:{
+			'Content-Type': 'application/json',
+            // 'Content-Type': 'application/x-www-form-urlencoded',
+		},
+		referrer: 'no-referrer'
+//		referrer: 'referrer'
+//		body:JSON.stringify(jsonData)
+	})
+}
 
 self.addEventListener('notificationclick', function(event) {
   console.log('[Service Worker] Notification click Received.');

@@ -1,10 +1,10 @@
 /*레이아웃*/
 #wrap {overflow: hidden; display: flex; z-index: 1;}
-#header {height: 80px; box-shadow: 0 4px 6px rgba(17, 17, 56, 0.11);vertical-align: middle;}
-#side {float:left; width: 17%;height: 100%;}
-#sidebar {height: 78vh;}
-#footer {background-color:#F4F4F4; height: 11vh;}
-#content { clear: both; width: 84%; }
+#header {height: 80px; box-shadow: 0 4px 6px rgba(253, 253, 253, 0.452);vertical-align: middle; background-color: #343A40;}
+#side {float:left; width: 265px;height: 100%;}
+#sidebar {height: 588px; background-color: #212529;}
+#footer {background-color:#F4F4F4; height: 84px; background-color: #343A40;}
+#content { clear: both; width: 84%;}
 
 /*헤더*/
 #header a {position: relative;}
@@ -18,17 +18,18 @@ position: absolute; top: 15px;right: 60px; ; background-position: -65px; backgro
 #header ul.navbar li.notice div{position: absolute;width: 18px; height: 18px; border-radius: 50%; background-color: red;color: white; right: 129px; top: 15px; font-size: 9px; font-weight: 600; padding-top: 2.5px; box-sizing:border-box;} 
 
 /*사용자 정보*/
-#header .user_ele {position: absolute;width: 208px; height: 148px;background-color:yellowgreen;border-radius: 20px; top: 70px; right: 30px; z-index: 999; box-shadow: 0 3px 3px 0 rgba(0,0,0,0.3);}
+#header .user_ele {position: absolute;width: 220px; height: 148px;background-color:yellowgreen;border-radius: 20px; top: 70px; right: 30px; z-index: 999; box-shadow: 0 3px 3px 0 rgba(0,0,0,0.3);}
 #header .user_ele .user_name {position: relative;  width: 100%; height: 75px; border-bottom: 1px solid white; margin-bottom: 5px;}
-#header .user_ele .user_name .user_icon2{ position: absolute; width: 45px; height: 45px; border-radius: 50%; background-color: white; display: inline-block; top: 15px; left: 20px;}
-#header .user_ele .user_name h2{position: absolute; top: 17px;left: 80px; font-size: 14px; display: inline-block; font-weight: 600;}
-#header .user_ele .user_name p {position: absolute; top: 36px; left: 80px; font-size: 14px; margin-top: 4px; font-weight: 500;}
-#header .user_ele a {display: inline-block; width: 208px; line-height: 30px; font-size: 14px; padding-left: 40px; font-weight: 500; box-sizing: border-box;}
+#header .user_ele .user_name .user_icon2{ position: absolute; width: 45px; height: 45px; border-radius: 50%; background-color: white; display: inline-block; top: 15px; left: 15px;}
+#header .user_ele .user_name h2{position: absolute; top: 17px;left: 74px; font-size: 14px; display: inline-block; font-weight: 600;}
+#header .user_ele .user_name p {position: absolute; top: 36px; left: 74px; font-size: 14px; margin-top: 4px; font-weight: 500;}
+#header .user_ele a {display: inline-block; width: 218px; line-height: 30px; font-size: 14px; padding-left: 40px; font-weight: 500; box-sizing: border-box;}
 #header .user_ele i {padding-right: 9px; color: white; font-size: 15px; ;}
-#header .user_ele a:hover {background-color: gray;}
+#header .user_ele a:hover {background-color: #7da628;}
 
 .hide {display: none;}
 .show {display: block;}
+
 
 /*사이드바*/
 #sidebar {box-shadow: 0 2px 6px rgba(17, 17, 56, 0.11),0 1px 3px rgba(0,0,0,0.08); text-align: center;}
@@ -39,10 +40,10 @@ position: absolute; top: 15px;right: 60px; ; background-position: -65px; backgro
 #sidebar .qa {padding-top: 30px;}
 
 
-#sidebar ul li { height: 45px; vertical-align: middle;line-height: 45px; text-align: center;}
-#sidebar ul li:first-child { font-size: 45px;font-weight: 600;color:#CCC; margin-bottom: 15px;}
+#sidebar ul li { height: 43px; vertical-align: middle;line-height: 43px; text-align: center;}
+#sidebar ul li:first-child { font-size: 38px;font-weight: 600;color:#CCC; margin-bottom: 15px;}
 
-#sidebar ul li a {font-size: 17px; font-family: 'Noto Sans KR', sans-serif; color:#555; transition: transform 1s ease; }
+#sidebar ul li a {font-size: 17px; font-family: 'Noto Sans KR', sans-serif; color:#888; transition: transform 1s ease; }
 #sidebar ul li:hover{transform: translate(5px,-5px);}
 #sidebar ul li:first-child:hover{transform: none; }
 
@@ -50,21 +51,17 @@ position: absolute; top: 15px;right: 60px; ; background-position: -65px; backgro
 .video_align {
     display: flex;
     flex-flow: row wrap;
-    -webkit-align-content:top;
-    justify-content: center;
+    -webkit-align-content:flex-start;
     margin-bottom: auto;
 }
-#content {display: flex;
+#content {
+	display: flex;
     flex-flow: row wrap;
     -webkit-align-content: center;
     justify-content: center;
 }
 
-
-
-
 #content .video_wrap{ 
-    width:99.1%;
     display: flex;
     flex-flow: row wrap;
 }
@@ -76,17 +73,14 @@ position: absolute; top: 15px;right: 60px; ; background-position: -65px; backgro
 }
 
 #content .video {
-    margin:0 0 0 0; padding:0 0 0 0;background-color:black ; border: 0.1px solid white; width: 250px;height: 219px;
-    align-items : stretch; text-align: center;}
+    margin:0 0 0 0; padding:0 0 0 0;background-color:black ; border: 0.03px solid rgba(97, 96, 96, 0.884); width: 250px;height: 219px;
+    align-items : stretch; text-align: center; box-sizing: border-box; }
 
 
 /*비디오 설정*/
 #content video,img {width: 248px; height: 218px; overflow: hidden;} 
 
 .cctv span:hover {color: rgba(62, 134, 194, 0.397);}
-
-#sidebar ul li.active { color: rgba(62, 134, 194, 0.397);}
-
 
 /*모달창 만들기*/
 #modal{   
@@ -107,5 +101,7 @@ position: absolute; top: 15px;right: 60px; ; background-position: -65px; backgro
 
 #close button {width: 50px; height: 50px; position: absolute; top:40px; right: 40px;  outline: 0; border:0; background-color: white;}
 
+
 /*카테고리 창에서 글씨 두껍게*/
-.active_a {color:black; font-weight: 500; text-shadow: 1px 1px 1px gray;}
+#sidebar ul li.active { color:yellowgreen;}/* rgba(255, 179, 0, 0.89)*/
+.active_a {color:rgb(223, 222, 222) !important; font-weight: 600; }/*text-shadow: 1px 1px 1px white;*/

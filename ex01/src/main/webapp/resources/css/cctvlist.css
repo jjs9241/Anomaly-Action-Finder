@@ -10,7 +10,7 @@
 
 /*레이아웃*/
 #content .shop { display: flex;align-items: top;background:rgba(197, 210, 241, 0.53);border-radius: 25px; width: 400px; height: 380px; margin-right: 20px; box-shadow: 0 5px 5px 0 rgba(0,0,0,0.3);}
-
+#content .shop {position: absolute; left: 7%; top: 165px;}
 
 /*매장 정보*/
 #content .shop table tr td.store_title { font-size:22px; font-weight: 600; border: none; height: 85px; color: black; position: relative;}
@@ -48,6 +48,7 @@
 
 
 /*테이블 수정*/
+#content .cctvlist_table {position: absolute; right: 7%; top: 165px;}
 #content .cctvlist_table table thead tr th {background-color: rgba(194, 191, 191, 0.589);width: 160px; color:#333; font-size: 15px;line-height: 45px;}
 #content .cctvlist_table table tbody tr{height: 42px; border-bottom: 0.09px solid rgba(204, 200, 200, 0.5); }
 #content .cctvlist_table table tbody tr td {text-align: center; vertical-align: middle; font-size: 14px;}

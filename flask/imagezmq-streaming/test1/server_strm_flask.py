@@ -6,7 +6,6 @@ import imagezmq
 import imutils
 import numpy as np
 import threading
-from final_model import FinalModel
 import os
 from two_stream_final_model import twostream_FinalModel
 import argparse
@@ -140,9 +139,8 @@ if __name__ == '__main__':
 
     #서버 실행
     if Flag is False:
-        # model = FinalModel("weights_i3d_RGB_v3.hdf5")
         model = twostream_FinalModel(args.rgb_model, args.opt_model)
         Flag = True
-    app.run(host="0.0.0.0",debug = True, use_reloader=False)
+    app.run(host="0.0.0.0", debug = True, use_reloader=False)
 
 

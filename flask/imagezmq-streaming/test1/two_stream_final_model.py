@@ -20,7 +20,10 @@ class twostream_FinalModel():
         self.fontPosition_X = 0
         self.fontPosition_Y = 30
         self.nbFrame = 16
+        
+        self.sess = tf.Session()
         self.graph = tf.get_default_graph()
+
 
         # optical Variable
         self.prevs = None
@@ -71,6 +74,8 @@ class twostream_FinalModel():
         return model
 
     def load_model(self):
+        keras.backend.set_session(self.sess)
+
         rgb_model = self.define_model("RGB")
         rgb_model.load_weights(self.rgb_model_path)
 
@@ -78,6 +83,7 @@ class twostream_FinalModel():
             opt_model = self.define_model("OPT")
             opt_model.load_weights(self.opt_model_path)
         else:
+            print("RGB_Model return")
             return rgb_model
         logits = keras.layers.Add()([rgb_model.output, opt_model.output])
 
@@ -85,6 +91,8 @@ class twostream_FinalModel():
         return model
 
     def predict(self, input_img):
+        keras.backend.set_session(self.sess)
+
         action_idx = -1
         alarm = False
         presentTime = datetime.now() 
@@ -101,7 +109,6 @@ class twostream_FinalModel():
                 self.img_list = np.vstack((self.img_list, np.expand_dims(rgb_x, axis=0)))
             else:
                 self.img_list = np.vstack((self.img_list[1:], np.expand_dims(rgb_x, axis=0)))
-
 
         ## optical 모델을 적용할 경우
         if self.opt_model_path is not None:
@@ -156,7 +163,6 @@ class twostream_FinalModel():
                     cv2.putText(input_img, str(presentTime)[:-7] +"   "+ action + "   "+ str(sum_logits[action_idx]), (self.fontPosition_X, self.fontPosition_Y), cv2.FONT_HERSHEY_SIMPLEX,
                              self.fontScale, (0, 0, 255), 2)
 
-
         if action_idx in self.anormaly_action:
             self.save_image_flag = True
             self.alarm_flag = True
@@ -164,7 +170,7 @@ class twostream_FinalModel():
         if self.alarm_flag is True and len(self.save_image_list) == 0:
            alarm = True
            self.alarm_flag = False
-
+           
         if self.save_image_flag is True:
             self.save_image_list.append(input_img)
 
@@ -177,7 +183,7 @@ class twostream_FinalModel():
         #     self.frame_rate = 0
         #     presentTime += timedelta(seconds = 1)
         self.frame_rate += 1
-        
+
         return input_img, alarm
     
     # source : https://github.com/OanaIgnat/i3d_keras/blob/e62e834f0d0ad90d4de1b067ac6dc55a33d03969/src/preprocess.py#L46

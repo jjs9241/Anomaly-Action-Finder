@@ -23,7 +23,7 @@ alarm_ratio = 0.9
 Flag = False
 app = Flask(__name__)
 
-# print(cv2.__version__)
+gCnt = 0
 
 @app.route('/')
 def index():
@@ -31,10 +31,12 @@ def index():
 
 def sendImagesToWeb():
     global action_list
+    global gCnt
+    cnt=0
     print("sendImagesToWeb")
-    # receiver = imagezmq.ImageHub(open_port='tcp://0.0.0.0:5566', REQ_REP = False)
+    # receiver = imagezmq.ImageHub(open_port='tcp://0.0.0.0:5566', REQ_REP = Flse)
     receiver = imagezmq.ImageHub()
-    #print("receiver : ",receiver)
+
     while True:
         (camName, frame) = receiver.recv_image()
         receiver.send_reply(b'OK')
@@ -71,20 +73,15 @@ def sendImagesToWeb():
         # yield b'--frame\r\nContent-Type:image/jpeg\r\n\r\n'+jpg+b'\r\n'
         yield(b'--frame\r\n' b'Content-Type: image/jpeg\r\n\r\n' + bytearray(jpg) + b'\r\n')
    
-# @Request.application
-# def application(request):
-#     print("어플 실행")
-#     return Response(sendImagesToWeb(), mimetype='multipart/x-mixed-replace; boundary=frame')
-
-# if __name__ == '__main__':
-#     print("sdfa")
-#     run_simple('127.0.0.1', 4000, application)
-
 @app.route('/video_feed')
 def video_feed():
     print("video")
     return Response(sendImagesToWeb(),
                     mimetype='multipart/x-mixed-replace; boundary=frame')
+
+# if __name__ == '__main__':
+#     print("sdfa")
+#     run_simple('127.0.0.1', 4000, application)
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description="default usage : python server_strm_flask.py --rgb_model Final_weights/weights_i3d_RGB_no_softmax.hdf5")

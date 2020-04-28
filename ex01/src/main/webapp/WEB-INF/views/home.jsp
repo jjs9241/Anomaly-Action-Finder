@@ -145,7 +145,15 @@
                 }
             });
         });
-
+		
+        
+        
+        //상담신청 버튼 클릭시 맨 아래로 이동
+        var contact_info = document.querySelector("#full-page > div.section.s0.section-two.fp-section.active.fp-completely > div.fp-slides > div > div.slide.img1.slide-one.fp-slide.fp-table.active > div > button")
+        contact_info.addEventListener("click" , scrollHandler);
+        function scrollHandler(){
+        document.querySelectorAll("div#fp-nav>ul>li>a")[2].click();
+        }
     </script>
 </body>
 </html>

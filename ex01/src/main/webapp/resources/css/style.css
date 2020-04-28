@@ -9,9 +9,11 @@
 /*헤더*/
 #header a {position: relative; display:inline-block; width:120px; }
 #header a img { max-width: 120px;height: auto; position: absolute; left: 93px; top:3px}
+
 #header ul.navbar li {vertical-align: middle;line-height: 1.5;text-align: center;}
 #header ul.navbar li a {cursor: pointer;  width: 45px; height: 45px; border-radius: 50%;
-position: absolute; top: 15px;right: 60px; ; background-position: -65px; background-color: gray;}
+position: absolute; top: 18px;right: 60px;background-color: gray; font-size:17px; line-height: 45px; font-weight:600; color:#333;}
+
 /*background-image: url(https://source.unsplash.com/QAB-WJcbgJk/60x60)*/
 #header ul.navbar i {font-size: 22px; display: inline-block; position: absolute; top: 28px; right: 145px; color: #85888C; cursor: pointer;}
 #header ul.navbar li i.fas{color:#FFB200;}

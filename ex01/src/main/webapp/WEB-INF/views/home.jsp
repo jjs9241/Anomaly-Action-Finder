@@ -35,7 +35,7 @@
              <div class="slide img1 slide-one">
                 <h2 class="main_title">Make your life easier with AI</h2>
                 <p class="main_subtitle">AI 기술 기반 서비스 기업</p>
-                <button><a href="">상담 신청</a></button>
+                <button>상담 신청</button>
             </div>
             <div class="slide img2 slide-two">
                 <h2>cctv 실시간 이상행동 감지</h2>
@@ -146,7 +146,6 @@
             });
         });
 		
-        
         
         //상담신청 버튼 클릭시 맨 아래로 이동
         var contact_info = document.querySelector("#full-page > div.section.s0.section-two.fp-section.active.fp-completely > div.fp-slides > div > div.slide.img1.slide-one.fp-slide.fp-table.active > div > button")

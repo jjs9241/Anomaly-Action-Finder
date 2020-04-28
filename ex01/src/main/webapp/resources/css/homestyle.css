@@ -74,7 +74,8 @@ ul,li{list-style:none;}
 .s0 .img1 p.first{position:absolute; z-index:2; top: 50%;}
 .s0 .img1 p.sec{position:absolute; z-index:2; top: 56%;}
 .s0 .img1 p.main_subtitle{position:absolute; z-index:2; top: 53%; font-size: 20px; left:50%;}
-.s0 .img1 button {position:absolute; z-index:2; top: 63%; font-size: 20px; left:50%; transform: translateX(-50%); width: 120px; height: 45px; border-radius: 5px; font-size: 15px; background-color: rgb(255, 255, 255); color:black; font-weight: 600;}
+.s0 .img1 button {position:absolute; z-index:2; top: 63%; font-size: 20px; left:50%; transform: translateX(-50%); width: 120px; height: 45px; border-radius: 5px; 
+	font-size: 15px; background-color: rgb(255, 255, 255); color:black; font-weight: 600;cursor: pointer;outline: none;}
 
 .s0 .img2 h2{position:absolute; z-index:2; top: 38%; font-size: 38px; font-family: 'Nanum Gothic', sans-serif; font-weight: bold; display: block; margin-left:2%;} 
 .s0 .img2 p.first{position:absolute; z-index:2; top: 52%;font-size: 18px; font-family: 'Nanum Gothic', sans-serif; display: block; margin-left:2%;}

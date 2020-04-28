@@ -58,20 +58,4 @@ public class CommonController {
 		
 	}
 	
-	@RequestMapping(value = "/noticetoweb", method= RequestMethod.GET)
-	public ModelAndView noticeToWeb(@RequestParam String message, HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
-		res.setContentType("text/html; charset=UTF-8");
-		PrintWriter writer = res.getWriter();
-		System.out.println("message : "+message);
-		System.out.println("writer : "+writer);
-		writer.println("<script>alert('해당 페이지에 대한 권한이 없습니다.'); location.href='/login';</script>");
-		writer.flush();
-		String referer = (String)req.getHeader("REFERER");
-		System.out.println("referer : "+referer);
-		System.out.println("res : "+res);
-		ModelAndView mav = new ModelAndView();
-		System.out.println("notice after flush");
-		mav.setViewName("login");
-		return mav;
-	}
 }

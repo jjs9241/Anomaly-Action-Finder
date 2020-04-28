@@ -4,7 +4,8 @@
 'use strict';
 
 //const callURI = "http://localhost:5000";
-const callURI = "http://70.12.229.181:5000";
+//const pushURI = "http://70.12.229.181:5000";
+const pushURI = "http://70.12.50.158:5000";
 
 //const applicationServerPublicKey = "BNbxGYNMhEIi9zrneh7mqV4oUanjLUK3m+mYZBc62frMKrEoMk88r3Lk596T0ck9xlT+aok0fO1KXBLV4+XqxYM=";
 //const pushButton = document.querySelector('.js-push-btn');
@@ -72,15 +73,16 @@ function subscribeUser() {
 		.then(function(subscription) {
 			console.log('User is subscribed.');
 			console.log("subscription : ",subscription);
-			updateSubscriptionOnServer(subscription);
+//			updateSubscriptionOnServer(subscription);
 			localStorage.setItem('sub_token',JSON.stringify(subscription));
 			isSubscribed = true;
 
-			updateBtn();
+//			updateBtn();
+			sendSubscriptionToken()
 		})
 		.catch(function(err) {
 			console.log('Failed to subscribe the user: ', err);
-			updateBtn();
+//			updateBtn();
 		});
 }
 
@@ -107,14 +109,6 @@ function unsubscribeUser() {
 
 function initializeUI() {
 	console.log("initializeUI")
-	pushButton.addEventListener('click', function() {
-		pushButton.disabled = true;
-		if (isSubscribed) {
-			unsubscribeUser();
-		} else {
-			subscribeUser();
-		}
-	});
 
 	// Set the initial subscription value
 	swRegistration.pushManager.getSubscription()
@@ -122,15 +116,13 @@ function initializeUI() {
 			console.log("getSubscription subscription: ",subscription)
 			isSubscribed = !(subscription === null);
 
-			updateSubscriptionOnServer(subscription);
+//			updateSubscriptionOnServer(subscription);
 
 			if (isSubscribed) {
 				console.log('User IS subscribed.');
 			} else {
 				console.log('User is NOT subscribed.');
 			}
-
-			updateBtn();
 		});
 }
 
@@ -156,7 +148,7 @@ function push_message() {
 	console.log("sub_token", localStorage.getItem('sub_token'));
 	$.ajax({
 		type: "POST",
-		url: callURI+"/push_v1/",
+		url: pushURI+"/push_v1/",
 		contentType: 'application/json; charset=utf-8',
 		dataType:'json',
 		data: JSON.stringify({'sub_token':localStorage.getItem('sub_token')}),
@@ -169,14 +161,44 @@ function push_message() {
 	});
 }
 
+function testBtn(){
+	var bell = document.querySelector("#header ul.navbar li i");
+	bell.addEventListener('click', function(e){ 
+		console.log("bell click")
+		push_message()
+	});
+}
+
+function sendSubscriptionToken(){
+	console.log("sendSubscriptionToken");
+	$.ajax({
+		type: "POST",
+		url: pushURI+"/subscription/",
+		contentType: 'application/json; charset=utf-8',
+		dataType:'json',
+		data: JSON.stringify({'subscription_token':localStorage.getItem('sub_token')}),
+		success: function( data ){
+			console.log("success",data);
+    },
+    error: function( jqXhr, textStatus, errorThrown ){
+        console.log("error",errorThrown);
+    }
+	});
+	
+}
+
 $(document).ready(function(){
 	console.log("document ready")
 	$.ajax({
 		type:"GET",
-		url:callURI+'/subscription/',
+		url:pushURI+'/subscription/',
 		success:function(response){
 			console.log("response",response);
 			localStorage.setItem('applicationServerPublicKey',response.public_key);
+			
+//			initializeUI()
+			subscribeUser();
+			testBtn();
 		}
 	})
 });

@@ -85,6 +85,7 @@ class twostream_FinalModel():
         return model
 
     def predict(self, input_img):
+        action_idx = -1
         alarm = False
         presentTime = datetime.now() 
         frame_x = cv2.resize(input_img.copy(), (self.before_IMG_WIDTH, self.before_IMG_HEIGHT))
@@ -163,7 +164,7 @@ class twostream_FinalModel():
         if self.alarm_flag is True and len(self.save_image_list) == 0:
            alarm = True
            self.alarm_flag = False
-           
+
         if self.save_image_flag is True:
             self.save_image_list.append(input_img)
 

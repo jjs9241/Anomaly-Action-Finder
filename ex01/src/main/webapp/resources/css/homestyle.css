@@ -132,11 +132,11 @@ ul,li{list-style:none;}
 
 /*상담신청*/
 #full-page .s2{overflow: hidden;}  
-#full-page .s2 .contact_info {width:39%; height:500px; box-sizing: border-box; position: absolute; margin-top:20px; }
+#full-page .s2 .contact_info {width:39%; height:500px; box-sizing: border-box; position: absolute; padding-top: 30px; padding-left: 80px;}
 #full-page .s2 h2{ font-size: 2.5rem; margin-left: 13%; padding-bottom: 1.2%;}  
 #full-page .s2 p{ font-size: 1rem; margin-left: 13%;} 
 
-#full-page .s2 .contact_box { position:relative; width:60%; box-sizing: border-box; height:500px; float: right; padding-left: 180px;} 
+#full-page .s2 .contact_box { position:relative; width:60%; box-sizing: border-box; height:500px; float: right; padding-left: 180px; padding-top: 50px; } 
 #full-page .s2 dl dt{font-size: 1rem; padding-bottom: 5px; font-weight: 500;}  
 #full-page .s2 dl dd{display: inline-block; width: 71%;height: 50px; }  
 input::-webkit-input-placeholder { color: rgb(172, 169, 169); }

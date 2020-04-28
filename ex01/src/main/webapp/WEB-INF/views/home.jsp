@@ -77,11 +77,13 @@
         <!--icon_cont-->
         </div>
         <div class="section s2 section-three">
-            <h2>Contact Us</h2>
-            <p>
-                궁금하신 사항이 있으시면 오른쪽의 문의하기를 이용해주세요.<br/>
-                담당자가 자세하게 안내해드리겠습니다.
-            </p>
+            <div class="contact_info">
+                <h2>Contact Us</h2>
+                <p>
+			                   궁금하신 사항이 있으시면 오른쪽의 문의하기를 이용해주세요.<br/>
+			                   담당자가 자세하게 안내해드리겠습니다.
+                </p>
+            </div>
       <div class="contact_box">
             <dl>
                 <dt class="blind">문의 종류 선택</dt>

@@ -40,6 +40,7 @@ class twostream_FinalModel():
         self.anormaly_action = [0, 2]
         self.save_image_flag = False
 
+        self.alarm_flag = False
         self.model = self.load_model()
         
 
@@ -84,7 +85,7 @@ class twostream_FinalModel():
         return model
 
     def predict(self, input_img):
-        action_idx = -1
+        alarm = False
         presentTime = datetime.now() 
         frame_x = cv2.resize(input_img.copy(), (self.before_IMG_WIDTH, self.before_IMG_HEIGHT))
         frame_x = cv2.cvtColor(frame_x.copy(), cv2.COLOR_BGR2RGB)
@@ -157,7 +158,12 @@ class twostream_FinalModel():
 
         if action_idx in self.anormaly_action:
             self.save_image_flag = True
+            self.alarm_flag = True
 
+        if self.alarm_flag is True and len(self.save_image_list) == 0:
+           alarm = True
+           self.alarm_flag = False
+           
         if self.save_image_flag is True:
             self.save_image_list.append(input_img)
 
@@ -170,7 +176,8 @@ class twostream_FinalModel():
         #     self.frame_rate = 0
         #     presentTime += timedelta(seconds = 1)
         self.frame_rate += 1
-        return input_img, action_idx
+        
+        return input_img, alarm
     
     # source : https://github.com/OanaIgnat/i3d_keras/blob/e62e834f0d0ad90d4de1b067ac6dc55a33d03969/src/preprocess.py#L46
     def crop_center(self, img):

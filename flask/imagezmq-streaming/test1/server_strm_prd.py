@@ -1,5 +1,5 @@
-#Flask 스트리밍, 분석, push 합친 것, 
-#websocket만 합치면 됨
+#flask 스트리밍 및 분석만 있는 것
+
 from flask import Flask, render_template, request, redirect, url_for, jsonify, Response
 from imutils.video import VideoStream
 import cv2
@@ -13,14 +13,6 @@ import os
 from two_stream_final_model import twostream_FinalModel
 import argparse
 
-#for push
-from pywebpush import webpush, WebPushException
-import logging
-import json, os
-
-from flask_cors import CORS
-
-
 os.environ["CUDA_VISIBLE_DEVICES"]="0"
 # from werkzeug.wrappers import Request, Response
 # from werkzeug.serving import run_simple
@@ -32,67 +24,17 @@ alarm_ratio = 0.9
 
 Flag = False
 app = Flask(__name__)
-#push
-app.config['SECRET_KEY'] = '9OLWxND4o83j4K4iuopO'
 
-
-CORS(app)
-
-#for push
-DER_BASE64_ENCODED_PRIVATE_KEY_FILE_PATH = os.path.join(os.getcwd(),"private_key.txt")
-DER_BASE64_ENCODED_PUBLIC_KEY_FILE_PATH = os.path.join(os.getcwd(),"public_key.txt")
-
-VAPID_PRIVATE_KEY = open(DER_BASE64_ENCODED_PRIVATE_KEY_FILE_PATH, "r+").readline().strip("\n")
-VAPID_PUBLIC_KEY = open(DER_BASE64_ENCODED_PUBLIC_KEY_FILE_PATH, "r+").read().strip("\n")
-
-VAPID_CLAIMS = {
-"sub": "mailto:develop@raturi.in"
-}
-
-#push를 위한 global token
-global_token = None
-
-#push 알림 함수
-# subscription_information : global_token
-# message_body : 보낼 메세지
-def send_web_push(subscription_information, message_body):
-    return webpush(
-        subscription_info=subscription_information,
-        data=message_body,
-        vapid_private_key=VAPID_PRIVATE_KEY,
-        vapid_claims=VAPID_CLAIMS
-    )
-
+gCnt = 0
 
 @app.route('/')
 def index():
     return render_template("index.html")
 
-#push notification 구독 신청 및 토큰 저장
-#get : 공개키 전달
-#post : 생성된 토큰을 global_token에 저장
-@app.route("/subscription/", methods=["GET", "POST"])
-def subscription():
-    """
-        POST creates a subscription
-        GET returns vapid public key which clients uses to send around push notification
-    """
-    print("subscription")
-    global global_token
-    if request.method == "GET":
-        return Response(response=json.dumps({"public_key": VAPID_PUBLIC_KEY}),
-            headers={"Access-Control-Allow-Origin": "*"}, content_type="application/json")
-
-    subscription_token = request.get_json("subscription_token")
-    global_token = json.loads(subscription_token["subscription_token"])
-    # print("subscription global_token : ",global_token)
-    # return Response(status=200, mimetype="application/json")
-    return jsonify({'success':1})
-
-
 def sendImagesToWeb():
-    global global_token
-
+    global action_list
+    global gCnt
+    cnt=0
     print("sendImagesToWeb")
     # receiver = imagezmq.ImageHub(open_port='tcp://0.0.0.0:5566', REQ_REP = Flse)
     receiver = imagezmq.ImageHub()
@@ -108,11 +50,21 @@ def sendImagesToWeb():
 
         # jpg = frame
         # # recognition using deep learning
-        jpg, alarm = model.predict(frame)
-        if alarm is True:
-          # send alarm
-          send_web_push(global_token, "이상행동 발생!")
+        jpg, pred_value = model.predict(frame)
+        # # add action into action_list
+        # if len(action_list) != sum_of_actions_number:
+        #     result_action = 1 if action in anormaly_action else 0
+        #     action_list += [result_action]
+        # else:
+        #     result_action = 1 if action in anormaly_action else 0
+        #     action_list = action_list[1:] + [result_action]
 
+        # #calculate action
+        # if len(action_list) == sum_of_actions_number:
+        #     if (sum(action_list) / sum_of_actions_number) > alarm_ratio:
+        #         #Send Alarm Message
+        #         print("Send Alarm ")
+        #         pass 
 
         # print("predict : ", action)
         (flag, jpg) = cv2.imencode('.jpg', jpg)

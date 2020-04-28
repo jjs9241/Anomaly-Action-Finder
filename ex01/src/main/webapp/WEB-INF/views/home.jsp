@@ -56,16 +56,18 @@
          <div class="section s1 section-one">
             <div class="icon_cont">
                 <div class="fun_img icon1">
-                    <i class="fas fa-desktop"></i>
+                    <!-- <i class="fas fa-desktop"></i> -->
+                    <img src="/resources/img/Monitor.png" alt="">
                     <p>24시간 실시간 cctv 관제 서비스</p>
                 </div>
                 <div class="fun_img icon2">
-                    <img src="/resources/img/behavior.png" alt="">
-                    <p>이상행동 검출 서비스</p>
-                </div>
-                <div class="fun_img icon3">
-                    <i class="fas fa-bell"></i>
+                    <!-- <i class="fas fa-bell"></i> -->
+                    <img src="/resources/img/bell.png" alt="">
                     <p>이상행동 알람 서비스</p>
+                </div>
+                <div class="fun_img icon3x">
+                    <img src="/resources/img/behavior.png" alt="">
+                    <p>이상행동 검출 및 저장 서비스</p>
                 </div>
                 <div class="fun_img icon4">
                     <img src="/resources/img/cctv.png" alt="">
@@ -75,11 +77,14 @@
         <!--icon_cont-->
         </div>
         <div class="section s2 section-three">
-            <h2>Contact Us</h2>
-            <p>
-                궁금하신 사항이 있으시면 오른쪽의 문의하기를 이용해주세요.<br/>
-                담당자가 자세하게 안내해드리겠습니다.
-            </p>
+            <div class="contact_info">
+                <h2>Contact Us</h2>
+                <p>
+			                   궁금하신 사항이 있으시면 오른쪽의 문의하기를 이용해주세요.<br/>
+			                   담당자가 자세하게 안내해드리겠습니다.
+                </p>
+            </div>
+      <div class="contact_box">
             <dl>
                 <dt class="blind">문의 종류 선택</dt>
                 <dd>
@@ -98,12 +103,10 @@
                 <dd><input type="text" id="cEmail" placeholder="이메일을 입력해주세요." /></dd>
                 <dt><label for="cContents">문의 내용</label></dt>
                 <dd><textarea id="cContents" placeholder="문의 내용을 입력해주세요."></textarea></dd>
-                <dd class="agree">
-                    <input type="checkbox" id="cAgree" /><label for="cAgree">이메일 수집에 동의합니다.</label>
-                    <span>(해당 문의에 대한 회신 목적으로 이메일을 수집하며, 문의 민원 해결 후 파기합니다.)</span>
-                </dd>
-                <dd class="right"><a href="#n" onclick="sendContact()" class="btn blue">Send Email</a></dd>
+                <dd><a href="#">Send Email</a></dd>
             </dl>
+        </div>
+        <!-- contact_box -->
         </div>
         <!-- <div class="section s3 section-fore">
             <h2>section 3</h2>  -->

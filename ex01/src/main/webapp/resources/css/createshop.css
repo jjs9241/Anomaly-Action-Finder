@@ -1,9 +1,9 @@
 /*글 등록하기 */
 #content {position:rerative;}
 #content h2 {display: inline-block ;font-size: 35px; text-align:center; font-family: 'Sunflower', sans-serif;
-    position: absolute; top:120px; color: #333; text-shadow: 1px 1px 1px rgba(126, 123, 123, 0.781); font-weight: 600;}
+    position: absolute; top:150px; color: #333; text-shadow: 1px 1px 1px rgba(126, 123, 123, 0.781); font-weight: 600;}
 
-#content .formwrap {width: 600px; height:500px; background-color: #EAF0F7; border-radius: 20px; margin-top: 90px; text-align: center; box-shadow: 0 2px 2px 0 rgba(126, 123, 123, 0.781);}
+#content .formwrap { position: absolute; top: 150px; width: 600px; height:400px; background-color: #EAF0F7; border-radius: 20px; margin-top: 90px; text-align: center; box-shadow: 0 2px 2px 0 rgba(126, 123, 123, 0.781);}
 #content .formwrap form { padding-top: 50px;}
 #content .formwrap form .row {width: 600px; margin: 0 auto;}
 #content .formwrap form .row span{font-size: 15px; font-weight: 600; color: gray; display: inline-block; text-align: right; width: 100px; line-height: 40px;}

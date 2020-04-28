@@ -145,6 +145,5 @@
 	</div>    
 	<script type="text/javascript"src="<c:url value="/resources/js/common.js" />"></script>
 	<script type="text/javascript"src="<c:url value="/resources/js/strange.js" />"></script>  
->>>>>>> refs/heads/v1
 </body>
 </html>

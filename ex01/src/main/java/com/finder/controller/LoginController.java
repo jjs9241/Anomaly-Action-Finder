@@ -77,6 +77,8 @@ public class LoginController {
 			mav.addObject("errMsg", URLDecoder.decode(errMsg,"UTF-8"));
 		}
 		
+//		authError="sdss";
+		
 		if(authError != null) {
 			logger.info(authError);
 			res.setContentType("text/html; charset=UTF-8");

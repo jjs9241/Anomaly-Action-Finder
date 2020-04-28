@@ -4,6 +4,12 @@
 <%@ page import="java.util.List"%>
 <%@ taglib uri="http://www.springframework.org/security/tags" prefix="sec" %>
 
+<% 
+	//HttpSession session = request.getSession();
+ 	String token = (String) request.getSession().getAttribute("token");
+	
+%>
+
 <% List urlListList = (List)request.getAttribute("urlListList"); %>
 <html lang="en">
 <head>
@@ -15,6 +21,10 @@
     <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=PT+Sans:700&display=swap" rel="stylesheet">
     <title>Document</title>
+    <script
+  src="https://code.jquery.com/jquery-3.5.0.min.js"
+  integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ="
+  crossorigin="anonymous"></script>
 </head>
 <body>
     <!--header-->
@@ -87,7 +97,8 @@
                     <video src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" autoplay muted></video>
                 </div>
                 <div class="video">
-                    <video src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4" autoplay muted></video>
+                    <%-- <video src="http://localhost:5009/image?video=clip2.mp4&token='<c:out value="${token}"/>'" autoplay muted></video> --%>
+                    <video id="testVideo" src="http://localhost:5009/image?video=clip2.mp4&token='<%=token%>'" autoplay muted></video>
                 </div>
                 
             </div>
@@ -95,6 +106,8 @@
     </div>
     
     <script>
+    
+    
         //ul태그에 이벤트 걸고 클릭했을떄 active클래스 넣어서 블루로 만들기
         //요소들 마우스 후버시 파랑색으로 변경
         var ul = document.getElementsByTagName('ul');

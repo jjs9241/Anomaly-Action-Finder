@@ -46,8 +46,18 @@
 		WHERE mem.pid = #{pid}
 	</select>
 
+	<insert id="joinUser" parameterType="org.zerock.domain.MemberVO">
+        INSERT INTO member (pid, email, passwd, phoneNumber, registerdate, updatedate, enabled)
+        VALUES (#{pid}, #{email}, #{passwd}, #{phoneNumber}, current_date(), current_date(), '1')
+    </insert>
+    
+    <insert id="joinAuth" parameterType="String">
+        INSERT INTO member_auth (memberid, auth)
+        VALUES (#{memberId}, 'ROLE_USER')
+    </insert>
+
 	<delete id="delete" parameterType="String">
-		delete from member where pid=#{pid}
+		delete from member where pid=#{memberId}
 	</delete>
 	
 	<update id="update" parameterType="String">

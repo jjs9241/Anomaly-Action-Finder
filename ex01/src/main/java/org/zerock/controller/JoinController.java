@@ -2,7 +2,7 @@ package org.zerock.controller;
 
 import java.io.PrintWriter;
 import java.text.DateFormat;
-
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
@@ -24,6 +24,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import org.zerock.domain.AuthVO;
 import org.zerock.domain.CCTVVO;
 import org.zerock.domain.MemberVO;
 import org.zerock.domain.StoreVO;
@@ -47,34 +48,53 @@ import org.springframework.web.servlet.support.RequestContextUtils;
 import org.zerock.security.domain.CustomUser;
 
 @Controller
-@RequestMapping("/register/*")
-public class RegisterController {
+@RequestMapping("/join/*")
+public class JoinController {
 	
 	private static final Logger logger = LoggerFactory.getLogger(ManageCCTVController.class);
 	
 	@Inject
-	private StoreService storeService;
+	private MemberService memberService;
 	
-	@RequestMapping(value = "Store", method = RequestMethod.GET)
-	public ModelAndView registerStore(HttpServletRequest req, HttpServletResponse res, HttpSession session) throws Exception {
+	@RequestMapping(value = "user", method = RequestMethod.GET)
+	public ModelAndView joinPage(HttpServletRequest req, HttpServletResponse res, HttpSession session) throws Exception {
+
+		ModelAndView mav = new ModelAndView();
 		
+		String errMsg = "";
+		
+		mav.setViewName("join");
+
+		return mav;
+	}
+	
+	@RequestMapping(value = "user", method = RequestMethod.POST)
+	public ModelAndView joinUser(HttpServletRequest req, HttpServletResponse res, HttpSession session) throws Exception {
+
 		MemberVO member = new MemberVO();
 		ModelAndView mav = new ModelAndView();
-		String currentUserName = SecurityContextHolder.getContext().getAuthentication().getName();
-		member.setPid(currentUserName);
-		logger.info(currentUserName);
 		
-		StoreVO store = new StoreVO();
-		
-		store.setPid(req.getParameter("field"));
+		member.setPid(req.getParameter("email"));
+		member.setEmail(req.getParameter("email"));
+		System.out.println("email:" + member.getEmail());
+		member.setPasswd(req.getParameter("pw"));
+		System.out.println("pw:" + member.getPasswd());
+		member.setPhoneNumber(req.getParameter("number"));
+		System.out.println("phone number:" + member.getPhoneNumber());
+		List authList = new ArrayList<AuthVO>();
+		AuthVO auth = new AuthVO();
+		auth.setAuth("ROLE_USER");
+		authList.add(auth);
+		member.setAuthList(authList);
 		
 		boolean success = false;
 		
 		try {
-			success = storeService.register(store);
+			success = memberService.join(member);
 			
 		} catch(Exception exception) {
-			mav.setViewName("registerStore");
+			logger.info("join user error!", member.getPid());
+			mav.setViewName("join/user");
 		}
 		
 		//req.setAttribute("storeList", storeList);
@@ -87,21 +107,21 @@ public class RegisterController {
 		if (success) {
 			PrintWriter out = res.getWriter();
         	 
-        	out.println("<script>alert('매장이 등록 되었습니다'); location.href='/indexStore';</script>");
+        	out.println("<script>alert('회원가입에 성공했습니다.'); location.href='/manageCCTV';</script>");
         	 
         	out.flush();
-			mav.setViewName("indexStore");
+			mav.setViewName("join");//manageCCTV");
 		} else {
 			PrintWriter out = res.getWriter();
         	 
-        	out.println("<script>alert('등록할 수 없는 매장입니다.'); location.href='/registerStore';</script>");
+        	out.println("<script>alert('회원가입에 실패했습니다.'); location.href='/join/user';</script>");
         	 
         	out.flush();
         	
-			mav.setViewName("registerStore");
+			mav.setViewName("join");
 		}
-		
+
 		return mav;
 	}
-
+	
 }

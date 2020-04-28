@@ -5,6 +5,7 @@ import javax.servlet.http.HttpSession;
 import org.zerock.domain.MemberVO;
 import java.util.List;
 import org.zerock.domain.StoreVO;
+import org.springframework.transaction.annotation.Transactional;
 
 public interface MemberService {
 	
@@ -21,4 +22,7 @@ public interface MemberService {
 	public boolean modify(MemberVO member);
 	
 	public boolean remove(String pid);
+	
+	@Transactional
+	public boolean join(MemberVO vo);
 }

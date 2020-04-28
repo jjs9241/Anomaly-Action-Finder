@@ -70,6 +70,7 @@ public class ManageCCTVController {
 		
 		//String userid = userDetails.getUserid();
 		//vo.setPid(userid);
+		System.out.println(req.getSession().getAttribute("token"));
 		
 		//List<String> urlList = memberService.getURLList(vo);
 		List<StoreVO> storeList = memberService.getStoreList(vo);

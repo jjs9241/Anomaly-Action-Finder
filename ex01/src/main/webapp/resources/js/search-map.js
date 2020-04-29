@@ -215,7 +215,7 @@ $(function() {
 
 //마커 출력
 // 지도에 표시된 마커 객체를 가지고 있을 배열입니다
-  var markers = [];
+var markers = [];
   
 function targetMarker(idx){
 	console.log("target call");
@@ -285,26 +285,26 @@ function panTo(pos) {
       marker.normalImage = normalImage;
 
       // 마커에 mouseover 이벤트를 등록합니다
-      kakao.maps.event.addListener(marker, 'mouseover', function() {
-
-          // 클릭된 마커가 없고, mouseover된 마커가 클릭된 마커가 아니면
-          // 마커의 이미지를 오버 이미지로 변경합니다
-          if (!selectedMarker || selectedMarker !== marker) {
-              marker.setImage(overImage);
-              selectedMarker = marker;
-          }
-      });
+//      kakao.maps.event.addListener(marker, 'mouseover', function() {
+//
+//          // 클릭된 마커가 없고, mouseover된 마커가 클릭된 마커가 아니면
+//          // 마커의 이미지를 오버 이미지로 변경합니다
+//          if (!selectedMarker || selectedMarker !== marker) {
+//              marker.setImage(overImage);
+//              selectedMarker = marker;
+//          }
+//      });
 
       // 마커에 mouseout 이벤트를 등록합니다
-      kakao.maps.event.addListener(marker, 'mouseout', function() {
-
-          // 클릭된 마커가 없고, mouseout된 마커가 클릭된 마커가 아니면
-          // 마커의 이미지를 기본 이미지로 변경합니다
-          if (!selectedMarker || selectedMarker !== marker) {
-          }
-          marker.setImage(normalImage);
-          selectedMarker = null;
-      });
+//      kakao.maps.event.addListener(marker, 'mouseout', function() {
+//
+//          // 클릭된 마커가 없고, mouseout된 마커가 클릭된 마커가 아니면
+//          // 마커의 이미지를 기본 이미지로 변경합니다
+//          if (!selectedMarker || selectedMarker !== marker) {
+//          }
+//          marker.setImage(normalImage);
+//          selectedMarker = null;
+//      });
       
       // 생성된 마커를 배열에 추가합니다
       markers.push(marker);
@@ -316,6 +316,8 @@ function panTo(pos) {
           // 마커를 클릭했을 때 오버레이가 없거나 있으면 닫고, 클릭된 마커에 커스텀 오버레이를 표시합니다
           // if(!overlay || )
          
+    	  
+    	  
           // 클릭된 마커가 없고, click 마커가 클릭된 마커가 아니면
           // 마커의 이미지를 클릭 이미지로 변경합니다
           if (!selectedMarker || selectedMarker !== marker) {
@@ -327,21 +329,21 @@ function panTo(pos) {
               // 현재 클릭된 마커의 이미지는 클릭 이미지로 변경합니다
               marker.setImage(overImage);
 
-              overlay = createOverlay(map, marker);
-              overlay.setMap(map);
+//              overlay = createOverlay(map, marker);
+//              overlay.setMap(map);
   
-              document.getElementById("overlay-close").addEventListener('click',function(){
-                console.log("닫기 클릭");
-                overlay.setMap(null);
-                marker.setImage(normalImage);
-                selectedMarker = null;
-              });
+//              document.getElementById("overlay-close").addEventListener('click',function(){
+//                console.log("닫기 클릭");
+//                overlay.setMap(null);
+//                marker.setImage(normalImage);
+//                selectedMarker = null;
+//              });
           }
-          // else if(selectedMarker == marker){
-          //     marker.setImage(normalImage);
-          //     selectedMarker = null;
-          //     return;
-          // }
+           else if(selectedMarker == marker){
+               marker.setImage(normalImage);
+               selectedMarker = null;
+               return;
+           }
 
           // 클릭된 마커를 현재 클릭된 마커 객체로 설정합니다
           selectedMarker = marker;

@@ -8,7 +8,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css" />
     <link href="<c:url value="/resources/css/style.css" />" rel="stylesheet">
     <link href="<c:url value="/resources/css/reset.css" />" rel="stylesheet">
-    <link href="<c:url value="/resources/css/strange.css" />" rel="stylesheet">  
+    <link href="<c:url value="/resources/css/strange.css" />" rel="stylesheet"> 
+    <link href="<c:url value="/resources/css/alarm.css"/>" rel="stylesheet"> 
     <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=PT+Sans:700&display=swap" rel="stylesheet">
     <title>Document</title>

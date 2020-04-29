@@ -10,6 +10,7 @@
     <link href="<c:url value="/resources/css/reset.css" />" rel="stylesheet">
     <link href="<c:url value="/resources/css/managecctv.css" />" rel="stylesheet">
     <link href="<c:url value="/resources/css/createCCTV.css" />" rel="stylesheet">
+    <link href="<c:url value="/resources/css/alarm.css"/>" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=PT+Sans:700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Nanum+Pen+Script&display=swap" rel="stylesheet">

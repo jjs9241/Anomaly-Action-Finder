@@ -46,7 +46,7 @@
 		WHERE mem.pid = #{pid}
 	</select>
 	
-	<insert id="joinUser" parameterType="org.zerock.domain.MemberVO">
+	<insert id="joinUser" parameterType="com.finder.domain.MemberVO">
         INSERT INTO member (pid, email, passwd, phoneNumber, registerdate, updatedate, enabled)
         VALUES (#{pid}, #{email}, #{passwd}, #{phoneNumber}, current_date(), current_date(), '1')
     </insert>

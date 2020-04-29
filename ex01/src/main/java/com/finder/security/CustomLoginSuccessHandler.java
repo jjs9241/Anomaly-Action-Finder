@@ -1,10 +1,11 @@
 package com.finder.security;
 
 import java.io.IOException;
-import java.util.ArrayList;
+import java.net.URI;
+import java.net.URLDecoder;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 import javax.servlet.ServletException;
@@ -15,30 +16,15 @@ import javax.servlet.http.HttpSession;
 import org.springframework.http.MediaType;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
 import org.springframework.http.server.ServletServerHttpResponse;
-import org.springframework.security.access.AccessDeniedException;
-import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
-import org.springframework.web.client.RestTemplate;
-import org.zerock.utils.JwtUtil;
-
-import com.finder.domain.JSONResult;
-
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
-
-import lombok.extern.log4j.Log4j;
-
-import java.net.URLEncoder;
-import java.text.SimpleDateFormat;
-import java.net.URI;
-import java.net.URLDecoder;
-
-import com.finder.utils.JwtUtil;
-
+import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 import org.springframework.web.client.RestTemplate;
 
-import org.springframework.http.HttpEntity;
-import java.util.Date;
-import java.util.HashMap;
+import com.finder.domain.JSONResult;
+import com.finder.utils.JwtUtil;
+
+import lombok.extern.log4j.Log4j;
 
 @Log4j
 public class CustomLoginSuccessHandler 
@@ -98,7 +84,7 @@ implements AuthenticationSuccessHandler{
 			
 			String flask0_URL = "http://localhost:5009";
 			try {
-				HttpSession session = req.getSession();
+				HttpSession session = request.getSession();
 				String accessToken = jwtUtil.createToken(curUserId, timeStr);
 				accessToken = URLDecoder.decode(accessToken, "UTF-8");
 				log.warn(accessToken);

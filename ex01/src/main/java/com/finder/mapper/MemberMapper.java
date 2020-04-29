@@ -17,4 +17,8 @@ public interface MemberMapper {
 	public int delete(String pid); // delete 에서 리턴을 int로 주면 자동으로 실행 결과를 1 또는 0으로 넘겨준다.
 	
 	public int update(MemberVO member);
+
+	public int joinUser(MemberVO vo);
+
+	public int joinAuth(String pid);
 }

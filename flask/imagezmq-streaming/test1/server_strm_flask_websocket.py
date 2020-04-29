@@ -143,6 +143,7 @@ def sendImagesToWeb():
         if alarm is True:
           # send alarm
           send_web_push(global_token, "이상행동 발생!")
+          alarmToWebWhenStrangeDetected()
 
 
         # print("predict : ", action)

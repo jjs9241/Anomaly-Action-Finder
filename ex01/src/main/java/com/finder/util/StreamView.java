@@ -24,7 +24,8 @@ public class StreamView extends AbstractView{
 			HttpServletResponse response) throws Exception {
 		
 		//동영상 파일 디렉토리 경로
-		String movieDir ="H:\\videosample"; 
+//		String movieDir ="H:\\videosample"; 
+		String movieDir ="G:/videosample"; 
 		
 		//대상 동영상 파일명
         String movieName = (String)map.get("movieName");
@@ -45,7 +46,7 @@ public class StreamView extends AbstractView{
             //스트림 요청 범위, request의 헤더에서 range를 읽는다.
             String range = request.getHeader("range");
             logger.debug("range: {}", range);
-
+            
             //브라우저에 따라 range 형식이 다른데, 기본 형식은 "bytes={start}-{end}" 형식이다.
             //range가 null이거나, reqStart가  0이고 end가 없을 경우 전체 요청이다.
             //요청 범위를 구한다.

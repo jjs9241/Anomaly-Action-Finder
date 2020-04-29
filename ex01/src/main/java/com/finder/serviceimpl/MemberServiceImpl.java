@@ -7,6 +7,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.test.context.ContextConfiguration;
 
 import lombok.Setter;
 import lombok.AllArgsConstructor;
@@ -23,12 +24,20 @@ import com.finder.service.MemberService;
 import java.util.List;
 import java.util.ArrayList;
 
+import org.springframework.security.crypto.password.PasswordEncoder;
+
+@ContextConfiguration({"file:src/main/webapp/WEB-INF/spring/root-context.xml",
+	"file:src/main/webapp/WEB-INF/spring/security-context.xml"
+})
 @Log4j
 @Service
 @AllArgsConstructor
 public class MemberServiceImpl implements MemberService {
 
 	private static final Logger logger = LoggerFactory.getLogger(LoginController.class);
+	
+	@Setter(onMethod_ = @Autowired)
+	private PasswordEncoder pwEncoder;
 	
 	@Setter(onMethod_ = @Autowired)
 	MemberMapper mapper;
@@ -96,5 +105,18 @@ public class MemberServiceImpl implements MemberService {
 		log.info("remove...." + pid);
 		
 		return mapper.delete(pid)==1;
+	}
+	
+	@Override
+	public boolean join(MemberVO vo) {
+		log.info("join...." + vo);
+		vo.setPasswd(pwEncoder.encode(vo.getPasswd()));
+		boolean success = false;
+		try {
+			success = mapper.joinUser(vo)==1 & mapper.joinAuth(vo.getPid())==1;
+		} catch (Exception e) {
+			logger.info("transaction");
+		}
+		return success;
 	}
 }

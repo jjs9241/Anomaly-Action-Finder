@@ -48,7 +48,7 @@
 			            <div class="star_wrap">                       
 			                <div class="star"><i class="far fa-star"></i> </div>
 			            </div>
-			            <video src="resources/video/Love - 32021.mp4" autoplay loop muted></video>
+			            <video src="/move/sampletest.mp4" autoplay loop muted></video>
 			        </div>
 			        <div class="video">
 			            <div class="star_wrap">                       

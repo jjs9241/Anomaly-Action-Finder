@@ -91,15 +91,12 @@ public class ManageIndexController {
 		StoreVO store = new StoreVO();
 		ModelAndView mav = new ModelAndView();
 		String currentUserName = SecurityContextHolder.getContext().getAuthentication().getName();
-//		String storeId = req.getParameter("storeId");
 		
 		if (!currentUserName.equals(storeService.getManagerId(storeId))) {
 			log.info("indexCCTV getManagerId : "+storeService.getManagerId(storeId));
 			mav.setViewName("indexStore");
 			res.setContentType("text/html; charset=UTF-8");
 			PrintWriter writer = res.getWriter();
-//			writer.println("<script>alert('해당 스토어에 대한 권한이 없습니다.'); location.href='/stores';</script>");
-//			writer.flush();
 			return mav;
 		}
 		store.setPid(storeId);

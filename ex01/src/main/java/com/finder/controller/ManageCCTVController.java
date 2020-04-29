@@ -57,20 +57,13 @@ public class ManageCCTVController {
 	@RequestMapping(value = "/manageCCTV", method = RequestMethod.GET)
 	public ModelAndView manageCCTV(Model map, HttpServletRequest req, HttpServletResponse res, HttpSession session) throws Exception {
 		
-		//Map<String,?> flashMap = RequestContextUtils.getInputFlashMap(req);
-		
-		//CustomUser userDetails = (CustomUser)SecurityContextHolder.getContext().getAuthentication().getDetails();
-        
 		MemberVO vo = new MemberVO();
 		ModelAndView mav = new ModelAndView();
 		String currentUserName = SecurityContextHolder.getContext().getAuthentication().getName();
 		vo.setPid(currentUserName);
-//		logger.info(currentUserName);
 		
-		//String userid = userDetails.getUserid();
-		//vo.setPid(userid);
-		
-		//List<String> urlList = memberService.getURLList(vo);
+		System.out.println(req.getSession().getAttribute("token"));
+
 		List<StoreVO> storeList = memberService.getStoreList(vo);
 		List<List> urlListList = new ArrayList<List>();
 		
@@ -84,21 +77,6 @@ public class ManageCCTVController {
 		
 		req.setAttribute("urlListList", urlListList);
 		mav.addObject("urlListList", urlListList);
-		/*
-		if(flashMap != null) {
-			Iterator<String> iter = flashMap.keySet().iterator();
-			while(iter.hasNext()) {
-				logger.info((String)flashMap.get(iter.next()));
-			}
-			vo.setPid((String)flashMap.get("flashMemberId"));
-			List<String> urlList = memberService.getURLList(vo);
-			req.setAttribute("urlList", urlList);
-			mav.addObject("urlList", urlList);
-		}*/
-		//vo.setPid((String)req.getAttribute("id"));
-		//vo.setPid((String)map.asMap().get("flashMemberId"));
-		
-//		logger.info(vo.getPid());
 		
 		mav.setViewName("manageCCTV");
 		

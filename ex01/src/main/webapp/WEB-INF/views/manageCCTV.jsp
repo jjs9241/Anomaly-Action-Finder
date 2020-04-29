@@ -3,7 +3,11 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" language="java" %>
 <%@ page import="java.util.List"%>
 <%@ taglib uri="http://www.springframework.org/security/tags" prefix="sec" %>
-
+<% 
+	//HttpSession session = request.getSession();
+ 	String token = (String) request.getSession().getAttribute("token");
+	
+%>
 <% List urlListList = (List)request.getAttribute("urlListList"); %>
 <html lang="en">
 <head>

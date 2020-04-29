@@ -47,12 +47,7 @@ public class CustomAuthenticationEntryPoint implements AuthenticationEntryPoint 
     	logger.info(goErrorPage);
 //    	response.sendRedirect("/login/login?authError=True");
     	response.sendRedirect("/login?authError=True");
-        /*if( redirect ){
-            response.sendRedirect(goErrorPage);
-        }else{
-            RequestDispatcher dispatcher = request.getRequestDispatcher(goErrorPage);
-            dispatcher.forward(request, response);
-        }*/
+        
     }
  
 }

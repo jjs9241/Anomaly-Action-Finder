@@ -12,7 +12,7 @@
 //	 socket_namespace="/userid";
 	 socket_namespace="/test";
 	 
-	 socket_URL = 'http://'+pushURI+socket_namespace;
+	 socket_URL = pushURI+socket_namespace;
 	 console.log("webSocket_finder.js   socket_URL : ",socket_URL);
 	 
 	 var socket = io(socket_URL);

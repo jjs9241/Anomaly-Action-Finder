@@ -28,8 +28,8 @@ self.addEventListener('push', function(event) {
 //  var pushText = document.getElementById('push_text');
 //  pushText.textContent = "asdfafs";
 //  pushText.textContent = "${event.data.text()}";
-  console.log("event : ",event)
-  console.log("self : ",self)
+//  console.log("event : ",event)
+//  console.log("self : ",self)
 //  event.source.postMessage("Responding to " + event.data);
   
   const title = 'Finder';
@@ -39,7 +39,7 @@ self.addEventListener('push', function(event) {
     badge: 'images/badge.png'
   };
   
-  noticeToWeb("push test dd")
+//  noticeToWeb("push test dd")
 
   event.waitUntil(self.registration.showNotification(title, options));
 });

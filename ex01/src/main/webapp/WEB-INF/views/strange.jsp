@@ -43,61 +43,61 @@
 		
 		    <!--content-->
 		    <div id="content" class="video_align">
-            	<div class="strange_video_wrap">
-			        <div class="video">
-			            <div class="star_wrap">                       
-			                <div class="star"><i class="far fa-star"></i> </div>
-			            </div>
-			            <video src="/move/sampletest.mp4" autoplay loop muted></video>
-			        </div>
-			        <div class="video">
-			            <div class="star_wrap">                       
-			                <div class="star"><i class="far fa-star"></i> </div>
-			            </div>
-			            <video src="resources/video/Sea - 33194.mp4" autoplay loop muted></video>
-			        </div>
-			        <div class="video">
-			            <div class="star_wrap">                       
-			                <div class="star"><i class="far fa-star"></i> </div>
-			            </div>
-			            <video src="resources/video/Cello - 33565.mp4" autoplay loop muted></video>
-			        </div>
-			        <div class="video">
-			            <div class="star_wrap">                       
-			                <div class="star"><i class="far fa-star"></i> </div>
-			            </div>
-			            <video src="resources/video/Cane - 31180.mp4" autoplay loop muted></video>
-			        </div>
-			        <div class="video">
-			            <div class="star_wrap">                       
-			                <div class="star"><i class="far fa-star"></i> </div>
-			            </div>
-			            <video src="resources/video/테스트영상.mp4" autoplay loop muted></video>
-			        </div>
-			        <div class="video">
-			            <div class="star_wrap">                       
-			                <div class="star"><i class="far fa-star"></i> </div>
-			            </div>
-			            <video src="resources/video/테스트영상.mp4" autoplay loop muted></video>
-			        </div>
-			        <div class="video">
-			            <div class="star_wrap">                       
-			                <div class="star"><i class="far fa-star"></i> </div>
-			            </div>
-			            <video src="resources/video/테스트영상.mp4" autoplay loop muted></video>
-			        </div>
-			        <div class="video">
-			            <div class="star_wrap">                       
-			                <div class="star"><i class="far fa-star"></i> </div>
-			            </div>
-			            <video src="resources/video/테스트영상.mp4" autoplay loop muted></video>
-			        </div>
-			        <div class="video">
-			            <div class="star_wrap">                       
-			                <div class="star"><i class="far fa-star"></i> </div>
-			            </div>
-			            <video src="resources/video/테스트영상.mp4" autoplay loop muted></video>
-			        </div>
+            	<div id="content_wrap" class="strange_video_wrap">
+<!-- 			        <div class="video"> -->
+<!-- 			            <div class="star_wrap">                        -->
+<!-- 			                <div class="star"><i class="far fa-star"></i> </div> -->
+<!-- 			            </div> -->
+<!-- 			            <video src="/move/sampletest.mp4" autoplay loop muted></video> -->
+<!-- 			        </div> -->
+<!-- 			        <div class="video"> -->
+<!-- 			            <div class="star_wrap">                        -->
+<!-- 			                <div class="star"><i class="far fa-star"></i> </div> -->
+<!-- 			            </div> -->
+<!-- 			            <video src="/move/sampletest.mp4" autoplay loop muted></video> -->
+<!-- 			        </div> -->
+<!-- 			        <div class="video"> -->
+<!-- 			            <div class="star_wrap">                        -->
+<!-- 			                <div class="star"><i class="far fa-star"></i> </div> -->
+<!-- 			            </div> -->
+<!-- 			            <video src="/move/sample2.mp4" autoplay loop muted></video> -->
+<!-- 			        </div> -->
+<!-- 			        <div class="video"> -->
+<!-- 			            <div class="star_wrap">                        -->
+<!-- 			                <div class="star"><i class="far fa-star"></i> </div> -->
+<!-- 			            </div> -->
+<!-- 			            <video src="resources/video/Cane - 31180.mp4" autoplay loop muted></video> -->
+<!-- 			        </div> -->
+<!-- 			        <div class="video"> -->
+<!-- 			            <div class="star_wrap">                        -->
+<!-- 			                <div class="star"><i class="far fa-star"></i> </div> -->
+<!-- 			            </div> -->
+<!-- 			            <video src="/move/sample2.mp4" autoplay loop muted></video> -->
+<!-- 			        </div> -->
+<!-- 			        <div class="video"> -->
+<!-- 			            <div class="star_wrap">                        -->
+<!-- 			                <div class="star"><i class="far fa-star"></i> </div> -->
+<!-- 			            </div> -->
+<!-- 			            <video src="resources/video/테스트영상.mp4" autoplay loop muted></video> -->
+<!-- 			        </div> -->
+<!-- 			        <div class="video"> -->
+<!-- 			            <div class="star_wrap">                        -->
+<!-- 			                <div class="star"><i class="far fa-star"></i> </div> -->
+<!-- 			            </div> -->
+<!-- 			            <video src="resources/video/테스트영상.mp4" autoplay loop muted></video> -->
+<!-- 			        </div> -->
+<!-- 			        <div class="video"> -->
+<!-- 			            <div class="star_wrap">                        -->
+<!-- 			                <div class="star"><i class="far fa-star"></i> </div> -->
+<!-- 			            </div> -->
+<!-- 			            <video src="resources/video/테스트영상.mp4" autoplay loop muted></video> -->
+<!-- 			        </div> -->
+<!-- 			        <div class="video"> -->
+<!-- 			            <div class="star_wrap">                        -->
+<!-- 			                <div class="star"><i class="far fa-star"></i> </div> -->
+<!-- 			            </div> -->
+<!-- 			            <video src="resources/video/테스트영상.mp4" autoplay loop muted></video> -->
+<!-- 			        </div> -->
 			          <!-- 
 			        <div class="video">
 			            <div class="star_wrap">                       
@@ -143,6 +143,8 @@
 		    <!--//content-->
 		</div>
 	<!--//content_container-->
+<%-- 	<input id="csrfval" type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" /> --%>
+	<input id="csrfval" type="hidden" name="${_csrf.headerName}" value="${_csrf.token}" />
 	</div>    
 	<script type="text/javascript"src="<c:url value="/resources/js/common.js" />"></script>
 	<script type="text/javascript"src="<c:url value="/resources/js/strange.js" />"></script>  

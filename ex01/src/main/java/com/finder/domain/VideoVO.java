@@ -11,6 +11,8 @@ public class VideoVO {
 	private String mongoDBID;
 	private String managerID;
 	private String category;
+	private String filePath;
+	private String fileName;
 	private String extension;
 	private int size;
 	private Date registerDay;

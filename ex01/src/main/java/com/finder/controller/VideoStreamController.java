@@ -21,6 +21,9 @@ public class VideoStreamController {
 	@Autowired
 	StreamView streamView;
 	
+
+	
+	
 	@RequestMapping(value="/move/{fileName}", method=RequestMethod.GET)
 	public View streamVideo(@PathVariable("fileName") String fileName, HttpServletRequest request,
 							Model model){

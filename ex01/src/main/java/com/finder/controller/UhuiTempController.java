@@ -20,10 +20,10 @@ public class UhuiTempController {
 	private static final Logger logger = LoggerFactory.getLogger(UhuiTempController.class);
 	
 	
-	@RequestMapping(value = "/strange", method = RequestMethod.GET)
-	public String strange(Model model) throws Exception{		
-		return "strange";
-	}
+//	@RequestMapping(value = "/strange", method = RequestMethod.GET)
+//	public String strange(Model model) throws Exception{		
+//		return "strange";
+//	}
 	
 //	@RequestMapping(value = "/map", method = RequestMethod.GET)
 //	public String map(Model model) throws Exception{

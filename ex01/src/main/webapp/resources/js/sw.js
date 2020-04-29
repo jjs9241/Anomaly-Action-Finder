@@ -28,18 +28,18 @@ self.addEventListener('push', function(event) {
 //  var pushText = document.getElementById('push_text');
 //  pushText.textContent = "asdfafs";
 //  pushText.textContent = "${event.data.text()}";
-  console.log("event : ",event)
-  console.log("self : ",self)
+//  console.log("event : ",event)
+//  console.log("self : ",self)
 //  event.source.postMessage("Responding to " + event.data);
   
-  const title = 'Push Codelab';
+  const title = 'Finder';
   const options = {
     body: `"${event.data.text()}"`,
     icon: 'images/icon.png',
     badge: 'images/badge.png'
   };
   
-  noticeToWeb("push test dd")
+//  noticeToWeb("push test dd")
 
   event.waitUntil(self.registration.showNotification(title, options));
 });
@@ -62,13 +62,16 @@ function noticeToWeb(message){
 	})
 }
 
+//푸쉬 알람 메시지 클릭 시 트리거 되는 이벤트 처리
 self.addEventListener('notificationclick', function(event) {
   console.log('[Service Worker] Notification click Received.');
 
+  //알림 메시지 닫기
   event.notification.close();
 
   event.waitUntil(
-    clients.openWindow('https://developers.google.com/web/')
+//    clients.openWindow('https://developers.google.com/web/')
+    clients.openWindow('/strange')
   );
 });
 

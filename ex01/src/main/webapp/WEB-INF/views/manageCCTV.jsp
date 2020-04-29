@@ -3,7 +3,11 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" language="java" %>
 <%@ page import="java.util.List"%>
 <%@ taglib uri="http://www.springframework.org/security/tags" prefix="sec" %>
-
+<% 
+	//HttpSession session = request.getSession();
+ 	String token = (String) request.getSession().getAttribute("token");
+	
+%>
 <% List urlListList = (List)request.getAttribute("urlListList"); %>
 <html lang="en">
 <head>
@@ -12,6 +16,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css" />
     <link rel="stylesheet" href="/resources/css/style.css">
     <link rel="stylesheet" href="/resources/css/reset.css">
+    <link href="<c:url value="/resources/css/alarm.css"/>" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=PT+Sans:700&display=swap" rel="stylesheet">
     <title>Document</title>

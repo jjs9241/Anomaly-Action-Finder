@@ -13,10 +13,28 @@
 	            <h2><sec:authentication property="principal.member.email"/></h2>
 	            <p><sec:authentication property="principal.username"/></p>
 	        </div>
+	        <!-- 알림 허용 -->
+            <label class="form-switch">
+                <input type="checkbox" onclick="test();">
+                <i></i>
+                Alarm
+                <span id="alarm"> 비허용</span>
+            </label>                
+            <!--// 알림 허용 -->
 	        <a href="#"><i class="fas fa-cog"></i>Account</a>
 	        <a id="logout" href="#"><i class="fas fa-sign-out-alt"></i>Logout</a>
 	        <input id="csrf" type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
 	    </div>
+	    <script>
+            function test(e){
+                let alarm = document.querySelector("#alarm")
+                if (alarm.innerHTML === "허용"){
+                    alarm.innerHTML = "비허용"
+                } else {
+                    alarm.innerHTML = "허용"
+                }              
+            }
+        </script>
 	</div>    
 <script src="//code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js" integrity="sha256-yr4fRk/GU1ehYJPAs8P4JlTgu0Hdsp4ZKrx8bDEDC3I=" crossorigin="anonymous"></script>	

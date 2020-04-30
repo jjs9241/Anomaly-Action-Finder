@@ -25,16 +25,23 @@ public class StreamView extends AbstractView{
 		
 		//동영상 파일 디렉토리 경로
 //		String movieDir ="H:\\videosample"; 
-		String movieDir ="G:/videosample"; 
+		String movieDir ="D:\\final_test_video"; 
+		
+		
+		
 		
 		//대상 동영상 파일명
         String movieName = (String)map.get("movieName");
+        
+        System.out.println("movieName : "+movieName + ", dir : "+movieDir);
 
         //progressbar 에서 특정 위치를 클릭하거나 해서 임의 위치의 내용을 요청할 수 있으므로
         //파일의 임의의 위치에서 읽어오기 위해 RandomAccessFile 클래스를 사용한다.
         //해당 파일이 없을 경우 예외 발생
         RandomAccessFile randomFile = new RandomAccessFile(new File(movieDir, movieName), "r");
 
+        System.out.println("222 movieName : "+movieName + ", dir : "+movieDir);
+        
         long rangeStart = 0; //요청 범위의 시작 위치
         long rangeEnd = 0;  //요청 범위의 끝 위치
         boolean isPart=false; //부분 요청일 경우 true, 전체 요청의 경우 false
@@ -103,6 +110,8 @@ public class StreamView extends AbstractView{
        }catch(IOException e){
            //전송 중에 브라우저를 닫거나, 화면을 전환한 경우 종료해야 하므로 전송취소.
            // progressBar를 클릭한 경우에는 클릭한 위치값으로 재요청이 들어오므로 전송 취소.
+    	   e.printStackTrace();
+    	   logger.info("전송이 취소 되었음.");
            logger.debug("전송이 취소 되었음" ); 
        }finally{
            randomFile.close();

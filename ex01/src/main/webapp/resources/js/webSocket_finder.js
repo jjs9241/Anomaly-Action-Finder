@@ -2,7 +2,10 @@
  * 
  */
 
+//const pushURI = "http://70.12.50.158:5000";
+
  $(document).ready(function() {
+	 var pushURI = "http://70.12.50.158:5000";
 	 
 	 //socket의 namespace
 	 //connect URL format : http[s]://<domain>:<port>[/<namespace>]

@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
 
 	//모달 창 다시
-	var videolist = document.querySelectorAll("#content .video_wrap video")
+	var videolist = document.querySelectorAll("#content .video_wrap .video")
 	var modal = document.querySelector("#modal");
 	var vid = document.getElementById("big_video");
 	for(var i=0;i<videolist.length;i++){
@@ -42,7 +42,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
 	
 	    modal.style.display="none"
 	    //modal_btn.style.display="none"
-	    vid.pause();
+//	    vid.pause();
 	}
 	
 	modal_btn.addEventListener('click',modalcloseHandler);

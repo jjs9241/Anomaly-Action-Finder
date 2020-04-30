@@ -107,6 +107,10 @@ position: absolute; top: 18px;right: 60px;background-color: gray; font-size:17px
     width: 100%   !important;
     height: 100%  !important;} 
 
+#modal img{  
+    width: 100%   !important;
+    height: 100%  !important;} 
+
 #close button {width: 50px; height: 50px; position: absolute; top:40px; right: 40px;  outline: 0; border:0; background-color: white;}
 
 

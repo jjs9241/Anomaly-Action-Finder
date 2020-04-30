@@ -39,7 +39,8 @@
             <!--//side-->
             <!--모달&로딩-->
             <div id="modal">
-                <video id="big_video"  autoplay></video>
+<!--                 <video id="big_video"  autoplay></video> -->
+                <img id="big_video"  autoplay></img>
                 <div id="close"><button><i class="fas fa-times"></i></button></div>
             </div>
             <!--content-->

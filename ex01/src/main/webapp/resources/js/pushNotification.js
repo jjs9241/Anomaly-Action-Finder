@@ -141,7 +141,7 @@ if ('serviceWorker' in navigator && 'PushManager' in window) {
 		});
 } else {
 	console.warn('Push meapplicationServerPublicKeyssaging is not supported');
-	pushButton.textContent = 'Push Not Supported';
+//	pushButton.textContent = 'Push Not Supported';
 }
 
 function push_message() {

@@ -29,7 +29,7 @@ function urlB64ToUint8Array(base64String) {
 }
 
 function updateBtn() {
-	console.log("updateBtn")
+//	console.log("updateBtn")
 	if (Notification.permission === 'denied') {
 		pushButton.textContent = 'Push Messaging Blocked.';
 		pushButton.disabled = true;
@@ -47,7 +47,7 @@ function updateBtn() {
 }
 
 function updateSubscriptionOnServer(subscription) {
-	console.log("updateSubscriptionOnServer")
+//	console.log("updateSubscriptionOnServer")
 	// TODO: Send subscription to application server
 
 	const subscriptionJson = document.querySelector('.js-subscription-json');
@@ -63,7 +63,7 @@ function updateSubscriptionOnServer(subscription) {
 }
 
 function subscribeUser() {
-	console.log("subscribeUser")
+//	console.log("subscribeUser")
 	const applicationServerPublicKey = localStorage.getItem('applicationServerPublicKey');
 	const applicationServerKey = urlB64ToUint8Array(applicationServerPublicKey);
 	swRegistration.pushManager.subscribe({
@@ -71,8 +71,8 @@ function subscribeUser() {
 			applicationServerKey: applicationServerKey
 		})
 		.then(function(subscription) {
-			console.log('User is subscribed.');
-			console.log("subscription : ",subscription);
+//			console.log('User is subscribed.');
+//			console.log("subscription : ",subscription);
 //			updateSubscriptionOnServer(subscription);
 			localStorage.setItem('sub_token',JSON.stringify(subscription));
 			isSubscribed = true;
@@ -87,7 +87,7 @@ function subscribeUser() {
 }
 
 function unsubscribeUser() {
-	console.log("unsubscribeUser")
+//	console.log("unsubscribeUser")
 	swRegistration.pushManager.getSubscription()
 		.then(function(subscription) {
 			if (subscription) {
@@ -113,7 +113,7 @@ function initializeUI() {
 	// Set the initial subscription value
 	swRegistration.pushManager.getSubscription()
 		.then(function(subscription) {
-			console.log("getSubscription subscription: ",subscription)
+//			console.log("getSubscription subscription: ",subscription)
 			isSubscribed = !(subscription === null);
 
 //			updateSubscriptionOnServer(subscription);
@@ -127,11 +127,11 @@ function initializeUI() {
 }
 
 if ('serviceWorker' in navigator && 'PushManager' in window) {
-	console.log('Service Worker and Push is supported');
+//	console.log('Service Worker and Push is supported');
 
 	navigator.serviceWorker.register("/resources/js/sw.js")
 		.then(function(swReg) {
-			console.log('Service Worker is registered', swReg);
+//			console.log('Service Worker is registered', swReg);
 
 			swRegistration = swReg;
 			initializeUI();
@@ -145,7 +145,7 @@ if ('serviceWorker' in navigator && 'PushManager' in window) {
 }
 
 function push_message() {
-	console.log("sub_token", localStorage.getItem('sub_token'));
+//	console.log("sub_token", localStorage.getItem('sub_token'));
 	$.ajax({
 		type: "POST",
 		url: pushURI+"/push_v1/",
@@ -178,7 +178,7 @@ function sendSubscriptionToken(){
 		dataType:'json',
 		data: JSON.stringify({'subscription_token':localStorage.getItem('sub_token')}),
 		success: function( data ){
-			console.log("success",data);
+//			console.log("success",data);
     },
     error: function( jqXhr, textStatus, errorThrown ){
         console.log("error",errorThrown);
@@ -193,7 +193,7 @@ $(document).ready(function(){
 		type:"GET",
 		url:pushURI+'/subscription/',
 		success:function(response){
-			console.log("response",response);
+//			console.log("response",response);
 			localStorage.setItem('applicationServerPublicKey',response.public_key);
 			
 //			initializeUI()

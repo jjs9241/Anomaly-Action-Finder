@@ -50,6 +50,21 @@ public class StrangeController {
 		}
 	}
 	
+	@RequestMapping(value = "/strange/bookmark/list", method = RequestMethod.GET)
+	public ResponseEntity<List<VideoVO>> strangeBookmarkList(Model model) throws Exception{	
+		
+		String curUserId = SecurityContextHolder.getContext().getAuthentication().getName();
+		log.info("StrangeController userID : "+curUserId);
+		
+		try {
+			List<VideoVO> voList = vdMapper.getVideoBoomarkListByManagerID(curUserId);
+			log.info("vo : "+voList);
+			return new ResponseEntity<List<VideoVO>>(voList,HttpStatus.OK);
+		} catch (Exception e) {
+			return new ResponseEntity<List<VideoVO>>(HttpStatus.BAD_REQUEST);
+		}
+	}
+	
 	@RequestMapping(value = "/strange/bookmark", method = RequestMethod.POST)
 	public ResponseEntity<HttpStatus> updateBookmark(@RequestBody VideoVO videoVO, Model model, HttpSession session ) throws Exception{	
 		

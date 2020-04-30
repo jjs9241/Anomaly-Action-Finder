@@ -34,9 +34,9 @@
 		    <div class="sort">
 		        <h2>정렬하기</h2>
 		        <ul>
-		            <li>즐겨찾기</li>
-		            <li>날짜</li>
-		            <li>이름</li>
+		            <li id="bookmarklist">즐겨찾기</li>
+		            <li id="allList">전체</li>
+<!-- 		            <li>이름</li> -->
 		        </ul>
 		    </div>
 		     <!--//sort-->  

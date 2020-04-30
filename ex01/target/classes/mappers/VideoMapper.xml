@@ -14,4 +14,13 @@
 		WHERE ManagerID = #{managerID};	
 	</select>
 
+
+
+	<select id="getVideoBoomarkListByManagerID" resultType="com.finder.domain.VideoVO">
+		SELECT * 
+		FROM video
+		WHERE ManagerID = #{managerID}
+		  AND Bookmark is True;
+	</select>
+
 </mapper>

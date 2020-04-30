@@ -119,13 +119,13 @@
 	          dataType: "JSON",
 	          type : "GET",
 	          success: function( data ) {
-                  console.log("data : ",data);
+//                   console.log("data : ",data);
                   
                   var tbodyEle = document.getElementById('store_tbody');
                   var frag = document.createDocumentFragment();
 	        	  data.forEach(function(item, index){
 	           		// 마커 하나를 지도위에 표시합니다 
-                       console.log("item : ",item)
+//                        console.log("item : ",item)
 
                        frag.appendChild(createEle(item, index)); 
 	       		    addMarker(new kakao.maps.LatLng(item.latitude, item.longitude));

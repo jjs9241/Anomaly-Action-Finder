@@ -5,8 +5,9 @@
 		contentType: 'application/json; charset=utf-8',
 		dataType:'json',
 		success: function( data ){
-			console.log("success",data);
+//			console.log("success",data);
 			var contentWrap = document.getElementById("content_wrap");
+			contentWrap.innerHTML="";
 			var frag = document.createDocumentFragment();
 			data.forEach(videoObj => {
 				frag.appendChild(createVideoListEle(videoObj))
@@ -20,6 +21,57 @@
 	    }
 	});
 	 
+	 
+	var bookmarkListBtn = document.getElementById('bookmarklist');
+	bookmarkListBtn.addEventListener('click',function(e){
+		$.ajax({
+			type: "GET",
+			url: "/strange/bookmark/list",
+			contentType: 'application/json; charset=utf-8',
+			dataType:'json',
+			success: function( data ){
+//				console.log("success",data);
+				var contentWrap = document.getElementById("content_wrap");
+				contentWrap.innerHTML="";
+				var frag = document.createDocumentFragment();
+				data.forEach(videoObj => {
+					frag.appendChild(createVideoListEle(videoObj))
+				});
+
+				contentWrap.appendChild(frag);
+				
+		    },
+		    error: function( jqXhr, textStatus, errorThrown ){
+		        console.log("error",errorThrown);
+		    }
+		});
+	});
+
+	var bookmarkListBtn = document.getElementById('allList');
+	bookmarkListBtn.addEventListener('click',function(e){
+		$.ajax({
+			type: "GET",
+			url: "/strange/list",
+			contentType: 'application/json; charset=utf-8',
+			dataType:'json',
+			success: function( data ){
+//				console.log("success",data);
+				var contentWrap = document.getElementById("content_wrap");
+				contentWrap.innerHTML="";
+				var frag = document.createDocumentFragment();
+				data.forEach(videoObj => {
+					frag.appendChild(createVideoListEle(videoObj))
+				});
+
+				contentWrap.appendChild(frag);
+				
+		    },
+		    error: function( jqXhr, textStatus, errorThrown ){
+		        console.log("error",errorThrown);
+		    }
+		});
+	});
+	
  });
  
 
@@ -56,9 +108,9 @@ function createVideoListEle(videoObj){
 	let star_wrap = videoEle.querySelector('.star_wrap div');
 	//북마크 설정 및 이벤트 처리
 	star_wrap.addEventListener('click',function(e){
-		console.log("star wrap click");
-		console.log("this id : ",this.getAttribute('id'));
-		console.log("e.target : ",e.target);
+//		console.log("star wrap click");
+//		console.log("this id : ",this.getAttribute('id'));
+//		console.log("e.target : ",e.target);
 		
 		var data = {};
 		data.pid = this.getAttribute('id');
@@ -108,7 +160,7 @@ function updateBookmarkAjax(videoObj){
             xhr.setRequestHeader(csrfName, csrfValue);
         },
 		success: function( data ){
-			console.log("success",data);
+//			console.log("success",data);
     },
     error: function( jqXhr, textStatus, errorThrown ){
         console.log("error",errorThrown);

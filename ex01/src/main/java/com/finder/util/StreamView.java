@@ -32,7 +32,7 @@ public class StreamView extends AbstractView{
 		
 		
 		
-		String movieDir ="D:/final_test_video"; 
+//		String movieDir ="D:/final_test_video"; 
 		
 		//대상 동영상 파일명
         String movieName = (String)map.get("movieName");

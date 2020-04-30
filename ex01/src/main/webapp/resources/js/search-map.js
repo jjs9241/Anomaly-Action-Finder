@@ -3,7 +3,8 @@
  */
 
 //var callURL = 'http://127.0.0.1:8080';
-var callURL = 'http://localhost:8080';
+//var callURL = 'http://localhost:8080';
+var callURL = 'http://70.12.229.181:8080';
 $(function() { 
 	
 //	ckLoggedIn();
@@ -218,8 +219,8 @@ $(function() {
 var markers = [];
   
 function targetMarker(idx){
-	console.log("target call");
-	console.log("this idx : ",idx);
+//	console.log("target call");
+//	console.log("this idx : ",idx);
 	
 	
 	for(var i= 0 ;i < markers.length;i++){
@@ -248,6 +249,17 @@ function panTo(pos) {
     // 만약 이동할 거리가 지도 화면보다 크면 부드러운 효과 없이 이동합니다
     map.panTo(pos);            
 }        
+
+
+//function panToWith(pos) {
+//    // 이동할 위도 경도 위치를 생성합니다 
+//    var moveLatLon = new kakao.maps.LatLng(33.450580, 126.574942);
+//    
+//    // 지도 중심을 부드럽게 이동시킵니다
+//    // 만약 이동할 거리가 지도 화면보다 크면 부드러운 효과 없이 이동합니다
+//    map.panTo(pos);            
+//}   
+
   
 //기본 마커 설정
 //  var imageSrc = callURL+'/library/basic-theme2/main/marker.png', // 마커이미지의 주소입니다    

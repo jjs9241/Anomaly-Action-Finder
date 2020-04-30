@@ -140,16 +140,18 @@
              var trEle = document.createElement('tr');
              trEle.className="store";
              
-             let innerHtmlStr =  `ddd`
-             `
-             <th>${index}</th>
-	            <th class="name"><a href="/stores/${store.pid}/cctvs">${store.storeName}</a></td>
-	            <th class="stored_ip">${store.ip}</td>
-	            <th class="address">${store.address}</td>
-             `
-	          
+             let innerHtmlStr ='<th>'+(index+1)+'</th>'
+	        +'<th class="name"><a href="/stores/'+store.pid+'/cctvs">'+store.storeName+'</a></td>'
+	        +'<th class="stored_ip">'+store.ip+'</td>'
+	        +'<th class="address">'+store.address+'</td>'
 
             trEle.innerHTML = innerHtmlStr;
+	        trEle.dataset.idx = (index);
+// 	        trEle.onClick=targetMarker(this.dataset.idx);
+	        trEle.addEventListener('click',function(e){
+// 	        	console.log("클릭됨.")
+	        	targetMarker(this.dataset.idx);
+	        });
 
             storeEleList.push(trEle);
             return trEle;

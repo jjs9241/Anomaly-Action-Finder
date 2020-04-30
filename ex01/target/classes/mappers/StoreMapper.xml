@@ -39,7 +39,7 @@
     	<collection property="cctvUrlList" column="pid" javaType="java.util.ArrayList" ofType="String" select="getUrlListById"/>
 	</resultMap>
  	<select id="getUrlListById" resultType="String">
-    	SELECT ip FROM cctv WHERE storeid = #{pid}
+    	SELECT hostName FROM cctv WHERE storeid = #{pid}
 	</select>
 	
 	<select id="getStore" resultMap="storeMap" parameterType="String">

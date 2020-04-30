@@ -98,6 +98,8 @@ public class RegisterController {
 		storeVO.setManagerId(auth.getName());
 //		logger.info("md5 : "+md5(storeVO.getStoreName()));
 		
+		storeVO.setLatitude(37.501269);
+		storeVO.setLongitude(127.039562);
 		logger.info("after storeVO : "+storeVO);
 		
 		try {

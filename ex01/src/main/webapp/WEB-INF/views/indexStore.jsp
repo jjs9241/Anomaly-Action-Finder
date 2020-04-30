@@ -62,7 +62,7 @@
                             <td class="stored_ip"><c:out value="${store.ip}"/></td>
                             <td class="stored_id"><c:out value="${store.pid}"/></td>                                    
                             <td class="address"><c:out value="${store.address}"/></td>
-                            <td class="rate"><c:out value="${store.ip}"/></td>
+                            <td class="rate"><c:out value="${store.rate}"/></td>
                             <td class="edit">                                                       
                                 <a href="/modifyStore" class="mr-2"><i class="fas fa-edit text-info"></i></a>
                                 <a href="#"><i class="fas fa-trash-alt text-danger"></i></a>

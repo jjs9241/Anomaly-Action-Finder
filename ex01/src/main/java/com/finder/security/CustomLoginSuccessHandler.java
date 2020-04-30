@@ -98,7 +98,8 @@ implements AuthenticationSuccessHandler{
 			}
 			
 			//로그인 후 이동할 페이지 URI
-			resultMap.put("moveURI", "/manageCCTV");
+//			resultMap.put("moveURI", "/manageCCTV");
+			resultMap.put("moveURI", "/stores");
 	        JSONResult jsonResult = JSONResult.success(resultMap); 
 	        if (jsonConverter.canWrite(jsonResult.getClass(), jsonMimeType)) {
 	            jsonConverter.write(jsonResult, jsonMimeType, new ServletServerHttpResponse(response));

@@ -5,7 +5,7 @@
 
 //const callURI = "http://localhost:5000";
 //const pushURI = "http://70.12.229.181:5000";
-const pushURI = "http://70.12.50.158:5000";
+const pushURI = "http://70.12.117.61:5000";
 
 //const applicationServerPublicKey = "BNbxGYNMhEIi9zrneh7mqV4oUanjLUK3m+mYZBc62frMKrEoMk88r3Lk596T0ck9xlT+aok0fO1KXBLV4+XqxYM=";
 //const pushButton = document.querySelector('.js-push-btn');

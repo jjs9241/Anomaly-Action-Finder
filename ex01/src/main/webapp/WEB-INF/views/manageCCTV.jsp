@@ -56,33 +56,33 @@
 	            		<!-- </div> -->
 	            	</c:forEach>
 	            	</sec:authorize>
-	           	    <div class="video">
-	                    <video src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" autoplay muted></video>
-	                </div>
-	                <div class="video">
-	                    <video src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4" autoplay muted></video>
-	                </div>
-	                <div class="video">
-	                    <video src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4" autoplay muted></video>
-	                </div>
-	                <div class="video">
-	                    <video src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4" autoplay muted></video>
-	                </div>
-	                <div class="video">
-	                    <video src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4" autoplay muted></video>
-	                </div>
-	                                <div class="video">
-	                    <video src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4" autoplay muted></video>
-	                </div>
-	                <div class="video">
-	                    <video src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4" autoplay muted></video>
-	                </div>
-	                <div class="video">
-	                    <video src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4" autoplay muted></video>
-	                </div>
-	                <div class="video">
-	                    <video src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4" autoplay muted></video>
-	                </div>
+<!-- 	           	    <div class="video"> -->
+<!-- 	                    <video src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" autoplay muted></video> -->
+<!-- 	                </div> -->
+<!-- 	                <div class="video"> -->
+<!-- 	                    <video src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4" autoplay muted></video> -->
+<!-- 	                </div> -->
+<!-- 	                <div class="video"> -->
+<!-- 	                    <video src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4" autoplay muted></video> -->
+<!-- 	                </div> -->
+<!-- 	                <div class="video"> -->
+<!-- 	                    <video src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4" autoplay muted></video> -->
+<!-- 	                </div> -->
+<!-- 	                <div class="video"> -->
+<!-- 	                    <video src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4" autoplay muted></video> -->
+<!-- 	                </div> -->
+<!-- 	                                <div class="video"> -->
+<!-- 	                    <video src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4" autoplay muted></video> -->
+<!-- 	                </div> -->
+<!-- 	                <div class="video"> -->
+<!-- 	                    <video src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4" autoplay muted></video> -->
+<!-- 	                </div> -->
+<!-- 	                <div class="video"> -->
+<!-- 	                    <video src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4" autoplay muted></video> -->
+<!-- 	                </div> -->
+<!-- 	                <div class="video"> -->
+<!-- 	                    <video src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4" autoplay muted></video> -->
+<!-- 	                </div> -->
                 </div>
                 <!--//video_wrap-->
             </div>

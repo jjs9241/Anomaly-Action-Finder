@@ -14,6 +14,9 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.view.AbstractView;
 
+import lombok.extern.java.Log;
+
+@Log
 @Component("StreamView")
 public class StreamView extends AbstractView{
 
@@ -25,7 +28,7 @@ public class StreamView extends AbstractView{
 		
 		//동영상 파일 디렉토리 경로
 //		String movieDir ="H:\\videosample"; 
-		String movieDir ="G:/videosample"; 
+		String movieDir ="D:/final_test_video"; 
 		
 		//대상 동영상 파일명
         String movieName = (String)map.get("movieName");
@@ -45,7 +48,7 @@ public class StreamView extends AbstractView{
             long movieSize = randomFile.length();
             //스트림 요청 범위, request의 헤더에서 range를 읽는다.
             String range = request.getHeader("range");
-            logger.debug("range: {}", range);
+            logger.info("range: {}", range);
             
             //브라우저에 따라 range 형식이 다른데, 기본 형식은 "bytes={start}-{end}" 형식이다.
             //range가 null이거나, reqStart가  0이고 end가 없을 경우 전체 요청이다.
@@ -68,7 +71,7 @@ public class StreamView extends AbstractView{
 
            //전송 파일 크기
            long partSize = rangeEnd - rangeStart + 1;
-           logger.debug("accepted range: {}",rangeStart+"-"+rangeEnd+"/"+partSize+" isPart:"+isPart);
+           logger.info("accepted range: {}",rangeStart+"-"+rangeEnd+"/"+partSize+" isPart:"+isPart);
 
            //전송시작
            response.reset();
@@ -78,6 +81,7 @@ public class StreamView extends AbstractView{
 
            //mime type 지정
            response.setContentType("video/mp4");
+//           response.setContentType("video/avi");
 
            //전송 내용을 헤드에 넣어준다. 마지막에 파일 전체 크기를 넣는다.
            response.setHeader("Content-Range", "bytes "+rangeStart+"-"+rangeEnd+"/"+movieSize);
@@ -100,10 +104,12 @@ public class StreamView extends AbstractView{
                partSize -= block;
            }while(partSize > 0);
            logger.debug("sent " + movieName + " " + rangeStart + "-" + rangeEnd);
+           log.info("sent " + movieName + " " + rangeStart + "-" + rangeEnd);
        }catch(IOException e){
            //전송 중에 브라우저를 닫거나, 화면을 전환한 경우 종료해야 하므로 전송취소.
            // progressBar를 클릭한 경우에는 클릭한 위치값으로 재요청이 들어오므로 전송 취소.
            logger.debug("전송이 취소 되었음" ); 
+           log.info("전송이 취소 되었음" );
        }finally{
            randomFile.close();
        }

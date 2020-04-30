@@ -58,8 +58,8 @@
                                 <th class="address">Address</th>
                             </tr>
                         </thead>
-                        <tbody>
-	                        <c:forEach items="${storeList}" var="store" varStatus="status">
+                        <tbody id="store_tbody">
+	                        <!-- <c:forEach items="${storeList}" var="store" varStatus="status">
 	                    	<tr class="store">
 	            				<td class="number"><c:out value="${status.count}"/></td>
 	                            <td class="name"><a href="/stores/${store.pid}/cctvs"> <c:out value="${store.storeName}"/></a> </td>
@@ -67,12 +67,12 @@
 <%-- 	                            <td class="stored_id"><c:out value="${store.pid}"/></td>                                     --%>
 	                            <td class="address"><c:out value="${store.address}"/></td>
 <%-- 	                            <td class="rate"><c:out value="${store.ip}"/></td> --%>
-<!-- 	                            <td class="edit">                                                        -->
+	                            <td class="edit">                                                        -->
 <!-- 	                                <a href="/modifyStore" class="mr-2"><i class="fas fa-edit text-info"></i></a> -->
 <!-- 	                                <a href="#"><i class="fas fa-trash-alt text-danger"></i></a> -->
 <!-- 	                            </td> -->
-	        				</tr>
-	        				</c:forEach>
+<!-- 	        				</tr>
+	        				</c:forEach> -->
 <!--                                     <tr> -->
 <!--                                     <th class="number">1</th> -->
 <!--                                     <th class="name">super</td> -->
@@ -110,20 +110,51 @@
         <script type="text/javascript"src="<c:url value="/resources/js/search-map.js" />"></script>
     <script type="text/javascript">
     
+
+    var storeEleList = [];    
+
     $(function() { 
     	 $.ajax( {
 	          url: "/map/list",
 	          dataType: "JSON",
 	          type : "GET",
 	          success: function( data ) {
-	        	  console.log("data : ",data);
+                  console.log("data : ",data);
+                  
+                  var tbodyEle = document.getElementById('store_tbody');
+                  var frag = document.createDocumentFragment();
 	        	  data.forEach(function(item, index){
 	           		// 마커 하나를 지도위에 표시합니다 
-	           		console.log("item : ",item)
+                       console.log("item : ",item)
+
+                       frag.appendChild(createEle(item, index)); 
 	       		    addMarker(new kakao.maps.LatLng(item.latitude, item.longitude));
-	           	  })
+                  })
+                  
+                  tbodyEle.appendChild(frag);
 	          }
 	     });
+         
+
+    	 function createEle(store, index){
+             var trEle = document.createElement('tr');
+             trEle.className="store";
+             
+             let innerHtmlStr =  `ddd`
+             `
+             <th>${index}</th>
+	            <th class="name"><a href="/stores/${store.pid}/cctvs">${store.storeName}</a></td>
+	            <th class="stored_ip">${store.ip}</td>
+	            <th class="address">${store.address}</td>
+             `
+	          
+
+            trEle.innerHTML = innerHtmlStr;
+
+            storeEleList.push(trEle);
+            return trEle;
+
+    	 }
 //         	addMarker(new kakao.maps.LatLng(storeList.latitude, storeList.longitude));
 //     	var storeList = JSON.parse(${jsonStoreList});
 //     	console.log("storeList : ",storeList[1]);

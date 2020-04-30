@@ -43,6 +43,7 @@ public class StrangeController {
 		
 		try {
 			List<VideoVO> voList = vdMapper.getVideoListByManagerID(curUserId);
+			log.info("vo : "+voList);
 			return new ResponseEntity<List<VideoVO>>(voList,HttpStatus.OK);
 		} catch (Exception e) {
 			return new ResponseEntity<List<VideoVO>>(HttpStatus.BAD_REQUEST);

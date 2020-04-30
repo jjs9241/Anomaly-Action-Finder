@@ -81,12 +81,13 @@ position: absolute; top: 18px;right: 60px;background-color: gray; font-size:17px
 }
 
 #content .video {
-   background-color:black ; border: 0.03px solid rgba(97, 96, 96, 0.884); width: 25%; height: 223px;
+/*    background-color:black ; border: 0.03px solid rgba(97, 96, 96, 0.884); width: 50%; height: 223px; */
+   background-color:black ; border: 0.03px solid rgba(97, 96, 96, 0.884); width: 50%; height: 446px;
     align-items : stretch; text-align: center; box-sizing: border-box; }
 
 
 /*비디오 설정*/
-#content video,img {width:99%; height: 218px; overflow: hidden;} 
+#content video,img {width:99%; height: 446px; overflow: hidden;} 
 
 .cctv span:hover {color: rgba(62, 134, 194, 0.397);}
 

@@ -14,6 +14,9 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.view.AbstractView;
 
+import lombok.extern.java.Log;
+
+@Log
 @Component("StreamView")
 public class StreamView extends AbstractView{
 
@@ -29,6 +32,7 @@ public class StreamView extends AbstractView{
 		
 		
 		
+		String movieDir ="D:/final_test_video"; 
 		
 		//대상 동영상 파일명
         String movieName = (String)map.get("movieName");

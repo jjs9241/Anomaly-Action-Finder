@@ -1,0 +1,5 @@
+Keras==2.3.1
+keras-video-generators==1.0.14
+opencv-contrib-python==4.1.2.30
+opencv-python==4.1.2.30
+tensorflow==1.15.2

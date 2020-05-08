@@ -25,7 +25,7 @@ VAPID_PRIVATE_KEY = open(DER_BASE64_ENCODED_PRIVATE_KEY_FILE_PATH, "r+").readlin
 VAPID_PUBLIC_KEY = open(DER_BASE64_ENCODED_PUBLIC_KEY_FILE_PATH, "r+").read().strip("\n")
 
 VAPID_CLAIMS = {
-"sub": "mailto:develop@raturi.in"
+"sub": "mailto:help@finder.com"
 }
 
 #push를 위한 global token

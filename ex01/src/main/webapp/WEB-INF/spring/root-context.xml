@@ -48,7 +48,9 @@
         <constructor-arg name="sqlSessionFactory" ref="SqlSessionFactory"></constructor-arg>
     </bean>
 	
-	<mybatis-spring:scan base-package="org.zerock.mapper"/>
+	<mybatis-spring:scan base-package="com.finder.mapper"/>
 	
-	<context:component-scan base-package="org.zerock.sample"></context:component-scan>	
+	<!--  <context:component-scan base-package="com.finder.sample"></context:component-scan>
+	-->
+	<context:component-scan base-package="com.finder.service, com.finder.serviceimpl,com.finder.util"></context:component-scan>	
 </beans>

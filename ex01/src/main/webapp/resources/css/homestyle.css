@@ -1,0 +1,150 @@
+/*메인 이미지 슬라이드
+*{margin:0;padding:0;}
+ul,li{list-style:none;}
+.s0 ul{width:calc(100% * 4);display:flex;animation:slide 18s infinite; text-align: center;} slide를 8초동안 진행하며 무한반복 함 
+.s0 li{width:calc(100% / 4);height:943px;}
+
+.s0 li:nth-child(1){background-image: url(./img/cctv1.jpg); background-size: cover;}
+.s0 li:nth-child(2){background:#faa; z-index:1 ;}
+.s0 li:nth-child(3){background:#afa;z-index:1 ;}
+.s0 li:nth-child(4){background:#aaf; z-index: 1;} */
+
+.s0 ul li h2 {color: black; font-size: 30px;}
+.s0{width: 100vw; height:100vh;}
+.s1 {background-color:rgb(17, 26, 49); width: 100vw; height:100vh; }
+.s2 {background-color: rgb(47, 68, 116); width: 100vw; height:100vh;}
+/* .s3 {background-color:rgb(82, 108, 167);width: 100vw; height:100vh;}#1C3164; */
+
+.s1 h3 {
+    display: none;
+}
+.section {
+    color: white;
+}
+
+#fp-nav ul li a span {
+    background-color: white;
+}
+
+
+
+/*헤더(로고) 작업*/
+#header {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 99;
+    text-align: center;
+    margin-top: 8px;
+   }
+
+#header .logo {width: 140px;  margin: 0 auto;} /*로고 사이즈 설정 & 가운데 정렬*/
+#header .logo img{width: 100%;} /*이미지 설정*/
+#header .logo a.login {color: white; font-size: 15px; position: absolute; right: 150px; top: 30px;}
+#header .logo a.join {color: white; font-size: 15px; position: absolute; right: 50px; top: 30px;}
+
+/*메인 슬라이드 작업*/
+#full-page .s0 .slide {display: flex; justify-content: center; align-items: center;}
+.s0 .img1 {background-image:url(../img/image1.jpeg);background-size: cover;position: relative; } 
+.s0 .img1::after {
+    width: 100%; height: 100%; content: "";display: block;
+    position: absolute; top:0; right:0; bottom:0; left:0; background-color:rgba(0,0,0,0.2); z-index: 1 ;
+  }  
+
+.s0 .img2 {background-image:url(../img/image2.jpg); background-position: 0px -70px; background-size: cover;}
+.s0 .img2::after {
+    width: 100%; height: 100%; content: "";display: block;
+    position: absolute; top:0; right:0; bottom:0; left:0; background-color:rgba(0,0,0,0.1); z-index: 1 ;
+  }  
+
+.s0 .img3 {background-image:url(../img/image3.jpg);background-size: cover;}
+.s0 .img3::after {
+    width: 100%; height: 100%; content: "";display: block;
+    position: absolute; top:0; right:0; bottom:0; left:0; background-color:rgba(0,0,0,0.4); z-index: 1 ;
+  } 
+
+.s0 .img4 {background-image:url(../img/image4.jpg); background-position: 0px -70px;background-size: cover;}
+.s0 .img4::after {
+    width: 100%; height: 100%; content: "";display: block;
+    position: absolute; top:0; right:0; bottom:0; left:0; background-color:rgba(0,0,0,0.3); z-index: 1 ;
+  } 
+
+/*글씨 설정*/
+.s0 .img1 h2.main_title{position:absolute; display:inline-block; width: 788px;z-index:2; top: 37%; font-size: 60px;left:50%;}
+.s0 .img1 p.first{position:absolute; z-index:2; top: 50%;}
+.s0 .img1 p.sec{position:absolute; z-index:2; top: 56%;}
+.s0 .img1 p.main_subtitle{position:absolute; z-index:2; top: 53%; font-size: 20px; left:50%;}
+.s0 .img1 button {position:absolute; z-index:2; top: 63%; font-size: 20px; left:50%; transform: translateX(-50%); width: 120px; height: 45px; border-radius: 5px; 
+	font-size: 15px; background-color: rgb(255, 255, 255); color:black; font-weight: 600;cursor: pointer;outline: none;}
+
+.s0 .img2 h2{position:absolute; z-index:2; top: 38%; font-size: 38px; font-family: 'Nanum Gothic', sans-serif; font-weight: bold; display: block; margin-left:2%;} 
+.s0 .img2 p.first{position:absolute; z-index:2; top: 52%;font-size: 18px; font-family: 'Nanum Gothic', sans-serif; display: block; margin-left:2%;}
+.s0 .img2 p.sec{position:absolute; z-index:2; top: 59%; font-size: 18px; font-family: 'Nanum Gothic', sans-serif; display: block; margin-left:2%;}
+
+.s0 .img3 h2{position:absolute; z-index:2; top: 38%; font-size: 38px; font-family: 'Nanum Gothic', sans-serif; font-weight: bold; display: block; margin-left:2%;}
+.s0 .img3 p.first{position:absolute; z-index:2; top: 52%;font-size: 18px; font-family: 'Nanum Gothic', sans-serif; display: block; margin-left:2%;}
+.s0 .img3 p.sec{position:absolute; z-index:2; top: 59%; font-size: 18px; font-family: 'Nanum Gothic', sans-serif; display: block; margin-left:2%;}
+
+.s0 .img4 h2{position:absolute; z-index:2;top: 38%; font-size: 38px; font-family: 'Nanum Gothic', sans-serif; font-weight: bold; display: block; margin-left:2%;}
+.s0 .img4 p.first{position:absolute; z-index:2; top: 52%;font-size: 18px; font-family: 'Nanum Gothic', sans-serif; display: block; margin-left:2%;}
+.s0 .img4 p.sec{position:absolute; z-index:2; top: 59%; font-size: 18px; font-family: 'Nanum Gothic', sans-serif; display: block; margin-left:2%;}
+
+/* .s0 .img1::after {
+    width: inherit; height: inherit; content: ""; background: url("./img/image1.jpeg") no-repeat;background-size: cover;
+    position: absolute; top: 0; right:0; left:0; bottom:0; filter: brightness(40%); z-index: -1 ;
+  }  */
+/* .s0 .img2::after {
+    width: inherit; height: inherit; content: ""; background: url("./img/image2.jpg");background-size: cover;
+    position: absolute; top: 0; left: 0;filter: brightness(40%); z-index: -1;
+} */
+/* .s0 .img3::after {
+    width: 100%;height: 100%; content: ""; background: url("./img/image3.jpg");background-size: cover;
+    position: absolute; top: 0; left: 0;filter: brightness(40%); z-index: -1;
+}
+.s0 .img4::after {
+    width: 100%;height: 100%; content: ""; background: url("./img/image4.jpg");background-size: cover;
+    position: absolute; top: 0; left: 0;filter: brightness(40%); z-index: -1;
+} */
+
+/*slide 버튼 스타일 수정*/  
+#full-page .fp-controlArrow {position: absolute; top: 75%; }
+#full-page .fp-prev {transform: scale(0.28);position: absolute; left: 17.5%;}/*240px; 705px*/
+#full-page .fp-prev:hover::after {content:""; display: block;width: 220px; height: 220px; border: 4px dashed white;  border-radius: 50%; position: absolute; top: -110px; left: -55px;}
+#full-page .fp-prev::before {content: ""; display: block; width: 120px; height: 5px; background-color: white; position: absolute; left: 10px;}
+#full-page .fp-next {transform: scale(0.28); position: absolute; right: 74%;}/*1170px 705px*/
+#full-page .fp-next::before {content: ""; display: block; width: 120px; height: 5px; background-color: white; position: absolute; right: 10px;}
+#full-page .fp-next:hover::after {content:""; display: block;width: 220px; height: 220px; border: 4px dashed white;  border-radius: 50%; position: absolute; top: -110px; right:-55px;}
+/* #btn1 {width: 50px; height: 50px; background-color:red; position: absolute; z-index: 999; top: 70%; left: 30%; border-radius: 50%; cursor: pointer;}
+#btn2 {width: 50px; height: 50px; background-color:red; position: absolute; z-index: 999; top: 70%; right: 70%; border-radius: 50%;  cursor: pointer;} */
+
+
+/*기능 설명*/
+#full-page .s1 .icon_cont {display: flex; justify-content: center; 
+  flex-direction: row; }
+#full-page .s1 .fun_img{ width: 18%; text-align: center; margin-right: 2%; margin-top: 4%;}
+#full-page .s1 .fun_img p {font-size: 16px; margin-top: 20px;}
+#full-page .s1 .fun_img img{ width: 50%; }
+#full-page .s1 .fun_img:nth-child(2) img{ width:40%; }
+
+/* #full-page .s1 .icon1 {position: absolute; bottom:37%; left:7.5%;}
+#full-page .s1 .icon2 {position: absolute; bottom:37%; right:50%;}
+#full-page .s1 .icon3 {position: absolute; bottom:37%; right:30%;}
+#full-page .s1 .icon4 {position: absolute; bottom:37%; right:7.5%;} */
+
+/*상담신청*/
+#full-page .s2{overflow: hidden;}  
+#full-page .s2 .contact_info {width:39%; height:500px; box-sizing: border-box; position: absolute; padding-top: 30px; padding-left: 80px;}
+#full-page .s2 h2{ font-size: 2.5rem; margin-left: 13%; padding-bottom: 1.2%;}  
+#full-page .s2 p{ font-size: 1rem; margin-left: 13%;} 
+
+#full-page .s2 .contact_box { position:relative; width:60%; box-sizing: border-box; height:500px; float: right; padding-left: 180px; padding-top: 50px; } 
+#full-page .s2 dl dt{font-size: 1rem; padding-bottom: 5px; font-weight: 500;}  
+#full-page .s2 dl dd{display: inline-block; width: 71%;height: 50px; }  
+input::-webkit-input-placeholder { color: rgb(172, 169, 169); }
+textarea::-webkit-input-placeholder { color: rgb(172, 169, 169); }
+#full-page .s2 dl dd input{width: 100%; height: 40px;font-size: 14px; background-color: transparent; border: 1px solid white; outline: none;}  
+#full-page .s2 dl dd select{width: 100%; height: 40px;background-color: transparent; border: 1px solid white; outline: none;color: rgb(172, 169, 169); font-size: 14px;} 
+#full-page .s2 dl dd textarea {width:100%; height:190px; resize:none; color: rgb(172, 169, 169); font-size: 14px; background-color: transparent; border: 1px solid white;outline: none}
+#full-page .s2 dl dd a {width:130px;height:35px;line-height: 35px; display: inline-block; background-color: transparent; color: rgb(172, 169, 169); font-size: 14px; border: 1px solid white;
+  color: white;text-align: center; font-weight: 600;border-radius: 3px; transition: all 0.5s ease; margin-top: 160px; margin-left: 75%;}
+  #full-page .s2 dl dd a:hover {transform: translate(5px,-5px);} 

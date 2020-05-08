@@ -1,0 +1,100 @@
+<!doctype html>
+<html>
+<head>
+    <title>OpenCV Video Examples - Video</title>
+    <script src="https://cdn.socket.io/socket.io-1.0.0.js"></script>
+    <script async src= "{{ url_for('static', filename = 'opencv.js') }}" type="text/javascript" onload="onCvLoaded();"></script>    
+</head>
+<body>
+<h1>OpenCV Video</h1>
+
+  
+<div id="container">
+  <video id="video" width="640", height="320"></video>
+  <canvas id="canvasOutput" width="320" height="240"></canvas>
+</div>
+<img id = "imgSRC">
+<input type="file" id="fileInput" name="file" />
+
+<script>
+function onCvLoaded () {
+    console.log('cv', cv);
+    cv.onRuntimeInitialized = onReady;
+}
+const video = document.getElementById('video');
+const inputElement = document.getElementById("fileInput");
+const canvasOutput = document.getElementById("canvasOutput");
+const imgSRC = document.getElementById("imgSRC");
+
+const FPS = 30;
+let stream;
+let streaming = false;
+function onReady () {
+    console.log('ready');
+    let src;
+    let dst;
+    let cap;
+    let socket;
+    video.controls = true;
+    video.addEventListener('play', start);
+    video.addEventListener('pause', stop);
+    video.addEventListener('ended', stop);
+        
+    inputElement.addEventListener('change', (e) => {
+      video.src = URL.createObjectURL(e.target.files[0]);
+      
+      socket = io('http://70.12.50.159:5000');
+      console.log("socket : ", socket);
+      socket.on('connect', function(){
+          console.log("Connected...!", socket.connected)
+      });
+    
+    }, false);
+    function start () {
+        console.log('playing...');
+        streaming = true;
+        const width = video.width;
+        const height = video.height;
+        console.log("width : ", width);
+        console.log("height : ", height);
+        src = new cv.Mat(height, width, cv.CV_8UC4);
+        dst = new cv.Mat(height, width, cv.CV_8UC1);
+        cap = new cv.VideoCapture(video);
+        console.log("cap : ", cap);
+        
+        
+        setInterval(() => {
+        
+        cap.read(src);
+        console.log("src : ", src);
+        cv.imshow(canvasOutput, src);
+        
+        var type = "image/png"
+        var data = document.getElementById("canvasOutput").toDataURL(type);
+        data = data.replace('data:' + type + ';base64,', ''); //split off junk at the beginning
+        
+        //const outBase64 =  cv.imencode('.png', src).toString('base64');
+        //const data = 'data:image/jpeg;base64,' + outBase64;
+        
+        //real send a image data to server 
+        socket.emit('image', data);
+        }, 1000/FPS);
+
+        //real receive image from server
+        socket.on('response_back', function(image){
+            
+            imgSRC.src = image
+        });
+    }
+
+    function stop () {
+        console.log('paused or ended');
+        streaming = false;
+    }
+
+
+}
+
+</script>
+</body>
+</html>

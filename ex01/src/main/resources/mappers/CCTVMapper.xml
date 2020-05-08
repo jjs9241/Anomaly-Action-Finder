@@ -6,20 +6,30 @@
 
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="org.zerock.mapper.CCTVMapper">
+<mapper namespace="com.finder.mapper.CCTVMapper">
 
-	<select id="getList" resultType="org.zerock.domain.CCTVVO">
+	<select id="getURLList" resultType="string">
+		select ip from cctv where managerID = #{managerID}
+	</select>
+	
+	<select id="getList" resultType="com.finder.domain.CCTVVO">
 		<![CDATA[
 		select * from cctv
 		]]>
 	</select>
 	
-	<insert id="insert" parameterType="org.zerock.domain.CCTVVO">
-		insert into cctv(pid, managerid, address, mongodbid, latitude, longitude, cctvname, ip) values(#{pid}, #{managerID}, #{address}, #{mongoDBid}, #{latitude}, #{longitude}, #{cctvName}, #{ip})
+	<select id="getCCTVList" resultType="com.finder.domain.CCTVVO">
+		SELECT pid, storeID, mongodbid,  ip, description, hostName
+		  FROM cctv
+		 WHERE storeID = #{storeId}
+	</select>
+	
+	<insert id="insert" parameterType="com.finder.domain.CCTVVO">
+		insert into cctv(pid, storeId, hostName, description) values(#{pid}, #{storeId}, #{hostName}, #{description})
 	</insert>
 
 	<!--
-	<insert id="insertSelectKey" parameterType="org.zerock.domain.CCTVVO">
+	<insert id="insertSelectKey" parameterType="com.finder.domain.CCTVVO">
 		<selectKey keyProperty="pid" order="BEFORE" resultType="String">
 			select seq_board.nextval from dual
 		</selectKey>

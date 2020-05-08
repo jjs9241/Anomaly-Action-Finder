@@ -1,0 +1,61 @@
+/* #content { background-color :#EFF3F9}; */
+#content {position: relative; }
+#content .wrap { width: 100%; height: 100%;
+    display: flex;
+    flex-flow: row wrap;
+    -webkit-align-content: center;
+    justify-content: center;}
+#content .wrap .shop_table {display: flex; justify-content: space-evenly; align-items: top; width: 100%; margin-top: 70px;}    
+#content .con_title {width: 100%; height: 120px; position: absolute; top: 0; margin: 0; padding: 0;}
+
+/*레이아웃*/
+#content .shop { display: flex;align-items: top;background:rgba(197, 210, 241, 0.53);border-radius: 25px; width: 400px; height: 380px; margin-right: 20px; box-shadow: 0 5px 5px 0 rgba(0,0,0,0.3);}
+#content .shop {position: absolute; left: 7%; top: 165px;}
+
+/*매장 정보*/
+#content .shop table tr td.store_title { font-size:22px; font-weight: 600; border: none; height: 85px; color: black; position: relative;}
+#content .shop table tr td.store_title::after { content:""; width: 150px; height: 1.5px; display: block; background-color: black; position: absolute; left: 90px; margin-top: 10px;}
+#content .shop table tr td {text-align: center; vertical-align: middle; height: 55px;}
+#content .shop table tr td.store_info {text-align: right; width:120px; padding-right:7px; box-sizing: border-box;}  
+#content .shop table {font-size: 14px; margin: 0 auto; width: 85%; color: #444;}
+
+/*맨위 타이틀& 뒤로가기*/
+#content .title_con {width: 100%;padding-left: 10%; position: absolute; box-sizing: border-box; top: 60px;}
+#content .title_con h2 {width: 20%;font-size: 30px; font-weight: 600; font-style: italic ;font-family: 'Noto Sans KR', sans-serif; color: #444; display: inline-block;}
+#content .wrap .title_con .undo {width: 70%;font-size: 17px; display: inline-block; text-align: right; }
+#content .wrap .title_con .undo a {padding-left: 8px; display: inline-block; }
+
+/*아래 버튼*/
+#content .cctvlist_table .table_footer {position: relative;}
+#content .cctvlist_table .table_footer button.addcctv a {width: 180px;color:#777;display: inline-block; 
+    line-height: 40px; font-weight: 600; font-size: 14px;position: absolute; top:10px; right:30px; }
+/*#content .cctvlist_table .table_footer button.addcctv { background-color:transparent; width: 100%; text-align:right; padding-right: 15px; outline: none; position: absolute; top:20px;}   
+#content .cctvlist_table .table_footer button.addcctv a {font-size: 17px; }*/
+#content .cctvlist_table  button.addcctv { background-color:transparent; width: 100%; text-align:right; padding-right: 15px; outline: none; margin-bottom: 15px; }   
+#content .cctvlist_table  button.addcctv a {font-size: 16px;color:#777; font-weight:600;} /*#3567F5*/
+
+    
+#content .cctvlist_table .table_footer button a i {padding-right:7px;}
+#content .cctvlist_table .table_footer ul {position: absolute; top:20px; left: 30px; font-size: 0; }
+#content .cctvlist_table .table_footer ul li {display:inline-block; font-size: 15PX; border: 1px solid rgba(209, 206, 206, 0.63);}
+#content .cctvlist_table .table_footer ul li.pre2 { text-align: center; border-top-left-radius:5px; border-bottom-left-radius:5px; line-height: 30px; border-right: 0;}
+#content .cctvlist_table .table_footer ul li.pre2 a {display: inline-block; width: 30px; height: 30px;color: #666;}
+#content .cctvlist_table .table_footer ul li.num2 { text-align: center; font-weight: 500; line-height: 30px; }/*background-color: #3567F5;  color: white;*/
+#content .cctvlist_table .table_footer ul li.num2 a { display: inline-block; width: 30px; height: 30px; color: #666; }
+#content .cctvlist_table .table_footer ul li.next2 { text-align: center; border-top-right-radius:5px; border-bottom-right-radius:5px;  line-height: 30px; border-left: 0; }
+#content .cctvlist_table .table_footer ul li.next2 a {display: inline-block; color: #666;  width: 30px; height: 30px;}
+
+
+
+/*테이블 수정*/
+#content .cctvlist_table {position: absolute; right: 7%; top: 165px;}
+#content .cctvlist_table table thead tr th {background-color: rgba(194, 191, 191, 0.589);width: 160px; color:#333; font-size: 15px;line-height: 45px;}
+#content .cctvlist_table table tbody tr{height: 42px; border-bottom: 0.09px solid rgba(204, 200, 200, 0.5); }
+#content .cctvlist_table table tbody tr td {text-align: center; vertical-align: middle; font-size: 14px;}
+#content .cctvlist_table table tbody tr td.address {overflow: hidden; text-overflow: ellipsis; white-space: nowrap;}
+
+.text-info {color: #9ba7ca; font-size: 15px; padding: 0 8px;}/*수정*/
+.text-danger { color:  red; font-size: 15px;}/*휴지통*/
+#content .cctvlist_table table {max-width: 600px;box-shadow: 0 3px 3px 0 rgba(0,0,0,0.2);box-shadow: 2px 3px 3px 2px rgba(0,0,0,0.2); border-radius: 5px;}
+
+

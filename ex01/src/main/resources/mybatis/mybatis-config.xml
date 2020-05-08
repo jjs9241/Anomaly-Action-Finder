@@ -26,7 +26,7 @@
       -->
       <!--  
       <typeAliases>
-            <typeAlias alias="VideoVO" type="org.zerock.domain.VideoVO"></typeAlias>
+            <typeAlias alias="VideoVO" type="com.finder.domain.VideoVO"></typeAlias>
       </typeAliases>
       -->
  

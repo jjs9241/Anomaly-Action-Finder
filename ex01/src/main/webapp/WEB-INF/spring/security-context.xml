@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:security="http://www.springframework.org/schema/security"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+
+	<bean id="customAccessDenied" class="com.finder.security.CustomAccessDeniedHandler"></bean>
+	<bean id="customLoginSuccessHandler" class="com.finder.security.CustomLoginSuccessHandler"></bean>
+	<bean id="customUserDetailsService" class="com.finder.security.CustomUserDetailsService"></bean>
+	<bean id="customloginFailureHandler" class="com.finder.security.CustomLoginFailureHandler"></bean>
+	
+	<bean id="authenticationEntryPoint" class="com.finder.security.CustomAuthenticationEntryPoint">
+        <property name="redirect" value="false" />
+        <property name="errorPage" value="/login?authError=True" />
+    </bean>
+	
+	<security:http auto-config="true" use-expressions="true">
+		<security:http-basic entry-point-ref="authenticationEntryPoint"/>
+		<security:access-denied-handler ref="customAccessDenied"/>
+		
+		<security:intercept-url pattern="/login/**" access="permitAll"/>
+		<security:intercept-url pattern="/manageCCTV/**" access="hasRole('ROLE_USER')"/>
+		<security:intercept-url pattern="/stores/**" access="hasRole('ROLE_USER')"/>
+		<security:intercept-url pattern="/cctvs/**" access="hasRole('ROLE_USER')"/>
+		<security:intercept-url pattern="/strange/**" access="hasRole('ROLE_USER')"/>
+		<security:intercept-url pattern="/qa/**" access="hasRole('ROLE_USER')"/>
+		<security:intercept-url pattern="/map/**" access="hasRole('ROLE_USER')"/>
+		<security:intercept-url pattern="/registerStore/**" access="hasRole('ROLE_USER')"/>
+		<security:intercept-url pattern="/puserPage/**" access="hasRole('ROLE_MANAGER')"/>
+		<security:intercept-url pattern="/adminPage/**" access="hasRole('ROLE_ADMIN')"/>		
+		<security:form-login login-page="/login" 
+							login-processing-url="/login/process"
+							username-parameter="username"
+            				password-parameter="password" 
+            				authentication-success-handler-ref="customLoginSuccessHandler"
+            				authentication-failure-handler-ref="customloginFailureHandler"/>
+<!--             				authentication-failure-url="/login/fail"/> -->
+            				
+		<security:logout logout-url="/logout" invalidate-session="true" delete-cookies="JSESSION_ID" logout-success-url="/"/>
+		
+		<security:session-management>
+                  <security:concurrency-control max-sessions="1" expired-url="/login_duplicate"/>
+        </security:session-management>
+		
+		<!-- handler에서 추가 로직을 넣을 수 있고 내부적으로 예외처리가 되기 때문에 403error를 피할 수 있다. -->
+		<security:access-denied-handler ref="customAccessDenied"/>
+	</security:http>
+	
+	<bean id="bcryptPasswordEncoder" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder" />
+	
+	<security:authentication-manager>
+		
+		<security:authentication-provider user-service-ref="customUserDetailsService">
+			<!--
+			<security:jdbc-user-service 
+			data-source-ref="dataSource"
+			users-by-username-query="select pid, passwd, enabled from member where pid = ?"
+			authorities-by-username-query="select memberid, auth from member_auth where memberid = ?"/>
+			-->
+			<security:password-encoder ref="bcryptPasswordEncoder"/>
+			
+		</security:authentication-provider>
+	
+	</security:authentication-manager>
+	
+	
+	<!--
+	<security:http auto-config="true" use-expressions="true">
+		<security:csrf disabled="true"/>
+		<security:intercept-url pattern="/**" access="permitAll" />
+		<security:form-login login-page="/login" authentication-success-handler-ref="loginSuccessHandler" authentication-failure-handler-ref="loginFailureHandler" login-processing-url="/auth" username-parameter="id" password-parameter="pw" />
+		<security:logout logout-url="/logout" invalidate-session="true" logout-success-url="/login?status=logout" />
+		<security:session-management invalid-session-url="/login">
+			<security:concurrency-control max-sessions="1" error-if-maximum-exceeded="false" />
+		</security:session-management>
+	</security:http>
+	-->
+	<!-- secured method  
+	<security:global-method-security secured-annotations="enabled" /> 
+	-->
+	<!-- provider 
+	<security:authentication-manager>
+		<security:authentication-provider ref="userAuthHelper" />
+	</security:authentication-manager>
+	
+	<bean id="loginSuccessHandler" class="com.devljh.domain.user.helper.LoginSuccessHandler">
+		<property name="defaultTargetUrl" value="/main" />
+		<property name="alwaysUseDefaultTargetUrl" value="true" />
+	</bean>
+	
+	<bean id="loginFailureHandler" class="com.devljh.domain.user.helper.LoginFailureHandler">
+		<property name="defaultFailureUrl" value="/login?status=fail" />
+	</bean>
+	
+	<bean id="userAuthService" class="com.devljh.domain.user.UserAuthService" />
+	
+	<bean id="passwordEncoder" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder" />
+	
+	<bean id="userAuthProvider" class="com.devljh.domain.user.helper.UserAuthProvider">
+		<property name="userDetailsService" ref="userAuthService" />
+		<property name="passwordEncoder" ref="passwordEncoder" />
+	</bean>
+	-->
+
+</beans>

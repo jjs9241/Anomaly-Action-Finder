@@ -5,6 +5,7 @@ from datetime import datetime, timedelta
 from i3d_inception import Inception_Inflated3d
 import tensorflow as tf
 import time
+import requests
 class twostream_FinalModel():
     def __init__(self, rgb_model_path, opt_model_path = None):
         self.before_IMG_WIDTH = 256
@@ -35,6 +36,8 @@ class twostream_FinalModel():
         # prediction value
         self.prediction_length = 10
         self.predict_value_list = np.zeros((self.prediction_length, len(self.classes)))
+        self.before_action = 1
+        self.threshold = 0.7
 
         self.save_image_list = []
         
@@ -92,7 +95,7 @@ class twostream_FinalModel():
 
     def predict(self, input_img):
         keras.backend.set_session(self.sess)
-
+        action = ""
         action_idx = -1
         alarm = False
         presentTime = datetime.now() 
@@ -138,8 +141,9 @@ class twostream_FinalModel():
                         pred_value = self.softmax(self.model.predict(np.expand_dims(self.img_list, axis=0)))
                         self.predict_value_list = np.concatenate((self.predict_value_list[1:], pred_value), axis = 0)
                         sum_logits = np.sum(pred_value, axis = 0)
-                        print("sum_logits : ", sum_logits)
+                        # print("sum_logits : ", sum_logits)
                         action_idx = np.argmax(sum_logits)
+                        action_idx = self.check_threshold(sum_logits, action_idx)
                         action = self.classes[action_idx]
 
                     cv2.putText(input_img, str(presentTime)[:-7] +"   "+ action+ "   "+ str(sum_logits[action_idx]), (self.fontPosition_X, self.fontPosition_Y), cv2.FONT_HERSHEY_SIMPLEX,
@@ -156,12 +160,14 @@ class twostream_FinalModel():
                         self.predict_value_list = np.concatenate((self.predict_value_list[1:], pred_value), axis = 0)
                         sum_logits = np.sum(pred_value, axis = 0)
                         # print("deep optcial calc", time.time() - start_time)
-                        print("sum_logits : ", sum_logits)
+                        # print("sum_logits : ", sum_logits)
                         action_idx = np.argmax(sum_logits)
+                        action_idx = self.check_threshold(sum_logits, action_idx)
                         action = self.classes[action_idx]
 
                     cv2.putText(input_img, str(presentTime)[:-7] +"   "+ action + "   "+ str(sum_logits[action_idx]), (self.fontPosition_X, self.fontPosition_Y), cv2.FONT_HERSHEY_SIMPLEX,
                              self.fontScale, (0, 0, 255), 2)
+
 
         if action_idx in self.anormaly_action:
             self.save_image_flag = True
@@ -184,8 +190,16 @@ class twostream_FinalModel():
         #     presentTime += timedelta(seconds = 1)
         self.frame_rate += 1
 
-        return input_img, alarm
+        return input_img, alarm, action
     
+    def check_threshold(self, sum_logits, action_idx):
+        # print("check_threshold ")
+        if sum_logits[action_idx] >= self.threshold:
+            self.before_action = action_idx
+        else:
+            action_idx = self.before_action
+        return action_idx
+
     # source : https://github.com/OanaIgnat/i3d_keras/blob/e62e834f0d0ad90d4de1b067ac6dc55a33d03969/src/preprocess.py#L46
     def crop_center(self, img):
         y, x, c = img.shape
@@ -223,6 +237,7 @@ class twostream_FinalModel():
             # cv2.imwrite("XX.jpg", frame)
             out.write(frame)
         out.release()
+        requestUpload(file_name)
 
     def softmax(self, a) :
         exp_a = np.exp(a)
@@ -230,3 +245,11 @@ class twostream_FinalModel():
         y = exp_a / sum_exp_a
         
         return y
+
+def requestUpload(file_name):
+    UPLOAD_FOLDER = file_name
+    managerid = 'user0@testmail.com'
+    category = 'Assault'
+    params = {"managerid": {managerid}, "category": category}
+    with open(UPLOAD_FOLDER , 'rb') as f:
+        r = requests.post('http://70.12.229.181:5009/upload', data=params, files={'uploadedfile': f})

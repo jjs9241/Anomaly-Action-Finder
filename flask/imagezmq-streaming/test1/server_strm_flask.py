@@ -21,8 +21,7 @@ from flask_cors import CORS
 
 
 os.environ["CUDA_VISIBLE_DEVICES"]="0"
-# from werkzeug.wrappers import Request, Response
-# from werkzeug.serving import run_simple
+
 sum_of_actions_number = 100
 anormaly_action = [0, 2]
 action_list = []
@@ -45,7 +44,7 @@ VAPID_PRIVATE_KEY = open(DER_BASE64_ENCODED_PRIVATE_KEY_FILE_PATH, "r+").readlin
 VAPID_PUBLIC_KEY = open(DER_BASE64_ENCODED_PUBLIC_KEY_FILE_PATH, "r+").read().strip("\n")
 
 VAPID_CLAIMS = {
-"sub": "mailto:develop@raturi.in"
+"sub": "mailto:help@finder.com"
 }
 
 #push를 위한 global token
@@ -68,24 +67,19 @@ def index():
     return render_template("index.html")
 
 #push notification 구독 신청 및 토큰 저장
-#get : 공개키 전달
-#post : 생성된 토큰을 global_token에 저장
+#GET : 푸시 알림을 보내는데 사용하기 위한 공개키 전달
+#POST : 생성된 토큰을 global_token에 저장
 @app.route("/subscription/", methods=["GET", "POST"])
 def subscription():
-    """
-        POST creates a subscription
-        GET returns vapid public key which clients uses to send around push notification
-    """
-    print("subscription")
+
     global global_token
+    #GET    
     if request.method == "GET":
         return Response(response=json.dumps({"public_key": VAPID_PUBLIC_KEY}),
             headers={"Access-Control-Allow-Origin": "*"}, content_type="application/json")
-
+    #POST
     subscription_token = request.get_json("subscription_token")
     global_token = json.loads(subscription_token["subscription_token"])
-    # print("subscription global_token : ",global_token)
-    # return Response(status=200, mimetype="application/json")
     return jsonify({'success':1})
 
 
@@ -99,40 +93,25 @@ def sendImagesToWeb():
     while True:
         (camName, frame) = receiver.recv_image()
         receiver.send_reply(b'OK')
-        # print("[INFO] receiving data from {}...".format(camName))
-        # jpg = cv2.imencode('.jpg', frame)[1]
-        # print(frame.shape)
-        # jpg = cv2.resize()
-        # cv2.imwrite("XXX.jpg", frame)
-
-        # jpg = frame
-        # # recognition using deep learning
+        #recognition using deep learning
         jpg, alarm = model.predict(frame)
         if alarm is True:
           # send alarm
           send_web_push(global_token, "이상행동 발생!")
 
-
-        # print("predict : ", action)
         (flag, jpg) = cv2.imencode('.jpg', jpg)
         
         if not flag:
             continue
-        # yield b'--frame\r\nContent-Type:image/jpeg\r\n\r\n'+jpg.tostring()+b'\r\n'
-        # yield b'--frame\r\nContent-Type:image/jpeg\r\n\r\n'+jpg+b'\r\n'
         yield(b'--frame\r\n' b'Content-Type: image/jpeg\r\n\r\n' + bytearray(jpg) + b'\r\n')
    
 @app.route('/video_feed')
 def video_feed():
-    print("video")
     return Response(sendImagesToWeb(),
                     mimetype='multipart/x-mixed-replace; boundary=frame')
 
-# if __name__ == '__main__':
-#     print("sdfa")
-#     run_simple('127.0.0.1', 4000, application)
-
 if __name__ == '__main__':
+    #실행 시 명령어
     parser = argparse.ArgumentParser(description="default usage : python server_strm_flask.py --rgb_model Final_weights/weights_i3d_RGB_no_softmax.hdf5")
     parser.add_argument('--rgb_model', required=True, help="RGB model weights")
     parser.add_argument('--opt_model', default=None, required=False, help="opt_model weights")

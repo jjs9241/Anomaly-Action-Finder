@@ -1,5 +1,7 @@
-#Flask 스트리밍, 분석, push 합친 것, 
-#websocket만 합치면 됨
+# Flask 기반 영상 분석 및 스트리밍 서버 
+# - cctv에서 영상을 받아서 이상행동 분석 
+# - 웹으로부터 영상 전송 요청이 오면 영상 전송
+# - 이상행동이 검출되면 구독 토큰이 생성된 곳으로 푸시 알림 및 videoRestServer로 검출된 영상 전송
 from flask import Flask, render_template, request, redirect, url_for, jsonify, Response
 from imutils.video import VideoStream
 import cv2

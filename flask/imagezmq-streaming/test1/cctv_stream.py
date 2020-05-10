@@ -1,6 +1,7 @@
 # USAGE
-# python client.py --server-ip SERVER_IP
+# python cctv_stream.py --server-ip SERVER_IP
 
+#CCTV(라즈베리파이) 실행 파일 - 카메라 영상을 플라스크에 보내줌
 # import the necessary packages
 from imutils.video import VideoStream
 import imagezmq

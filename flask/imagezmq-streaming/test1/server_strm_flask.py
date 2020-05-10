@@ -22,18 +22,14 @@ from flask_cors import CORS
 
 os.environ["CUDA_VISIBLE_DEVICES"]="0"
 
-sum_of_actions_number = 100
-anormaly_action = [0, 2]
-action_list = []
-alarm_ratio = 0.9
-
 
 Flag = False
 app = Flask(__name__)
-#push
+
+#for push
 app.config['SECRET_KEY'] = '9OLWxND4o83j4K4iuopO'
 
-
+#for CORS
 CORS(app)
 
 #for push
@@ -86,23 +82,35 @@ def subscription():
 def sendImagesToWeb():
     global global_token
 
-    print("sendImagesToWeb")
+    #라즈베리파이에서 전해주는 이미지를 받을 리시버 생성
     # receiver = imagezmq.ImageHub(open_port='tcp://0.0.0.0:5566', REQ_REP = Flse)
     receiver = imagezmq.ImageHub()
 
     while True:
+        #receive image
         (camName, frame) = receiver.recv_image()
         receiver.send_reply(b'OK')
+
         #recognition using deep learning
-        jpg, alarm = model.predict(frame)
+        jpg, alarm, action = model.predict(frame)
+
         if alarm is True:
           # send alarm
-          send_web_push(global_token, "이상행동 발생!")
+          word = "상황 발생"
+        	if action == "Assault":
+        		word = "폭행 "+ word
+        		send_web_push(global_token, word)
+        	elif action == "Swoon":
+        		word = "실신 " + word
+        		send_web_push(global_token, word)
 
+        #encoding image    
         (flag, jpg) = cv2.imencode('.jpg', jpg)
         
         if not flag:
             continue
+
+        #send image to web
         yield(b'--frame\r\n' b'Content-Type: image/jpeg\r\n\r\n' + bytearray(jpg) + b'\r\n')
    
 @app.route('/video_feed')

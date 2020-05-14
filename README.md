@@ -51,9 +51,25 @@ Anomaly Action Finder는 실시간으로 CCTV 영상을 딥러닝 모델을 통�
 
 ## Installation
 
-```
+#### Flask Server requirements
+
+```bash
 git clone https://github.com/jjs9241/Anomaly-Action-Finder.git
 cd flask/Streaming-Deeplearning-Server
 pip install -r requirements.txt
+```
+
+
+
+## Getting Started
+
+#### pre-trained weights file
+
+>Download link on Final_weights/weights.txt 
+
+#### Deeplearning server start
+
+```bash
+python server_strm_flask.py --rgb_model Final_weights/weights_i3d_RGB_no_softmax.hdf5
 ```
 

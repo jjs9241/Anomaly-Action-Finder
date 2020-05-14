@@ -25,8 +25,8 @@ Anomaly action recognition은 동영상내의 이상행동(폭행과 실신)을 
 ## Installation
 
 ```
-git clone -b v1_flask_formerge https://github.com/jjs9241/Anomaly-Action-Finder.git
-cd flask/imagezmq-streaming/test1
+git clone https://github.com/jjs9241/Anomaly-Action-Finder.git
+cd flask/Streaming-Deeplearning-Server
 pip install -r requirements.txt
 ```
 

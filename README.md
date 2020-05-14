@@ -37,12 +37,10 @@ Anomaly Action Finder는 실시간으로 CCTV 영상을 딥러닝 모델을 통�
 
 - 정제 전 데이터
   
-  
-  ![](image/image1.PNG)
+  <img src="image/image1.PNG" style="zoom:60%;" />
 - 정제된 데이터
   
-  
-  ![](image\image2.PNG)
+  <img src="image/image2.PNG" style="zoom:60%;" />
 
 
 
